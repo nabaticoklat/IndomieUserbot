@@ -19,7 +19,7 @@ from PIL import Image
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 REPOLINK = str(
-    UPSTREAM_REPO_URL) if UPSTREAM_REPO_URL else "https://github.com/muhammadrizky16/Kyy-Userbot"
+    UPSTREAM_REPO_URL) if UPSTREAM_REPO_URL else "https://github.com/indomiegorengsatu/IndomieUserbot"
 # ============================================
 
 opener = urllib.request.build_opener()
@@ -59,18 +59,18 @@ async def sleepybot(time):
 @register(outgoing=True, pattern="^.shutdown$")
 async def killdabot(event):
     """ For .shutdown command, shut the bot down."""
-    await event.edit("`Mematikan Kyy-Userbot....`")
+    await event.edit("`Menonaktifkan IndomieUserbot....`")
     await asyncio.sleep(7)
     await event.delete()
     if BOTLOG:
         await event.client.send_message(BOTLOG_CHATID, "#SHUTDOWN \n"
-                                        "`Userbot Telah Dimatikan`")
+                                        "`Userbot Telah Dinonaktifkan`")
     await bot.disconnect()
 
 
 @register(outgoing=True, pattern="^.restart$")
 async def killdabot(event):
-    await event.edit("`Restarting Kyy-Userbot...`")
+    await event.edit("`Restarting IndomieUserbot...`")
     await asyncio.sleep(10)
     await event.delete()
     if BOTLOG:
@@ -85,7 +85,7 @@ async def killdabot(event):
 async def reedme(e):
     await e.edit(
         "Here's Something for You to Read :\n"
-        "\n[✨ Kyy-Userbot Repo](https://github.com/muhammadrizky16/Kyy-Userbot/blob/Kyy-Userbot/README.md)"
+        "\n[Indomie Userbot Repo](https://github.com/indomiegorengsatu/IndomieUserbot/blob/IndomieUserbot/README.md)"
         "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
         "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
 
@@ -108,14 +108,15 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
-        "**Hey**, I am using **✨ҡʏʏ-υѕєявσт✨** \n"
-        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-        "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
-        "➣ **Owner Bot       :** [ҡʏʏ](t.me/IDnyaKosong)\n"
-        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-        "➣ **Support           :** [sᴜᴘᴘᴏʀᴛ](https://t.me/NastySupportt)\n"
-        "➣ **Channel           :** [ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject)\n"
-        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
+        "**Hai Ngentot**, Gue Pake **ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ** \n"
+        "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
+        f"┌ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu/IndomieUserbot)\n"
+        f"├ **Owner Repo       :** [ɪɴᴅᴏᴍɪᴇ](t.me/IndomieGenetik)\n"
+        f"└ **UserbotVersion :** `{BOT_VER}@{branch}`\n"
+        "⍨━━━━━━━━━━━━━━━━━━━━━━⍨\n"
+        f"┌ **Support           :** [sᴜᴘᴘᴏʀᴛ](https://t.me/IndomieProject)\n"
+        f"└ **Channel           :** [ᴄʜᴀɴɴᴇʟ](https://t.me/IndomieStore)\n"
+        "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
     )
 
 
@@ -123,7 +124,7 @@ async def repo_is_here(wannasee):
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
     await wannasee.edit(
-        f"➣ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@rizkyhmdanii16/StringSession)\n"
+        f"✗ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://repl.it/@mrismanaziz/stringenSession?lite=1&outputonly=1)\n"
     )
 
 
@@ -162,7 +163,7 @@ async def okgoogle(img):
         photo = io.BytesIO()
         await bot.download_media(message, photo)
     else:
-        await img.edit("`Harap Reply Di Gambar...`")
+        await img.edit("`Reply Di Gambarnya Goblok...`")
         return
 
     if photo:
@@ -274,13 +275,13 @@ CMD_HELP.update({
     \n↳ : Dapatkan item acak dari daftar item.",
     "sleep": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sleep <seconds>`\
     \n↳ : `.sleep`\
-    \n  •  **Function : Biarkan Kyy-Userbot tidur selama beberapa detik.",
+    \n  •  **Function : Biarkan IndomieUserbot tidur selama beberapa detik.",
     "shutdown": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.shutdown`\
     \n↳ : Mematikan bot",
     "repo": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.repo`\
-    \n↳ : Menampilan link Repository Kyy-Userbot.",
+    \n↳ : Menampilan link Repository IndomieUserbot.",
     "string": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.string`\
-    \n↳: Menampilkan link String Kyy-Userbot",
+    \n↳: Menampilkan link String IndomieUserbot",
     "readme": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `.readme`\
     \n↳ : Menyediakan tautan untuk mengatur userbot dan modulnya.",
     "repeat": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.repeat <no> <text>`\
