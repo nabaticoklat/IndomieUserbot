@@ -1,7 +1,7 @@
 {
-  "name": "Kyy-Userbot",
-  "description": "USERBOT KHUSUS YANG DIGUNAKAN UNTUK BERSENANG-SENANG DI TELEGRAM.",
-  "logo": "https://telegra.ph/file/276d22aac9f400898cd27.jpg",
+  "name": "IndomieUserbot",
+  "description": "USERBOT YANG DIGUNAKAN UNTUK CAPER DAN TEBAR PESONA HEKER DI TELEGRAM.",
+  "logo": "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png",
   "keywords": [
     "telegram",
     "userbot",
@@ -9,9 +9,9 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/muhammadrizky16/Kyy-Userbot/Kyy-Userbot",
-  "telegram": "https://t.me/IDnyaKosong",
-  "success_url": "https://t.me/NastyProject",
+  "repository": "https://github.com/indomiegorengsatu/IndomieUserbot/IndomieUserbot",
+  "telegram": "https://t.me/IndomieGenetik",
+  "success_url": "https://t.me/IndomieStore",
   "stack": "container",
   "env": {
     "API_KEY": {
@@ -24,11 +24,11 @@
     },
     "ALIVE_LOGO": {
       "description": "Gambar dalam module .alive",
-      "value": "https://telegra.ph/file/276d22aac9f400898cd27.jpg",
+      "value": "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png",
       "required": false
     },
      "STRING_SESSION": {
-      "description": "Dapatkan String Session di termux caranya ada di repo, jika tidak tau reponya tanya ke @IDnyaKosong di telegram",
+      "description": "Dapatkan String Session di termux caranya ada di repo, jika tidak tau reponya tanya ke bapakmu coba",
       "required": true
     },
     "HEROKU_APP_NAME": {
@@ -46,11 +46,11 @@
       "required": true
     },
     "BOTLOG_CHATID": {
-      "description": "Buatlah Sebuah Grup Publik Lalu Masukkan Bot @MissRose_Bot Ke Grup Mu, Setelah itu Ketik /id. Nanti akan muncul ID seperti ini Contoh : -1001234567890",
+      "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
       "required": true
     },
     "G_BAN_LOGGER_GROUP": {
-      "description": "Buatlah Sebuah Grup Publik Lalu Masukkan Bot @MissRose_Bot Ke Grup Mu, Setelah itu Ketik /id. Nanti akan muncul ID seperti ini Contoh : -1001234567890",
+      "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
       "required": true
     },
     "PM_AUTO_BAN": {
@@ -63,7 +63,7 @@
       "required": true
     },
     "S_PACK_NAME": {
-      "description": "Nama Sticker Pack Mu",
+      "description": "Nama Sticker Pack lo",
       "required": false
     },
     "LOGSPAMMER": {
@@ -76,11 +76,11 @@
       "value": "./downloads/"
     },
     "BOT_TOKEN": {
-      "description": "Set this to enable inline bot helper. get the token from @BotFather",
+      "description": "Isi bot tokennya tolol. dapetin tokennya di @BotFather",
       "required": true
     },
     "BOT_USERNAME": {
-      "description": "Username Bot Kamu Di @BotFather, Tanpa @",
+      "description": "Username Bot lo Di @BotFather, Tanpa @",
       "required": true
     }
   },
