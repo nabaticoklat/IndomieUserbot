@@ -35,10 +35,14 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <a href="https://t.me/IndomieStore"><img src="https://img.shields.io/badge/Join-Channel%20Store-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/IndomieProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
 
 ### Follow Me :
-<p align="left">
-<a href="https://github.com/indomiegorengsatu"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a> <a href="https://instagram.com/w1thmyluv"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
 </p>
-
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+    <p align="center"> 
+    <a href="https://t.me/indomiestore" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a>
+    <a href="https://t.me/indomieproject" target="blank"><img src="https://img.icons8.com/nolan/55/telegram-app.png" /></a>
+    <a href="https://instagram.com/w1thmyluv" target="blank"><img src="https://img.icons8.com/nolan/55/instagram-new.png" /></a>
+</p>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 ##
 
 🔰 **THANKS YOU TO**
