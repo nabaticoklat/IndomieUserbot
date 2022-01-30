@@ -13,7 +13,7 @@
 </p>
 
 
-<img src="./resources/extras/GeezFire.gif" width="20px"> ## Disclaimer
+## <img src="./resources/extras/GeezFire.gif" width="20px"> Disclaimer
 
 ```
 Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
@@ -34,7 +34,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ### Support & Updates 
 <a href="https://t.me/IndomieStore"><img src="https://img.shields.io/badge/Join-Channel%20Store-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/IndomieProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
 
-### Follow Me :
+### ❤️Follow Me :
 </p>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
     <p align="center"> 
