@@ -15,9 +15,9 @@ NO_ADMIN = "`Maaf Kamu Bukan Admin 👮`"
 
 
 async def get_call(event):
-    kyy = await event.client(getchat(event.chat_id))
-    kyy = await event.client(getvc(kyy.full_chat.call, limit=1))
-    return kyy.call
+    indomie = await event.client(getchat(event.chat_id))
+    indomie = await event.client(getvc(indomie.full_chat.call, limit=1))
+    return indomie.call
 
 
 def user_list(l, n):
@@ -58,21 +58,21 @@ async def stop_voice(c):
 
 
 @register(outgoing=True, pattern=r"^\.vcinvite", groups_only=True)
-async def _(kyy):
-    await kyy.edit("`Sedang Menginvite Member...`")
+async def _(indomie):
+    await indomie.edit("`Sedang Menginvite Member...`")
     users = []
     z = 0
-    async for x in kyy.client.iter_participants(kyy.chat_id):
+    async for x in indomie.client.iter_participants(indomie.chat_id):
         if not x.bot:
             users.append(x.id)
     hmm = list(user_list(users, 6))
     for p in hmm:
         try:
-            await kyy.client(invitetovc(call=await get_call(kyy), users=p))
+            await indomie.client(invitetovc(call=await get_call(indomie), users=p))
             z += 6
         except BaseException:
             pass
-    await kyy.edit(f"`Menginvite {z} Member`")
+    await indomie.edit(f"`Menginvite {z} Member`")
 
 
 CMD_HELP.update(
