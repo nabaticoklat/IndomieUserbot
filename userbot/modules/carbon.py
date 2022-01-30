@@ -12,7 +12,7 @@
 import os
 import random
 
-from . import Carbon inline_mention, os
+from . import Carbon os
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
@@ -198,10 +198,10 @@ async def crbn(event):
         base_url="https://carbonara.vercel.app/api/cook",
         code=code,
         background=col)
-    xx = await carbon.memorize("indomie_carbon")
+    xx = await carbon.memorize("carbon_man")
     await xxxx.delete()
     await event.reply(
-        f"**Carbonised by** {inline_mention(event.sender)}",
+        f"**Carbonised by** {from_user}",
         file=xx,
     )
 
@@ -238,12 +238,12 @@ async def crbn(event):
         code=code,
         background=match)
     try:
-        xx = await carbon.memorize("indomie_carbon")
+        xx = await carbon.memorize("carbon_man")
     except Exception as er:
         return await msg.edit(str(er))
     await msg.delete()
     await event.reply(
-        f"**Carbonised by** {inline_mention(event.sender)}",
+        f"**Carbonised by** {from_user}",
         file=xx,
     )
 
