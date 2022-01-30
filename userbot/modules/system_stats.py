@@ -164,7 +164,7 @@ async def bot_ver(event):
         revout = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
         await event.edit(
-            "**⚜-**✨IndomieUserbot✨ Versi:** \n "
+            "**⚜-**♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨ Versi:** \n "
             f"heads/IndomieUserbot-0-x634i7u1"
             "\n**⚜-**Revisi:**\n "
             f"{revout}"
@@ -228,7 +228,7 @@ async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f" **✨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ✨** \n\n"
+        f" **♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨** \n\n"
         f"\n__**{RE_TEKS_KUSTOM}**__\n\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
         f"◙ `Name       :` {DEFAULTUSER} \n"
