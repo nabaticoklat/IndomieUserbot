@@ -1,4 +1,4 @@
-<h1 align="center"><img src="./IndomieUserbot/resources/extras/Indomiepurple.gif" width="35px">𝕴𝖓𝖉𝖔𝖒𝖎𝖊𝖀𝖘𝖊𝖗𝖇𝖔𝖙<img src="./IndomieUserbot/resources/extras/Indomiepurple.gif" width="35px"></h1>
+<h1 align="center"><img src="./resources/extras/Indomiepurple.gif" width="35px">𝕴𝖓𝖉𝖔𝖒𝖎𝖊𝖀𝖘𝖊𝖗𝖇𝖔𝖙<img src="./resources/extras/Indomiepurple.gif" width="35px"></h1>
 
 <p align="center">
     <a href="https://github.com/muhammadrizky16/Kyy-Userbot/commits/Kyy-Userbot"><img src="https://img.shields.io/github/last-commit/muhammadrizky16/Kyy-Userbot?color=ff0000&logo=github&logoColor=ffffff&style=for-the-badge" /></a>
