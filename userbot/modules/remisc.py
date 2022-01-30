@@ -543,7 +543,7 @@ async def _(event):
     await event.delete()
     await bot.send_message(
         event.chat_id,
-        "`Aku adalah kamu dan kamu adalah aku.!.`",
+        "`Gue ganteng dan lo cem meki berdaki.!.`",
         reply_to=reply_message
     )
 
