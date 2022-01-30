@@ -44,11 +44,12 @@ DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”    ”\n"
     "╚═════════════════════╝\n"
-    "**ᴛᴏʟᴏɴɢ ᴊᴀɴɢᴀɴ ᴍᴇʟᴀᴋᴜᴋᴀɴ sᴘᴀᴍ ᴄʜᴀᴛ ᴋᴇᴘᴀᴅᴀ ᴍᴀᴊɪᴋᴀɴ sᴀʏᴀ** \n"
-    f"**ᴋᴀʀᴇɴᴀ sᴀʏᴀ ᴀᴋᴀɴ ᴏᴛᴏᴍᴀᴛɪs ᴍᴇᴍʙʟᴏᴋɪʀ ᴋᴀᴍᴜ, ᴛᴜɴɢɢᴜ sᴀᴍᴘᴀɪ {DEFAULTUSER} ᴍᴇɴᴇʀɪᴍᴀ ᴘᴇsᴀɴ ᴋᴀᴍᴜ [⚠️]({ALIVE_LOGO})** \n"
+    "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
+    f"**ANAK KONTOL ANAK NGENTOT,KALO NGECHAT MAJIKAN {DEFAULTUSER} ITU SALAM,\nHABIS ITU SABAR TUNGGU MAJIKAN GUA BALES,\nKALO GA DI BALES - BALES, LU JANGAN NYEPAM KONTOL, APA LAGI LU NGECHAT NYA CUMA MINTA VCS, BISA GUA BLOKIR!! KALO NYEPAM JUGA TAR GUA BLOKIR!!!! TUNGGU SI {DEFAULTUSER} NERIMA PESAN LU**\n"
+    "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
     "╔═════════════════════╗\n"
-    "│○›Pᴇsᴀɴ Oᴛᴏᴍᴀᴛɪs           \n"
-    f"│○›Bʏ ҡʏʏ-υѕєявσт           \n"
+    "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
+    "┣[• 𝐁𝐘 ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨\n"({ALIVE_LOGO})** \n"
     "╚═════════════════════╝")
 # =================================================================
 
@@ -107,8 +108,8 @@ async def permitpm(event):
 
             if COUNT_PM[event.chat_id] > 5:
                 await event.respond(
-                    "`Anda Telah Di Blokir Karna Melakukan Spam Pesan`\n"
-                    f"`Ke Room Chat Ini`"
+                    "`Bacot bat Jamet tolol, Gua blok ajalah`\n"
+                    f"`Tunggu {DEFAULTUSER} Bales ya`"
                 )
 
                 try:
@@ -249,7 +250,7 @@ async def approvepm(apprvpm):
     except IntegrityError:
         return await apprvpm.edit("`Oke Pesan Anda Sudah Diterima ツ`")
 
-    await apprvpm.edit(f"`Hai` [{name0}](tg://user?id={uid}) `Pesan Anda Sudah Diterima 😎`")
+    await apprvpm.edit(f"`Hai` [{name0}](tg://user?id={uid}) `Pesan Lu udah di terima ya babi!!`")
     await apprvpm.delete(getmsg)
     await message.delete()
 
@@ -330,7 +331,7 @@ async def unblockpm(unblock):
         replied_user = await unblock.client.get_entity(reply.from_id)
         name0 = str(replied_user.first_name)
         await unblock.client(UnblockRequest(replied_user.id))
-        await unblock.edit("`Anda Sudah Tidak Diblokir Lagi.`")
+        await unblock.edit("`Udah Di Unblock Jangan caper lagi ya ngentot!.`")
 
     if BOTLOG:
         await unblock.client.send_message(
@@ -343,7 +344,7 @@ async def unblockpm(unblock):
 async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:
-        return await cust_msg.edit("**Anda Harus Menyetel** `PM_AUTO_BAN` **Ke** `True` Atau Ketik `.set var PM_AUTO_BAN True`")
+        return await cust_msg.edit("**Lo Harus Menyetel** `PM_AUTO_BAN` **Ke** `True` Atau Ketik `.set var PM_AUTO_BAN True`")
     try:
         import userbot.modules.sql_helper.globals as sql
     except AttributeError:
@@ -377,24 +378,24 @@ async def add_pmsg(cust_msg):
 
         if BOTLOG:
             await cust_msg.client.send_message(
-                BOTLOG_CHATID, f"**{status} PM Yang Tersimpan Dalam Room Chat Anda:** \n\n{msg}"
+                BOTLOG_CHATID, f"**{status} PM Yang Tersimpan Dalam Room Chat Lo:** \n\n{msg}"
             )
 
     if conf.lower() == "reset":
         if custom_message is not None:
             sql.delgvar("unapproved_msg")
-            await cust_msg.edit("`Anda Telah Menghapus Pesan Custom PM Ke Default`")
+            await cust_msg.edit("`Lo Telah Menghapus Pesan Custom PM Ke Default`")
         else:
-            await cust_msg.edit("`Pesan PM Anda Sudah Default Sejak Awal`")
+            await cust_msg.edit("`Pesan PM Lo Sudah Default Sejak Awal`")
 
     if conf.lower() == "get":
         if custom_message is not None:
             await cust_msg.edit(
-                "**Ini Adalah Pesan PM Yang Sekarang Dikirimkan Ke Room Chat Anda:**" f"\n\n{custom_message}"
+                "**Ini Adalah Pesan PM Yang Sekarang Dikirimkan Ke Room Chat Lo:**" f"\n\n{custom_message}"
             )
         else:
             await cust_msg.edit(
-                "*Anda Belum Menyetel Pesan PM*\n"
+                "*Lo Belum Nyetel Pesan PM*\n"
                 f"Masih Menggunakan Pesan PM Default: \n\n`{DEF_UNAPPROVED_MSG}`"
             )
 
