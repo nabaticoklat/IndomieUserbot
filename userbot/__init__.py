@@ -70,14 +70,7 @@ if CONFIG_CHECK:
 
 # KALO NGEFORK ID DEVS NYA GA USAH DI HAPUS YA GOBLOK 😡
 DEVS = (
-    1663258664,
-    1416529201,
-    1964264380,
-    5041451209,
-    955903284,
-    1901321169,
-    1977874449,
-    1675900974,
+    1447438514
 )
 
 # Telegram App KEY and HASH
@@ -99,7 +92,7 @@ PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
 
 # Custom Pmpermit pic
 PMPERMIT_PIC = os.environ.get(
-    "PMPERMIT_PIC") or "https://telegra.ph/file/276d22aac9f400898cd27.jpg"
+    "PMPERMIT_PIC") or "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png"
 
 # Bleep Blop, this is a bot ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
@@ -124,7 +117,7 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 # Custom (forked) repo URL for updater.
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
-    "https://github.com/muhammadrizky16/Kyy-Userbot")
+    "https://github.com/indomiegorengsatu/IndomieUserbot")
 UPSTREAM_REPO_BRANCH = os.environ.get(
     "UPSTREAM_REPO_BRANCH", "Kyy-Userbot")
 
