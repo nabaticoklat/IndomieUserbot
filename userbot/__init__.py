@@ -97,6 +97,9 @@ PMPERMIT_PIC = os.environ.get(
 # Bleep Blop, this is a bot ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
+# Custom Handler command
+CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
+
 # Send .chatid in any group with all your administration bots (added)
 G_BAN_LOGGER_GROUP = os.environ.get("G_BAN_LOGGER_GROUP", "")
 if G_BAN_LOGGER_GROUP:
