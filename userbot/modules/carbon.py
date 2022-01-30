@@ -12,14 +12,13 @@
 import os
 import random
 
-from carbonnow import Carbon
+from . import Carbon inline_mention, os
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.utils import edit_delete, edit_or_reply
 from userbot.events import register
 
-from .vcplugin import vcmention
 
 all_col = [
     "Black",
@@ -202,7 +201,7 @@ async def crbn(event):
     xx = await carbon.memorize("indomie_carbon")
     await xxxx.delete()
     await event.reply(
-        f"**Carbonised by** {from_user}",
+        f"**Carbonised by** {inline_mention(event.sender)}",
         file=xx,
     )
 
@@ -244,7 +243,7 @@ async def crbn(event):
         return await msg.edit(str(er))
     await msg.delete()
     await event.reply(
-        f"**Carbonised by** {from_user}",
+        f"**Carbonised by** {inline_mention(event.sender)}",
         file=xx,
     )
 
