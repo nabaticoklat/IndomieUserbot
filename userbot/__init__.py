@@ -190,7 +190,9 @@ YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY") or "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg"
 
 # Untuk Perintah .realive
-KYY_TEKS_KUSTOM = os.environ.get("RE_TEKS_KUSTOM", "I'am Using IndomieUserbot✨")
+KYY_TEKS_KUSTOM = os.environ.get(
+    "RE_TEKS_KUSTOM",
+    "I'am Using IndomieUserbot✨")
 
 # Untuk Mengubah Pesan Welcome
 START_WELCOME = os.environ.get("START_WELCOME", None)
