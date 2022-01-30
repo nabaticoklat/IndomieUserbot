@@ -18,7 +18,7 @@ import sys
 import time
 from datetime import datetime
 import psutil
-from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, KYY_TEKS_KUSTOM, StartTime, UPSTREAM_REPO_BRANCH, bot
+from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, StartTime, UPSTREAM_REPO_BRANCH, bot
 from userbot.events import register
 
 
@@ -308,7 +308,6 @@ async def redis(alive):
     await asyncio.sleep(2)
     output = (
         f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) is Up and Running.**\n\n"
-
         f"┌  `Name     :` {DEFAULTUSER} \n"
         f"├  `Username :` @{user.username} \n"
         f"├  `Telethon :` Ver {version.__version__} \n"
@@ -319,8 +318,7 @@ async def redis(alive):
         f"├  `GitHub   :` [Kyy](https://github.com/indomiegorengsatu/IndomieUserbot) \n"
         f"├  `Support  :` [Groups](https://t.me/IndomieProject) \n"
         f"└  `Owner    :` [Indomie](https://t.me/IndomieGenetik) \n"
-        f"    **[𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/IndomieProject)** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹](https://t.me/IndomieStore)** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**"
-    )
+        f"    **[𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/IndomieProject)** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹](https://t.me/IndomieStore)** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
