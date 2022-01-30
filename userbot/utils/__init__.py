@@ -26,6 +26,5 @@ from .tools import (
     take_screen_shot,
     runcmd,
     edit_delete,
-    register,
     edit_or_reply,
 )
