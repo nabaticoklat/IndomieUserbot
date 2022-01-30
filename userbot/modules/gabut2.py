@@ -3,15 +3,15 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern='^.Kyy(?: |$)(.*)')
+@register(outgoing=True, pattern='^.indomie(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
-    await typew.edit("`Hai Perkenalkan Namaku Kyy`")
+    await typew.edit("`Hai Kenalin Nama Gua Indomie`")
     sleep(3)
-    await typew.edit("`19 Tahun`")
+    await typew.edit("`1 Abad`")
     sleep(1)
-    await typew.edit("`Tinggal Di Batam, Salam Kenal:)`")
+    await typew.edit("`Lacak IP Gua AJa Klo Mau Tau Gua Tinggal Di Daerah Mana`")
 # Create by myself @localheart
 
 
@@ -33,15 +33,17 @@ async def typewriter(typew):
     sleep(3)
     await typew.edit("`Apapun Yang Terjadi`")
     sleep(3)
-    await typew.edit("`Tetaplah Bernapas`")
+    await typew.edit("`Tetaplah Depresi`")
+    sleep(3)
+    await typew.edit("`Jangan Pernah Bersyukur`")
     sleep(1)
-    await typew.edit("`Dan Selalu Bersyukur`")
+    await typew.edit("`Dan Selalu Insecure`")
 # Create by myself @localheart
 
 
 CMD_HELP.update({
-    "oi": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `kyy`\
-    \n↳ : perkenalan Kyy\
+    "oi": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `indomie`\
+    \n↳ : Biodata Indomie\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sayang`\
     \n↳ : Gombalan maut`\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.semangat`\
