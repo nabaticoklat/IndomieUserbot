@@ -1,5 +1,5 @@
-# Port By @IDnyaKosong From Kyy-Userbot
-# # Copyright (C) 2021 Kyy-Userbot
+# Port By @IndomieGenetik From IndomieUserbot
+# # Copyright (C) 2021 IndomieUserbot
 from userbot.events import register
 from userbot import CMD_HELP
 import asyncio
