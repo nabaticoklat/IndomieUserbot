@@ -28,15 +28,15 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 </h2>
 
 <p align="center">
-<<a href="https://dashboard.heroku.com/new?template=https://github.com/indomiegorengsatu/IndomieUserbot"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="250""/</a>  
+<a href="https://dashboard.heroku.com/new?template=https://github.com/indomiegorengsatu/IndomieUserbot"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="250""/</a>  
 
 
 ### Support & Updates 
-<a href="https://t.me/NastySupportt"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/NastyProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/IndomieStore"><img src="https://img.shields.io/badge/Join-ChannelStore%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/IndomieProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
 
 ### Follow Me :
 <p align="left">
-<a href="https://github.com/muhammadrizky16"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a> <a href="https://instagram.com/rizkyhamdanii16_"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
+<a href="https://github.com/indomiegorengsatu"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a> <a href="https://instagram.com/w1thmyluv"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
 </p>
 
 ##
