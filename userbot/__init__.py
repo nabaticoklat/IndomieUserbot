@@ -17,6 +17,8 @@ from math import ceil
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
 from pymongo import MongoClient
+from pyUltroid.misc._decorators import ultroid_cmd
+from pyUltroid.misc._wrappers import eod, eor
 from datetime import datetime
 from redis import StrictRedis
 from dotenv import load_dotenv
