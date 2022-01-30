@@ -43,10 +43,15 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
     <a href="https://instagram.com/w1thmyluv" target="blank"><img src="https://img.icons8.com/nolan/55/instagram-new.png" /></a>
 </p>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-##
 
-🔰 **THANKS YOU TO**
-*   [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot)   Kyy - Userbot
-*   [Sendi](https://github.com/SendiAp/Rose-Userbot)   Rose-Userbot
-*   [Skyzu](https://github.com/Skyzu/skyzu-userbot)   skyzu-userbot
+## © Credits
+
+🏆 **THANKS TO**
+*   [Kyy](https://github.com/muhammadrizky16) :  Kyy - Userbot
+*   [Sendi](https://github.com/SendiAp)       :  Rose-Userbot
+*   [Ram](https://github.com/ramadhani892)    :  Ram-Ubot
+*   [Risman](https://github.com/mrismanaziz)  :  Man-Userbot  
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
+
+## License
+Licensed under [Raphielscape Public License](https://github.com/IndomieGorengSatu/IndomieUserbot/blob/IndomieUserbot/LICENSE) - Version 3, 29 June 2007
