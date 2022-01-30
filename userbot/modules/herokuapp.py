@@ -164,6 +164,7 @@ async def dyno_usage(dyno):
             minutes_remaining = remaining_quota / 60
             hours = math.floor(minutes_remaining / 60)
             minutes = math.floor(minutes_remaining % 60)
+            day = math.floor(hours / 24)
 
             """ - User App Used Quota - """
             Apps = result['apps']
@@ -183,13 +184,14 @@ async def dyno_usage(dyno):
             await dyno.edit(
                 "✨ **ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ :**\n"
                 "╔════════════════════╗\n"
-                f" ☂ **ᴘᴇɴɢɢᴜɴᴀ ᴅʏɴᴏ sᴀᴀᴛ ɪɴɪ :**\n"
-                f"  ➽  `{AppHours}`**ᴊᴀᴍ**  `{AppMinutes}`**ᴍᴇɴɪᴛ**  "
+                f" ☂ **Penggunaan Dyno** `{app.name}` :\n"
+                f"     • **{AppHours} hour(s), {AppMinutes} minute(s) "
                 f"**|**  [`{AppPercentage}`**%**]"
                 "\n◖════════════════════◗\n"
                 " ☂ **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
-                f"  ➽  `{hours}`**ᴊᴀᴍ**  `{minutes}`**ᴍᴇɴɪᴛ**  "
-                f"**|**  [`{percentage}`**%**]\n"
+                f"     • **{hours} hour(s), {minutes} minute(s) "
+                f"**|**  [`{percentage}`**%**]"
+                f"✥ **Sisa Dyno Heroku** `{day}` **Hari Lagi**"
                 f" ✠➲ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  "
                 "\n╚════════════════════╝"
             )
