@@ -13,7 +13,7 @@
 </p>
 
 
-## Disclaimer
+<img src="./resources/extras/GeezFire.gif" width="20px"> ## Disclaimer
 
 ```
 Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
