@@ -27,6 +27,8 @@ from telethon.sessions import StringSession
 from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
 
+from strings import get_string
+
 redis_db = None
 
 load_dotenv("config.env")
