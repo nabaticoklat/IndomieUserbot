@@ -526,11 +526,11 @@ with bot:
                 c = await event.client.get_entity(event.user_id)
                 await event.reply(
                     f"**Hai Mek**\n**Welcome To** [{get_display_name(u)}](tg://user?id={u.id}) \n\n"
-                    f"✥ **ᴘᴇɴɢɢᴜɴᴀ​ :** {get_display_name(c)} \n"
-                    f"✥ **ɪᴅ ᴘᴇɴɢɢᴜɴᴀ​ :** {c.id} \n"
-                    f"✥ **ᴜsᴇʀɴᴀᴍᴇ​ :** @{c.username} \n"
-                    f"✥ **ᴍᴇɴᴛɪᴏɴ​ :** [{get_display_name(c)}](tg://user?id={c.id}) \n\n"
-                    f"ꜱᴇʟᴀᴍᴀᴛ ᴅᴀᴛᴀɴɢ ᴅᴀɴ ꜱɪʟᴀᴋᴀɴ ᴋᴇʟᴜᴀʀ​ ✨\n",
+                    f"༝ **ᴘᴇɴɢɢᴜɴᴀ​ :** {get_display_name(c)} \n"
+                    f"༝ **ɪᴅ ᴘᴇɴɢɢᴜɴᴀ​ :** {c.id} \n"
+                    f"༝ **ᴜsᴇʀɴᴀᴍᴇ​ :** @{c.username} \n"
+                    f"༝ **ᴍᴇɴᴛɪᴏɴ​ :** [{get_display_name(c)}](tg://user?id={c.id}) \n\n"
+                    f"ꜱᴇʟᴀᴍᴀᴛ ᴅᴀᴛᴀɴɢ ᴅᴀɴ ꜱɪʟᴀᴋᴀɴ ᴋᴇʟᴜᴀʀ​ ϖ\n",
                     buttons=[
                         [
                             Button.url("ʀᴇᴘᴏ​",
@@ -808,8 +808,8 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 text = (
-                    f"Modules Name **Pembaruan**\n\n"
-                    f"× **Apdet Data Untuk Indomie Userbot, Command Untuk Pembaruan**.\n"
+                    f"Modules Name **Update**\n\n"
+                    f"× **Apdet Data Untuk Indomie Userbot, Command Untuk Update**.\n"
                     f"⚒Apdet Data :\n"
                     f"`.update deploy`\n"
                     f"`update`\n\n"
@@ -876,7 +876,7 @@ with bot:
                     " ☂ **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
                     f"     • **{hours} hour(s), {minutes} minute(s) "
                     f"-  {percentage}%**\n\n"
-                    f" **Sisa Dyno Heroku** `{day}` **Hari Lagi**"  "
+                    f" **Sisa Dyno Heroku** `{day}` **Hari Lagi**"
                     "\n╚════════════════════╝"
                     f"© @IndomieGenetik")
                 await event.edit(
