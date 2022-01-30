@@ -97,7 +97,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             return await event.delete()
         else:
             await event.edit(
-                "`IndomieUserbot Berhasil Di Update!`\n" "__Restarting, Sabar mek.....__""
+                "`IndomieUserbot Berhasil Di Update!`\n" "__Restarting, Sabar mek.....__"
             )
             await asyncio.sleep(15)
             await event.delete()
