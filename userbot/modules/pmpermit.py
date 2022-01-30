@@ -45,11 +45,11 @@ DEF_UNAPPROVED_MSG = (
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”    ”\n"
     "╚═════════════════════╝\n"
     "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
-    f"**ANAK KONTOL ANAK NGENTOT,KALO NGECHAT MAJIKAN {DEFAULTUSER} ITU SALAM,\nHABIS ITU SABAR TUNGGU MAJIKAN GUA BALES,\nKALO GA DI BALES - BALES, LU JANGAN NYEPAM KONTOL, APA LAGI LU NGECHAT NYA CUMA MINTA VCS, BISA GUA BLOKIR!! KALO NYEPAM JUGA TAR GUA BLOKIR!!!! TUNGGU SI {DEFAULTUSER} NERIMA PESAN LU**\n"
+    f"**ANAK KONTOL ANAK NGENTOT,KALO NGECHAT MAJIKAN {DEFAULTUSER} ITU SALAM,\nHABIS ITU SABAR TUNGGU MAJIKAN GUA BALES,\nKALO GA DI BALES - BALES, LU JANGAN NYEPAM KONTOL, APA LAGI LU NGECHAT NYA CUMA MINTA VCS, BISA GUA BLOKIR!! KALO NYEPAM JUGA TAR GUA BLOKIR!!!! TUNGGU SI {DEFAULTUSER} NERIMA PESAN LU [⚠️]({ALIVE_LOGO})** \n"
     "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
     "╔═════════════════════╗\n"
-    "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
-    "┣[• 𝐁𝐘 ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨\n"({ALIVE_LOGO})\n"
+    "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄           \n"
+    "┣[• 𝐁𝐘 Bʏ ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ           \n"
     "╚═════════════════════╝")
 # =================================================================
 
