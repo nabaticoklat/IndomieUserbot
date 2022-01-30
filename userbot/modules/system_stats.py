@@ -164,14 +164,14 @@ async def bot_ver(event):
         revout = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
         await event.edit(
-            "**⚜-**✨Kyy-Userbot✨ Versi:** \n "
-            f"heads/Kyy-Userbot-0-x634i7u1"
+            "**⚜-**✨IndomieUserbot✨ Versi:** \n "
+            f"heads/IndomieUserbot-0-x634i7u1"
             "\n**⚜-**Revisi:**\n "
             f"{revout}"
         )
     else:
         await event.edit(
-            "Sayang sekali anda tidak memiliki git, Anda Menjalankan Bot - 'v1.beta.4'!"
+            "Lo G Punya git Goblok, Lo Menjalankan Bot - 'v1.beta.4'!"
         )
 
 
@@ -181,7 +181,7 @@ async def pipcheck(pip):
         return
     pipmodule = pip.pattern_match.group(1)
     if pipmodule:
-        await pip.edit("`Mencari...`")
+        await pip.edit("`Lagi Dicari...`")
         pipc = await asyncrunapp(
             "pip3",
             "search",
@@ -223,13 +223,13 @@ async def pipcheck(pip):
         await pip.edit("Gunakan `.help pip` Untuk Melihat Contoh")
 
 
-@register(outgoing=True, pattern=r"^\.(?:kyyalive)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:realive)\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f" **✨ҡʏʏ-υѕєявσт✨** \n\n"
-        f"\n__**{KYY_TEKS_KUSTOM}**__\n\n\n"
+        f" **✨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ✨** \n\n"
+        f"\n__**{RE_TEKS_KUSTOM}**__\n\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
         f"◙ `Name       :` {DEFAULTUSER} \n"
         f"◙ `Username   :` @{user.username} \n"
@@ -238,7 +238,7 @@ async def amireallyalive(alive):
         f"◙ `Bot Ver    :` {BOT_VER} \n"
         f"◙ `Modules    :` {len(modules)} \n"
         f"╰✠╼━━━━━━━━━━━━━━━✠╯\n"
-        f"[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt) | [ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject) | [ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong) | [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)")
+        f"[ꜱᴛᴏʀᴇ](https://t.me/IndomieStore) | [ᴄʜᴀɴɴᴇʟ](https://t.me/IndomieProject) | [ᴏᴡɴᴇʀ](https://t.me/IndomieGenetik) | [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu/IndomieUserbot)")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -259,18 +259,19 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@register(outgoing=True, pattern=r"^\.(?:kyyon)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:reon)\s?(.)?")
 async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
+        f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) is Up and Running.**\n\n"
         f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬● \n"
-        f"✾ 🤴 • `ᴏᴡɴᴇʀ    :`[Kyy](t.me/IDnyaKosong) \n"
-        f"✾ 🖥️ • `ꜱʏꜱᴛᴇᴍ   :`Ubuntu 20.10 \n"
-        f"✾ ⚙️ • `ᴛᴇʟᴇᴛʜᴏɴ :`v.{version.__version__} \n"
-        f"✾ 🐍 • `ᴘʏᴛʜᴏɴ   :`v.{python_version()} \n"
-        f"✾ 👾 • `ʙᴏᴛ      :`v.{BOT_VER} \n"
-        f"✾ 📂 • `ᴍᴏᴅᴜʟᴇ   :`{len(modules)} \n"
+        f"┌ **😈Master :** [{user.first_name}](tg://user?id={user.id}) \n"
+        f"├ **🖥️ • `ꜱʏꜱᴛᴇᴍ   :** `Ubuntu 20.10 \n"
+        f"├ **👾TelethonVersion :** `{version.__version__}` \n"
+        f"├ **🐍PythonVersion :** `{python_version()}` \n"
+        f"├ **🤖BotVersion :** `{BOT_VER}` \n"
+        f"└ **📂Modules :** `{len(modules)} Modules` \n"
         f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬●")
     if ALIVE_LOGO:
         try:
@@ -296,28 +297,30 @@ async def amireallyalive(alive):
 async def redis(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
-    await alive.edit("__Sedang Memuat.__")
-    await alive.edit("__Sedang Memuat..__")
-    await alive.edit("__Sedang Memuat.__")
-    await alive.edit("__Sedang Memuat..__")
-    await alive.edit("__Sedang Memuat...__")
-    await alive.edit("__Sedang Memuat..__")
-    await alive.edit("__Sedang Memuat...__")
+    await alive.edit("__Sabar Ngentot.__")
+    await alive.edit("__Sabar Ngentot..__")
+    await alive.edit("__Sabar Ngentot.__")
+    await alive.edit("__Sabar Ngentot..__")
+    await alive.edit("__Sabar Ngentot...__")
+    await alive.edit("__Sabar Ngentot..__")
+    await alive.edit("__Sabar Ngentot...__")
     await alive.edit("✨")
     await asyncio.sleep(2)
     output = (
-        f"┏━━━━━━━━━━━━━━━━━━━ \n"
-        f"┣  `Name     :` {DEFAULTUSER} \n"
-        f"┣  `Username :` @{user.username} \n"
-        f"┣  `Telethon :` Ver {version.__version__} \n"
-        f"┣  `Python   :` Ver {python_version()} \n"
-        f"┣  `Branch   :` {UPSTREAM_REPO_BRANCH} \n"
-        f"┣  `Bot Ver  :` {BOT_VER} \n"
-        f"┣  `Modules  :` {len(modules)} Modules \n"
-        f"┣  `GitHub   :` [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot) \n"
-        f"┣  `Support  :` [Groups](https://t.me/NastySupportt) \n"
-        f"┣  `Owner    :` [Kyy](https://t.me/IDnyaKosong) \n"
-        f"┗━━━━━━━━━━━━━━━━━━━")
+        f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) is Up and Running.**\n\n"
+
+        f"┌  `Name     :` {DEFAULTUSER} \n"
+        f"├  `Username :` @{user.username} \n"
+        f"├  `Telethon :` Ver {version.__version__} \n"
+        f"├  `Python   :` Ver {python_version()} \n"
+        f"├  `Branch   :` {UPSTREAM_REPO_BRANCH} \n"
+        f"├  `Bot Ver  :` {BOT_VER} \n"
+        f"├  `Modules  :` {len(modules)} Modules \n"
+        f"├  `GitHub   :` [Kyy](https://github.com/indomiegorengsatu/IndomieUserbot) \n"
+        f"├  `Support  :` [Groups](https://t.me/IndomieProject) \n"
+        f"└  `Owner    :` [Indomie](https://t.me/IndomieGenetik) \n"
+        f"    **[𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/IndomieProject)** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹](https://t.me/IndomieStore)** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**"
+    )
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
