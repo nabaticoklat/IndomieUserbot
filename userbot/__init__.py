@@ -872,14 +872,14 @@ with bot:
                 text = (
                     "✨ **ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ :**\n"
                     "╔════════════════════╗\n"
-                    f"☂ `Penggunaan Dyno`  **{app.name}**:\n"
-                    f"     •  **{AppHours} hour(s), "
-                    f"{AppMinutes} minute(s) - {AppPercentage}%**"
+                    f" ☂ **ᴘᴇɴɢɢᴜɴᴀ ᴅʏɴᴏ sᴀᴀᴛ ɪɴɪ :**\n"
+                    f"  ➽  `{AppHours}`**ᴊᴀᴍ**  `{AppMinutes}`**ᴍᴇɴɪᴛ**  "
+                    f"**|**  [`{AppPercentage}`**%**]"
                     "\n◖════════════════════◗\n"
                     " ☂ **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
-                    f"     • **{hours} hour(s), {minutes} minute(s) "
-                    f"-  {percentage}%**\n\n"
-                    f" **Sisa Dyno Heroku** `{day}` **Hari Lagi**"
+                    f"  ➽  `{hours}`**ᴊᴀᴍ**  `{minutes}`**ᴍᴇɴɪᴛ**  "
+                    f"**|**  [`{percentage}`**%**]\n"
+                    f" ✠➲ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  "
                     "\n╚════════════════════╝"
                     f"© @IndomieGenetik")
                 await event.edit(
