@@ -195,8 +195,9 @@ async def crbn(event):
                 xxxx, "**Balas ke pesan atau file yang dapat dibaca**", 30
             )
     carbon = Carbon(
-        base_url="https://carbonara.vercel.app/api/cook", code=code, background=col
-    )
+        base_url="https://carbonara.vercel.app/api/cook",
+        code=code,
+        background=col)
     xx = await carbon.memorize("indomie_carbon")
     await xxxx.delete()
     await event.reply(
@@ -233,8 +234,9 @@ async def crbn(event):
                 msg, "**Balas pesan atau file yang dapat dibaca**", 30
             )
     carbon = Carbon(
-        base_url="https://carbonara.vercel.app/api/cook", code=code, background=match
-    )
+        base_url="https://carbonara.vercel.app/api/cook",
+        code=code,
+        background=match)
     try:
         xx = await carbon.memorize("indomie_carbon")
     except Exception as er:
