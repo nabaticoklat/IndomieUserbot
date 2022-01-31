@@ -1,5 +1,5 @@
 # Using Python Slim-Buster
-FROM vckyouuu/geezprojects
+FROM indomiegorengsatu/indomieuserbot
 #━━━━━ Userbot Telegram ━━━━━
 #━━━━━ By IndomieUserbot ━━━━━
 
