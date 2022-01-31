@@ -27,7 +27,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 <p align="center">
 <a href="https://dashboard.heroku.com/new?template=https://github.com/indomiegorengsatu/IndomieUserbot"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Heroku" target="_blank""/</a>  
-<a href="https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="170""/</a>  </p>
+<a href="https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram""/</a>  </p>
 
 ## Support & Updates 
 <a href="https://t.me/IndomieStore"><img src="https://img.shields.io/badge/Join-Channel%20Store-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/IndomieProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
