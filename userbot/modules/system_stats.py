@@ -316,7 +316,7 @@ async def redis(alive):
         f"├  `Bot Ver  :` {BOT_VER} \n"
         f"├  `Modules  :` {len(modules)} Modules \n"
         f"├  `GitHub   :` [Indomie](https://github.com/indomiegorengsatu/IndomieUserbot) \n"
-        f"├  `Support  :` [Groups](https://t.me/IndomieProject) \n"
+        f"├  `Support  :` [Channel](https://t.me/IndomieProject) \n"
         f"└  `Owner    :` [Indomie](https://t.me/IndomieGenetik) \n"
         f"    **[𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/IndomieProject)** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹](https://t.me/IndomieStore)** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**")
     if ALIVE_LOGO:
