@@ -201,6 +201,7 @@ async def dyno_usage(dyno):
             await event.delete()
             return True
 
+
 @register(outgoing=True, pattern=r"^.usange(?: |$)")
 async def fake_dyno(event):
     xx = await dyno.edit(event, "`Processing...`")
@@ -216,8 +217,6 @@ async def fake_dyno(event):
         f"**|**  [`100`**%**]"
         "\n╚════════════════════╝\n"
     )
-
-
 
 
 @register(outgoing=True, pattern=r"^\.logs")
@@ -243,20 +242,18 @@ async def _(dyno):
 
 CMD_HELP.update(
     {
-                 "herokuapp": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usage`"
-                 "\n↳ : **Check Quota Alay Mu.**"
-                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.logs`"
-                 "\n↳ : **Melihat Logs Heroku Anda.**"
-                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.set var <NEW VAR> <VALUE>`"
-                 "\n↳ : **Tambahkan Variabel Baru Atau Memperbarui Variabel.**"
-                 "\nSetelah Menyetel Variabel Tersebut, **IndomieUserbot Akan Di Restart.**"
-                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.get var atau .get var <VAR>`"
-                 "\n↳ : **Dapatkan Variabel Yang Ada, !!PERINGATAN!! Gunakanlah Di Grup Privasi Anda.**"
-                 "\nIni Mengembalikan Semua Informasi Pribadi Anda, **Harap berhati-hati!.**"
-                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.del var <VAR>`"
-                 "\n↳ : **Menghapus Variabel Yang Ada**"
-                 "\n Setelah Menghapus Variabel, Bot Akan Di **Restart.**"
-                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usange`"
-                 "\n↳ : **Fake Check Kouta Dyno Heroku jadi 1000jam Untuk menipu temanmu wkwk.**"
-    }
-)
+        "herokuapp": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usage`"
+        "\n↳ : **Check Quota Alay Mu.**"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.logs`"
+        "\n↳ : **Melihat Logs Heroku Anda.**"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.set var <NEW VAR> <VALUE>`"
+        "\n↳ : **Tambahkan Variabel Baru Atau Memperbarui Variabel.**"
+        "\nSetelah Menyetel Variabel Tersebut, **IndomieUserbot Akan Di Restart.**"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.get var atau .get var <VAR>`"
+        "\n↳ : **Dapatkan Variabel Yang Ada, !!PERINGATAN!! Gunakanlah Di Grup Privasi Anda.**"
+        "\nIni Mengembalikan Semua Informasi Pribadi Anda, **Harap berhati-hati!.**"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.del var <VAR>`"
+        "\n↳ : **Menghapus Variabel Yang Ada**"
+        "\n Setelah Menghapus Variabel, Bot Akan Di **Restart.**"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usange`"
+        "\n↳ : **Fake Check Kouta Dyno Heroku jadi 1000jam Untuk menipu temanmu wkwk.**"})
