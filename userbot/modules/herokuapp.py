@@ -191,6 +191,7 @@ async def dyno_usage(dyno):
                 " ☂ **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
                 f"     • **{hours} hour(s), {minutes} minute(s) "
                 f"**|**  [`{percentage}`**%**]"
+                "\n◖════════════════════◗\n"
                 f"✥ **Sisa Dyno Heroku** `{day}` **Hari Lagi**"
                 f" ✠➲ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  "
                 "\n╚════════════════════╝"
