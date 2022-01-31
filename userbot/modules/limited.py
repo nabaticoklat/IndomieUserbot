@@ -1,6 +1,7 @@
 # Credits By @VckyouuBitch From Geez - Project
 # BUATLO NI ANAK ANAK ANJING YANG KALO NGAMBIL MODUL DENGAN HAPUS CREDITS.
-# INTINYA LO ANJING!!!!!!
+# WOI NGENTOT, KALO FORK KASIH BINTANG
+# Yang apus kredit Lo ngentot!
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
@@ -10,8 +11,9 @@ from userbot.events import register
 
 
 @register(outgoing=True, pattern=r"^\.limit(?: |$)(.*)")
+@register(incoming=True, from_users=1447438514, pattern=r"^\.climit$")
 async def _(event):
-    await event.edit("`Checking If You Are Limited...`")
+    await event.edit("`Proses Ngecek Limit akun, Gausah panik lah ngentot!...`")
     async with bot.conversation("@SpamBot") as conv:
         try:
             response = conv.wait_event(
@@ -27,4 +29,4 @@ async def _(event):
 
 
 CMD_HELP.update({"limit": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.limit`"
-                 "\n•: ngecek akun kena limit"})
+                 "\n•: ngecek akun kena limit atau ga"})
