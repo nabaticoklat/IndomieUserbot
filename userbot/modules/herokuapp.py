@@ -201,6 +201,7 @@ async def dyno_usage(dyno):
             await event.delete()
             return True
 
+
 @register(outgoing=True, pattern=r"^.usange(?: |$)")
 async def fake_dyno(event):
     await dyno.edit(event, "`Processing...`")
@@ -216,6 +217,7 @@ async def fake_dyno(event):
         f"**|**  [`100`**%**]"
         "\n╚════════════════════╝\n"
     )
+
 
 @register(outgoing=True, pattern=r"^\.logs")
 async def _(dyno):
