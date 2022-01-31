@@ -18,9 +18,30 @@ async def typewriter(typew):
     sleep(1)
     await typew.edit("`Dan yang terakhir adalah kamu bukan milikku`")
 
+# PANTUNIN DULU SI JAMET !
+
+@register(outgoing=True, pattern='^.pt(?: |$)(.*)')
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(1)
+    await typew.edit("**beli vakum dibalikpapan assalamualaikum biar sopan**")
+# indomie cakep bngtz sumph !
+
+@register(outgoing=True, pattern='^.ptn(?: |$)(.*)')
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(1)
+    await typew.edit("**KETEMU SI MAMAS DIAJAKIN KE CIBINONG PULANG NYE DIANTERIN MAKE KOPAJA EH BOCAH AMPAS MUKA HINA KEK ODONG ODONG GA USAH SO KERAS KALO MENTAL MASIH BLOM SEKERAS BAJA.**")
+# indomie cakep bngtz sumph !
+
+@register(outgoing=True, pattern='^.pn(?: |$)(.*)')
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(1)
+    await typew.edit("**DUA TIGA TUTUP BOTOL, MUKA LO CEM KONTOL**")
+# indomie cakep bngtz sumph !
 
 # Create by myself @localheart
-
 
 @register(outgoing=True, pattern="^.lahk(?: |$)(.*)")
 async def typewriter(typew):
@@ -80,6 +101,27 @@ async def typewriter(typew):
     await typew.edit("baru jadi userbot ya?? xixixi")
     sleep(1)
     await typew.edit("pantes **NORAK**")
+
+@register(outgoing=True, pattern="^.alay2(?: |$)(.*)")
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    await typew.edit("**Halo kak**")
+    sleep(1)
+    await typew.edit("**Gua liat-liat lu main bot mulu**")
+    sleep(2)
+    await typew.edit("**Alay banget sumpah**")
+    sleep(2)
+    await typew.edit("**Baru pasang ucelbot ya?**")
+    sleep(2)
+    await typew.edit("**Pantesan norak yahaha**")
+    sleep(2)
+    await typew.edit("**Kalo mau coba coba command di gc pribadi aja**")
+    sleep(2)
+    await typew.edit("**Jangan di publik, jijik liatnya anjg:v**")
+    sleep(2)
+    await typew.edit("**Intinya lo alay maen bot mulu**")
+    sleep(2)
+    await typew.edit("**Lawriiiiiiieeeee:v**")
 
 
 @register(outgoing=True, pattern="^.erpe(?: |$)(.*)")
@@ -178,6 +220,12 @@ async def typewriter(typew):
 CMD_HELP.update({
     "reubot": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sadboy`\
     \n↳ : Biasalah sadboy hikss\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.pt`\
+    \n↳ : Pantun berdamage.\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ptn`\
+    \n↳ : Pantun berdamage.\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.pn`\
+    \n↳ : Pantun berdamage.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.wah`\
     \n↳ : Ngatain orang war\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sok`\
@@ -186,6 +234,8 @@ CMD_HELP.update({
     \n↳ : Ngatain orang sok keras.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.alay`\
     \n↳ : Ngatain orang alay\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.alay2`\
+    \n↳ : Ngatain orang alay2\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.erpe`\
     \n↳ : Ngatain anak erpe\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ange`\
