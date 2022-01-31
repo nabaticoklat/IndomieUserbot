@@ -42,7 +42,8 @@ async def lyrics(lyric):
     if len(songs.lyrics) > 4096:
         await lyric.edit("`Lirik nya Terlalu Panjang, Liat Di File Yang Gua kirim Aja.`")
         with open("lyrics.txt", "w+") as f:
-            f.write(f"Permintaan Pencarian: \n{artist} - {song}\n\n{songs.lyrics}")
+            f.write(
+                f"Permintaan Pencarian: \n{artist} - {song}\n\n{songs.lyrics}")
         await lyric.client.send_file(
             lyric.chat_id,
             "lyrics.txt",
