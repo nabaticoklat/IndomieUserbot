@@ -1,5 +1,5 @@
 # Using Python Slim-Buster
-FROM Indomiee/IndomieUserbot:buster
+FROM indomiee/indomieuserbot:buster
 #━━━━━ Userbot Telegram ━━━━━
 #━━━━━ By IndomieUserbot ━━━━━
 
