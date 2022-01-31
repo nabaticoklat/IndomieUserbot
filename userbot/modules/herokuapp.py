@@ -152,7 +152,7 @@ async def dyno_usage(dyno):
                     f"`{r.reason}`",
                     reply_to=dyno.id
                 )
-                await dyno.edit("`Tidak Bisa Mendapatkan Informasi Dyno Anda`")
+                await dyno.edit("**Gagal Mendapatkan Informasi Dyno**")
                 return False
             result = await r.json()
             quota = result['account_quota']
@@ -184,21 +184,40 @@ async def dyno_usage(dyno):
             await dyno.edit(
                 "✨ **ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ :**\n"
                 "╔════════════════════╗\n"
-                f" ☂ **Penggunaan Dyno** `{app.name}` :\n"
-                f"     • **{AppHours} hour(s), {AppMinutes} minute(s) "
+                f" ☂ **Penggunaan Kealayan** `{ALIVE_NAME}` :\n"
+                f"     • [`{AppHours}`] **hour(s)**, [`{AppMinutes}`] **minute(s)**"
                 f"**|**  [`{AppPercentage}`**%**]"
-                "\n◖════════════════════◗\n"
-                " ☂ **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
-                f"     • **{hours} hour(s), {minutes} minute(s) "
+                "\n◖━─━─━─━─━──━─━─━─━─━◗\n"
+                "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰ \n"
+                "\n◖━─━─━─━─━──━─━─━─━─━◗\n"
+                " ☂ **Sisa Alay Bulan Ini :**\n"
+                f"     • [`{hours}`] **hour(s)**, [`{minutes}`] **minute(s)**"
                 f"**|**  [`{percentage}`**%**]"
-                "\n◖════════════════════◗\n"
-                f"✥ **Sisa Dyno Heroku** `{day}` **Hari Lagi**"
-                f" ✠➲ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  "
-                "\n╚════════════════════╝"
+                "\n╚════════════════════╝\n"
+                f"✥ **Sisa Caper Kau Hingga** `{day}` **Day(s) Left**\n"
+                f" ✠-> **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  \n"
             )
             await asyncio.sleep(20)
             await event.delete()
             return True
+
+@register(outgoing=True, pattern=r"^.usange(?: |$)")
+async def fake_dyno(event):
+    xx = await dyno.edit(event, "`Processing...`")
+    await xx.edit(
+        "✥ **Informasi Dyno Heroku :**"
+        "\n╔════════════════════╗\n"
+        f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
+        f"     •  `0`**Jam**  `0`**Menit**  "
+        f"**|**  [`0`**%**]"
+        "\n◖════════════════════◗\n"
+        " ➠ **Sisa kuota dyno bulan ini** :\n"
+        f"     •  `1000`**Jam**  `0`**Menit**  "
+        f"**|**  [`100`**%**]"
+        "\n╚════════════════════╝\n"
+    )
+
+
 
 
 @register(outgoing=True, pattern=r"^\.logs")
@@ -222,16 +241,22 @@ async def _(dyno):
     return os.remove("logs.txt")
 
 
-CMD_HELP.update({"herokuapp": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usage`"
-                 "\n↳ : Check Quota Dyno Heroku"
+CMD_HELP.update(
+    {
+                 "herokuapp": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usage`"
+                 "\n↳ : **Check Quota Alay Mu.**"
                  "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.logs`"
-                 "\n↳ : Melihat Logs Heroku Anda"
+                 "\n↳ : **Melihat Logs Heroku Anda.**"
                  "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.set var <NEW VAR> <VALUE>`"
-                 "\n↳ : Tambahkan Variabel Baru Atau Memperbarui Variabel"
-                 "\nSetelah Menyetel Variabel Tersebut, Rose-Userbot Akan Di Restart."
+                 "\n↳ : **Tambahkan Variabel Baru Atau Memperbarui Variabel.**"
+                 "\nSetelah Menyetel Variabel Tersebut, **IndomieUserbot Akan Di Restart.**"
                  "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.get var atau .get var <VAR>`"
-                 "\n↳ : Dapatkan Variabel Yang Ada, !!PERINGATAN!! Gunakanlah Di Grup Privasi Anda."
-                 "\nIni Mengembalikan Semua Informasi Pribadi Anda, Harap berhati-hati."
+                 "\n↳ : **Dapatkan Variabel Yang Ada, !!PERINGATAN!! Gunakanlah Di Grup Privasi Anda.**"
+                 "\nIni Mengembalikan Semua Informasi Pribadi Anda, **Harap berhati-hati!.**"
                  "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.del var <VAR>`"
-                 "\n↳ : Menghapus Variabel Yang Ada"
-                 "\nSetelah Menghapus Variabel, Bot Akan Di Restart."})
+                 "\n↳ : **Menghapus Variabel Yang Ada**"
+                 "\n Setelah Menghapus Variabel, Bot Akan Di **Restart.**"
+                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usange`"
+                 "\n↳ : **Fake Check Kouta Dyno Heroku jadi 1000jam Untuk menipu temanmu wkwk.**"
+    }
+)
