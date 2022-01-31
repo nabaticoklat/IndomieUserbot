@@ -20,6 +20,7 @@ async def typewriter(typew):
 
 # PANTUNIN DULU SI JAMET !
 
+
 @register(outgoing=True, pattern='^.pt(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
@@ -27,12 +28,14 @@ async def typewriter(typew):
     await typew.edit("**beli vakum dibalikpapan assalamualaikum biar sopan**")
 # indomie cakep bngtz sumph !
 
+
 @register(outgoing=True, pattern='^.ptn(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
     await typew.edit("**KETEMU SI MAMAS DIAJAKIN KE CIBINONG PULANG NYE DIANTERIN MAKE KOPAJA EH BOCAH AMPAS MUKA HINA KEK ODONG ODONG GA USAH SO KERAS KALO MENTAL MASIH BLOM SEKERAS BAJA.**")
 # indomie cakep bngtz sumph !
+
 
 @register(outgoing=True, pattern='^.pn(?: |$)(.*)')
 async def typewriter(typew):
@@ -42,6 +45,7 @@ async def typewriter(typew):
 # indomie cakep bngtz sumph !
 
 # Create by myself @localheart
+
 
 @register(outgoing=True, pattern="^.lahk(?: |$)(.*)")
 async def typewriter(typew):
@@ -101,6 +105,7 @@ async def typewriter(typew):
     await typew.edit("baru jadi userbot ya?? xixixi")
     sleep(1)
     await typew.edit("pantes **NORAK**")
+
 
 @register(outgoing=True, pattern="^.alay2(?: |$)(.*)")
 async def typewriter(typew):
