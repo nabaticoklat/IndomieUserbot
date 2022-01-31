@@ -12,6 +12,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 # War anjing
 
+
 @register(outgoing=True, pattern=r"^\.emak(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
@@ -21,6 +22,7 @@ async def typewriter(typew):
 
 # indomie cakep bngtz sumph !
 
+
 @register(outgoing=True, pattern='^.ros(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
@@ -28,14 +30,16 @@ async def typewriter(typew):
 
 # indomie cakep bngtz sumph !
 
+
 @register(outgoing=True, pattern=r"^\.ehh(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(
         "**EHH TOLOL PEKERJAAN KAKEK LO DULU ITU JADI BABU BABU KOMPENI YANG DI SURUH BIKININ KOPI TERUS MOTONG RUMPUT DI HALAMAN RUMAH YAELAH KASIAN BAT KASIAN KAKEK LO ITU UDAH KONTET KURUS KERING KEREMPENG LAGI KAKEK LO DULU MATINYA KE ABISAN TENAGA PAS NYABUTIN RUMPUT TOLOL HAHA NENEK LO JUGA JADI LACUR KOMPENI NENEK LO AJE JADI LACUR KOMPENI CUMA DI BAYAR PAKE SINGKONG REBUS DOANG SATU BIJI TERUS NENEK LO ITU MATINYA PAS DI GANGBANG SAMA TENTARA KOMPENI MEMEK NENEK LO ITU DI SODOK SODOK MAKE SENAPAN NOH SAMPE MEMEKNYA LOBEH LEBAR BAT LEBAR KEK JALAN RAYA HAHA.BADUR BADUT IYE GUE TAU LO MAIN TELE ITU DI JADIIN BADUT ALIANSI KAN HAHAHA MANGKANYA BANG KALO JADI ORANG PAS DI SENGGOL LAWAN JANGAN DIEM BAE KEK BATU HAHA DI JADIIN BADUT KAN LO DI LEDEK LEDEKIN SAMA SEMUA ALIANSI,GUE TAU TUJUAN LO MAEN TELE ITU UNTUK MENCARI MEMEK MEMEK SEGAR KAN HAHA KETAUAN ORANG ORANG KEK LO OTAK SANGEAN YANG HAUS AKAN MEMEK DAN TOKET SAKING GK MAU MODAL DI RL BUAT NYEWA LACUR JADI LO MEMILIH BIAT MAIN TELE BORO BORO DAPET LAH LU KAGA DAPET SAMA SEKALI MANGKANYA GANTENG KONTOL LO UDAH JELEK PENGENNYA YANG BAGUS BAGUS NYADAR DIRI LO ITU UDAH JELEK TERUS MISKIN LAGI**"
-)
+    )
 
 # indomie cakep bngtz sumph !
+
 
 @register(outgoing=True, pattern='^.rst(?: |$)(.*)')
 async def typewriter(typew):
@@ -51,12 +55,14 @@ async def typewriter(typew):
 
 # indomie cakep bngtz sumph !
 
+
 @register(outgoing=True, pattern='^.wr(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**EH KONTOL GUA KASIH TAU NIH YAA, BOCAH BOCAH KAYA LU MAH KAGA PANTES PISAN MAIN DI TELE, KARNA APA? JARI JARI TANGAN LU AJA ITU PADA BUNTUNG BEGO, BIBIR LU JUGA SUMBING BEGITU, GUA TAU NIH YAA PAS MASIH DI DALEM KANDUNGAN, LU TUH GAK BISA DIEM KAN, MANGKANYA LU JADI BEGINI, CACAT BET CACAT, GUA MAH KASIAN SAMA LU, PAS MASIH BAYI JUGA LU KAGA DI KASIH AIR ASI KAN, EMANG LU PANTES DAPET BEGITU, DI KASIH AIR COMBERAN JADI OTAKNYA DONGO BEGINI NIH, LAGIAN JUGA YAA MAUPUN LU DI LAHIRIN DENGAN SEMPURNA LU JUGA GAK GUNA, KARNA APA, LU EMANG UDAH GAK PANTES TINGGAL DI BUMI ANJINGGG, LU TUH PANTESNYA TINGGAL DI DALEM BUMI GITU TUH, SENDIRIAN GAK PUNYA TEMEN, JADI ORANG GAK BERGUNA, LAGIAN JUGA KALO LU TINGGAL DI BUMI, LU TUH GAK PANTES DAN GAK COCOK, KARNA APA, KARNA LU TUH SEMUA SERBA KEKURANGAN, LU MAU TINGGAL DI LUAR ANGKASA JUGA GUA YAKIN ALIEN KAGA MAU TERIMA LU, KARNA LU TUH GAK SESUAI KRETERIA MEREKA, LU TUH JELEK BET JELEK, LEBIH JELEK DARI PADA MUKA KECOA, BISA SIH LU TINGGAL DI LUAR ANGKASA, ITU JUGA PALING JAUH, JAUH DARI PERADABAN HAHAHA, KARNA TEMPAT TEMPAT BEGITU EMANG COCOK BUAT LU, KALO DI PIKIR PIKIR OTAK SEMUT SAMA OTAK LU JUGA GUA RASA PINTERAN OTAK SEMUT GITU, KARNA APA, LU TUH DONGO NYA JELAS BANGET, SAMPE KE TULANG TULANG, KE BOOL BOOL, KE SEL SEL DARAH LU IKUTAN BLOON HAHAHAHA**")
 
 # indomie cakep bngtz sumph !
+
 
 @register(outgoing=True, pattern='^.ro(?: |$)(.*)')
 async def typewriter(typew):
@@ -68,6 +74,7 @@ async def typewriter(typew):
 
 # indomie cakep bngtz sumph !
 
+
 @register(outgoing=True, pattern=r"^\.mas(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
@@ -76,6 +83,7 @@ async def typewriter(typew):
     )
 
 # indomie cakep bngtz sumph !
+
 
 @register(outgoing=True, pattern=r"^\.dih(?: |$)(.*)")
 async def typewriter(typew):
@@ -93,6 +101,7 @@ async def typewriter(typew):
 
 # indomie cakep bngtz sumph !
 
+
 @register(outgoing=True, pattern=r"^\.skb(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
@@ -100,6 +109,7 @@ async def typewriter(typew):
                      )
 
 # indomie cakep bngtz sumph !
+
 
 @register(outgoing=True, pattern=r"^\.an(?: |$)(.*)")
 async def typewriter(typew):
@@ -110,6 +120,7 @@ async def typewriter(typew):
 
 # indomie cakep bngtz sumph !
 
+
 @register(outgoing=True, pattern=r"^\.bk(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
@@ -118,6 +129,7 @@ async def typewriter(typew):
     )
 
 # indomie cakep bngtz sumph !
+
 
 @register(outgoing=True, pattern=r"^\.gj(?: |$)(.*)")
 async def typewriter(typew):
@@ -128,6 +140,7 @@ async def typewriter(typew):
 
 # indomie cakep bngtz sumph !
 
+
 @register(outgoing=True, pattern=r"^\.gh(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
@@ -136,6 +149,7 @@ async def typewriter(typew):
     )
 
 # indomie cakep bngtz sumph !
+
 
 @register(outgoing=True, pattern=r"^\.lol(?: |$)(.*)")
 async def typewriter(typew):
