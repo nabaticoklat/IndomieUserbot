@@ -204,8 +204,8 @@ async def dyno_usage(dyno):
 
 @register(outgoing=True, pattern=r"^.usange(?: |$)")
 async def fake_dyno(event):
-    xx = await dyno.edit(event, "`Processing...`")
-    await xx.edit(
+    await dyno.edit(event, "`Processing...`")
+    await dyno.edit(
         "✥ **Informasi Dyno Heroku :**"
         "\n╔════════════════════╗\n"
         f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
