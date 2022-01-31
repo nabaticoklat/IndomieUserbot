@@ -13,7 +13,7 @@
 </p>
 
 
-## <img src="./resources/extras/GeezFire.gif" width="20px"> Disclaimer
+// <img src="./resources/extras/GeezFire.gif" width="20px"> Disclaimer
 
 ```
 Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
@@ -27,12 +27,12 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 <p align="center">
 <a href="https://dashboard.heroku.com/new?template=https://github.com/indomiegorengsatu/IndomieUserbot"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Heroku" target="_blank"/></a></p>
-<a href="https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Telegram" target="_blank"/></a></p>
+<a href="https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="100""/</a>  </p>
 
-### Support & Updates 
+/// Support & Updates 
 <a href="https://t.me/IndomieStore"><img src="https://img.shields.io/badge/Join-Channel%20Store-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/IndomieProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
 
-### ❤️Follow Me :
+//// ❤️Follow Me :
 </p>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
     <p align="center"> 
