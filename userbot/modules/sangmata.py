@@ -4,7 +4,7 @@ from userbot.events import register
 from asyncio.exceptions import TimeoutError
 
 
-@register(outgoing=True, pattern=r"^\.sa(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.sg(?: |$)(.*)")
 async def lastname(steal):
     if steal.fwd_from:
         return
@@ -57,5 +57,5 @@ async def lastname(steal):
 
 CMD_HELP.update({
     "sangmata":
-       "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sa`\
+       "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sg`\
           \n↳ : Mendapatkan Riwayat Nama Pengguna Yang Di Scan."
