@@ -1,5 +1,5 @@
 # Using Python Slim-Buster
-FROM indomiegorengsatu/indomieuserbot
+FROM koala21/kampangbot:buster
 #━━━━━ Userbot Telegram ━━━━━
 #━━━━━ By IndomieUserbot ━━━━━
 
