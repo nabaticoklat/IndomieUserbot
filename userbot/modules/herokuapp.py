@@ -188,35 +188,18 @@ async def dyno_usage(dyno):
                 f"     • [`{AppHours}`] **hour(s)**, [`{AppMinutes}`] **minute(s)**"
                 f"**|**  [`{AppPercentage}`**%**]"
                 "\n◖━─━─━─━─━──━─━─━─━─━◗\n"
-                "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰ \n"
+                "\n▁▂▃▄▅▆▇██▇▆▅▄▃▂▁\n"
                 "\n◖━─━─━─━─━──━─━─━─━─━◗\n"
                 " ☂ **Sisa Alay Bulan Ini :**\n"
                 f"     • [`{hours}`] **hour(s)**, [`{minutes}`] **minute(s)**"
                 f"**|**  [`{percentage}`**%**]"
                 "\n╚════════════════════╝\n"
-                f"✥ **Sisa Caper Kau Hingga** `{day}` **Day(s) Left**\n"
-                f" ✠-> **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  \n"
+                f"✥ **Sisa Hidupmu** `{day}` **Day(s) Left**\n"
+                f"✝ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  \n"
             )
             await asyncio.sleep(20)
             await event.delete()
             return True
-
-
-@register(outgoing=True, pattern=r"^.usange(?: |$)")
-async def fake_dyno(event):
-    await dyno.edit(event, "`Processing...`")
-    await dyno.edit(
-        "✥ **Informasi Dyno Heroku :**"
-        "\n╔════════════════════╗\n"
-        f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
-        f"     •  `0`**Jam**  `0`**Menit**  "
-        f"**|**  [`0`**%**]"
-        "\n◖════════════════════◗\n"
-        " ➠ **Sisa kuota dyno bulan ini** :\n"
-        f"     •  `1000`**Jam**  `0`**Menit**  "
-        f"**|**  [`100`**%**]"
-        "\n╚════════════════════╝\n"
-    )
 
 
 @register(outgoing=True, pattern=r"^\.logs")
@@ -255,5 +238,3 @@ CMD_HELP.update(
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.del var <VAR>`"
         "\n↳ : **Menghapus Variabel Yang Ada**"
         "\n Setelah Menghapus Variabel, Bot Akan Di **Restart.**"
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usange`"
-        "\n↳ : **Fake Check Kouta Dyno Heroku jadi 1000jam Untuk menipu temanmu wkwk.**"})
