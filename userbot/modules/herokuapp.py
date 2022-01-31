@@ -201,6 +201,21 @@ async def dyno_usage(dyno):
             await event.delete()
             return True
 
+@register(outgoing=True, pattern=r"^.usange(?: |$)")
+async def fake_dyno(event):
+    await dyno.edit(event, "`Processing...`")
+    await dyno.edit(
+        "✥ **Informasi Dyno Heroku :**"
+        "\n╔════════════════════╗\n"
+        f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
+        f"     •  `0`**Jam**  `0`**Menit**  "
+        f"**|**  [`0`**%**]"
+        "\n◖════════════════════◗\n"
+        " ➠ **Sisa kuota dyno bulan ini** :\n"
+        f"     •  `1000`**Jam**  `0`**Menit**  "
+        f"**|**  [`100`**%**]"
+        "\n╚════════════════════╝\n"
+    )
 
 @register(outgoing=True, pattern=r"^\.logs")
 async def _(dyno):
