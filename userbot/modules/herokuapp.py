@@ -240,20 +240,16 @@ async def _(dyno):
     return os.remove("logs.txt")
 
 
-CMD_HELP.update(
-    {
-        "herokuapp": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usage`"
-        "\n↳ : **Check Quota Alay Mu.**"
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.logs`"
-        "\n↳ : **Melihat Logs Heroku Anda.**"
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.set var <NEW VAR> <VALUE>`"
-        "\n↳ : **Tambahkan Variabel Baru Atau Memperbarui Variabel.**"
-        "\nSetelah Menyetel Variabel Tersebut, **IndomieUserbot Akan Di Restart.**"
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.get var atau .get var <VAR>`"
-        "\n↳ : **Dapatkan Variabel Yang Ada, !!PERINGATAN!! Gunakanlah Di Grup Privasi Anda.**"
-        "\nIni Mengembalikan Semua Informasi Pribadi Anda, **Harap berhati-hati!.**"
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.del var <VAR>`"
-        "\n↳ : **Menghapus Variabel Yang Ada**"
-        "\n Setelah Menghapus Variabel, Bot Akan Di **Restart.**"
-     }
-)
+CMD_HELP.update({"herokuapp": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usage`"
+                 "\n↳ : **Check Quota Alay Mu.**"
+                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.logs`"
+                 "\n↳ : **Melihat Logs Heroku Anda.**"
+                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.set var <NEW VAR> <VALUE>`"
+                 "\n↳ : **Tambahkan Variabel Baru Atau Memperbarui Variabel.**"
+                 "\nSetelah Menyetel Variabel Tersebut, **IndomieUserbot Akan Di Restart.**"
+                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.get var atau .get var <VAR>`"
+                 "\n↳ : **Dapatkan Variabel Yang Ada, !!PERINGATAN!! Gunakanlah Di Grup Privasi Anda.**"
+                 "\nIni Mengembalikan Semua Informasi Pribadi Anda, **Harap berhati-hati!.**"
+                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.del var <VAR>`"
+                 "\n↳ : **Menghapus Variabel Yang Ada**"
+                 "\n Setelah Menghapus Variabel, Bot Akan Di **Restart.**"})
