@@ -1,6 +1,6 @@
 {
   "name": "IndomieUserbot",
-  "description": "USERBOT YANG DIGUNAKAN UNTUK ORANG CAPER DAN TEBAR PESONA HEKER DI TELEGRAM.",
+  "description": "[IndomieUserbot] USERBOT YANG DIGUNAKAN UNTUK ORANG CAPER DAN TEBAR PESONA HEKER DI TELEGRAM.",
   "logo": "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png",
   "keywords": [
     "telegram",
@@ -8,10 +8,10 @@
     "plugin",
     "modular",
     "productivity"
- ],
+  ],
   "repository": "https://github.com/indomiegorengsatu/IndomieUserbot/IndomieUserbot",
   "telegram": "https://t.me/IndomieGenetik",
-  "success_url": "https://t.me/IndomieStore",
+  "success_url": "https://t.me/mukalokayabab1",
   "stack": "container",
   "env": {
     "API_KEY": {
@@ -107,5 +107,5 @@
     "url": "https://github.com/amivin/aria2-heroku"
   }, {
     "url": "https://github.com/stevo550/buildpack-slug-cleaner"
-  }] 
+  }]
 }
