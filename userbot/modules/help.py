@@ -33,8 +33,8 @@ async def help(event):
         for i in CMD_HELP:
             string += "`" + str(i)
             string += "`\t ✦  "
-        await event.edit("**♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨**\n\n"
-                         f"**♨ Bᴏᴛ ᴏꜰ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
+        await event.edit("**♨ List Help [ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ] (https://github.com/indomiegorengsatu/IndomieUserbot)**\n\n"
+                         f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
                          "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
                          f"✦ {string}✦\n\n✐ **ɴᴏᴛᴇꜱ :**  `.help covid `\n☞  sᴜᴘᴘᴏʀᴛ : @IndomieStore")
         await asyncio.sleep(1000)
