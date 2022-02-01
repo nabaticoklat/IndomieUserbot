@@ -36,6 +36,6 @@ async def help(event):
         await event.edit("**♨ List Help [ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ] (https://github.com/indomiegorengsatu/IndomieUserbot)**\n\n"
                          f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
                          "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
-                         f"✦ {string}✦\n\n✐ **ɴᴏᴛᴇꜱ :**  `.help covid `\n☞  sᴜᴘᴘᴏʀᴛ : @IndomieStore")
+                         f"✦ {string}✦\n\n✐ **ɴᴏᴛᴇꜱ :** <`.help ping`> Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha..")
         await asyncio.sleep(1000)
         await event.delete()
