@@ -224,7 +224,7 @@ BITLY_TOKEN = os.environ.get(
 TERM_ALIAS = os.environ.get("TERM_ALIAS", "IndomieUserbot")
 
 # Bot Version
-BOT_VER = os.environ.get("BOT_VER", "7.0")
+BOT_VER = os.environ.get("BOT_VER", "1.0")
 
 # Default .alive Username
 ALIVE_USERNAME = os.environ.get("ALIVE_USERNAME", None)
@@ -607,7 +607,7 @@ with bot:
             current_page_number = int(lockpage)
             buttons = paginate_help(current_page_number, plugins, "helpme")
             await event.edit(
-                file=kyylogo,
+                file=relogo,
                 buttons=buttons,
                 link_preview=False,
             )
@@ -622,7 +622,7 @@ with bot:
                 text = (
                     f"❁ __Gue Adalah Indomie Userbot Yang Hanya Dipake Untuk Caper Oleh User Tele__.\n\n"
                     f"❁ __Gue Dibikin Dengan Air kental Yang Dinamakan Sperma__.\n\n"
-                    f"❁ __Gausa Banyak Nanya, Gue Punya 1816 Commands__.\n\n"
+                    f"❁ __Gausa Banyak Nanya, Gue Hanya Punya 1816 Commands__.\n\n"
                     f"© @IndomieGenetik")
                 await event.edit(
                     text,
