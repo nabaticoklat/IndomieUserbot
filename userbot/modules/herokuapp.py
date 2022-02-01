@@ -183,7 +183,7 @@ async def dyno_usage(dyno):
 
             await dyno.edit(
                 "♨️ **ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ :**\n"
-                "╔════════════════════╗\n"
+                "▧═══════════════════▧\n"
                 f"➠ **Penggunaan Kealayan** `{ALIVE_NAME}` :\n"
                 f"  • [`{AppHours}`] **hour(s)**, [`{AppMinutes}`] **minute(s)** \n"
                 f"**|**  [`{AppPercentage}`**%**] \n"
@@ -193,9 +193,9 @@ async def dyno_usage(dyno):
                 f"➠ **Sisa Alay Bulan Ini :**\n"
                 f"  • [`{hours}`] **hour(s)**, [`{minutes}`] **minute(s)** \n"
                 f"**|**  [`{percentage}`**%**] \n"
-                "╚════════════════════╝\n"
+                "▧═══════════════════▧\n"
                 f"➠ **Sisa Hidupmu** `{day}` **Day(s) Left**\n"
-                f"🥷 **ʙᴏᴛ ᴏꜰ :** **{ALIVE_NAME}** \n"
+                f"🥷 ʙᴏᴛ ᴏꜰ : **{ALIVE_NAME}** \n"
             )
             await asyncio.sleep(20)
             await event.delete()
