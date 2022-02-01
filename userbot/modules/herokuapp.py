@@ -255,3 +255,4 @@ CMD_HELP.update(
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.del var <VAR>`"
         "\n↳ : **Menghapus Variabel Yang Ada**"
         "\n Setelah Menghapus Variabel, Bot Akan Di **Restart.**"
+    }
