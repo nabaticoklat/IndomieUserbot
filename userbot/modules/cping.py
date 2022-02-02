@@ -5,6 +5,7 @@
     Information Superhighway (yes, Internet). """
 
 import random
+from userbot import DEVS, bot
 from userbot.events import register
 
 # OWN BY RENDY CODE
@@ -45,6 +46,6 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@register(incoming=True, from_users=1447438514, pattern=r"^.cping$")
+@register(incoming=True, from_users=DEVS, pattern=r"^.cping$")
 async def _(indomie):
     await indomie.reply(random.choice(cping))
