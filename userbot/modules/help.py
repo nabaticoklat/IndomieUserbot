@@ -34,9 +34,9 @@ async def help(event):
             string += "`" + str(i)
             string += "`\t ✦  "
         await event.edit(
-                         f"**♨ List Help [ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ] (https://github.com/indomiegorengsatu/IndomieUserbot)**\n"
-                         f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
-                         "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
-                         f"✦ {string}✦\n\n✐ **ɴᴏᴛᴇꜱ :** <`.help ping`> Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha..")
+            f"**♨ List Help [ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ] (https://github.com/indomiegorengsatu/IndomieUserbot)**\n"
+            f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
+            "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
+            f"✦ {string}✦\n\n✐ **ɴᴏᴛᴇꜱ :** <`.help ping`> Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha..")
         await asyncio.sleep(1000)
         await event.delete()
