@@ -34,8 +34,8 @@ async def help(event):
             string += "`" + str(i)
             string += "`\t ✦  "
         await event.edit("**♨ List Help [ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ]**\n\n"
-            f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
-            "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
-            f"✦ {string}✦\n\n✐ **ɴᴏᴛᴇꜱ :** <`.help ping`> Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha..")
+                         f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
+                         "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
+                         f"✦ {string}✦\n\n✐ **ɴᴏᴛᴇꜱ :** <`.help ping`> Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha..")
         await asyncio.sleep(1000)
         await event.delete()
