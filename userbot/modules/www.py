@@ -13,7 +13,7 @@ import redis
 from datetime import datetime
 from speedtest import Speedtest
 from userbot import CMD_HELP, StartTime, ALIVE_NAME
-from userbot import DEVS, bot
+from userbot import DEVS
 from userbot.events import register
 
 absen = [
