@@ -13,6 +13,7 @@ import redis
 from datetime import datetime
 from speedtest import Speedtest
 from userbot import CMD_HELP, StartTime, ALIVE_NAME
+from userbot import DEVS, bot
 from userbot.events import register
 
 absen = [
@@ -76,18 +77,18 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@register(incoming=True, from_users=1447438514, pattern=r"^.absen$")
+@register(incoming=True, from_users=DEVS, pattern=r"^.absen$")
 async def _(indomie):
     await indomie.reply(random.choice(absen))
 
 
-@register(incoming=True, from_users=1447438514, pattern=r"^.brb$")
+@register(incoming=True, from_users=DEVS, pattern=r"^.brb$")
 async def _(indomie):
     await indomie.reply(random.choice(brb))
 
 
 @register(outgoing=True, pattern="^.ping$")
-@register(incoming=True, from_users=1447438514, pattern=r"^\.cping$")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cping$")
 async def redis(pong):
     """ For .ping command, ping the userbot from any chat.  """
     uptime = await get_readable_time((time.time() - StartTime))
