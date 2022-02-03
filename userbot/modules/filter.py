@@ -97,14 +97,14 @@ async def remove_a_filter(r_handler):
             "`Berhasil Menghapus Filter` **{}** `Disini`.".format(filt))
 
 
-@register(outgoing=True, pattern="^.bersihkanbotfilter (.*)")
+@register(outgoing=True, pattern="^.delfilter (.*)")
 async def kick_marie_filter(event):
-    """ For .bersihkanbotfilter command, allows you to kick all \
+    """ For .delfilter command, allows you to kick all \
         Marie(or her clones) filters from a chat. """
     bot_type = event.pattern_match.group(1).lower()
     if bot_type not in ["marie", "rose"]:
         return await event.edit("`Bot Itu Belum Didukung!`")
-    await event.edit("```Saya Akan Menghapus Semua Filter!```")
+    await event.edit("```Gue Akan Menghapus Semua Filter!```")
     await sleep(3)
     resp = await event.get_reply_message()
     filters = resp.text.split("-")[1:]
@@ -119,7 +119,7 @@ async def kick_marie_filter(event):
         "```Berhasil Menghapus Semua Filter Bot!```")
     if BOTLOG:
         await event.client.send_message(
-            BOTLOG_CHATID, "Saya Membersihkan Semua Filter Bot Di " + str(event.chat_id))
+            BOTLOG_CHATID, "Gue Membersihkan Semua Filter Bot Di " + str(event.chat_id))
 
 
 @register(outgoing=True, pattern="^.filters$")
@@ -151,6 +151,6 @@ CMD_HELP.update({
     \nBisa dipake ke media/sticker/vn/file.\
     \n\n`.stop` <keyword>\
     \nUsage: Untuk Nonaktifkan Filter.\
-    \n\n`.bersihkanbotfilter` <marie/rose>\
+    \n\n`.delfilter` <marie/rose>\
     \nUsage: Menghapus semua filter yang ada di bot grup (Saat ini bot yang didukung: Marie, Rose.) dalam obrolan."
 })
