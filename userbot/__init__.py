@@ -493,8 +493,17 @@ with bot:
             bot_token=BOT_TOKEN)
 
         dugmeler = CMD_HELP
-        me = bot.get_me()
+        user = bot.get_me()
         uid = me.id
+        owner = user.first_name
+        logo = ALIVE_LOGO
+        logoman = INLINE_PIC
+        tgbotusername = BOT_USERNAME
+        BTN_URL_REGEX = re.compile(
+            r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
+        )
+        S_PACK_NAME = os.environ.get("S_PACK_NAME", f"Sticker Pack {owner}")
+
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
