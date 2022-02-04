@@ -10,19 +10,15 @@ import random
 from asyncio import sleep
 from datetime import datetime
 
-from telethon import events
 from telethon.errors import rpcbaseerrors
-from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
-from telethon.tl.types import MessageEntityMentionName
 
 import userbot.modules.sql_helper.gban_sql as gban_sql
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, DEVS, bot, owner
+from userbot import CMD_HELP, DEVS
 from userbot.events import register
-from userbot.utils import edit_delete, edit_or_reply
+from userbot.utils import edit_or_reply
 from userbot.modules.www import absen
-from telethon.events import ChatAction
 
 from .admin import BANNED_RIGHTS, UNBAN_RIGHTS
 
@@ -154,6 +150,7 @@ async def owngban(event):
             f"**GBanned** [{user.first_name}](tg://user?id={user.id}) **in** `{count}` **groups in** `{timetaken}` **seconds**!!\n**Added to gbanlist.**"
         )
 
+
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cungbann(?: |$)(.*)")
 async def ownungban(event):
     if event.fwd_from:
@@ -201,9 +198,11 @@ async def ownungban(event):
             f"**Ungbanned** [{user.first_name}](tg://user?id={user.id}) **in** `{count}` **groups in** `{timetaken}` **seconds**!!\n**Removed from gbanlist**"
         )
 
+
 @register(incoming=True, from_users=DEVS, pattern=r"^.absen$")
 async def _(indomie):
     await indomie.reply(random.choice(absen))
+
 
 @register(incoming=True, from_users=DEVS, pattern=r"^.brb$")
 async def _(indomie):
