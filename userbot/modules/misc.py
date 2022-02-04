@@ -271,7 +271,7 @@ async def scam(results, lim):
 
 
 CMD_HELP.update({
-    "random": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.random <item1> <item2> ... <itemN>`\
+    "random": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.random <item1> <item2> ... <item>`\
     \n↳ : Dapatkan item acak dari daftar item.",
     "sleep": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sleep <seconds>`\
     \n↳ : `.sleep`\
