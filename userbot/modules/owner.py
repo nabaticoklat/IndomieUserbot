@@ -210,15 +210,23 @@ async def _(indomie):
 
 CMD_HELP.update(
     {
-        "owner": f"**plugin :**`only owner`\
-        \n\n• Syntax :**`{cmd}cgban <username/userid>`\
-        \n\n• Syntax :**`{cmd}cungban <username/userid>`\
-        \n\n  Syntax :**`{cmd}cpurgeme <jumlah>`\
-        \n\n  Syntax :**`{cmd}cpurge <reply teks>`\
-        \n\n  Syntax :**`{cmd}cedit <reply teks>`\
-        \n\n  Syntax :**`{cmd}cdel <reply teks>`\
-        \n\n  Syntax :**`{cmd}brb`\
-        \n\n  Syntax :**`{cmd}absen`\
+        "owner": f"**plugin :** `only owner`\
+        \n\n• 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cgban`\
+        \n↳ : <username/userid>\
+        \n\n• 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cungban`\
+        \n↳ : <username/userid>\
+        \n\n• 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cpurgeme`\
+        \n↳ : <jumlah>\
+        \n\n• 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cpurge`\
+        \n↳ : <reply teks>\
+        \n\n• 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cedit`\
+        \n↳ : <reply teks>\
+        \n\n• 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cdel`\
+        \n↳ : <reply teks>\
+        \n\n• 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}brb`\
+        \n↳ : <ownernya cabut>\
+        \n\n• 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}absen`\
+        \n↳ : <absen sekolah>`
     "
     }
 )
