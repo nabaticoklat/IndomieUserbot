@@ -504,7 +504,6 @@ with bot:
         )
         S_PACK_NAME = os.environ.get("S_PACK_NAME", f"Sticker Pack {owner}")
 
-
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile("open")
