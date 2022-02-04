@@ -495,10 +495,6 @@ with bot:
         dugmeler = CMD_HELP
         me = bot.get_me()
         uid = me.id
-        owner = me.first_name
-        logo = ALIVE_LOGO
-        logoman = INLINE_PIC
-        tgbotusername = BOT_USERNAME
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
