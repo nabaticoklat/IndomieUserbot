@@ -38,7 +38,7 @@ async def help(event):
                          "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
                          f"✦ {string}✦\n\n")
         await event.respond(
-            "\n✎ **ɴᴏᴛᴇꜱ :** <`[{cmd}]help ping`> Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha...")
+            "\n✎ **ɴᴏᴛᴇꜱ :** `{cmd}help ping` Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha...")
 
         await asyncio.sleep(1000)
         await event.delete()
