@@ -24,12 +24,22 @@ from userbot.events import register
 
 
 KANGING_STR = [
-    "Sedang Mengambil Sticker Ini Ke Pack Anda",
-    "Sedang Mengambil Sticker Ini Ke Pack Anda",
+    "Wao.,STICKER PELER KU COLONG..",
+    "Maling sticker gpp kan mwaah",
+    "ehh ngentot tikel ny bagos colong ah...",
+    "Ini Sticker aku colong yaa\nDUARR MEMEK",
+    "leh ugha ni Sticker\nColong ahh~",
+    "Pim Pim Pom!!!\nni Sticker punya aing sekarang hehe",
+    "Colong lagi yee kan.....",
+    "COLONG TROSS NGENTOT!!!",
+    "Bolehkah saya colong ni sticker\nau ah colong aja hehe",
+    "Colong Sticker NGAPE GA SENENG?.....",
+    "BERUSAHA MENCURY TIKEL INI! HAHAHA",
+    "GUA NYOLONG TIKEL LU YA NGENTOTTTT!",
 ]
 
 
-@register(outgoing=True, pattern=r"^\.(?:tikel|kang)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:tikel|kang|colong)\s?(.)?")
 async def kang(args):
     user = await bot.get_me()
     if not user.username:
@@ -69,9 +79,9 @@ async def kang(args):
             is_anim = True
             photo = 1
         else:
-            return await args.edit("`Mohon Maaf, File Tidak Didukug!`")
+            return await args.edit("`File Tidak Didukung AJG!`")
     else:
-        return await args.edit("`Mohon Maaf, Saya Gagal Mengambil Sticker Ini!`")
+        return await args.edit("`Gagal Colong Cari Yang Laen!`")
 
     if photo:
         splat = args.text.split()
@@ -175,7 +185,7 @@ async def kang(args):
                         return await args.edit(
                             "`Sticker telah dibuat ke pack baru !"
                             "\nIni Pack Yang Baru Saja Anda Buat !"
-                            f"\nTekan [✨Klik Disini✨](t.me/addstickers/{packname}) Untuk Melihat Sticker Anda",
+                            f"\nTekan [Klik Disini](t.me/addstickers/{packname}) untuk liat pack kamu",
                             parse_mode="md",
                         )
                 if is_anim:
@@ -242,7 +252,7 @@ async def kang(args):
                 await bot.send_read_acknowledge(conv.chat_id)
 
         await args.edit(
-            f"**Sticker Berhasil Ditambahkan**\n      **>>> [Tekan Disini](t.me/addstickers/{packname}) <<<**\n**Untuk Melihat Sticker Anda**",
+            f"**Nyolong Sticker SUKSES NTOL!**\n      **>>> [Tekan Disini](t.me/addstickers/{packname}) <<<**\n**BANGGA JADI MALING**",
             parse_mode="md",
         )
 
@@ -324,13 +334,13 @@ async def sticker_to_png(sticker):
 
     img = await sticker.get_reply_message()
     if not img.document:
-        await sticker.edit("`Mohon Balas Ke Sticker`")
+        await sticker.edit("`Mohon Reply Ke Sticker`")
         return False
 
     try:
         img.document.attributes[1]
     except Exception:
-        await sticker.edit("`Mohon Maaf, Ini Bukanlah Sticker`")
+        await sticker.edit("`Ini bukan sticker...`")
         return
 
     with io.BytesIO() as image:
@@ -340,7 +350,7 @@ async def sticker_to_png(sticker):
         try:
             await img.reply(file=image, force_document=True)
         except Exception:
-            await sticker.edit("`Tidak Dapat Mengirim File...`")
+            await sticker.edit("`Err, gak bisa ngirim file...`")
         else:
             await sticker.delete()
     return
@@ -348,10 +358,10 @@ async def sticker_to_png(sticker):
 
 CMD_HELP.update(
     {
-        "stickers": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.kang | .tikel [emoji('s)]?`"
+        "stickers": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.kang | .tikel | .colong [emoji('s)]?`"
         "\n↳ : Balas .tikel Ke Sticker Atau Gambar Untuk Menambahkan Ke Pack Mu "
         "\nBisa Memilih Emoji Sesuai Pilihanmu."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.kang | .tikel  (emoji['s]]?` [nomer]?"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.kang | .tikel | .colong  (emoji['s]]?` [nomer]?"
         "\n↳ : Ambil Sticker/Gambar Ke Pack Baru Mu "
         "Dan Bisa Pilih Emoji Sticker Mu."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stkrinfo`"
