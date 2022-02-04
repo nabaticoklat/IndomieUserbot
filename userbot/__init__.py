@@ -884,13 +884,13 @@ with bot:
                     "∞ **ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ :**\n"
                     "╔════════════════════╗\n"
                     f" ☂ **ᴘᴇɴɢɢᴜɴᴀ ᴅʏɴᴏ sᴀᴀᴛ ɪɴɪ :**\n"
-                    f"  ➽  `{AppHours}`**ᴊᴀᴍ**  `{AppMinutes}`**ᴍᴇɴɪᴛ**  "
-                    f"**|**  [`{AppPercentage}`**%**]"
+                    f"  ➽  `{AppHours}`**ᴊᴀᴍ**  `{AppMinutes}`**ᴍᴇɴɪᴛ**\n"
+                    f"**|**  [`{AppPercentage}`**%**]\n"
                     "\n◖════════════════════◗\n"
                     " ☂ **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
-                    f"  ➽  `{hours}`**ᴊᴀᴍ**  `{minutes}`**ᴍᴇɴɪᴛ**  "
+                    f"  ➽  `{hours}`**ᴊᴀᴍ**  `{minutes}`**ᴍᴇɴɪᴛ**\n"
                     f"**|**  [`{percentage}`**%**]\n"
-                    f" ✠➲ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  "
+                    f" ✠➲ ʙᴏᴛ ᴏꜰ : [**{ALIVE_NAME}**]\n"
                     "\n╚════════════════════╝"
                     f"© @IndomieGenetik")
                 await event.edit(
