@@ -226,6 +226,6 @@ CMD_HELP.update(
         \n\n• 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}brb`\
         \n↳ : <ownernya cabut>\
         \n\n• 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}absen`\
-        n↳ : <absen sekolah>
+ n↳ : <absen sekolah>
     }
 )
