@@ -2,7 +2,7 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
-# 
+#
 # Credit And inspiratied from @hdiiofficial - JS-Userbot
 # Copyright © IndomieGorengSatu
 # Kalo mau dihargai, jangan hapus kredit yakak:)
