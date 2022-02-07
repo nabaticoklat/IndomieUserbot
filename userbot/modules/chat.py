@@ -20,8 +20,7 @@ from telethon.errors import (
 from telethon.utils import get_input_location
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantsBots
 from userbot.events import register
-from userbot.modules.admin import get_user_from_event
-from userbot.utils import edit_or_reply
+from userbot.utils import edit_delete, edit_or_reply, get_user_from_event
 
 
 @register(pattern="^.id(?: |$)(.*)")
