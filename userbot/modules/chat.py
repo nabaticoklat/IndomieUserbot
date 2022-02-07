@@ -23,6 +23,7 @@ from userbot.events import register
 from userbot.modules.admin import get_user_from_event
 from telethon.utils import pack_bot_file_id
 
+
 @register(outgoing=True, pattern="^.id(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
@@ -37,6 +38,7 @@ async def _(event):
             await event.edit("ID Grup: `{}`\nID Dari Pengguna : `{}`".format(str(event.chat_id), str(r_msg.from_id)))
     else:
         await event.edit("ID Grup: `{}`".format(str(event.chat_id)))
+
 
 @register(outgoing=True, pattern="^.link(?: |$)(.*)")
 async def permalink(mention):
