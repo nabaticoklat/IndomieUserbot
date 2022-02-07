@@ -24,8 +24,8 @@ from userbot.modules.admin import get_user_from_event
 from userbot.utils import edit_or_reply
 
 
-@register(outgoing=True, pattern="^.id(?: |$)(.*)")
-async def useridgetter(target):
+@register(pattern="^.id(?: |$)(.*)")
+async def idgetter(target):
     message = await target.get_reply_message()
     if message:
         if not message.forward:
@@ -61,14 +61,14 @@ async def permalink(mention):
 async def _(event):
     if event.fwd_from:
         return
-    mentions = "**Bot Di Channel Ini:** \n"
+    mentions = "**Bot Di Group Ini:** \n"
     input_str = event.pattern_match.group(1)
     to_write_chat = await event.get_input_chat()
     chat = None
     if not input_str:
         chat = to_write_chat
     else:
-        mentions = "Bot Dalam {} Channel: \n".format(input_str)
+        mentions = "Bot Dalam {} Group: \n".format(input_str)
         try:
             chat = await bot.get_entity(input_str)
         except Exception as e:
@@ -111,7 +111,7 @@ async def log(log_text):
 @register(outgoing=True, pattern="^.kickme$")
 async def kickme(leave):
     """ Basically it's .kickme command """
-    await leave.edit(f"**{ALIVE_NAME} Telah Meninggalkan Group,See You Semua!!**")
+    await leave.edit(f"**{ALIVE_NAME} Telah Meninggalkan Group,Bye Para Anak Title Tolol!!**")
     await leave.client.kick_participant(leave.chat_id, 'me')
 
 
