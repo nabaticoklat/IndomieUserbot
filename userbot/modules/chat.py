@@ -20,7 +20,6 @@ from telethon.errors import (
 from telethon.utils import get_input_location
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantsBots
 from userbot.events import register
-from userbot.modules.www import absen
 from userbot.modules.admin import get_user_from_event
 from telethon.utils import pack_bot_file_id
 
@@ -111,11 +110,6 @@ async def kickme(leave):
     """ Basically it's .kickme command """
     await leave.edit(f"**{ALIVE_NAME} Telah Meninggalkan Group,Bye Para Anak Title Tolol!!**")
     await leave.client.kick_participant(leave.chat_id, 'me')
-
-
-@register(pattern=r"^\.absenall$", own=True)
-async def _(event):
-    await event.reply(choice(absen))
 
 
 @register(outgoing=True, pattern="^.unmutechat$")
