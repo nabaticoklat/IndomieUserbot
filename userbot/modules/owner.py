@@ -101,7 +101,7 @@ async def ownediter(edit):
 
 
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cgcast(?: |$)(.*)")
-async def gcast(event):
+async def owngcast(event):
     xx = event.pattern_match.group(1)
     if xx:
         msg = xx
