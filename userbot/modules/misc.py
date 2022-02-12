@@ -104,21 +104,6 @@ async def repeat(rep):
     await rep.edit(replyText)
 
 
-@register(outgoing=True, pattern="^.repo$")
-async def repo_is_here(wannasee):
-    """ For .repo command, just returns the repo URL. """
-    await wannasee.edit(
-        "**Hai Tolol**, **Gue Make** `[ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ]` **Nich**\n"
-        "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
-        f"┌ **Repo Userbot   :** [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu/IndomieUserbot)\n"
-        f"├ **Owner Repo     :** [ɪɴᴅᴏᴍɪᴇ](t.me/IndomieGenetik)\n"
-        f"├ **UserbotVersion :** `{BOT_VER}@{branch}`\n"
-        f"├ **Support        :** [sᴜᴘᴘᴏʀᴛ](https://t.me/IndomieProject)\n"
-        f"└ **Channel        :** [ᴄʜᴀɴɴᴇʟ](https://t.me/IndomieStore)\n"
-        "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
-    )
-
-
 @register(outgoing=True, pattern=r"^\.string$")
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
@@ -277,8 +262,6 @@ CMD_HELP.update({
     \n  •  **Function : Biarkan IndomieUserbot tidur selama beberapa detik.",
     "shutdown": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.shutdown`\
     \n↳ : Mematikan bot",
-    "repo": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.repo`\
-    \n↳ : Menampilan link Repository IndomieUserbot.",
     "string": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.string`\
     \n↳: Menampilkan link String IndomieUserbot",
     "readme": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `.readme`\
