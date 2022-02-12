@@ -123,7 +123,7 @@ async def repo_is_here(wannasee):
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
     await wannasee.edit(
-        f"✗ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://repl.it/@mrismanaziz/stringenSession?lite=1&outputonly=1)\n"
+        f"✗ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)\n"
     )
 
 
