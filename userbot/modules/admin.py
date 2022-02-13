@@ -145,7 +145,7 @@ async def promote(promt):
     # Try to promote if current user is admin or creator
     try:
         await promt.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
-        await promt.edit("`Udah di Promote Jangan Semena mena Ya admin baru!`")
+        await promt.edit("`Udah di Promote Jangan Caper Sana Sini Ya admin baru!`")
         await sleep(5)
         await promt.delete()
 
@@ -200,7 +200,7 @@ async def demote(dmod):
     # Assume we don't have permission to demote
     except BadRequestError:
         return await dmod.edit(NO_PERM)
-    await dmod.edit("`Admin Berhasil Dilepas! Makanya Jangan semena mena tolol!`")
+    await dmod.edit("`Admin Berhasil Dilepas! Makanya Kerja Yang Bener Kontol Babi Anjing Tolol!`")
     await sleep(5)
     await dmod.delete()
 
