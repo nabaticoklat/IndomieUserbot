@@ -139,7 +139,7 @@ async def typewriter(typew):
     await typew.edit("**MENTANG MENTANG PUNYA BOT MAINNYA BOT!!PANTES MUKANYA KAYA BOT😁**")
 
 
-@register(outgoing=True, pattern='^.1(?: |$)(.*)')
+@register(outgoing=True, pattern='^.norak(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**NORAK LU KONTOL!! MAKE USERBOT CUMAN BUAT WAR MALAH SOK KERAS**")
@@ -191,6 +191,6 @@ CMD_HELP.update({
 \nUsage: Kecantikan.\
 \n\n.o\
 \nUsage: Ngatain org norak.\
-\n\n.1\
+\n\n.norak\
 \nUsage: Ngatain Petarunx Tele."
 })
