@@ -16,6 +16,7 @@ from userbot import (
     BOTLOG,
     BOTLOG_CHATID,
     CMD_HELP,
+    SUDO_USERS,
     ALIVE_NAME)
 from userbot.events import register
 
@@ -40,7 +41,9 @@ async def variable(var):
     if app is None:
         await var.edit("`[HEROKU]"
                        "\nHarap Siapkan`  **HEROKU_APP_NAME**.")
-        return False
+         return False
+    if var.sender_id in SUDO_USERS:
+        return
     if exe == "get":
         await var.edit("`Mendapatkan Informasi...`")
         variable = var.pattern_match.group(2)
@@ -98,6 +101,8 @@ async def variable(var):
 
 @register(outgoing=True, pattern=r'^.set var (\w*) ([\s\S]*)')
 async def set_var(var):
+    if var.sender_id in SUDO_USERS:
+        return
     await var.edit("`Sedang Menyetel Config Vars ヅ`")
     variable = var.pattern_match.group(1)
     value = var.pattern_match.group(2)
