@@ -88,6 +88,22 @@ async def _(indomie):
 
 
 @register(outgoing=True, pattern="^.ping$")
+async def redis(pong):
+    """ For .ping command, ping the userbot from any chat.  """
+    uptime = await get_readable_time((time.time() - StartTime))
+    start = datetime.now()
+    await pong.edit("__Sabar goblok.__")
+    await pong.edit("__Sabar goblok..__")
+    await pong.edit("__Sabar goblok...__")
+    await pong.edit("__Sabar goblok....__")
+    await pong.edit("⚡")
+    await asyncio.sleep(2)
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
+    await pong.edit(f"**IndomieUserbot!!🍭**\n**Pinger** : %sms\n**Bot Uptime** : {uptime}🕛" % (duration))
+
+
+@register(outgoing=True, pattern="^.pings$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cping$")
 async def redis(pong):
     """ For .ping command, ping the userbot from any chat.  """
