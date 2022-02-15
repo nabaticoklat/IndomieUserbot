@@ -35,6 +35,8 @@ load_dotenv("config.env")
 StartTime = time.time()
 
 CMD_LIST = {}
+USERS = {}
+SUDO_LIST = {}
 # for later purposes
 CMD_HELP = {}
 INT_PLUG = ""
@@ -75,6 +77,7 @@ DEVS = (
     1675900974,
 )
 
+SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
 
 # Telegram App KEY and HASH
 API_KEY = int(os.environ.get("API_KEY") or None)
@@ -102,6 +105,7 @@ PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
 # Custom Handler command
 CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
+SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"$")
 
 # Send .chatid in any group with all your administration bots (added)
 G_BAN_LOGGER_GROUP = os.environ.get("G_BAN_LOGGER_GROUP", "")
