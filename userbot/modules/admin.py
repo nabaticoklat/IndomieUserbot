@@ -78,7 +78,6 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
 
 @register(outgoing=True, pattern=r"^\.setgpic$")
-@register(outgoing=True, pattern=r"^\.csetgpic$", sudo=True)
 async def set_group_photo(gpic):
     if not gpic.is_group:
         await gpic.edit("`Mohon Lakukan Perintah Ini Di Grup.`")
