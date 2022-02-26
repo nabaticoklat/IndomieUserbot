@@ -46,9 +46,9 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ## © Credits
 
 🏆 **THANKS TO**
+*   [Indomie](https://github.com/IndomieGorengSatu)    :  IndomieUserbot
 *   [Kyy](https://github.com/muhammadrizky16) :  Kyy - Userbot
 *   [Sendi](https://github.com/SendiAp)       :  Rose-Userbot
-*   [Ram](https://github.com/ramadhani892)    :  Ram-Ubot
 *   [Pocong](https://github.com/poocong)      :  Pocong Userbot
 *   [Risman](https://github.com/mrismanaziz)  :  Man-Userbot  
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
