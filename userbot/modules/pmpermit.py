@@ -45,7 +45,7 @@ DEF_UNAPPROVED_MSG = (
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”    ”\n"
     "╚═════════════════════╝\n"
     "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
-    f"**ANAK KONTOL ANAK NGENTOT,KALO NGECHAT MAJIKAN {DEFAULTUSER} ITU SALAM,\nHABIS ITU SABAR TUNGGU MAJIKAN GUA BALES,\nKALO GA DI BALES - BALES, LU JANGAN NYEPAM KONTOL, APA LAGI LU NGECHAT NYA CUMA MINTA VCS, BISA GUA BLOKIR!! KALO NYEPAM JUGA TAR GUA BLOKIR!!!! TUNGGU SI {DEFAULTUSER} NERIMA PESAN LU [⚠️]({ALIVE_LOGO})** \n"
+    f"**ANAK KONTOL ANAK NGENTOT,KALO NGECHAT MAJIKAN** [`{DEFAULTUSER}`] **ITU SALAM,\nHABIS ITU SABAR TUNGGU MAJIKAN GUA BALES,\nKALO GA DI BALES - BALES, LU JANGAN NYEPAM KONTOL, APA LAGI LU NGECHAT NYA CUMA MINTA VCS, BISA GUA BLOKIR!! KALO NYEPAM JUGA TAR GUA BLOKIR!!!! TUNGGU** [`{DEFAULTUSER}`] **NERIMA PESAN LU KONTOL [⚠️]**({ALIVE_LOGO}) \n"
     "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
     "╔═════════════════════╗\n"
     "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄           \n"
@@ -340,7 +340,7 @@ async def unblockpm(unblock):
         )
 
 
-@register(outgoing=True, pattern=r"^.(set|get|reset) pm_msg(?: |$)(\w*)")
+@register(outgoing=True, pattern=r"^.(set|get|reset) pmpermit(?: |$)(\w*)")
 async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:
@@ -430,11 +430,11 @@ CMD_HELP.update(
         "\n↳ : Mematikan notifikasi pesan yang belum diterima."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.notifon`"
         "\n↳ : Menghidupkan notifikasi pesan yang belum diterima."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.set pm_msg` <balas ke pesan>"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.set pmpermit` <balas ke pesan>"
         "\n↳ : Menyetel Pesan Pribadimu untuk orang yang pesannya belum diterima"
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.get pm_msg`"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.get pmpermit`"
         "\n↳ : Mendapatkan Custom pesan PM mu"
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.reset pm_msg`"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.reset pmpermit`"
         "\n↳ : Menghapus pesan PM ke default"
         "\n\nPesan Pribadi yang belum diterima saat ini tidak dapat disetel"
         "\nke teks format kaya bold, underline, link, dll."
