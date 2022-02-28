@@ -111,6 +111,7 @@ async def typewriter(typew):
     sleep(2)
     await typew.edit("Gamau nyoba?")
 
+
 @register(outgoing=True, pattern='^.vc(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
@@ -137,5 +138,5 @@ CMD_HELP.update({
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `ehm`\
     \n↳ : cobain sendiri.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `vc`\
-    \n↳ : sagapung
+n↳: sagapung
 })
