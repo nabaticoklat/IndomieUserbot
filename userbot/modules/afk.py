@@ -1,7 +1,3 @@
-# Copyright (C) 2022 Man-Userbot
-# PocongUserbot < https://github.com/poocong/PocongUserbot
-# Recode by @pocongonlen
-
 import asyncio
 from datetime import datetime
 
@@ -11,7 +7,7 @@ from telethon.tl import functions, types
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot, owner
-from userbot.utils import bash
+from userbot.events import register
 
 USER_AFK = {}
 afk_time = None
@@ -62,15 +58,10 @@ async def set_not_afk(event):
         USER_AFK = {}
         afk_time = None
 
-        await bash("rm -rf *.webp")
-        await bash("rm -rf *.mp4")
-        await bash("rm -rf *.tgs")
-        await bash("rm -rf *.png")
-        await bash("rm -rf *.jpg")
 
-
-@bot.on(events.NewMessage(incoming=True,
-                          func=lambda e: bool(e.mentioned or e.is_private)))
+@bot.on(
+    events.NewMessage(incoming=True, func=lambda e: bool(e.mentioned or e.is_private))
+)
 async def on_afk(event):
     if event.fwd_from:
         return
@@ -90,7 +81,7 @@ async def on_afk(event):
         msg = None
         if reason:
             message_to_reply = (
-                f"┌ ❏AFK!\n"
+                   f"┌ ❏AFK!\n"
                 + f"│┌ {owner} Sedang AFK\n"
                 + f"│├ {total_afk_time} Yang Lalu \n"
                 + f"└└ Karena : `{reason}`"
@@ -123,7 +114,7 @@ async def on_afk(event):
             pass
 
 
-@bot.on(poci_cmd(outgoing=True, pattern="afk(?: |$)(.*)"))
+@bot.on(register(outgoing=True, pattern="afk(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
