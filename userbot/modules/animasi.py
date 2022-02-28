@@ -138,5 +138,5 @@ CMD_HELP.update({
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `ehm`\
     \n↳ : cobain sendiri.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `vc`\
-n↳: sagapung
+    n↳: sagapung."
 })
