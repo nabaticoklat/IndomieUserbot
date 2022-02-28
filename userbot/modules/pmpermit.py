@@ -21,7 +21,6 @@ from userbot import (
     PM_AUTO_BAN,
     PM_LIMIT,
     ALIVE_NAME,
-    ALIVE_LOGO,
 )
 
 
