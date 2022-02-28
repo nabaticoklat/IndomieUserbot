@@ -67,7 +67,7 @@ if CONFIG_CHECK:
     LOGS.info(
         "Please remove the line mentioned in the first hashtag from the config.env file"
     )
-     sys.exit(1)
+    sys.exit(1)
 
 while 0 < 6:
     _DEVS = get(
