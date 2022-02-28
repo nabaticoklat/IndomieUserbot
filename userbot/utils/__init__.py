@@ -21,7 +21,6 @@ from .progress import progress, CancelProcess
 from .tools import (
     humanbytes,
     time_formatter,
-    bash,
     human_to_bytes,
     run_cmd, md5,
     post_to_telegraph,
