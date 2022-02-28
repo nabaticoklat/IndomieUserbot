@@ -18,7 +18,6 @@ from userbot import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, PM_LIMIT, PM
 from userbot.utils import edit_delete, edit_or_reply
 
 
-
 if PMPERMIT_PIC is None:
     CUSTOM_PIC = ALIVE_LOGO
 else:
