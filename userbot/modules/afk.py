@@ -59,9 +59,8 @@ async def set_not_afk(event):
         afk_time = None
 
 
-@bot.on(
-    events.NewMessage(incoming=True, func=lambda e: bool(e.mentioned or e.is_private))
-)
+@bot.on(events.NewMessage(incoming=True,
+                          func=lambda e: bool(e.mentioned or e.is_private)))
 async def on_afk(event):
     if event.fwd_from:
         return
@@ -81,7 +80,7 @@ async def on_afk(event):
         msg = None
         if reason:
             message_to_reply = (
-                   f"┌ ❏AFK!\n"
+                f"┌ ❏AFK!\n"
                 + f"│┌ {owner} Sedang AFK\n"
                 + f"│├ {total_afk_time} Yang Lalu \n"
                 + f"└└ Karena : `{reason}`"
