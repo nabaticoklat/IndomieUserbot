@@ -17,20 +17,18 @@ from userbot import BOTLOG, BOTLOG_CHATID
 from userbot import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, PM_LIMIT, ALIVE_NAME, ALIVE_LOGO
 from userbot.utils import edit_delete, edit_or_reply
 
-# ========================= CONSTANTS ============================
 
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
-    "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”    ”\n"
+    "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”\n"
     "╚═════════════════════╝\n"
     "• [`{DEFAULTUSER}`] belum menyetujui anda untuk PM.\n"
     "• Tunggu sampai [`{DEFAULTUSER}`] menyetujui PM anda.\n"
     "• Jangan Spam Chat atau anda akan otomatis diblokir.\n"
     "╔═════════════════════╗\n"
-    "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄           \n"
-    "┣[• 𝐁𝐘 Bʏ ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ           \n"
+    "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
+    "┣[• 𝐁𝐘 Bʏ ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ\n"
     "╚═════════════════════╝")
-# =================================================================
 
 
 @register(incoming=True, disable_edited=True, disable_errors=True)
