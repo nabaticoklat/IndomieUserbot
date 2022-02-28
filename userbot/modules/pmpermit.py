@@ -13,7 +13,7 @@ from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
 from userbot.events import register
 from userbot import CMD_HANDLER as cmd
-from userbot import BOTLOG, BOTLOG_CHATID,
+from userbot import BOTLOG, BOTLOG_CHATID
 from userbot import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, PM_LIMIT, ALIVE_NAME, ALIVE_LOGO,
 from userbot.utils import edit_delete, edit_or_reply
 
