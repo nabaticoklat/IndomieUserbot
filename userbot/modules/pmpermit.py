@@ -207,7 +207,6 @@ async def approvepm(apprvpm):
         name0 = str(replied_user.first_name)
         uid = replied_user.id
 
-
     else:
         aname = await apprvpm.client.get_entity(apprvpm.chat_id)
         name0 = str(aname.first_name)
@@ -346,7 +345,7 @@ async def add_pmsg(cust_msg):
         if custom_message is not None:
             sql.delgvar("unapproved_msg")
             status = "Pesan"
-        
+
         if not message:
             return await cust_msg.edit("**Mohon Reply Ke Pesan**")
 
@@ -360,7 +359,7 @@ async def add_pmsg(cust_msg):
 
         if BOTLOG:
             await cust_msg.client.send_message(
-                BOTLOG_CHATID, 
+                BOTLOG_CHATID,
                 f"**{status} PMPERMIT Yang Tersimpan:** \n\n{msg}",
             )
 
