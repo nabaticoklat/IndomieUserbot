@@ -86,7 +86,7 @@ async def _(event):
     await edit_or_reply(event, f"**Berhasil unbanned** `{p}` **Orang di Grup {title}**")
 
 
-@register(pattern="(?:dm)\s?(.*)?")
+@register(pattern="(?:dm)\\s?(.*)?")
 async def _(event):
     p = event.pattern_match.group(1)
     m = p.split(" ")
