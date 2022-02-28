@@ -14,15 +14,23 @@ from telethon.tl.types import User
 from userbot.events import register
 from userbot import CMD_HANDLER as cmd
 from userbot import BOTLOG, BOTLOG_CHATID
-from userbot import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, PM_LIMIT, ALIVE_NAME, ALIVE_LOGO
+from userbot import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, PM_LIMIT, PMPERMIT_TEXT, PMPERMIT_PIC, ALIVE_NAME, ALIVE_LOGO
 from userbot.utils import edit_delete, edit_or_reply
 
+
+
+if PMPERMIT_PIC is None:
+    CUSTOM_PIC = ALIVE_LOGO
+else:
+    CUSTOM_PIC = str(PMPERMIT_PIC)
 
 COUNT_PM = {}
 LASTMSG = {}
 
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
+CUSTOM_TEXT = str(
+    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat IndomieUserbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”\n"
