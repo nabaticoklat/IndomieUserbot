@@ -33,7 +33,7 @@ DEF_UNAPPROVED_MSG = (
 # =================================================================
 
 
-@register(events.NewMessage(incoming=True))
+@register(incoming=True, disable_edited=True, disable_errors=True)
 async def permitpm(event):
     """ Prohibits people from PMing you without approval. \
         Will block retarded nibbas automatically. """
@@ -117,7 +117,7 @@ async def permitpm(event):
                     )
 
 
-@register(events.NewMessage(outgoing=True))
+@register(disable_edited=True, outgoing=True, disable_errors=True)
 async def auto_accept(event):
     """Will approve automatically if you texted them first."""
     if not PM_AUTO_BAN:
