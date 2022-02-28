@@ -115,7 +115,7 @@ async def typewriter(typew):
 @register(outgoing=True, pattern='^.vc(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit(Kaa 🥺")
+    await typew.edit("Kaa 🥺")
     sleep(2)
     await typew.edit("Temenin vc col*🥺 ")
     sleep(2)
