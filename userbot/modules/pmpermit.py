@@ -19,34 +19,21 @@ from userbot import (
     LASTMSG,
     LOGS,
     PM_AUTO_BAN,
+    PM_LIMIT,
     ALIVE_NAME,
-    PMPERMIT_TEXT,
-    PMPERMIT_PIC,
     ALIVE_LOGO,
 )
 
 
-if PMPERMIT_PIC is None:
-    CUSTOM_PIC = ALIVE_LOGO
-else:
-    CUSTOM_PIC = str(PMPERMIT_PIC)
-
-COUNT_PM = {}
-LASTMSG = {}
-
-
 # ========================= CONSTANTS ============================
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-CUSTOM_TEXT = str(
-    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat IndomieUserbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”    ”\n"
     "╚═════════════════════╝\n"
-    "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
-    f"**ANAK KONTOL ANAK NGENTOT,KALO NGECHAT MAJIKAN** [`{DEFAULTUSER}`] **ITU SALAM,\nHABIS ITU SABAR TUNGGU MAJIKAN GUA BALES,\nKALO GA DI BALES - BALES, LU JANGAN NYEPAM KONTOL, APA LAGI LU NGECHAT NYA CUMA MINTA VCS, BISA GUA BLOKIR!! KALO NYEPAM JUGA TAR GUA BLOKIR!!!! TUNGGU** [`{DEFAULTUSER}`] **NERIMA PESAN LU KONTOL [⚠️]**({ALIVE_LOGO}) \n"
-    "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
+    "• [`{DEFAULTUSER}`] belum menyetujui anda untuk PM.\n"
+    "• Tunggu sampai [`{DEFAULTUSER}`] menyetujui PM anda.\n"
+    "• Jangan Spam Chat atau anda akan otomatis diblokir.\n"
     "╔═════════════════════╗\n"
     "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄           \n"
     "┣[• 𝐁𝐘 Bʏ ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ           \n"
@@ -106,7 +93,7 @@ async def permitpm(event):
             else:
                 COUNT_PM[event.chat_id] = COUNT_PM[event.chat_id] + 1
 
-            if COUNT_PM[event.chat_id] > 5:
+            if COUNT_PM[event.chat_id] > PM_LIMIT:
                 await event.respond(
                     "`Bacot bat Jamet tolol, Gua blok ajalah`\n"
                     f"`Tunggu {DEFAULTUSER} Bales ya`"
