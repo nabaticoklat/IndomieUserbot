@@ -43,8 +43,7 @@ async def permitpm(event):
         event.is_private
         and event.chat_id != 777000
         and event.chat_id != self_user.id
-        and not sender.bot
-        and not sender.contact
+        and not (await event.get_sender()).bot
     ):
         try:
             from userbot.modules.sql_helper.globals import gvarstatus
@@ -129,8 +128,7 @@ async def auto_accept(event):
         event.is_private
         and event.chat_id != 777000
         and event.chat_id != self_user.id
-        and not sender.bot
-        and not sender.contact
+        and not (await event.get_sender()).bot
     ):
         try:
             from userbot.modules.sql_helper.globals import gvarstatus
@@ -139,8 +137,9 @@ async def auto_accept(event):
             return
 
         # Use user custom unapproved message
-        if getmsg is not None:
-            UNAPPROVED_MSG = getmsg
+        get_message = gvarstatus("unapproved_msg")
+        if get_message is not None:
+            UNAPPROVED_MSG = get_message
         else:
             UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
 
@@ -153,7 +152,7 @@ async def auto_accept(event):
             ):
                 if (
                     message.text is not UNAPPROVED_MSG
-                    and message.sender_id == self_user.id
+                    and message.from_id == self_user.id
                 ):
                     try:
                         approve(event.chat_id)
@@ -202,43 +201,24 @@ async def approvepm(apprvpm):
 
     if apprvpm.reply_to_msg_id:
         reply = await apprvpm.get_reply_message()
-        replied_user = await apprvpm.client.get_entity(reply.sender_id)
+        replied_user = await apprvpm.client.get_entity(reply.from_id)
+        aname = replied_user.id
         name0 = str(replied_user.first_name)
         uid = replied_user.id
 
-    elif apprvpm.pattern_match.group(1):
-        inputArgs = apprvpm.pattern_match.group(1)
-
-        try:
-            inputArgs = int(inputArgs)
-        except ValueError:
-            pass
-
-        try:
-            user = await apprvpm.client.get_entity(inputArgs)
-        except BaseException:
-            return await edit_delete(apprvpm, "**Invalid username/ID.**")
-
-        if not isinstance(user, User):
-            return await edit_delete(
-                apprvpm, "**Mohon Reply Pesan User Yang ingin diterima.**"
-            )
-
-        uid = user.id
-        name0 = str(user.first_name)
 
     else:
         aname = await apprvpm.client.get_entity(apprvpm.chat_id)
-        if not isinstance(aname, User):
-            return await edit_delete(
-                apprvpm, "**Mohon Reply Pesan User Yang ingin diterima.**"
-            )
         name0 = str(aname.first_name)
         uid = apprvpm.chat_id
 
     # Get user custom msg
     getmsg = gvarstatus("unapproved_msg")
-    UNAPPROVED_MSG = getmsg if getmsg is not None else DEF_UNAPPROVED_MSG
+    if getmsg is not None:
+        UNAPPROVED_MSG = getmsg
+    else:
+        UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
+
     async for message in apprvpm.client.iter_messages(
         apprvpm.chat_id, from_user="me", search=UNAPPROVED_MSG
     ):
