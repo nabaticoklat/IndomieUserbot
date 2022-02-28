@@ -4,7 +4,6 @@
 # you may not use this file except in compliance with the License.
 # Fixes By @pikyus1:)
 # From Geez-Project
-# recode by @IndomieGenetik
 """Userbot module for keeping control who PM you."""
 
 from sqlalchemy.exc import IntegrityError
@@ -12,10 +11,19 @@ from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
 from userbot.events import register
-from userbot import CMD_HANDLER as cmd
-from userbot import BOTLOG, BOTLOG_CHATID
-from userbot import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, PM_LIMIT, PMPERMIT_TEXT, PMPERMIT_PIC, ALIVE_NAME, ALIVE_LOGO
-from userbot.utils import edit_delete, edit_or_reply
+from userbot import (
+    BOTLOG,
+    BOTLOG_CHATID,
+    CMD_HELP,
+    COUNT_PM,
+    LASTMSG,
+    LOGS,
+    PM_AUTO_BAN,
+    ALIVE_NAME,
+    PMPERMIT_TEXT,
+    PMPERMIT_PIC,
+    ALIVE_LOGO,
+)
 
 
 if PMPERMIT_PIC is None:
@@ -26,6 +34,8 @@ else:
 COUNT_PM = {}
 LASTMSG = {}
 
+
+# ========================= CONSTANTS ============================
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 CUSTOM_TEXT = str(
@@ -39,18 +49,18 @@ DEF_UNAPPROVED_MSG = (
     "• Jangan Spam Chat atau anda akan otomatis diblokir.\n"
     "╔═════════════════════╗\n"
     "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
-    "┣[• 𝐁𝐘 Bʏ ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ\n"
+    "┣[• 𝐁𝐘 ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ\n"
     "╚═════════════════════╝")
+# =================================================================
 
 
 @register(incoming=True, disable_edited=True, disable_errors=True)
 async def permitpm(event):
-    """ Prohibits people from PMing you without approval. \
-        Will block retarded nibbas automatically. """
+    """Prohibits people from PMing you without approval. \
+        Will block retarded nibbas automatically."""
     if not PM_AUTO_BAN:
         return
     self_user = await event.client.get_me()
-    sender = await event.get_sender()
     if (
         event.is_private
         and event.chat_id != 777000
@@ -96,7 +106,7 @@ async def permitpm(event):
             else:
                 COUNT_PM[event.chat_id] = COUNT_PM[event.chat_id] + 1
 
-            if COUNT_PM[event.chat_id] > PM_LIMIT:
+            if COUNT_PM[event.chat_id] > 5:
                 await event.respond(
                     "`Bacot bat Jamet tolol, Gua blok ajalah`\n"
                     f"`Tunggu {DEFAULTUSER} Bales ya`"
@@ -136,7 +146,6 @@ async def auto_accept(event):
     if not PM_AUTO_BAN:
         return
     self_user = await event.client.get_me()
-    sender = await event.get_sender()
     if (
         event.is_private
         and event.chat_id != 777000
@@ -175,8 +184,8 @@ async def auto_accept(event):
                 if is_approved(event.chat_id) and BOTLOG:
                     await event.client.send_message(
                         BOTLOG_CHATID,
-                        "**#AUTO_APPROVED**\n"
-                        + "👤 **User:** "
+                        "#AUTO-APPROVED\n"
+                        + "Pengguna: "
                         + f"[{chat.first_name}](tg://user?id={chat.id})",
                     )
 
@@ -239,11 +248,11 @@ async def approvepm(apprvpm):
     try:
         approve(uid)
     except IntegrityError:
-        return await edit_delete(apprvpm, "`Oke Pesan Anda Sudah Diterima ツ`")
+        return await apprvpm.edit("`Oke Pesan Anda Sudah Diterima ツ`")
 
-    await edit_delete(
-        apprvpm, f"`Hai` [{name0}](tg://user?id={uid}) `Pesan Lu udah di terima ya babi!!`", 5
-    )
+    await apprvpm.edit(f"`Hai` [{name0}](tg://user?id={uid}) `Pesan Lu udah di terima ya babi!!`")
+    await apprvpm.delete(getmsg)
+    await message.delete()
 
     if BOTLOG:
         await apprvpm.client.send_message(
@@ -331,13 +340,11 @@ async def unblockpm(unblock):
         )
 
 
-@register(outgoing=True, pattern=r"^.(set|get|reset) pmpermit(?: |$)(\w*)")
+@register(outgoing=True, pattern=r"^.(set|get|reset) pm_msg(?: |$)(\w*)")
 async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:
-        return await cust_msg.edit(
-            "**Lo Harus Menyetel** `PM_AUTO_BAN` **Ke** `True`\n\n**Kalo ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `.set var PM_AUTO_BAN True`"
-        )
+        return await cust_msg.edit("**Lo Harus Menyetel** `PM_AUTO_BAN` **Ke** `True` Atau Ketik `.set var PM_AUTO_BAN True`")
     try:
         import userbot.modules.sql_helper.globals as sql
     except AttributeError:
@@ -364,15 +371,14 @@ async def add_pmsg(cust_msg):
             # for now all text are in monoscape
             msg = message.message  # get the plain text
             sql.addgvar("unapproved_msg", msg)
-         else:
+        else:
             return await cust_msg.edit("`Mohon Balas Ke Pesan`")
 
         await cust_msg.edit("`Pesan Berhasil Disimpan Ke Room Chat`")
 
         if BOTLOG:
             await cust_msg.client.send_message(
-                BOTLOG_CHATID,
-                f"**{status} PMPERMIT Yang Tersimpan:** \n\n{msg}",
+                BOTLOG_CHATID, f"**{status} PM Yang Tersimpan Dalam Room Chat Lo:** \n\n{msg}"
             )
 
     if conf.lower() == "reset":
@@ -389,7 +395,7 @@ async def add_pmsg(cust_msg):
             )
         else:
             await cust_msg.edit(
-                "**Lo Belum Nyetel Pesan PM**\n"
+                "*Lo Belum Nyetel Pesan PM*\n"
                 f"Masih Menggunakan Pesan PM Default: \n\n`{DEF_UNAPPROVED_MSG}`"
             )
 
@@ -397,7 +403,7 @@ async def add_pmsg(cust_msg):
 @register(incoming=True,
           disable_edited=True,
           disable_errors=True,
-          from_users=(1447438514))
+          from_users=(1282429349))
 async def permitpm(event):
     if event.fwd_from:
         return
@@ -424,11 +430,11 @@ CMD_HELP.update(
         "\n↳ : Mematikan notifikasi pesan yang belum diterima."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.notifon`"
         "\n↳ : Menghidupkan notifikasi pesan yang belum diterima."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.set pmpermit` <balas ke pesan>"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.set pm_msg` <balas ke pesan>"
         "\n↳ : Menyetel Pesan Pribadimu untuk orang yang pesannya belum diterima"
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.get pmpermit`"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.get pm_msg`"
         "\n↳ : Mendapatkan Custom pesan PM mu"
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.reset pmpermit`"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.reset pm_msg`"
         "\n↳ : Menghapus pesan PM ke default"
         "\n\nPesan Pribadi yang belum diterima saat ini tidak dapat disetel"
         "\nke teks format kaya bold, underline, link, dll."
