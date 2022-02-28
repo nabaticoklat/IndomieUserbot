@@ -97,7 +97,8 @@ PMPERMIT_PIC = os.environ.get(
     "PMPERMIT_PIC") or "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png"
 
 # Bleep Blop, this is a bot ;)
-PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
+PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "True"))
+PM_LIMIT = int(os.environ.get("PM_LIMIT", 6))
 
 # Custom Handler command
 CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
