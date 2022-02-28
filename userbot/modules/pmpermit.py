@@ -55,8 +55,11 @@ async def permitpm(event):
         notifsoff = gvarstatus("NOTIF_OFF")
 
         # Use user custom unapproved message
-       getmsg = gvarstatus("unapproved_msg")
-       UNAPPROVED_MSG = getmsg if getmsg is not None else DEF_UNAPPROVED_MSG
+       if getmsg is not None:
+            UNAPPROVED_MSG = getmsg
+        else:
+            UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
+
         # This part basically is a sanity check
         # If the message that sent before is Unapproved Message
         # then stop sending it again to prevent FloodHit
@@ -136,8 +139,11 @@ async def auto_accept(event):
             return
 
         # Use user custom unapproved message
-        get_message = gvarstatus("unapproved_msg")
-        UNAPPROVED_MSG = get_message if get_message is not None else DEF_UNAPPROVED_MSG
+        if getmsg is not None:
+            UNAPPROVED_MSG = getmsg
+        else:
+            UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
+
         chat = await event.get_chat()
         if isinstance(chat, User):
             if is_approved(event.chat_id) or chat.bot:
@@ -154,7 +160,7 @@ async def auto_accept(event):
                     except IntegrityError:
                         return
 
-                if is_approved(event.chat_id) and BOTLOG_CHATID:
+                if is_approved(event.chat_id) and BOTLOG:
                     await event.client.send_message(
                         BOTLOG_CHATID,
                         "**#AUTO_APPROVED**\n"
