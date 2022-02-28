@@ -42,7 +42,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "oi": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `indomie`\
+    "hi": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `indomie`\
     \n↳ : Biodata Indomie\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sayang`\
     \n↳ : Gombalan maut`\
