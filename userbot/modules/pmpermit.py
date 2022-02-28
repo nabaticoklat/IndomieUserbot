@@ -18,6 +18,11 @@ from userbot import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, PM_LIMIT, AL
 from userbot.utils import edit_delete, edit_or_reply
 
 
+COUNT_PM = {}
+LASTMSG = {}
+
+
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”\n"
@@ -346,15 +351,15 @@ async def add_pmsg(cust_msg):
             sql.delgvar("unapproved_msg")
             status = "Pesan"
 
-        if not message:
-            return await cust_msg.edit("**Mohon Reply Ke Pesan**")
-
         if message:
             # TODO: allow user to have a custom text formatting
             # eg: bold, underline, striketrough, link
             # for now all text are in monoscape
-        msg = message.message  # get the plain text
-        sql.addgvar("unapproved_msg", msg)
+            msg = message.message  # get the plain text
+            sql.addgvar("unapproved_msg", msg)
+         else:
+            return await cust_msg.edit("`Mohon Balas Ke Pesan`")
+
         await cust_msg.edit("`Pesan Berhasil Disimpan Ke Room Chat`")
 
         if BOTLOG:
