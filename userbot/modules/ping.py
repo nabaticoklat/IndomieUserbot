@@ -97,14 +97,13 @@ async def redis(pong):
     await pong.edit("__Sabar goblok...__")
     await pong.edit("__Sabar goblok....__")
     await pong.edit("⚡")
-    await asyncio.sleep(2)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await ping.client.get_me()
     await pong.edit(
         f"**ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ!!🍭**\n"
-        f"**▹  Pinger  :** %sms\n"
-        f"**▹  Uᴘᴛɪᴍᴇ  :** `{uptime}`" % (duration)" \n"
+        f"**▹  Pinger  :** `%sms`\n"
+        f"**▹  Uᴘᴛɪᴍᴇ  :** `{uptime}` \n"
         f"**▹  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id})" % (duration)
     )
 
