@@ -100,7 +100,13 @@ async def redis(pong):
     await asyncio.sleep(2)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await pong.edit(f"**IndomieUserbot!!🍭**\n**Pinger** : %sms\n**Bot Uptime** : {uptime}🕛" % (duration))
+    user = await ping.client.get_me()
+    await pong.edit(
+       f"**ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ!!🍭**\n"
+       f"**▹  Pinger  :** %sms\n"
+       f"**▹  Uᴘᴛɪᴍᴇ  :** `{uptime}` \n"
+       f"**▹  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id})" % (duration)
+)
 
 
 @register(outgoing=True, pattern="^.pings$")
