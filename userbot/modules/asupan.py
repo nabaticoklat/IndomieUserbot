@@ -30,6 +30,7 @@ async def _(event):
     except Exception:
         await event.edit("Tidak bisa menemukan video asupan.")
 
+
 @register(pattern="desah$")
 async def _(event):
     try:
@@ -48,7 +49,7 @@ async def _(event):
         await event.delete()
     except Exception:
         await event.edit("Tidak bisa menemukan desahan.")
-        
+
 
 CMD_HELP.update(
     {
