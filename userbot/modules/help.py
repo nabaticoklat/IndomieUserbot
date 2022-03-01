@@ -37,7 +37,7 @@ async def help(event):
                          f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
                          "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
                          f"✦ {string}✦\n\n")
-        await event.respond(
+        await event.reply(
             "\n✎ **ɴᴏᴛᴇꜱ :** `<.help ping>` Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha...")
 
         await asyncio.sleep(1000)
