@@ -15,7 +15,6 @@ from speedtest import Speedtest
 from userbot import CMD_HELP, StartTime, ALIVE_NAME
 from userbot import DEVS
 from userbot.events import register
-from userbot.utils import edit_or_reply
 
 absen = [
     "**Eh ada Owner keren**",
@@ -88,23 +87,20 @@ async def _(indomie):
     await indomie.reply(random.choice(brb))
 
 
-@register(pattern="ping$")
-async def _(ping):
+@register(outgoing=True, pattern="^.ping$")
+async def redis(pong):
+    """ For .ping command, ping the userbot from any chat.  """
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    xx = await edit_or_reply(ping, "__Sabar goblok....__")
-    await xx.edit("__Sabar goblok....__")
-    await xx.edit("__Sabar goblok....__")
-    await xx.edit("⚡")
+    await pong.edit("__Sabar goblok.__")
+    await pong.edit("__Sabar goblok..__")
+    await pong.edit("__Sabar goblok...__")
+    await pong.edit("__Sabar goblok....__")
+    await pong.edit("⚡")
+    await asyncio.sleep(2)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    user = await ping.client.get_me()
-    await xx.edit(
-        f"**ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ!!🍻**\n"
-        f"** ▹  Pinger   ** - `%sms`\n"
-        f"** ▹  Uᴘᴛɪᴍᴇ  -** `{uptime}` \n"
-        f"** ▹  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id})" % (duration)
-    )
+    await pong.edit(f"**IndomieUserbot!!🍭**\n**Pinger** : %sms\n**Bot Uptime** : {uptime}🕛" % (duration))
 
 
 @register(outgoing=True, pattern="^.pings$")
