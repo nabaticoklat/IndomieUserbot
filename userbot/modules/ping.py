@@ -102,11 +102,11 @@ async def redis(pong):
     duration = (end - start).microseconds / 1000
     user = await ping.client.get_me()
     await pong.edit(
-       f"**ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ!!🍭**\n"
-       f"**▹  Pinger  :** %sms\n"
-       f"**▹  Uᴘᴛɪᴍᴇ  :** `{uptime}` \n"
-       f"**▹  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id})" % (duration)
-)
+        f"**ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ!!🍭**\n"
+        f"**▹  Pinger  :** %sms\n"
+        f"**▹  Uᴘᴛɪᴍᴇ  :** `{uptime}` \n"
+        f"**▹  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id})" % (duration)
+    )
 
 
 @register(outgoing=True, pattern="^.pings$")
