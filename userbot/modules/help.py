@@ -6,7 +6,6 @@
 """ Userbot help command """
 
 import asyncio
-from userbot import CMD_HANDLER as cmd
 from userbot import ALIVE_NAME, CMD_HELP
 from userbot.events import register
 from platform import uname
@@ -34,13 +33,12 @@ async def help(event):
         for i in CMD_HELP:
             string += "`" + str(i)
             string += "`\t ✦  "
-        await event.edit(
-            f"**♨ List Help [ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ](https://github.com/indomiegorengsatu/IndomieUserbot)**\n\n"
-            f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ [{user.first_name}](tg://user?id={user.id})**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
-            "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
-            f"✦ {string}✦\n\n")
+        await event.edit("**♨ List Help [ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ]**\n\n"
+                         f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
+                         "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
+                         f"✦ {string}✦\n\n")
         await event.respond(
-            f"\n✎ **ɴᴏᴛᴇꜱ :** `{cmd}help ping` **Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha...**")
+            "\n✎ **ɴᴏᴛᴇꜱ :** `<.help ping>` **Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha...**")
 
         await asyncio.sleep(1000)
         await event.delete()
