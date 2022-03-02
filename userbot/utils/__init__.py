@@ -24,7 +24,6 @@ from .tools import (
     human_to_bytes,
     run_cmd, md5,
     post_to_telegraph,
-    reply_id,
     take_screen_shot,
     runcmd,
     edit_delete,
