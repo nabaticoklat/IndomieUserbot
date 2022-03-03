@@ -14,10 +14,17 @@ from userbot.events import register
 NO_ADMIN = "`Maaf Kamu Bukan Admin 👮`"
 
 
+def vcmention(user):
+    full_name = get_display_name(user)
+    if not isinstance(user, types.User):
+        return full_name
+    return f"[{full_name}](tg://user?id={user.id})"
+
+
 async def get_call(event):
-    indomie = await event.client(getchat(event.chat_id))
-    indomie = await event.client(getvc(indomie.full_chat.call, limit=1))
-    return indomie.call
+    event = await event.client(getchat(event.chat_id))
+    event = await event.client(getvc(event.full_chat.call, limit=1))
+    return event.call
 
 
 def user_list(l, n):
