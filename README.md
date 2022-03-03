@@ -51,7 +51,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 </details>
 
 <details>
-<summary><b> TAP </b></summary>
+<summary><b> ALL CREDITS ARE HERE </b></summary>
 <br>
 
 🏆 **THANKS TO**
