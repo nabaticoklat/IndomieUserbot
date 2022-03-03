@@ -18,7 +18,7 @@ REPOLINK = str(
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
-        "**Hai Tolol**, **Gue Make** `[ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ]` **Nich**\n"
+        "**Hai Tolol, Gue Make** `[ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ]` **Nich**\n"
         "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
         f"┌ **Repo Userbot   :** [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu/IndomieUserbot)\n"
         f"├ **Owner Repo     :** [ɪɴᴅᴏᴍɪᴇ](t.me/IndomieGenetik)\n"
