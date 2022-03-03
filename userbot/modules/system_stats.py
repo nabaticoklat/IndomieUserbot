@@ -165,7 +165,7 @@ async def bot_ver(event):
 
         await event.edit(
             "**⚜-**♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨ Versi:** \n "
-            f"heads/IndomieUserbot-0-x634i7u1"
+            f"{verout}"
             "\n**⚜-**Revisi:**\n "
             f"{revout}"
         )
@@ -238,7 +238,7 @@ async def amireallyalive(alive):
         f"◙ `Bot Ver    :` {BOT_VER} \n"
         f"◙ `Modules    :` {len(modules)} \n"
         f"╰✠╼━━━━━━━━━━━━━━━✠╯\n"
-        f"[ꜱᴛᴏʀᴇ](https://t.me/IndomieStore) | [ᴄʜᴀɴɴᴇʟ](https://t.me/IndomieProject) | [ᴏᴡɴᴇʀ](https://t.me/IndomieGenetik) | [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu/IndomieUserbot)")
+        f"[ꜱᴛᴏʀᴇ](https://t.me/IndomieStore) | [ᴄʜᴀɴɴᴇʟ](https://t.me/IndomieProject) | [ᴏᴡɴᴇʀ](https://t.me/IndomieGenetik) | [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu)")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -259,7 +259,7 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@register(outgoing=True, pattern=r"^\.(?:reon)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:ralive|reon)\s?(.)?")
 async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
