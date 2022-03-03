@@ -48,6 +48,12 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 ## © Credits
 
+</details>
+
+<details>
+<summary><b> TAP </b></summary>
+<br>
+
 🏆 **THANKS TO**
 *   [Indomie](https://github.com/IndomieGorengSatu)    :  IndomieUserbot
 *   [Kyy](https://github.com/muhammadrizky16) :  Kyy - Userbot
