@@ -70,9 +70,9 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <summary><b> ᴘᴇɴᴛɪɴɢ!!!! </b></summary>
 <br>
 
-* - KALO UDAH DI FROK DALEMAN NYA NANGAN DI GANTIK MEK NANTI EROR!
-* - KALO LU CLONE BARU LU BOLEH GANTI YA KONTOL 
-* - JANGAN LUPA KLICK STARNYA KONTOL🤗
+*  KALO UDAH DI FROK DALEMAN NYA NANGAN DI GANTIK MEK NANTI EROR!
+*  KALO LU CLONE BARU LU BOLEH GANTI YA KONTOL 
+*  JANGAN LUPA KLICK STARNYA KONTOL🤗
 
 
 ## License
