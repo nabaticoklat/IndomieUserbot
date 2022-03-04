@@ -459,6 +459,7 @@ ZALG_LIST = {}
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
+
 async def update_restart_msg(chat_id, msg_id):
     DEFAULTUSER = ALIVE_NAME or "Set `ALIVE_NAME` ConfigVar!"
     message = (
@@ -477,7 +478,9 @@ try:
     chat_id, msg_id = gvarstatus("restartstatus").split("\n")
     with bot:
         try:
-            bot.loop.run_until_complete(update_restart_msg(int(chat_id), int(msg_id)))
+            bot.loop.run_until_complete(
+                update_restart_msg(
+                    int(chat_id), int(msg_id)))
         except BaseException:
             pass
     delgvar("restartstatus")
@@ -485,7 +488,7 @@ except AttributeError:
     pass
 
 
-if not BOT_TOKEN is None:
+if BOT_TOKEN is not None:
     tgbot = TelegramClient(
         "TG_BOT_TOKEN",
         api_id=API_KEY,
@@ -495,7 +498,6 @@ if not BOT_TOKEN is None:
     ).start(bot_token=BOT_TOKEN)
 else:
     tgbot = None
-
 
 
 def paginate_help(page_number, loaded_modules, prefix):
