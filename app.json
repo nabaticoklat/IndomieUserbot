@@ -1,6 +1,6 @@
 {
   "name": "IndomieUserbot",
-  "description": "[IndomieUserbot] USERBOT YANG DIGUNAKAN UNTUK ORANG CAPER DAN TEBAR PESONA HEKER DI TELEGRAM.",
+  "description": "[IndomieUserbot] USERBOT YANG DIGUNAKAN UNTUK ORANG CAPER DAN MENEBAR PESONA HEKER DI TELEGRAM.",
   "logo": "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png",
   "keywords": [
     "telegram",
@@ -26,11 +26,6 @@
       "description": "Gambar dalam module .alive",
       "value": "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png",
       "required": false
-    },
-    "RE_TEKS_KUSTOM": {
-      "description": "Kustom Pesan Alive Mu Untuk Perintah .realive (Isi Terserah)",
-      "value": "IndomieGorengSatu Ganteng Banget Sumpah",
-      "required": false 
     },
      "STRING_SESSION": {
       "description": "Dapatkan String Session di repl.it caranya ada di repo, jika tidak tau reponya tanya ke bapakmu coba",
@@ -58,33 +53,16 @@
       "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
       "required": true
      },
-    "TZ_NUMBER": {
-      "description": "Change this value in case your country has multiple Time Zones.",
-      "value": "1",
-      "required": false
-    },
     "DEFAULT_BIO": {
       "description": "Default Bio Mu.",
       "value": "pornhub.com",
       "required": false
-    },
-    "HEROKU_MEMEZ": {
-      "description": "This should be True if the userbot is running on a Heroku Dyno.",
-      "value": "True",
-      "required": true
     },
     "PM_AUTO_BAN": {
       "description": "PM Auto-Ban Feature Switch. Also known as the 'bleep blop, this is a bot...' module.",
       "value": "False",
       "required": true
     },
-    "ANTI_SPAMBOT": {
-      "description": "Menendang spambots dari grup setelah mereka bergabung. [Anda perlu menjadi admin dalam grup untuk menendang.]",
-      "value": "False"
-    },
-    "ANTI_SPAMBOT_SHOUT": {
-      "description": "Report spambots to @admins in groups after they join, just in case when you don't have admin powers to kick that shit yourself.",
-      "value": "False"
     },
     "ALIVE_NAME": {
       "description": "Nama untuk menunjukan pesan .alive",
@@ -93,15 +71,6 @@
     "S_PACK_NAME": {
       "description": "Nama Sticker Pack lo",
       "required": false
-    },
-    "LOGSPAMMER": {
-      "description": "Set this to True in case you want the error logs to be stored in the userbot log group, instead of spitting out the file in the current chat, requires a valid BOTLOG_CHATID to be set.",
-      "value": "True",
-      "required": true
-    },
-    "TMP_DOWNLOAD_DIRECTORY": {
-      "description": "Download location for many modules (GDrive, .download etc..)",
-      "value": "./downloads/"
     },
     "CLEAN_WELCOME": {
       "description": "When a new person joins, the old welcome message is deleted.",
