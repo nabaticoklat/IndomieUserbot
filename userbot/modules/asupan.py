@@ -11,7 +11,7 @@ from telethon.tl.types import InputMessagesFilterVideo
 from telethon.tl.types import InputMessagesFilterVoice
 
 
-@register(pattern="asupan$")
+@register(outgoing=True, pattern=r"^\.asupan$")
 async def _(event):
     try:
         asupannya = [
@@ -24,14 +24,14 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(asupannya),
-            caption=f"Nih kak asupannya [{owner}](tg://user?id={aing.id})",
+            caption=f"Nih kak asupannya [{owner}](tg://user?id={chat.id})",
         )
         await event.delete()
     except Exception:
         await event.edit("Tidak bisa menemukan video asupan.")
 
 
-@register(pattern="desah$")
+@register(outgoing=True, pattern=r"^\.desah$")
 async def _(event):
     try:
         desahnya = [
@@ -44,7 +44,7 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(desahnya),
-            caption=f"Nih kak desahannya [{owner}](tg://user?id={aing.id})",
+            caption=f"Nih kak desahannya [{owner}](tg://user?id={chat.id})",
         )
         await event.delete()
     except Exception:
