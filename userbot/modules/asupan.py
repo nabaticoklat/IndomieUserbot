@@ -9,7 +9,7 @@ import random
 from telethon.tl.types import InputMessagesFilterVideo
 
 
-@register(pattern="asupan$")
+@register(outgoing=True, pattern="^.asupan$")
 async def _(event):
     try:
         asupannya = [
@@ -32,7 +32,7 @@ async def _(event):
 CMD_HELP.update(
     {
         "asupan": f"**Plugin : **`asupan`\
-        \n\n  •  **Syntax :** `{cmd}asupan`\
+        f\n\n  •  **Syntax :** `{cmd}asupan`\
         \n  •  **Function : **Untuk Mengirim video asupan secara random.\
     "
     }
