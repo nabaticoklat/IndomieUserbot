@@ -62,13 +62,13 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 *   [Risman](https://github.com/mrismanaziz)  :  Man-Userbot  
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
 
-
-# BACA INI KONTOL🔥
 </details>
 
 <details>
 <summary><b> ᴘᴇɴᴛɪɴɢ!!!! </b></summary>
 <br>
+
+# BACA INI KONTOL🔥
 
 *  KALO UDAH DI FROK DALEMAN NYA NANGAN DI GANTIK MEK NANTI EROR!
 *  KALO LU CLONE BARU LU BOLEH GANTI YA KONTOL 
