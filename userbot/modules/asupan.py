@@ -4,12 +4,12 @@
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import register_cmd
+from userbot.events import register
 import random
 from telethon.tl.types import InputMessagesFilterVideo
 
 
-@register_cmd(pattern="asupan$")
+@register(pattern="asupan$")
 async def _(event):
     try:
         asupannya = [
