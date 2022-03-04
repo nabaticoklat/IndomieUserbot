@@ -46,13 +46,13 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 
-## © Credits
-
 </details>
 
 <details>
 <summary><b> ALL CREDITS ARE HERE </b></summary>
 <br>
+
+## © Credits
 
 🏆 **THANKS TO**
 *   [Indomie](https://github.com/IndomieGorengSatu)    :  IndomieUserbot
