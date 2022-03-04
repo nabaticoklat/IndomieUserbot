@@ -76,6 +76,10 @@
       "description": "When a new person joins, the old welcome message is deleted.",
       "value": "True"
     },
+    "TMP_DOWNLOAD_DIRECTORY": {
+      "description": "Download location for many modules (GDrive, .download etc..)",
+      "value": "./downloads/"
+    },
     "WEATHER_DEFCITY": {
       "description": "Set the default city for the userbot's weather module.",
       "value": "Jakarta",
