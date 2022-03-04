@@ -1,14 +1,12 @@
- 🍀 © @tofik_dn
-# ⚠️ Do not remove credits
-
-
-from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP
-from userbot.utils import register
-import random
-from userbot import owner
-from telethon.tl.types import InputMessagesFilterVideo
 from telethon.tl.types import InputMessagesFilterVoice
+from telethon.tl.types import InputMessagesFilterVideo
+from userbot import owner
+import random
+from userbot.utils import register
+from userbot import CMD_HELP
+from userbot import CMD_HANDLER as cmd
+🍀 © @tofik_dn
+# ⚠️ Do not remove credits
 
 
 @register(pattern="asupan$")
@@ -25,12 +23,11 @@ async def _(event):
             event.chat_id,
             file=random.choice(asupannya),
             caption=f"**Berhasil menemukan Video**.")
-        
+
         await event.delete()
     except Exception:
         await event.edit("Tidak bisa menemukan video asupan.")
 
-        
 
 CMD_HELP.update(
     {
