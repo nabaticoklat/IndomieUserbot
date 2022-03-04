@@ -1,14 +1,17 @@
 # 🍀 © @tofik_dn
 # ⚠️ Do not remove credits
 
-from telethon.tl.types import InputMessagesFilterVideo
-import random
-from userbot.utils import register
-from userbot import CMD_HELP
+
 from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP
+from userbot.utils import register_cmd
+import random
+from userbot import owner
+from telethon.tl.types import InputMessagesFilterVideo
+from telethon.tl.types import InputMessagesFilterVoice
 
 
-@register(pattern="asupan$")
+@register_cmd(pattern="asupan$")
 async def _(event):
     try:
         asupannya = [
@@ -17,16 +20,17 @@ async def _(event):
                 "@Gabutnyazaen", filter=InputMessagesFilterVideo
             )
         ]
-        await event.client.get_me()
+        aing = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(asupannya),
             caption=f"**Berhasil menemukan Video**.")
-
+        
         await event.delete()
     except Exception:
         await event.edit("Tidak bisa menemukan video asupan.")
 
+        
 
 CMD_HELP.update(
     {
