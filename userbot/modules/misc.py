@@ -6,7 +6,7 @@ import sys
 import os
 import io
 import sys
-from userbot import ALIVE_NAME, UPSTREAM_REPO_URL, BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
+from userbot import ALIVE_NAME, UPSTREAM_REPO_URL, UPSTREAM_REPO_BRANCH, BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
 from userbot.events import register
 from userbot.utils import time_formatter
 import urllib
@@ -79,6 +79,22 @@ async def killdabot(event):
     # Spin a new instance of bot
     args = [sys.executable, "-m", "userbot"]
     execle(sys.executable, *args, environ)
+
+
+@register(outgoing=True, pattern="^.repo$")
+async def repo_is_here(wannasee):
+    """ For .repo command, just returns the repo URL. """
+    await wannasee.edit(
+        "**Hai Bego, Gue Make** `[ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ]` **Nichhh**\n"
+        "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
+        f"┌ **Repo Userbot   :** [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu/IndomieUserbot)\n"
+        f"├ **Owner Repo     :** [ɪɴᴅᴏᴍɪᴇ](t.me/IndomieGenetik)\n"
+        f"├ **UserbotVersion :** `{BOT_VER}`\n"
+        f"├ **Branch         :** `{UPSTREAM_REPO_BRANCH}`\n"
+        f"├ **Support        :** [sᴜᴘᴘᴏʀᴛ](https://t.me/IndomieProject)\n"
+        f"└ **Channel        :** [ᴄʜᴀɴɴᴇʟ](https://t.me/IndomieStore)\n"
+        "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
+    )
 
 
 @register(outgoing=True, pattern="^.readme$")
@@ -264,6 +280,8 @@ CMD_HELP.update({
     \n↳ : Mematikan bot",
     "string": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.string`\
     \n↳: Menampilkan link String IndomieUserbot",
+    "repo": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.repo`\
+    \n↳ : Menampilan link Repository IndomieUserbot.",
     "readme": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `.readme`\
     \n↳ : Menyediakan tautan untuk mengatur userbot dan modulnya.",
     "repeat": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.repeat <no> <text>`\
