@@ -40,6 +40,11 @@
       "value": "Check Di Heroku Dashboard Mu",
       "required": true
     },
+    "TZ_NUMBER": {
+      "description": "Change this value in case your country has multiple Time Zones.",
+      "value": "1",
+      "required": false
+    },
     "BOTLOG": {
       "description": "Kalo Mau Off in BOTLOG Ganti False",
       "value": "True",
@@ -52,7 +57,12 @@
     "G_BAN_LOGGER_GROUP": {
       "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
       "required": true
-     },
+    },
+    "HEROKU_MEMEZ": {
+      "description": "This should be True if the userbot is running on a Heroku Dyno.",
+      "value": "True",
+      "required": true
+    },
     "DEFAULT_BIO": {
       "description": "Default Bio Mu.",
       "value": "pornhub.com",
@@ -63,6 +73,10 @@
       "value": "False",
       "required": true
     },
+    "LOGSPAMMER": {
+      "description": "Set this to True in case you want the error logs to be stored in the userbot log group, instead of spitting out the file in the current chat, requires a valid BOTLOG_CHATID to be set.",
+      "value": "True",
+      "required": true
     },
     "ALIVE_NAME": {
       "description": "Nama untuk menunjukan pesan .alive",
