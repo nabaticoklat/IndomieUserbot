@@ -1,9 +1,7 @@
 # 🍀 © @tofik_dn
 # ⚠️ Do not remove credits
 
-from telethon.tl.types import InputMessagesFilterVoice
 from telethon.tl.types import InputMessagesFilterVideo
-from userbot import owner
 import random
 from userbot.utils import register
 from userbot import CMD_HELP
@@ -19,7 +17,7 @@ async def _(event):
                 "@Gabutnyazaen", filter=InputMessagesFilterVideo
             )
         ]
-        aing = await event.client.get_me()
+        await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(asupannya),
