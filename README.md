@@ -63,5 +63,17 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
 
 
+# BACA INI KONTOL🔥
+</details>
+
+<details>
+<summary><b> ᴘᴇɴᴛɪɴɢ!!!! </b></summary>
+<br>
+
+* - KALO UDAH DI FROK DALEMAN NYA NANGAN DI GANTIK MEK NANTI EROR!
+* - KALO LU CLONE BARU LU BOLEH GANTI YA KONTOL 
+* - JANGAN LUPA KLICK STARNYA KONTOL🤗
+
+
 ## License
 Licensed under [Raphielscape Public License](https://github.com/IndomieGorengSatu/IndomieUserbot/blob/IndomieUserbot/LICENSE) - Version 3, 29 June 2007
