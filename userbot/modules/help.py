@@ -18,27 +18,27 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 
 @register(outgoing=True, pattern="^.help(?: |$)(.*)")
-async def help(event):
+async def help(indomie):
     """ For .help command,"""
-    args = event.pattern_match.group(1).lower()
+    args = indomie.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
-            await event.edit(str(CMD_HELP[args]))
+            await indomie.edit(str(CMD_HELP[args]))
         else:
-            await event.edit("**`NGETIK YANG BENER NGENTOT!`**")
+            await indomie.edit("**`NGETIK YANG BENER NGENTOT!`**")
             await asyncio.sleep(50)
-            await event.delete()
+            await indomie.delete()
     else:
         string = ""
         for i in CMD_HELP:
             string += "`" + str(i)
             string += "`\t ✦  "
-        await event.edit("**♨ List Help [ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ]**\n\n"
+        await indomie.edit("**♨ List Help [ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ]**\n\n"
                          f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
                          "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
                          f"✦ {string}✦\n\n")
-        await event.reply(
+        await indomie.reply(
             "\n✎ **ɴᴏᴛᴇꜱ :** `<.help ping>` **Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha...**")
 
         await asyncio.sleep(50)
-        await event.delete()
+        await indomie.delete()
