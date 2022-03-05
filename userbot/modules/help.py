@@ -34,9 +34,9 @@ async def help(indomie):
             string += "`" + str(i)
             string += "`\t ✦  "
         await indomie.edit("**♨ List Help [ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ]**\n\n"
-                         f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
-                         "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
-                         f"✦ {string}✦\n\n")
+                           f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
+                           "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
+                           f"✦ {string}✦\n\n")
         await indomie.reply(
             "\n✎ **ɴᴏᴛᴇꜱ :** `<.help ping>` **Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha...**")
 
