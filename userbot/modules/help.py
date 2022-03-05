@@ -26,7 +26,7 @@ async def help(event):
             await event.edit(str(CMD_HELP[args]))
         else:
             await event.edit("**`NGETIK YANG BENER NGENTOT!`**")
-            await asyncio.sleep(200)
+            await asyncio.sleep(50)
             await event.delete()
     else:
         string = ""
@@ -37,8 +37,8 @@ async def help(event):
                          f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ {DEFAULTUSER}**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
                          "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
                          f"✦ {string}✦\n\n")
-        await event.respond(
+        await event.reply(
             "\n✎ **ɴᴏᴛᴇꜱ :** `<.help ping>` **Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha...**")
 
-        await asyncio.sleep(1000)
+        await asyncio.sleep(50)
         await event.delete()
