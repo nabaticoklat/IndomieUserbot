@@ -46,7 +46,7 @@
       "required": false
     },
     "BOTLOG": {
-      "description": "Kalo Mau Off in BOTLOG Ganti False",
+      "description": "Ini adalah notif BOTLOG, Kalo Mau Off in BOTLOG Ganti False",
       "value": "True",
       "required": true
     },
