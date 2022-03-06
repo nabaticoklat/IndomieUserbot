@@ -124,8 +124,8 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
     await wannasee.edit(
-        f"✦ **GET STRING SESSION TELEGRAM VIA REPLIT :** [KLIK DISINI](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)\n"
-        f"✦ **GET STRING SESSION VIA BOT             :** [KLIK DISINI](https://t.me/IndomieStringBot)\n"
+        f"✦ **GET STRING SESSION VIA REPLIT :** [KLIK DISINI](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)\n"
+        f"✦ **GET STRING SESSION VIA BOT    :** [KLIK DISINI](https://t.me/IndomieStringBot)\n"
     )
 
 
