@@ -46,7 +46,7 @@
       "required": false
     },
     "BOTLOG": {
-      "description": "Ini adalah notif BOTLOG, Kalo Mau Off in BOTLOG Ganti False",
+      "description": "Ini adalah notif BOT, Kalo Mau Off in BOTLOG Ganti False",
       "value": "True",
       "required": true
     },
@@ -69,7 +69,7 @@
       "required": false
     },
     "PM_AUTO_BAN": {
-      "description": "PM Auto-Ban Feature Switch. Also known as the 'bleep blop, this is a bot...' module.",
+      "description": "Bot yang menjaga PC/Room chat kamu, ubah True untuk mengaktifkannya.",
       "value": "False",
       "required": true
     },
