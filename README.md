@@ -18,8 +18,6 @@
   </a>
 </p>  
 
-![VIEWS](https://komarev.com/ghpvc/?username=IndomieGorengSatu)
-
 
 <p align="center">
   <img src="https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png">
