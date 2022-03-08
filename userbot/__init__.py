@@ -208,7 +208,7 @@ YOUTUBE_API_KEY = os.environ.get(
 # Untuk Perintah .realive
 RE_TEKS_KUSTOM = os.environ.get(
     "RE_TEKS_KUSTOM",
-    "I'am Using IndomieUserbot♨")
+    "[`Indomie Userbot`](https://github.com/indomiegorengsatu/IndomieUserbot) kece ni bosh, senggol dong")
 
 # Untuk Mengubah Pesan Welcome
 START_WELCOME = os.environ.get("START_WELCOME", None)
@@ -430,7 +430,7 @@ with bot:
 
 
 async def check_alive():
-    await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"**IndomieUserbot Berhasil Diaktifkan♨**\n━━━━━━━━━━━━━━━━━━━\n❃ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}\n❃ **ʙᴏᴛ ᴠᴇʀ :** 8.2\n━━━━━━━━━━━━━━━━━━━\n❃ **sᴜᴘᴘᴏʀᴛ​ :** @IndomieProject\n❃ **ᴄʜᴀɴɴᴇʟ​ :** @IndomieStore \n━━━━━━━━━━━━━━━━━━━")
+    await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"**IndomieUserbot Berhasil Diaktifkan ♨**\n━━━━━━━━━━━━━━━━━━━\n✦ **ʙᴏᴛ ᴏꜰ :** `{ALIVE_NAME}`\n✦ **ʙᴏᴛ ᴠᴇʀ :** `8.2`\n━━━━━━━━━━━━━━━━━━━\n✦ **sᴜᴘᴘᴏʀᴛ​ :** @IndomieProject\n✦ **Store​ :** @IndomieStore \n━━━━━━━━━━━━━━━━━━━")
     return
 
 with bot:
