@@ -14,6 +14,8 @@ from userbot.events import register
 GCAST_BLACKLIST = [
     -1001681347365,  # MemekJembot
     -1001473548283,  # SharingUserbot
+    -1001604893399,  # ah ah ah
+    -1001650281175,  # @IndomieGenetik
 ]
 
 
@@ -30,7 +32,7 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit("**PESAN NYA MANA KONTOLLL?**")
+        await event.edit("`PESAN NYA MANA ANJEENG?`")
         return
     kk = await event.edit("`Sedang Mengirim Pesan Secara Global... 📢`")
     er = 0
@@ -61,7 +63,7 @@ async def gucast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit("**PESAN NYA MANA KONTOLLL?**")
+        await event.edit("`PESAN NYA MANA ANJEENG?`")
         return
     kk = await event.edit("`Sedang Mengirim Pesan Secara Global... 📢`")
     er = 0
