@@ -11,7 +11,7 @@ from telethon.tl.types import InputPhoto
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, LOGS, STORAGE
 from userbot.utils import edit_or_reply
-form userbot.events import register
+from userbot.events import register
 
 if not hasattr(STORAGE, "userObj"):
     STORAGE.userObj = False
