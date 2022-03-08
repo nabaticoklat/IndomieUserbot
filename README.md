@@ -9,6 +9,19 @@
 
 
 <p align="center">
+  <a href="https://github.com/IndomieGorengSatu/IndomieUserbot/fork">
+    <img src="https://img.shields.io/github/forks/IndomieGorengSatu/IndomieUserbot?label=Fork&style=social">
+    
+  </a>
+  <a href="https://github.com/IndomieGorengSatu/IndomieUserbot">
+    <img src="https://img.shields.io/github/stars/IndomieGorengSatu/IndomieUserbot?style=social">
+  </a>
+</p>  
+
+![VIEWS](https://komarev.com/ghpvc/?username=IndomieGorengSatu)
+
+
+<p align="center">
   <img src="https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png">
 </p>
 
