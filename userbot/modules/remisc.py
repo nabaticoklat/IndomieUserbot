@@ -5,7 +5,6 @@ import bs4
 import os
 import asyncio
 import time
-import html
 from justwatch import JustWatch
 from telethon import *
 from userbot.events import register
@@ -15,8 +14,6 @@ from telethon.tl import functions
 from urllib.parse import quote
 from datetime import datetime
 from telethon.tl.types import UserStatusEmpty, UserStatusLastMonth, UserStatusLastWeek, UserStatusOffline, UserStatusOnline, UserStatusRecently, ChatBannedRights
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import MessageEntityMentionName
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 
@@ -487,7 +484,6 @@ async def _(event):
             await event.delete()
             await event.client.send_message(event.chat_id, response.message)
             await event.client.delete_message(chat, event.chat_id, response.message)
-
 
 
 def get_stream_data(query):
