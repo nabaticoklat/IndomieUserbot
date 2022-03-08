@@ -228,15 +228,15 @@ async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f" **♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨** \n\n"
+        f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Siap digunakan.** \n\n"
         f"\n__**{RE_TEKS_KUSTOM}**__\n\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
-        f"◙ `Name       :` {DEFAULTUSER} \n"
-        f"◙ `Username   :` @{user.username} \n"
-        f"◙ `Telethon   :` {version.__version__} \n"
-        f"◙ `Python     :` {python_version()} \n"
-        f"◙ `Bot Ver    :` {BOT_VER} \n"
-        f"◙ `Modules    :` {len(modules)} \n"
+        f"├ `Name       :` {DEFAULTUSER} \n"
+        f"├ `Username   :` @{user.username} \n"
+        f"├ `Telethon   :` {version.__version__} \n"
+        f"├ `Python     :` {python_version()} \n"
+        f"├ `Bot Ver    :` {BOT_VER} \n"
+        f"├ `Modules    :` {len(modules)} \n"
         f"╰✠╼━━━━━━━━━━━━━━━✠╯\n"
         f"[ꜱᴛᴏʀᴇ](https://t.me/IndomieStore) | [ᴄʜᴀɴɴᴇʟ](https://t.me/IndomieProject) | [ᴏᴡɴᴇʀ](https://t.me/IndomieGenetik) | [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu)")
     if ALIVE_LOGO:
@@ -259,12 +259,12 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@register(outgoing=True, pattern=r"^\.(?:ralive|reon)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:malive|mon)\s?(.)?")
 async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) is Up and Running.**\n\n"
+        f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Siap digunakan.**\n\n"
         f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬● \n"
         f"┌ **😈Master :** [{user.first_name}](tg://user?id={user.id}) \n"
         f"├ **🖥️ • `ꜱʏꜱᴛᴇᴍ   :** `Ubuntu 20.10 \n"
@@ -297,17 +297,17 @@ async def amireallyalive(alive):
 async def redis(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
-    await alive.edit("__Sabar Ngentot.__")
-    await alive.edit("__Sabar Ngentot..__")
-    await alive.edit("__Sabar Ngentot.__")
-    await alive.edit("__Sabar Ngentot..__")
-    await alive.edit("__Sabar Ngentot...__")
-    await alive.edit("__Sabar Ngentot..__")
-    await alive.edit("__Sabar Ngentot...__")
+    await alive.edit("__Sabar Goblok.__")
+    await alive.edit("__Sabar Goblok..__")
+    await alive.edit("__Sabar Goblok...__")
+    await alive.edit("__Sabar Goblok..__")
+    await alive.edit("__Sabar Goblok.__")
+    await alive.edit("__Sabar Goblok..__")
+    await alive.edit("__Sabar Goblok...__")
     await alive.edit("✨")
     await asyncio.sleep(2)
     output = (
-        f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) is Up and Running.**\n\n"
+        f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Siap digunakan.**\n\n"
         f"┌  `Name     :` {DEFAULTUSER} \n"
         f"├  `Username :` @{user.username} \n"
         f"├  `Telethon :` Ver {version.__version__} \n"
@@ -315,7 +315,7 @@ async def redis(alive):
         f"├  `Branch   :` {UPSTREAM_REPO_BRANCH} \n"
         f"├  `Bot Ver  :` {BOT_VER} \n"
         f"├  `Modules  :` {len(modules)} Modules \n"
-        f"├  `GitHub   :` [Indomie](https://github.com/indomiegorengsatu/IndomieUserbot) \n"
+        f"├  `GitHub   :` [Indomie](https://github.com/indomiegorengsatu) \n"
         f"├  `Support  :` [Channel](https://t.me/IndomieProject) \n"
         f"└  `Owner    :` [Indomie](https://t.me/IndomieGenetik) \n"
         f"    **[𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/IndomieProject)** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹](https://t.me/IndomieStore)** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**")
