@@ -57,7 +57,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         if HEROKU_APP_NAME is None:
             await event.edit(
                 "`[HEROKU]: Harap Siapkan Variabel` **HEROKU_APP_NAME** `"
-                " untuk dapat deploy perubahan terbaru dari ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨.`"
+                " untuk dapat deploy perubahan terbaru dari ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ.`"
             )
             repo.__del__()
             return
@@ -71,7 +71,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             )
             return repo.__del__()
         await event.edit(
-            "`Heroku :` `**Lagi di perbarui pler!**\n`Ga lama kok nyet, pling sejam doang xixi bngek hyung.`"
+            "`Heroku :` **Lagi di perbarui pler!**\n`Ga lama kok nyet, pling sejam doang xixi.`"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -122,9 +122,9 @@ async def update(event, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
-    await event.edit("**♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨** `Berhasil Di Update!`")
+    await event.edit("**ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ** `Berhasil Di Update!`")
     await asyncio.sleep(1)
-    await event.edit("**♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨** `Di Restart....`")
+    await event.edit("**ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ** `Di Restart....`")
     await asyncio.sleep(1)
     await event.edit("`Orang Sabar Disayang Tuhan, Klo G Sbrn G punya Tuhan.`")
     await asyncio.sleep(10)
@@ -132,7 +132,7 @@ async def update(event, repo, ups_rem, ac_br):
 
     if BOTLOG:
         await event.client.send_message(
-            BOTLOG_CHATID, "#BOT \n" "**♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨ Berhasil Di Apdet mek.**"
+            BOTLOG_CHATID, "#BOT \n" "**ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ Berhasil Di Apdet mek.**"
         )
         await asyncio.sleep(100)
         await event.delete()
@@ -196,7 +196,7 @@ async def upstream(event):
 
     if changelog == "" and force_update is False:
         await event.edit(
-            f"\n♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨ **Sudah Versi Terbaru Goblok!**\n"
+            f"\n`ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ` **Sudah Versi Terbaru Goblok!**\n"
         )
         await asyncio.sleep(15)
         await event.delete()
@@ -204,10 +204,10 @@ async def upstream(event):
 
     if conf is None and force_update is False:
         changelog_str = (
-            f"**Pembaruan Untuk ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨ :\n\n🚀 Pembaruan Data :**\n`{changelog}`"
+            f"**Pembaruan Untuk ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ :\n\n🚀 Pembaruan Data :**\n`{changelog}`"
         )
         if len(changelog_str) > 4096:
-            await event.edit("`Changelog Terlalu Besar, Lihat File Untuk Melihatnya.`")
+            await event.edit("`Changelog Terlalu Besar, Silakan Lihat File Untuk Melihatnya.`")
             file = open("output.txt", "w+")
             file.write(changelog_str)
             file.close()
@@ -220,7 +220,7 @@ async def upstream(event):
         else:
             await event.edit(changelog_str)
         return await event.respond(
-            "**Perintah Untuk Update, Sebagai Berikut.**\n🔰 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update now` (Sementara)\n🔰 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update deploy` (Permanen)\n\n__Untuk Meng Update Fitur Terbaru Dari ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨.__"
+            "**Perintah Untuk Update, Sebagai Berikut.**\n🔰 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update now` (Sementara)\n🔰 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update deploy` (Permanen)\n\n__Untuk Meng Update Fitur Terbaru Dari ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ.__"
         )
 
     if force_update:
@@ -228,13 +228,13 @@ async def upstream(event):
             "`Sinkronisasi Paksa Ke Kode Userbot Stabil Terbaru, Harap Tunggu .....`"
         )
     else:
-        await event.edit("` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨, Loading....1%`")
-        await event.edit("` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨ Loading....20%`")
-        await event.edit("` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨, Loading....35%`")
-        await event.edit("` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨, Loading....77%`")
-        await event.edit("` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨, Updating...90%`")
+        await event.edit("` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ, Loading....1%`")
+        await event.edit("` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ Loading....20%`")
+        await event.edit("` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ, Loading....35%`")
+        await event.edit("` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ, Loading....77%`")
+        await event.edit("` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ, Updating...90%`")
         await event.edit(
-            "` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨, Mohon Tunggu Sebentar....100%`"
+            "` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ, Mohon Tunggu Sebentar....100%`"
         )
 
     if conf == "now":
