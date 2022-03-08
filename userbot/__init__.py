@@ -28,7 +28,6 @@ from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
 
 
-
 redis_db = None
 
 load_dotenv("config.env")
