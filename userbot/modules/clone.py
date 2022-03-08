@@ -17,7 +17,7 @@ if not hasattr(STORAGE, "userObj"):
     STORAGE.userObj = False
 
 
-@register(pattern="clone ?(.*)")
+@register(outgoing=True, pattern=r"^\.clone ?(.*)")
 async def impostor(event):
     inputArgs = event.pattern_match.group(1)
     xx = await edit_or_reply(event, "`Processing...`")
