@@ -118,9 +118,21 @@ async def repeat(rep):
     await rep.edit(replyText)
 
 
+@register(outgoing=True, pattern="^.owner$")
+async def owner_information(owner):
+    await owner.edit(
+        "**Semua sosial media pemilik repo ini**\n"
+        "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
+        f"┌ **Github   :** [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu)\n"
+        f"├ **Owner          :** [ɪɴᴅᴏᴍɪᴇ](t.me/IndomieGenetik)\n"
+        f"├ **Instagram              :** [Instagram](https://www.instagram.com/w1thmyluv)\n"
+        f"└ **Store                    :** [Store](https://t.me/IndomieStore)\n"
+        "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
+    )
+
+
 @register(outgoing=True, pattern=r"^\.string$")
-async def repo_is_here(wannasee):
-    """For .repo command, just returns the repo URL."""
+async def string(wannasee):
     await wannasee.edit(
         f"✦ **GET STRING SESSION VIA REPLIT :** [KLIK DISINI](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)\n"
         f"✦ **GET STRING SESSION VIA BOT      :** [KLIK DISINI](https://t.me/IndomieStringBot)\n"
@@ -162,7 +174,7 @@ async def okgoogle(img):
         photo = io.BytesIO()
         await bot.download_media(message, photo)
     else:
-        await img.edit("`Reply Di Gambarnya Goblok...`")
+        await img.edit("`Reply di foto nya Goblok...`")
         return
 
     if photo:
@@ -170,7 +182,7 @@ async def okgoogle(img):
         try:
             image = Image.open(photo)
         except OSError:
-            await img.edit('`Gambar tidak di dukung`')
+            await img.edit('`foto tidak di dukung`')
             return
         name = "okgoogle.png"
         image.save(name, "PNG")
