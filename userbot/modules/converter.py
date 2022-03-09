@@ -127,7 +127,7 @@ async def cevir(event):
         return
 
 
-@register(outgoing=True, pattern=r"^.pattern="makevoice$")
+@register(outgoing=True, pattern=r"^.makevoice$")
 async def makevoice(event):
     if not event.reply_to:
         return await edit_delete(event, "**Mohon Balas Ke Audio atau video**")
