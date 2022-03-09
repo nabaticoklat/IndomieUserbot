@@ -28,7 +28,6 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 
 modules = CMD_HELP
-alive_text = ALIVE_TEKS_CUSTOM
 
 
 async def get_readable_time(seconds: int) -> str:
@@ -230,7 +229,7 @@ async def amireallyalive(alive):
     await get_readable_time((time.time() - StartTime))
     output = (
         f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Siap digunakan.** \n\n"
-        f"\n__**{alive_text}**__\n\n\n"
+        f"\n__**{ALIVE_TEKS_CUSTOM}**__\n\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
         f"├ `Name       :` [{user.first_name}](tg://user?id={user.id}) \n"
         f"├ `Username   :` @{user.username} \n"
