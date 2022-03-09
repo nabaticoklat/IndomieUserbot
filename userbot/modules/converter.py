@@ -20,9 +20,10 @@ from userbot.events import register
 from userbot.utils import edit_delete, edit_or_reply, runcmd
 
 
-@register(outgoing=True, pattern=r"^.convert ?(foto|audio|gif|voice|photo|mp3)? ?(.*)")
+@register(outgoing=True,
+          pattern=r"^.convert ?(foto|audio|gif|voice|photo|mp3)? ?(.*)")
 async def cevir(event):
-    indomie=event.pattern_match.group(1)
+    indomie = event.pattern_match.group(1)
     try:
         if len(indomie) < 1:
             await edit_delete(
