@@ -124,7 +124,7 @@ async def owner_information(owner):
         "**Semua sosmed pemilik repo ini**\n"
         "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
         f"┌ **Github                :** [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu)\n"
-        f"├ **Telegram            :** [ɪɴᴅᴏᴍɪᴇ](t.me/IndomieGenetik)\n"
+        f"├ **Telegram           :** [ɪɴᴅᴏᴍɪᴇ](t.me/IndomieGenetik)\n"
         f"├ **Instagram         :** [Instagram](https://www.instagram.com/w1thmyluv)\n"
         f"└ **Store                   :** [Store](https://t.me/IndomieStore)\n"
         "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
