@@ -220,7 +220,7 @@ async def upstream(event):
         else:
             await event.edit(changelog_str)
         return await event.respond(
-            "**Perintah Untuk Update, Sebagai Berikut.**\n🔰 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update now` (Sementara)\n🔰 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update deploy` (Permanen)\n\n__Untuk Meng Update Fitur Terbaru Dari ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ.__"
+            "**Perintah Untuk Update, Sebagai Berikut.**\n🔰 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update deploy`\n\n__Untuk Meng Update Fitur Terbaru Dari ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ.__"
         )
 
     if force_update:
@@ -252,9 +252,7 @@ CMD_HELP.update(
     {
         "update": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update`"
         "\n• : Untuk Melihat Pembaruan Terbaru IndomieUserbot."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update now`"
-        "\n• : Memperbarui IndomieUserbot."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update deploy`"
-        "\n• : Memperbarui IndomieUserbot Dengan Cara Men-Deploy Ulang."
+        "\n• : Memperbarui IndomieUserbot."
     }
 )
