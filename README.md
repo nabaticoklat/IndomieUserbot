@@ -59,6 +59,19 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 </details>
 
 <details>
+<summary><b> ᴘᴇɴᴛɪɴɢ!!!! </b></summary>
+<br>
+
+# BACA INI KONTOL🔥
+
+*  KALO UDAH DI FROK DALEMAN NYA NANGAN DI GANTIK MEK NANTI EROR!
+*  KALO LU CLONE BARU LU BOLEH GANTI YA KONTOL 
+*  JANGAN LUPA KLICK STARNYA KONTOL🤗
+
+
+</details>
+
+<details>
 <summary><b> ALL CREDITS ARE HERE </b></summary>
 <br>
 
@@ -71,18 +84,6 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 *   [Pocong](https://github.com/poocong)      :  Pocong Userbot
 *   [Risman](https://github.com/mrismanaziz)  :  Man-Userbot  
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
-
-</details>
-
-<details>
-<summary><b> ᴘᴇɴᴛɪɴɢ!!!! </b></summary>
-<br>
-
-# BACA INI KONTOL🔥
-
-*  KALO UDAH DI FROK DALEMAN NYA NANGAN DI GANTIK MEK NANTI EROR!
-*  KALO LU CLONE BARU LU BOLEH GANTI YA KONTOL 
-*  JANGAN LUPA KLICK STARNYA KONTOL🤗
 
 
 ## License
