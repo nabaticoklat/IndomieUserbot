@@ -240,7 +240,7 @@ async def _(dyno):
     return os.remove("logs.txt")
 
 
-CMD_HELP.update({"herokuapp": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usage`"
+CMD_HELP.update({"heroku": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usage`"
                  "\n↳ : **Check Quota Alay Mu.**"
                  "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.logs`"
                  "\n↳ : **Melihat Logs Heroku Anda.**"
