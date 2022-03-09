@@ -28,7 +28,6 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 
 modules = CMD_HELP
-alive_text = RE_TEKS_KUSTOM
 
 
 async def get_readable_time(seconds: int) -> str:
@@ -230,7 +229,7 @@ async def amireallyalive(alive):
     await get_readable_time((time.time() - StartTime))
     output = (
         f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Siap digunakan.** \n\n"
-        f"\n__**{alive_text}**__\n\n\n"
+        f"\n__**{RE_TEKS_KUSTOM}**__\n\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
         f"├ `Name       :` [{user.first_name}](tg://user?id={user.id}) \n"
         f"├ `Username   :` @{user.username} \n"
@@ -263,7 +262,7 @@ async def amireallyalive(alive):
 @register(outgoing=True, pattern=r"^\.(?:alive|on)\s?(.)?")
 async def redis(alive):
     user = await bot.get_me()
-    uptime = await get_readable_time((time.time() - StartTime))
+    await get_readable_time((time.time() - StartTime))
     await alive.edit("__Sabar Goblok.__")
     await alive.edit("__Sabar Goblok..__")
     await alive.edit("__Sabar Goblok...__")
@@ -282,7 +281,6 @@ async def redis(alive):
         f"├  `Branch   :` {UPSTREAM_REPO_BRANCH} \n"
         f"├  `Bot Ver  :` {BOT_VER} \n"
         f"├  `Modules  :` {len(modules)} Modules \n"
-        f"├  `Uptime   :` {uptime} \n"
         f"├  `Support  :` [Indomie Project](https://t.me/IndomieProject) \n"
         f"└  `Owner    :` [Indomie](https://t.me/IndomieGenetik) \n"
         f"    **[𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/IndomieProject)** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹](https://t.me/IndomieStore)** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**")
