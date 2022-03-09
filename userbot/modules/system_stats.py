@@ -18,7 +18,7 @@ import sys
 import time
 from datetime import datetime
 import psutil
-from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, RE_TEKS_KUSTOM, StartTime, UPSTREAM_REPO_BRANCH, bot
+from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, ALIVE_TEKS_CUSTOM, StartTime, UPSTREAM_REPO_BRANCH, bot
 from userbot.events import register
 
 
@@ -229,14 +229,15 @@ async def amireallyalive(alive):
     await get_readable_time((time.time() - StartTime))
     output = (
         f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Siap digunakan.** \n\n"
-        f"\n__**{RE_TEKS_KUSTOM}**__\n\n\n"
+        f"\n__**{alive_text}**__\n\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
-        f"├ `Name       :` {DEFAULTUSER} \n"
+        f"├ `Name       :` [{user.first_name}](tg://user?id={user.id}) \n"
         f"├ `Username   :` @{user.username} \n"
         f"├ `Telethon   :` {version.__version__} \n"
         f"├ `Python     :` {python_version()} \n"
         f"├ `Bot Ver    :` {BOT_VER} \n"
         f"├ `Modules    :` {len(modules)} \n"
+        f"├ `Bot Uptime :` {uptime} \n"
         f"╰✠╼━━━━━━━━━━━━━━━✠╯\n"
         f"[ꜱᴛᴏʀᴇ](https://t.me/IndomieStore) | [ᴄʜᴀɴɴᴇʟ](https://t.me/IndomieProject) | [ᴏᴡɴᴇʀ](https://t.me/IndomieGenetik) | [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu)")
     if ALIVE_LOGO:
@@ -259,39 +260,6 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@register(outgoing=True, pattern=r"^\.(?:malive|mon)\s?(.)?")
-async def amireallyalive(alive):
-    await bot.get_me()
-    await get_readable_time((time.time() - StartTime))
-    output = (
-        f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Siap digunakan.**\n\n"
-        f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬● \n"
-        f"┌ **😈Master :** [{user.first_name}](tg://user?id={user.id}) \n"
-        f"├ **🖥️ • `ꜱʏꜱᴛᴇᴍ   :** `Ubuntu 20.10 \n"
-        f"├ **👾TelethonVersion :** `{version.__version__}` \n"
-        f"├ **🐍PythonVersion :** `{python_version()}` \n"
-        f"├ **🤖BotVersion :** `{BOT_VER}` \n"
-        f"└ **📂Modules :** `{len(modules)} Modules` \n"
-        f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬●")
-    if ALIVE_LOGO:
-        try:
-            logo = ALIVE_LOGO
-            await alive.delete()
-            msg = await bot.send_file(alive.chat_id, logo, caption=output)
-            await asyncio.sleep(200)
-            await msg.delete()
-        except BaseException:
-            await alive.edit(
-                output + "\n\n *`The provided logo is invalid."
-                "\nMake sure the link is directed to the logo picture`"
-            )
-            await asyncio.sleep(100)
-            await alive.delete()
-    else:
-        await alive.edit(output)
-        await asyncio.sleep(100)
-        await alive.delete()
-
 
 @register(outgoing=True, pattern=r"^\.(?:alive|on)\s?(.)?")
 async def redis(alive):
@@ -308,7 +276,7 @@ async def redis(alive):
     await asyncio.sleep(2)
     output = (
         f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Siap digunakan.**\n\n"
-        f"┌  `Name     :` {DEFAULTUSER} \n"
+        f"┌  `Name     :` [{user.first_name}](tg://user?id={user.id}) \n"
         f"├  `Username :` @{user.username} \n"
         f"├  `Telethon :` Ver {version.__version__} \n"
         f"├  `Python   :` Ver {python_version()} \n"
@@ -329,7 +297,7 @@ async def redis(alive):
         except BaseException:
             await alive.edit(
                 output + "\n\n *`Logo Yang Disediakan Tidak Valid."
-                "\nPastikan Tautan Yang Anda Gunakan Valid`"
+                "\nPastikan Link Yang Anda Gunakan Valid`"
             )
             await asyncio.sleep(100)
             await alive.delete()
@@ -356,7 +324,7 @@ async def amireallyaliveuser(username):
 async def amireallyalivereset(ureset):
     global DEFAULTUSER  # global statement
     DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-    await ureset.edit("`" "Successfully reset user for alive!" "`")
+    await ureset.edit(`"Successfully reset user for alive!"`)
 
 
 CMD_HELP.update({
@@ -370,7 +338,7 @@ CMD_HELP.update({
 })
 CMD_HELP.update({
     "alive":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.alive` or `.on` or `rose`"
+    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.alive` or `.on`"
     "\n↳ : To see whether your bot is working or not."
     "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.aliveu` <text>"
     "\n↳ : Changes the 'user' in alive to the text you want."
