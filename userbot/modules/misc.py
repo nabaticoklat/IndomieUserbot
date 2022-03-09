@@ -121,12 +121,12 @@ async def repeat(rep):
 @register(outgoing=True, pattern="^.owner$")
 async def owner_information(owner):
     await owner.edit(
-        "**Semua sosial media pemilik repo ini**\n"
+        "**Semua sosmed pemilik repo ini**\n"
         "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
-        f"┌ **Github   :** [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu)\n"
-        f"├ **Owner          :** [ɪɴᴅᴏᴍɪᴇ](t.me/IndomieGenetik)\n"
-        f"├ **Instagram              :** [Instagram](https://www.instagram.com/w1thmyluv)\n"
-        f"└ **Store                    :** [Store](https://t.me/IndomieStore)\n"
+        f"┌ **Github                :** [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu)\n"
+        f"├ **Telegram            :** [ɪɴᴅᴏᴍɪᴇ](t.me/IndomieGenetik)\n"
+        f"├ **Instagram         :** [Instagram](https://www.instagram.com/w1thmyluv)\n"
+        f"└ **Store                   :** [Store](https://t.me/IndomieStore)\n"
         "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
     )
 
