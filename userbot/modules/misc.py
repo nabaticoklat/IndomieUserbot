@@ -88,9 +88,9 @@ async def repo_is_here(wannasee):
         "**Hai Bego, Gue Make** `[ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ]` **Nichhh**\n"
         "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
         f"┌ **Repo Userbot   :** [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu/IndomieUserbot)\n"
-        f"├ **Owner Repo     :** [ɪɴᴅᴏᴍɪᴇ](t.me/IndomieGenetik)\n"
-        f"├ **Support        :** [sᴜᴘᴘᴏʀᴛ](https://t.me/IndomieProject)\n"
-        f"└ **Store        :** [Store](https://t.me/IndomieStore)\n"
+        f"├ **Owner Repo      :** [ɪɴᴅᴏᴍɪᴇ](t.me/IndomieGenetik)\n"
+        f"├ **Support               :** [sᴜᴘᴘᴏʀᴛ](https://t.me/IndomieProject)\n"
+        f"└ **Store                     :** [Store](https://t.me/IndomieStore)\n"
         "⚉━━━━━━━━━━━━━━━━━━━━━━⚉\n"
     )
 
