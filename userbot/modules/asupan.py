@@ -9,7 +9,7 @@ import random
 from telethon.tl.types import InputMessagesFilterVideo
 
 
-@register(outgoing=True, pattern="^.asupan$")
+@register(outgoing=True, pattern=r"^\.asupan$")
 async def _(event):
     try:
         asupannya = [
