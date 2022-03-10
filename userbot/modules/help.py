@@ -39,7 +39,7 @@ async def help(indomie):
                            "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
                            f"✦ {string}✦\n\n")
         await indomie.reply(
-            "\n✎ **ɴᴏᴛᴇꜱ :** `{cmd}Help Ping` **Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha...**")
+            "\n✎ **ɴᴏᴛᴇꜱ :** `<.Help Ping>` **Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha...**")
 
         await asyncio.sleep(100)
         await indomie.delete()
