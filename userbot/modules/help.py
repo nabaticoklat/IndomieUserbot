@@ -35,7 +35,8 @@ async def help(indomie):
             string += "`" + str(i)
             string += "`\t ✦  "
         await indomie.edit(f"**♨ List Help [ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ](https://github.com/indomiegorengsatu/IndomieUserbot):**\n\n"
-                           f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ [{user.first_name}](tg://user?id={user.id})**\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
+                           f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ [{user.first_name}](tg://user?id={user.id})**\n\n"
+                           f"**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
                            "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
                            f"✦ {string}✦\n\n")
         await indomie.reply(
