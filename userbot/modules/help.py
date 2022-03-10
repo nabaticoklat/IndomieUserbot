@@ -29,7 +29,7 @@ async def help(indomie):
             await asyncio.sleep(50)
             await indomie.delete()
     else:
-        user = await event.client.get_me()
+        user = await indomie.client.get_me()
         string = ""
         for i in CMD_HELP:
             string += "`" + str(i)
