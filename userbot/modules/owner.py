@@ -53,7 +53,7 @@ async def ownfastpurger(purg):
     await done.delete()
 
 
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cpurgeme$")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cpurgeme")
 async def ownpurgeme(delme):
     message = delme.text
     count = int(message[9:])
@@ -85,7 +85,7 @@ async def owndelete_it(delme):
             await delme.edit("`Tidak Dapat Menghapus Pesan`")
 
 
-@register(outgoing=True, pattern=r"^\.edit")
+@register(outgoing=True, pattern=r"^\.cedit")
 async def ownediter(edit):
     message = edit.text
     chat = await edit.get_input_chat()
@@ -182,7 +182,7 @@ async def owngban(event):
         )
 
 
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cungbann(?: |$)(.*)")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cungban(?: |$)(.*)")
 async def ownungban(event):
     if event.fwd_from:
         return
