@@ -6,7 +6,6 @@
 """ Userbot help command """
 
 import asyncio
-from userbot import CMD_HANDLER as cmd
 from userbot import ALIVE_NAME, CMD_HELP
 from userbot.events import register
 from platform import uname
