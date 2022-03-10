@@ -6,6 +6,7 @@
 """ Userbot help command """
 
 import asyncio
+from userbot import CMD_HANDLER as cmd
 from userbot import ALIVE_NAME, CMD_HELP
 from userbot.events import register
 from platform import uname
@@ -35,12 +36,11 @@ async def help(indomie):
             string += "`" + str(i)
             string += "`\t ✦  "
         await indomie.edit(f"**♨ List Help [ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ](https://github.com/indomiegorengsatu/IndomieUserbot):**\n\n"
-                           f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ [{user.first_name}](tg://user?id={user.id})**\n\n"
-                           f"**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
+                           f"**♨ ʙᴏᴛ ᴏᴡɴᴇʀ [{user.first_name}](tg://user?id={user.id})**\n\n**♨ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
                            "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
                            f"✦ {string}✦\n\n")
         await indomie.reply(
-            "\n✎ **ɴᴏᴛᴇꜱ :** `{cmd}help ping` **Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha...**")
+            "\n✎ **ɴᴏᴛᴇꜱ :** `{cmd}Help Ping` **Untuk Informasi Pengunaan.\nJangan Lupa Berdoa Sebelum Mencoba wahahaha...**")
 
         await asyncio.sleep(100)
         await indomie.delete()
