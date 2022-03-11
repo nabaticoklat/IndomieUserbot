@@ -2,9 +2,8 @@
 # ⚠️ Do not remove credits
 
 
-from time import sleep
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP
+from userbot import CMD_HELP, owner
 from userbot.events import register
 import random
 from telethon.tl.types import InputMessagesFilterVideo, InputMessagesFilterVoice
@@ -16,7 +15,7 @@ async def _(event):
         asupannya = [
             asupan
             async for asupan in event.client.iter_messages(
-                "@tedeasupancache", filter=InputMessagesFilterVideo
+                "@Gabutnyazaen", filter=InputMessagesFilterVideo
             )
         ]
         await event.client.get_me()
@@ -25,15 +24,13 @@ async def _(event):
             file=random.choice(asupannya),
             caption=f"**Berhasil menemukan Video**.")
 
-await event.edit()
-except Exception:
-    await event.edit("Tidak bisa menemukan video asupan.")
-    sleep(2)
+        await event.edit()
+    except Exception:
+        await event.edit("Tidak bisa menemukan video asupan.")
 
 
 @register(outgoing=True, pattern=r"^\.desah$")
 async def _(event):
-    user = await bot.get_me()
     try:
         desahan = [
             desah
@@ -45,12 +42,11 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(desahan),
-            caption=f"**Nih kak [{user.first_name}](tg://user?id={chat.id}) Desahannya.**")
+            caption=f"**Nih kak [{owner}](tg://user?id={chat.id}) Desahannya.**")
 
         await event.edit()
     except Exception:
-        await event.edit("Tidak bisa menemukan video asupan.")
-        sleep(2)
+        await event.edit("Tidak bisa menemukan vn desah.")
 
 
 CMD_HELP.update(
