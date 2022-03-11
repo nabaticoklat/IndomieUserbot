@@ -309,7 +309,6 @@ async def redis(alive):
         await alive.delete()
 
 
-
 CMD_HELP.update({
     "system":
     "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sysd`"
