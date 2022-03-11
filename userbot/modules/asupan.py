@@ -7,6 +7,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 import random
 from telethon.tl.types import InputMessagesFilterVideo
+from telethon.tl.types import InputMessagesFilterVoice
 
 
 @register(outgoing=True, pattern=r"^\.asupan$")
@@ -25,7 +26,7 @@ async def _(event):
             caption=f"**Berhasil menemukan Video**.")
 
 
-@register(outgoing=True, pattern=r"^.desah$")
+@register(outgoing=True, pattern=r"^\.desah$")
 async def _(event):
     user = await bot.get_me()
     try:
