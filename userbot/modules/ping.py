@@ -76,7 +76,6 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-
 @register(outgoing=True, pattern="^.ping$")
 async def indomie(pong):
     uptime = await get_readable_time((time.time() - StartTime))
@@ -92,7 +91,7 @@ async def indomie(pong):
     user = await pong.client.get_me()
     await pong.edit(
         f"**♨ ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ**\n\n"
-        f"** ▹  Pɪɴɢᴇʀ   :** 
+        f"** ▹  Pɪɴɢᴇʀ: **
         f"`%sms` \n"
         f"** ▹  Uᴘᴛɪᴍᴇ  :** "
         f"`{uptime}` \n"
