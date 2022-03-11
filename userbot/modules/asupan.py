@@ -15,7 +15,7 @@ async def _(event):
         asupannya = [
             asupan
             async for asupan in event.client.iter_messages(
-                "@Gabutnyazaen", filter=InputMessagesFilterVideo
+                "@tedeasupancache", filter=InputMessagesFilterVideo
             )
         ]
         await event.client.get_me()
@@ -27,24 +27,25 @@ async def _(event):
 
 @register(outgoing=True, pattern=r"^\.desah$")
 async def _(event):
+    user = await bot.get_me()
     try:
         desahnya = [
             desah
             async for desah in event.client.iter_messages(
-                "@punyakenkan", filter=InputMessagesFilterVoice
+                "@DESAHANFCE", filter=InputMessagesFilterVoice
             )
         ]
-        aing = await event.client.get_me()
+        await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(desahnya),
-            caption=f"Nih kak [{owner}](tg://user?id={aing.id}) Desahnya",
+            caption=f"Nih kak (tg://user?id={user.id}) Desahnya",
         )
 
 CMD_HELP.update(
     {
         "asupan": f"**Plugin : **`asupan`\
-        f\n\n  •  **Syntax :** `{cmd}asupan`\
+        f\n\n  •  **Syntax :** `.asupan`\
         \n  •  **Function : **Untuk Mengirim video asupan secara random.\
     "
     }
