@@ -25,8 +25,8 @@ async def _(event):
             caption=f"**Berhasil menemukan Video**.")
 
 await event.edit()
-    except Exception:
-        await event.edit("Tidak bisa menemukan video asupan.")
+except Exception:
+    await event.edit("Tidak bisa menemukan video asupan.")
 
 
 CMD_HELP.update(
