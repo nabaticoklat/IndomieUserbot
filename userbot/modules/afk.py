@@ -263,10 +263,5 @@ async def afk_on_pm(sender):
                     COUNT_MSG = COUNT_MSG + 1
 
 
-CMD_HELP.update(
-    {
-         "afk":
-         "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.afk`"
-         "\n↳ **: Memberi tahu sedang afk ketika seseorang menandai atau membalas salah satu pesan atau dm Anda.**"
-    }
-)
+CMD_HELP.update({"afk": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.afk`"
+                 "\n↳ **: Memberi tahu sedang afk ketika seseorang menandai atau membalas salah satu pesan atau dm Anda.**"})
