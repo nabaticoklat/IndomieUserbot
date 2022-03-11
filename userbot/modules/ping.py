@@ -2,6 +2,8 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License
+#
+#
 """ Userbot module containing commands related to the \
     Information Superhighway (yes, Internet). """
 
@@ -91,7 +93,7 @@ async def indomie(pong):
     user = await pong.client.get_me()
     await pong.edit(
         f"**♨ ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ**\n\n"
-        f"** ▹  Pɪɴɢᴇʀ: **
+        f"** ▹  Pɪɴɢᴇʀ: ** "
         f"`%sms` \n"
         f"** ▹  Uᴘᴛɪᴍᴇ  :** "
         f"`{uptime}` \n"
@@ -113,7 +115,6 @@ async def redis(pong):
 
 @register(outgoing=True, pattern="^.sping$")
 async def redis(pong):
-    """For .ping command, ping the userbot from any chat."""
     await get_readable_time((time.time() - StartTime))
     start = datetime.now()
     await pong.edit("**✲**")
@@ -190,7 +191,7 @@ async def redis(pong):
     duration = (end - start).microseconds / 1000
     user = await pong.client.get_me()
     await pong.edit(
-        f"**♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨**\n\n"
+        f"**♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ**\n\n"
         f"** ▹  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
         f"** ▹  Uᴘᴛɪᴍᴇ  :** "
