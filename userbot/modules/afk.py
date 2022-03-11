@@ -47,7 +47,7 @@ afk_start = {}
 async def set_afk(afk_e):
     """ For .afk command, allows you to inform people that you are afk when they message you """
     message = afk_e.text  # pylint:disable=E0602
-    string = afk_e.pattern_match.group(1)
+    afk_e.pattern_match.group(1)
     global ISAFK
     global AFKREASON
     global USER_AFK  # pylint:disable=E0602
@@ -258,8 +258,5 @@ async def afk_on_pm(sender):
                     COUNT_MSG = COUNT_MSG + 1
 
 
-CMD_HELP.update({
-    "afk":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.afk`"
-        "\n↳ **: Memberi tahu sedang afk ketika seseorang menandai atau membalas salah satu pesan atau dm Anda.**"
-})
+CMD_HELP.update({"afk": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.afk`"
+                 "\n↳ **: Memberi tahu sedang afk ketika seseorang menandai atau membalas salah satu pesan atau dm Anda.**"})
