@@ -6,7 +6,6 @@ from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.events import register
 import random
-from userbot import owner
 from telethon.tl.types import InputMessagesFilterVideo, InputMessagesFilterVoice
 
 
@@ -32,6 +31,7 @@ async def _(event):
 
 @register(outgoing=True, pattern=r"^\.desah$")
 async def _(event):
+    user = await bot.get_me()
     try:
         asupannya = [
             asupan
@@ -43,7 +43,7 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(asupannya),
-            caption=f"**Nih kak [{owner}](tg://user?id={chat.id}) Asupannya**.")
+            caption=f"**Nih kak [{user.first_name}](tg://user?id={chat.id}) Asupannya**.")
 
         await event.edit()
     except Exception:
