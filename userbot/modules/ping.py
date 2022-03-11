@@ -223,7 +223,7 @@ async def speedtst(spd):
         f"`{result['ping']}` \n"
         "✧ **Iꜱᴘ:** "
         f"`{result['client']['isp']}` \n"
-        "✧ **Bᴏᴛ:** ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ(https://github.com/IndomieGorengSatu/IndomieUserbot)"
+        "✧ **Bᴏᴛ:** [♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ](https://github.com/IndomieGorengSatu/IndomieUserbot)"
     )
 
 
