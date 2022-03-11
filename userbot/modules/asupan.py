@@ -26,9 +26,9 @@ async def _(event):
             caption=f"**Berhasil menemukan Video**.")
 
 await event.edit()
-    except Exception:
-        await event.edit("Tidak bisa menemukan video asupan.")
-        sleep(2)
+except Exception:
+    await event.edit("Tidak bisa menemukan video asupan.")
+    sleep(2)
 
 
 @register(outgoing=True, pattern=r"^\.desah$")
