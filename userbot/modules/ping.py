@@ -92,7 +92,7 @@ async def indomie(pong):
     user = await pong.client.get_me()
     await pong.edit(
         f"**♨ ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ**\n\n"
-        f"** ▹  Pɪɴɢᴇʀ: ** "
+        f"** ▹  Pɪɴɢᴇʀ  : ** "
         f"`%sms` \n"
         f"** ▹  Uᴘᴛɪᴍᴇ  :** "
         f"`{uptime}` \n"
@@ -215,15 +215,15 @@ async def speedtst(spd):
         " ━━━━━━━━━━━━━━━━━ \n"
         f"✧ **Dimulai Pada :**  \n"
         f"`{result['timestamp']}` \n"
-        "✧ **Download:** "
+        "✧ **Dᴏᴡɴʟᴏᴀᴅ:** "
         f"`{speed_convert(result['download'])}` \n"
-        "✧ **Upload:** "
+        "✧ **Uᴘʟᴏᴀᴅ:** "
         f"`{speed_convert(result['upload'])}` \n"
-        "✧ **Signal:** "
+        "✧ **Sɪɢɴᴀʟ:** "
         f"`{result['ping']}` \n"
-        "✧ **ISP:** "
+        "✧ **Iꜱᴘ:** "
         f"`{result['client']['isp']}` \n"
-        "✧ **BOT:** ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ"
+        "✧ **Bᴏᴛ:** ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ(https://github.com/IndomieGorengSatu/IndomieUserbot)"
     )
 
 
