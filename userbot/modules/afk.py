@@ -23,7 +23,6 @@ from userbot import (  # noqa pylint: disable=unused-import isort:skip
 from userbot.events import register
 
 # ========================= CONSTANTS ============================
-user = await bot.get_me()
 AFKSTR = [
     f"**`! 𝗔𝗙𝗞 \n Sedang Sibuk, Tunggu [{user.first_name}](tg://user?id={user.id}) Online`**",
     f"**`! 𝗔𝗙𝗞 \n Mohon Maaf [{user.first_name}](tg://user?id={user.id}) Sedang Sibuk\n Sedang Menjalankan Perintah Tuhan!!**",
