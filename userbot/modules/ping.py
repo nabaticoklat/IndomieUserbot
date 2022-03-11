@@ -101,7 +101,6 @@ async def indomie(pong):
 
 
 @register(outgoing=True, pattern="^.pings$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cping$")
 async def redis(pong):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
