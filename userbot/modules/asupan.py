@@ -24,26 +24,22 @@ async def _(event):
             file=random.choice(asupannya),
             caption=f"**Berhasil menemukan Video**.")
 
-        await event.edit()
-    except Exception:
-        await event.edit("Tidak bisa menemukan video asupan.")
-
 
 @register(outgoing=True, pattern=r"^\.desah$")
 async def _(event):
     user = await bot.get_me()
     try:
-        asupannya = [
-            asupan
-            async for asupan in event.client.iter_messages(
+        desahan = [
+            desah
+            async for desah in event.client.iter_messages(
                 "@DESAHANFCE", filter=InputMessagesFilterVoice
             )
         ]
         await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
-            file=random.choice(asupannya),
-            caption=f"**Nih kak [{user.first_name}](tg://user?id={chat.id}) Asupannya**.")
+            file=random.choice(desahan),
+            caption=f"**Nih kak [{user.first_name}](tg://user?id={chat.id}) Desahannya.**")
 
         await event.edit()
     except Exception:
@@ -53,9 +49,9 @@ async def _(event):
 CMD_HELP.update(
     {
         "asupan": f"**Plugin : **`asupan`\
-        f\n\n  •  **Syntax :** `{cmd}asupan`\
+        \n\n  •  **Syntax :** `{cmd}asupan`\
         \n  •  **Function : **Untuk Mengirim video asupan secara random.\
-        f\n\n  •  **Syntax :** `{cmd}desah`\
+        \n\n  •  **Syntax :** `{cmd}desah`\
         \n  •  **Function : **Untuk Mengirim voice desah secara random.\
     "
     }
