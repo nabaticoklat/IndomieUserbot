@@ -165,8 +165,8 @@ async def bot_ver(event):
         revout = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
         await event.edit(
-            "**⚜-**♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ♨ Versi:** \n "
-            f"{verout}"
+            "**⚜-**ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ Versi:** \n "
+            f"{BOT_VER}"
             "\n**⚜-**Revisi:**\n "
             f"{revout}"
         )
@@ -228,19 +228,22 @@ async def pipcheck(pip):
 async def amireallyalive(alive):
     user = await bot.get_me()
     uptime = await get_readable_time((time.time() - StartTime))
+    await alive.edit("__Sabar Goblok.__")
+    await alive.edit("__Sabar Goblok..__")
+    await alive.edit("__Sabar Goblok...__")
+    await alive.edit("🍾")
+    await asyncio.sleep(2)
     output = (
-        f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Siap digunakan.** \n\n"
+        f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Telah Aktif.** \n\n"
         f"\n__**{alive_text}**__\n\n\n"
-        f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
-        f"├ `Name       :` [{user.first_name}](tg://user?id={user.id}) \n"
-        f"├ `Username   :` @{user.username} \n"
-        f"├ `Telethon   :` {version.__version__} \n"
-        f"├ `Python     :` {python_version()} \n"
-        f"├ `Bot Ver    :` {BOT_VER} \n"
-        f"├ `Modules    :` {len(modules)} \n"
-        f"├ `Uptime     :` {uptime} \n"
-        f"╰✠╼━━━━━━━━━━━━━━━✠╯\n"
-        f"[ꜱᴛᴏʀᴇ](https://t.me/IndomieStore) | [ᴄʜᴀɴɴᴇʟ](https://t.me/IndomieProject) | [ᴏᴡɴᴇʀ](https://t.me/IndomieGenetik) | [ɢɪᴛʜᴜʙ](https://github.com/indomiegorengsatu)")
+        f"┌  **Nᴀᴍᴇ       :** [{user.first_name}](tg://user?id={user.id}) \n"
+        f"├  **Uꜱᴇʀɴᴀᴍᴇ   :** @{user.username} \n"
+        f"├  **Tᴇʟᴇᴛʜᴏɴ   :** `{version.__version__}` \n"
+        f"├  **Pʏᴛʜᴏɴ     :** `{python_version()}` \n"
+        f"├  **Bᴏᴛ Vᴇʀ    :** `{BOT_VER}` \n"
+        f"├  **Modules    :** `{len(modules)}` \n"
+        f"└  **Uᴘᴛɪᴍᴇ     :** `{uptime}` \n"
+        f"   **[𝐒𝐭𝐨𝐫𝐞]**(https://t.me/IndomieStore) | **[𝐂𝐡𝐚𝐧𝐧𝐞𝐥]**(https://t.me/IndomieProject) | **[𝗢𝘄𝗻𝗲𝗿]**(https://t.me/IndomieGenetik) | **[𝐆𝐢𝐭𝐡𝐮𝐛]**(https://github.com/indomiegorengsatu)")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -272,19 +275,19 @@ async def redis(alive):
     await alive.edit("__Sabar Goblok.__")
     await alive.edit("__Sabar Goblok..__")
     await alive.edit("__Sabar Goblok...__")
-    await alive.edit("✨")
+    await alive.edit("🍾")
     await asyncio.sleep(2)
     output = (
-        f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Siap digunakan.**\n\n"
-        f"┌  `Name     :` [{user.first_name}](tg://user?id={user.id}) \n"
-        f"├  `Telethon :` Ver {version.__version__} \n"
-        f"├  `Python   :` Ver {python_version()} \n"
-        f"├  `Branch   :` {UPSTREAM_REPO_BRANCH} \n"
-        f"├  `Bot Ver  :` {BOT_VER} \n"
-        f"├  `Modules  :` {len(modules)} Modules \n"
-        f"├  `Uptime   :` {uptime} \n"
-        f"├  `Support  :` [Indomie Project](https://t.me/IndomieProject) \n"
-        f"└  `Owner    :` [𝐈𝐧𝐝𝐨𝐦𝐢𝐞](https://t.me/IndomieGenetik) \n"
+        f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Telah aktif.**\n\n"
+        f"┌  **Nᴀᴍᴇ     :** [{user.first_name}](tg://user?id={user.id}) \n"
+        f"├  **Tᴇʟᴇᴛʜᴏɴ :** `Vᴇʀ {version.__version__}` \n"
+        f"├  **Pʏᴛʜᴏɴ   :** `Vᴇʀ {python_version()}` \n"
+        f"├  **Bʀᴀɴᴄʜ   :** `{UPSTREAM_REPO_BRANCH}` \n"
+        f"├  **Bᴏᴛ Vᴇʀ  :** `{BOT_VER}` \n"
+        f"├  **Mᴏᴅᴜʟᴇꜱ  :** `{len(modules)}` Modules \n"
+        f"├  **Uᴘᴛɪᴍᴇ   :** `{uptime}` \n"
+        f"├  **Sᴜᴘᴘᴏʀᴛ  :** [𝐈𝐧𝐝𝐨𝐦𝐢𝐞 𝐏𝐫𝐨𝐣𝐞𝐜𝐭](https://t.me/IndomieProject) \n"
+        f"└  **Oᴡɴᴇʀ    :** [𝐈𝐧𝐝𝐨𝐦𝐢𝐞](https://t.me/IndomieGenetik) \n"
         f"    **[𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/IndomieProject)** | **[𝗦𝘁𝗼𝗿𝗲](https://t.me/IndomieStore)** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**")
     if ALIVE_LOGO:
         try:
