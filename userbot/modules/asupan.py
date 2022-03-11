@@ -26,7 +26,7 @@ async def _(event):
             caption=f"**Berhasil menemukan Video**.")
 
 
-@register(outgoing=True, pattern=r"^\.desah$")
+@register(pattern=".desah$")
 async def _(event):
     user = await bot.get_me()
     try:
