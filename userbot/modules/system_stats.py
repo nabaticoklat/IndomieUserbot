@@ -235,7 +235,7 @@ async def amireallyalive(alive):
     await asyncio.sleep(2)
     output = (
         f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Telah Aktif.** \n\n"
-        f"\n__**{alive_text}**__\n\n\n"
+        f"**{alive_text}**\n\n"
         f"┌  **Nᴀᴍᴇ       :** [{user.first_name}](tg://user?id={user.id}) \n"
         f"├  **Uꜱᴇʀɴᴀᴍᴇ   :** @{user.username} \n"
         f"├  **Tᴇʟᴇᴛʜᴏɴ   :** `{version.__version__}` \n"
