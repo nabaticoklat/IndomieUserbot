@@ -430,7 +430,8 @@ with bot:
 
 
 async def check_alive():
-    await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"**IndomieUserbot Berhasil Diaktifkan ♨**\n━━━━━━━━━━━━━━━━━━━\n✦ **ʙᴏᴛ ᴏꜰ :** `{ALIVE_NAME}`\n✦ **ʙᴏᴛ ᴠᴇʀ :** `8.2`\n━━━━━━━━━━━━━━━━━━━\n✦ **sᴜᴘᴘᴏʀᴛ​ :** @IndomieProject\n✦ **Store​ :** @IndomieStore \n━━━━━━━━━━━━━━━━━━━")
+    user = await bot.get_me()
+    await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"**IndomieUserbot Berhasil Diaktifkan ♨**\n━━━━━━━━━━━━━━━━━━━\n✦ **Oᴡɴᴇʀ Bᴏᴛ :** [{user.first_name}](tg://user?id={user.id})\n✦ **Bᴏᴛ Vᴇʀ :** `8.2`\n━━━━━━━━━━━━━━━━━━━\n✦ **Sᴜᴘᴘᴏʀᴛ​ :** @IndomieProject\n✦ **Sᴛᴏʀᴇ​ :** @IndomieStore \n━━━━━━━━━━━━━━━━━━━")
     return
 
 with bot:
