@@ -24,9 +24,6 @@ async def _(event):
             file=random.choice(asupannya),
             caption=f"**Berhasil menemukan Video**.")
 
-        await event.edit()
-    except Exception:
-        await event.edit("Tidak bisa menemukan video asupan.")
 
 
 CMD_HELP.update(
