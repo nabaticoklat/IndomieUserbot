@@ -60,11 +60,11 @@ async def set_afk(afk_e):
     afk_end = {}
     start_1 = datetime.now()
     afk_start = start_1.replace(microsecond=0)
-    if reason:
-        AFKREASON = reason
-        await afk_e.edit(f"**Mohon Maaf [{user.first_name}](tg://user?id={user.id}) Sedang Sibuk.**\n**Karena :** `{reason}`")
+    if string:
+        AFKREASON = string
+        await afk_e.edit(f"**Mohon Maaf** [{user.first_name}](tg://user?id={user.id}) **Sedang Sibuk.**\n**Karena :** `{string}`")
     else:
-        await afk_e.edit(f"**Mohon Maaf [{user.first_name}](tg://user?id={user.id}) Sedang Sibuk.**")
+        await afk_e.edit(f"**Mohon Maaf** [{user.first_name}](tg://user?id={user.id}) **Sedang Sibuk.**")
     if user.last_name:
         await afk_e.client(UpdateProfileRequest(first_name=user.first_name, last_name=user.last_name + " 【 OFF 】"))
     else:
@@ -96,7 +96,7 @@ async def type_afk_is_not_true(notafk):
     afk_end = back_alive.replace(microsecond=0)
     if ISAFK:
         ISAFK = False
-        msg = await notafk.respond(f"**[{user.first_name}](tg://user?id={user.id}) Kembali! Kangen Gak?....**")
+        msg = await notafk.respond(f"[{user.first_name}](tg://user?id={user.id}) **Kembali! Kangen Gak?....**")
         time.sleep(3)
         await msg.delete()
         await notafk.client(UpdateProfileRequest(first_name=user.first_name, last_name=last1))
@@ -164,7 +164,7 @@ async def mention_afk(mention):
                 afk_since = f"`{int(seconds)}s`"
             if mention.sender_id not in USERS:
                 if AFKREASON:
-                    await mention.reply(f"**Mohon Maaf [{user.first_name}](tg://user?id={user.id}) Sedang Afk `{afk_since}` Yang Lalu.**\n**Karena :** `{AFKREASON}`")
+                    await mention.reply(f"**Mohon Maaf** [{user.first_name}](tg://user?id={user.id}) **Sedang Afk** `{afk_since}` **Yang Lalu.**\n**Karena :** `{AFKREASON}`")
                 else:
                     await mention.reply(str(choice(AFKSTR)))
                 USERS.update({mention.sender_id: 1})
@@ -172,7 +172,7 @@ async def mention_afk(mention):
             elif mention.sender_id in USERS:
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await mention.reply(f"**Mohon Maaf [{user.first_name}](tg://user?id={user.id}) Sedang Afk** `{afk_since}` **Yang Lalu.**\n**Karena :** `{AFKREASON}`")
+                        await mention.reply(f"**Mohon Maaf** [{user.first_name}](tg://user?id={user.id}) **Sedang Afk** `{afk_since}` **Yang Lalu.**\n**Karena :** `{AFKREASON}`")
                     else:
                         await mention.reply(str(choice(AFKSTR)))
                     USERS[mention.sender_id] = USERS[mention.sender_id] + 1
@@ -239,7 +239,7 @@ async def afk_on_pm(sender):
                 afk_since = f"`{int(seconds)}s`"
             if sender.sender_id not in USERS:
                 if AFKREASON:
-                    await sender.reply(f"**Mohon Maaf [{user.first_name}](tg://user?id={user.id}) Sedang AFK** `{afk_since}` **Yang Lalu.**\n**Karena :** `{AFKREASON}`")
+                    await sender.reply(f"**Mohon Maaf** [{user.first_name}](tg://user?id={user.id}) **Sedang AFK** `{afk_since}` **Yang Lalu.**\n**Karena :** `{AFKREASON}`")
                 else:
                     await sender.reply(str(choice(AFKSTR)))
                 USERS.update({sender.sender_id: 1})
@@ -247,7 +247,7 @@ async def afk_on_pm(sender):
             elif apprv and sender.sender_id in USERS:
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await sender.reply(f"**Mohon Maaf [{user.first_name}](tg://user?id={user.id}) Sedang AFK** `{afk_since}` **Yang Lalu.**\n**Karena :** `{AFKREASON}`")
+                        await sender.reply(f"**Mohon Maaf** [{user.first_name}](tg://user?id={user.id}) **Sedang AFK** `{afk_since}` **Yang Lalu.**\n**Karena :** `{AFKREASON}`")
                     else:
                         await sender.reply(str(choice(AFKSTR)))
                     USERS[sender.sender_id] = USERS[sender.sender_id] + 1
