@@ -26,7 +26,6 @@ async def _(event):
             caption=f"**Berhasil menemukan Video**.")
 
 
-
 CMD_HELP.update(
     {
         "asupan": f"**Plugin : **`asupan`\
