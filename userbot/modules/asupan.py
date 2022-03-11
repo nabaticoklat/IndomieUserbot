@@ -7,7 +7,6 @@ from userbot import CMD_HELP
 from userbot.events import register
 import random
 from telethon.tl.types import InputMessagesFilterVideo
-from telethon.tl.types import InputMessagesFilterVoice
 
 
 @register(outgoing=True, pattern=r"^\.asupan$")
@@ -16,7 +15,7 @@ async def _(event):
         asupannya = [
             asupan
             async for asupan in event.client.iter_messages(
-                "@tedeasupancache", filter=InputMessagesFilterVideo
+                "@Gabutnyazaen", filter=InputMessagesFilterVideo
             )
         ]
         await event.client.get_me()
@@ -24,6 +23,10 @@ async def _(event):
             event.chat_id,
             file=random.choice(asupannya),
             caption=f"**Berhasil menemukan Video**.")
+
+        await event.edit()
+    except Exception:
+        await event.edit("Tidak bisa menemukan video asupan.")
 
 
 CMD_HELP.update(
