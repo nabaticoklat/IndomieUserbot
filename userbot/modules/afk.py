@@ -53,7 +53,7 @@ async def set_afk(afk_e):
     global afk_time  # pylint:disable=E0602
     global afk_start
     global afk_end
-    user = await bot.get_me()  # pylint:disable=E0602
+    user = await afk_e.client.get_me()  # pylint:disable=E0602
     global reason
     USER_AFK = {}
     afk_time = None
@@ -86,7 +86,7 @@ async def type_afk_is_not_true(notafk):
     global afk_time  # pylint:disable=E0602
     global afk_start
     global afk_end
-    user = await bot.get_me()  # pylint:disable=E0602
+    user = await notafk.client.get_me()  # pylint:disable=E0602
     last = user.last_name
     if last and last.endswith(" 【 OFF 】"):
         last1 = last[:-12]
@@ -129,7 +129,7 @@ async def mention_afk(mention):
     global afk_time  # pylint:disable=E0602
     global afk_start
     global afk_end
-    user = await bot.get_me()  # pylint:disable=E0602
+    user = await mention.client.get_me()  # pylint:disable=E0602
     back_alivee = datetime.now()
     afk_end = back_alivee.replace(microsecond=0)
     afk_since = "**𝙏𝙚𝙧𝙖𝙠𝙝𝙞𝙧 𝙊𝙣𝙡𝙞𝙣𝙚**"
@@ -195,7 +195,7 @@ async def afk_on_pm(sender):
     global afk_time  # pylint:disable=E0602
     global afk_start
     global afk_end
-    user = await bot.get_me()  # pylint:disable=E0602
+    user = await sender.client.get_me()  # pylint:disable=E0602
     back_alivee = datetime.now()
     afk_end = back_alivee.replace(microsecond=0)
     afk_since = "**a while ago**"
