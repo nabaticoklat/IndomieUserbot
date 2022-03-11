@@ -2,6 +2,7 @@
 # ⚠️ Do not remove credits
 
 
+from time import sleep
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.events import register
@@ -24,6 +25,11 @@ async def _(event):
             file=random.choice(asupannya),
             caption=f"**Berhasil menemukan Video**.")
 
+await event.edit()
+    except Exception:
+        await event.edit("Tidak bisa menemukan video asupan.")
+        sleep(2)
+
 
 @register(outgoing=True, pattern=r"^\.desah$")
 async def _(event):
@@ -44,6 +50,7 @@ async def _(event):
         await event.edit()
     except Exception:
         await event.edit("Tidak bisa menemukan video asupan.")
+        sleep(2)
 
 
 CMD_HELP.update(
