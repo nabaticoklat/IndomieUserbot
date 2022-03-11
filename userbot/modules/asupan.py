@@ -24,10 +24,22 @@ async def _(event):
             file=random.choice(asupannya),
             caption=f"**Berhasil menemukan Video**.")
 
-        await event.edit()
-    except Exception:
-        await event.edit("Tidak bisa menemukan video asupan.")
 
+@register(outgoing=True, pattern=r"^\.desah$")
+async def _(event):
+    try:
+        desahnya = [
+            desah
+            async for desah in event.client.iter_messages(
+                "@punyakenkan", filter=InputMessagesFilterVoice
+            )
+        ]
+        aing = await event.client.get_me()
+        await event.client.send_file(
+            event.chat_id,
+            file=random.choice(desahnya),
+            caption=f"Nih kak [{owner}](tg://user?id={aing.id}) Desahnya",
+        )
 
 CMD_HELP.update(
     {
