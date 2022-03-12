@@ -2,6 +2,7 @@
 # ⚠️ Do not remove credits
 
 
+from time import sleep
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.events import register
@@ -27,12 +28,13 @@ async def _(event):
         await event.edit()
     except Exception:
         await event.edit("**Tidak bisa menemukan video asupan.**")
+        sleep(2)
 
 
 @register(outgoing=True, pattern=r"^\.desah$")
 async def _(event):
     try:
-        desahan = [
+        desahannya = [
             desah
             async for desah in event.client.iter_messages(
                 "@DESAHANFCE", filter=InputMessagesFilterVoice
@@ -41,18 +43,18 @@ async def _(event):
         await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
-            file=random.choice(desahan),
+            file=random.choice(desahannya),
             caption=f"**Berhasil menemukan desahannya.**")
 
         await event.edit()
     except Exception:
         await event.edit("**Tidak bisa menemukan vn desah.**")
-
+        sleep(2)
 
 @register(outgoing=True, pattern=r"^\.ayang$")
 async def _(event):
     try:
-        ayangku = [
+        ayangnya = [
             ayang
             async for ayang in event.client.iter_messages(
                 "@CeweLogoPack", filter=InputMessagesFilterPhotos
@@ -61,12 +63,13 @@ async def _(event):
         await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
-            file=random.choice(ayangku),
+            file=random.choice(ayangnya),
             caption=f"**Nih ayang mu [{DEFAULTUSER}](tg://user?id={aing.id}).**")
 
         await event.edit()
     except Exception:
         await event.edit("**GA ADA YANG MAU SAMA LO, MAKANYA GANTENK.**")
+        sleep(2)
 
 
 CMD_HELP.update(
@@ -76,6 +79,8 @@ CMD_HELP.update(
         \n  •  **Function : **Untuk Mengirim video asupan secara random.\
         \n\n  •  **Syntax :** `{cmd}desah`\
         \n  •  **Function : **Untuk Mengirim voice desah secara random.\
+        \n\n  •  **Syntax :** `{cmd}ayang`\
+        \n  •  **Function : **Untuk Mencari ayang buat cowok yang jomblo.\
     "
     }
 )
