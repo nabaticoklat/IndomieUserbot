@@ -87,7 +87,7 @@ async def gben(userbot):
     sender = await dc.get_sender()
     me = await dc.client.get_me()
     if not sender.id == me.id:
-        dark = await dc.reply("`Ingin Mengaktifkan Perintah Global Banned!`")
+        dark = await dc.reply("**GUA GBAN LO ANJING!!!**")
     else:
         dark = await dc.edit("`Memproses Global Banned Pengguna Ini!!`")
     me = await userbot.client.get_me()
@@ -113,7 +113,7 @@ async def gben(userbot):
     if user:
         if user.id in DEVS:
             return await dark.edit(
-                f"`Anda Tidak Bisa Melakukan Global Banned, Karena dia pembuatku🤪`"
+                f"**Lu Mau Ngapain Anjg NgeGban Tuhan Gua? Goblok Mana Bisa Lah Anjg!!!**"
             )
         try:
             from userbot.modules.sql_helper.gmute_sql import gmute
@@ -136,7 +136,7 @@ async def gben(userbot):
             except BaseException:
                 b += 1
     else:
-        await dark.edit(f"`Mohon Balas Ke Pesan`")
+        await dark.edit(f"`Balas ke pesan atau masukan ID atau Username pengguna.`")
     try:
         if gmute(user.id) is False:
             return await dark.edit(
@@ -145,7 +145,10 @@ async def gben(userbot):
     except BaseException:
         pass
     return await dark.edit(
-        f"**Perintah:** `{ALIVE_NAME}`\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Global Banned`"
+         r"\\**#GBanned_User**//"
+         f"**Pengguna :** [{user.first_name}](tg://user?id={user.id}) \n" 
+         f"**User ID :** `{user.id}`\n"
+         f"**Action :** `Global Banned By {me.first_name}` \n"
     )
 
 
@@ -156,7 +159,7 @@ async def gunben(userbot):
     sender = await dc.get_sender()
     me = await dc.client.get_me()
     if not sender.id == me.id:
-        dark = await dc.reply("`Membatalkan Perintah Global Banned Pengguna Ini`")
+        dark = await dc.reply("`Yah di Gban...bentar gua bukain dulu`")
     else:
         dark = await dc.edit("`Membatalkan Perintah Global Banned`")
     me = await userbot.client.get_me()
@@ -184,7 +187,7 @@ async def gunben(userbot):
     if user:
         if user.id in DEVS:
             return await dark.edit(
-                "**Pengguna Ini tidak bisa di Blacklist, Karna Dia adalah pembuatku🤪**"
+                "**Nge Gban Aja Kgk Bisa Apalagi Lu Mau Nge Ungban Goblok!!!**"
             )
         try:
             from userbot.modules.sql_helper.gmute_sql import ungmute
@@ -207,16 +210,19 @@ async def gunben(userbot):
             except BaseException:
                 b += 1
     else:
-        await dark.edit("`Harap Balas Ke Pesan Pengguna`")
+        await dark.edit("`Balas ke pesan atau masukan ID atau Username pengguna`")
     try:
         if ungmute(user.id) is False:
             return await dark.edit(
-                "**Kesalahan! Pengguna Sedang Tidak Di Global Banned.**"
+                "**Kesalahan! Pengguna Tidak Di Global Banned.**"
             )
     except BaseException:
         pass
     return await dark.edit(
-        f"**Perintah :** `{ALIVE_NAME}`\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Membatalkan Global Banned`"
+         r"\\**#UnGbanned_User**//"
+         f"**Pengguna :** [{user.first_name}](tg://user?id={user.id}) \n" 
+         f"**User ID :** `{user.id}`\n"
+         f"**Action :** `UnGbanned By {me.first_name}` \n"
     )
 
 
