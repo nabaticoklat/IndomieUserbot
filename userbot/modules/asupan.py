@@ -15,18 +15,18 @@ async def _(event):
         asupannya = [
             asupan
             async for asupan in event.client.iter_messages(
-                "@Gabutnyazaen", filter=InputMessagesFilterVideo
+                "@tedeasupancache", filter=InputMessagesFilterVideo
             )
         ]
         await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(asupannya),
-            caption=f"**Berhasil menemukan Video**.")
+            caption=f"**Berhasil menemukan Video.**")
 
         await event.edit()
     except Exception:
-        await event.edit("Tidak bisa menemukan video asupan.")
+        await event.edit("**Tidak bisa menemukan video asupan.**")
 
 
 @register(outgoing=True, pattern=r"^\.desah$")
@@ -35,18 +35,18 @@ async def _(event):
         desahan = [
             desah
             async for desah in event.client.iter_messages(
-                "@desahancewesangesange", filter=InputMessagesFilterVoice
+                "@indomieganteng", filter=InputMessagesFilterVoice
             )
         ]
         await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(desahan),
-            caption=f"**Nih kak [{owner}](tg://user?id={chat.id}) Desahannya.**")
+            caption=f"**Berhasil menemukan desahannya.**")
 
         await event.edit()
     except Exception:
-        await event.edit("Tidak bisa menemukan vn desah.")
+        await event.edit("**Tidak bisa menemukan vn desah.**")
 
 
 CMD_HELP.update(
