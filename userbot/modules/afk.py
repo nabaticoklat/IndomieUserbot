@@ -7,7 +7,7 @@ from telethon.events import StopPropagation
 from telethon.tl.functions.account import UpdateProfileRequest
 from userbot import BOTLOG, BOTLOG_CHATID
 from userbot import AFKREASON, CMD_HELP, COUNT_MSG, ISAFK  # noqa pylint: disable=unused-import isort:skip
-from userbot import PM_AUTO_BAN, DEFAULTUSER, bot
+from userbot import DEFAULTUSER, PM_AUTO_BAN
 from userbot.events import register
 
 # ========================= CONSTANTS ============================
