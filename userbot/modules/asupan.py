@@ -5,8 +5,9 @@
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.events import register
+from userbot import DEFAULTNAME
 import random
-from telethon.tl.types import InputMessagesFilterVideo, InputMessagesFilterVoice
+from telethon.tl.types import InputMessagesFilterVideo, InputMessagesFilterVoice, InputMessagesFilterPhotos
 
 
 @register(outgoing=True, pattern=r"^\.asupan$")
@@ -35,7 +36,7 @@ async def _(event):
         desahan = [
             desah
             async for desah in event.client.iter_messages(
-                "@indomieganteng", filter=InputMessagesFilterVoice
+                "@DESAHANFCE", filter=InputMessagesFilterVoice
             )
         ]
         await event.client.get_me()
@@ -47,6 +48,26 @@ async def _(event):
         await event.edit()
     except Exception:
         await event.edit("**Tidak bisa menemukan vn desah.**")
+
+
+@register(outgoing=True, pattern=r"^\.ayang$")
+async def _(event):
+    try:
+        ayangku = [
+            ayang
+            async for ayang in event.client.iter_messages(
+                "@CeweLogoPack", filter=InputMessagesFilterPhotos
+            )
+        ]
+        await event.client.get_me()
+        await event.client.send_file(
+            event.chat_id,
+            file=random.choice(ayangku),
+            caption=f"**Nih ayang mu [{DEFAULTUSER}](tg://user?id={aing.id}).**")
+
+        await event.edit()
+    except Exception:
+        await event.edit("**GA ADA YANG MAU SAMA LO, MAKANYA GANTENK.**")
 
 
 CMD_HELP.update(
