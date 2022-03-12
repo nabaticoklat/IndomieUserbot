@@ -47,7 +47,7 @@ async def update_requirements():
         return repr(e)
 
 
-async def deploy(event, repo, ups_rem, ac_br, txt):
+async def indomie(event, repo, ups_rem, ac_br, txt):
     if HEROKU_API_KEY is not None:
         import heroku3
 
@@ -71,7 +71,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             )
             return repo.__del__()
         await event.edit(
-            "`Heroku :` **Lagi di perbarui pler!**\n`Ga lama kok nyet, pling sejam doang xixi.`"
+            "`Heroku :` Lagi di perbarui pler!**\n**Ga lama kok nyet, pling sejam doang xixi.**"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -143,7 +143,7 @@ async def update(event, repo, ups_rem, ac_br):
     return
 
 
-@register(outgoing=True, pattern=r"^.update(?: |$)(now|deploy)?")
+@register(outgoing=True, pattern=r"^.update(?: |$)(indomie)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     await event.edit("**Mengecek Apdet, Tunggu Bentar Cuy....**")
@@ -237,11 +237,7 @@ async def upstream(event):
             "` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ, Mohon Tunggu Sebentar....100%`"
         )
 
-    if conf == "now":
-        await update(event, repo, ups_rem, ac_br)
-        await asyncio.sleep(10)
-        await event.delete()
-    elif conf == "deploy":
+    if conf == "indomie":
         await deploy(event, repo, ups_rem, ac_br, txt)
         await asyncio.sleep(10)
         await event.delete()
@@ -252,7 +248,7 @@ CMD_HELP.update(
     {
         "update": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update`"
         "\n• : Untuk Melihat Pembaruan Terbaru IndomieUserbot."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update deploy`"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update indomie`"
         "\n• : Memperbarui IndomieUserbot."
     }
 )
