@@ -38,7 +38,7 @@ async def _(event):
         desahannya = [
             desah
             async for desah in event.client.iter_messages(
-                "@DESAHANFCE", filter=InputMessagesFilterVoice
+                "@IndomieGanteng", filter=InputMessagesFilterVoice
             )
         ]
         aku = await event.client.get_me()
