@@ -5,6 +5,7 @@
 from time import sleep
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
+from userbot import DEFAULTUSER
 from userbot.events import register
 import random
 from telethon.tl.types import InputMessagesFilterVideo, InputMessagesFilterVoice, InputMessagesFilterPhotos
@@ -19,11 +20,11 @@ async def _(event):
                 "@tedeasupancache", filter=InputMessagesFilterVideo
             )
         ]
-        await event.client.get_me()
+        aku = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(asupannya),
-            caption=f"**Berhasil menemukan Video.**")
+            caption=f"**Asupan by [{DEFAULTUSER}](tg://user?id={aku.id}).**")
 
         await event.edit()
     except Exception:
@@ -40,11 +41,11 @@ async def _(event):
                 "@DESAHANFCE", filter=InputMessagesFilterVoice
             )
         ]
-        await event.client.get_me()
+        aku = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(desahannya),
-            caption=f"**Berhasil menemukan desahannya.**")
+            caption=f"**Desahan by [{DEFAULTUSER}](tg://user?id={aku.id}).**")
 
         await event.edit()
     except Exception:
@@ -61,11 +62,11 @@ async def _(event):
                 "@CeweLogoPack", filter=InputMessagesFilterPhotos
             )
         ]
-        await event.client.get_me()
+        aku = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(ayangnya),
-            caption=f"**Nih ayang mu [{DEFAULTUSER}](tg://user?id={aing.id}).**")
+            caption=f"**Ayang by [{DEFAULTUSER}](tg://user?id={aku.id}).**")
 
         await event.edit()
     except Exception:
