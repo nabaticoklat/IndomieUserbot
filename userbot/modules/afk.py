@@ -41,7 +41,7 @@ async def set_afk(afk_e):
     global afk_time  # pylint:disable=E0602
     global afk_start
     global afk_end
-    user = await bot.get_me()  # pylint:disable=E0602
+    user = await afk_e.client.get_me()  # pylint:disable=E0602
     global reason
     USER_AFK = {}
     afk_time = None
@@ -50,10 +50,10 @@ async def set_afk(afk_e):
     afk_start = start_1.replace(microsecond=0)
     if string:
         AFKREASON = string
-        await afk_e.edit(f"**! Mohon Maaf {DEFAULTUSER} Sedang AFK.**\
+        await afk_e.edit(f"**! Mohon Maaf [{DEFAULTUSER}](tg://user?id={user.id}) Sedang AFK.**\
         \n**Karena :** `{string}`")
     else:
-        await afk_e.edit(f"**! Mohon Maaf {DEFAULTUSER} Sedang AFK.**")
+        await afk_e.edit(f"**! Mohon Maaf [{DEFAULTUSER}](tg://user?id={user.id}) Sedang AFK.**")
     if user.last_name:
         await afk_e.client(UpdateProfileRequest(first_name=user.first_name, last_name=user.last_name + " 【 •OFF• 】"))
     else:
@@ -76,7 +76,7 @@ async def type_afk_is_not_true(notafk):
     global afk_time  # pylint:disable=E0602
     global afk_start
     global afk_end
-    user = await bot.get_me()  # pylint:disable=E0602
+    user = await notafk.client.get_me()  # pylint:disable=E0602
     last = user.last_name
     if last and last.endswith(" 【 •OFF• 】"):
         last1 = last[:-12]
@@ -86,7 +86,7 @@ async def type_afk_is_not_true(notafk):
     afk_end = back_alive.replace(microsecond=0)
     if ISAFK:
         ISAFK = False
-        msg = await notafk.respond(f"{DEFAULTUSER} **Kembali! Kangen Gak?....**")
+        msg = await notafk.respond(f"[{DEFAULTUSER}](tg://user?id={user.id}) **Kembali! Kangen Gak?....**")
         time.sleep(3)
         await msg.delete()
         await notafk.client(UpdateProfileRequest(first_name=user.first_name, last_name=last1))
@@ -119,7 +119,7 @@ async def mention_afk(mention):
     global afk_time  # pylint:disable=E0602
     global afk_start
     global afk_end
-    user = await bot.get_me()  # pylint:disable=E0602
+    user = await mention.client.get_me()  # pylint:disable=E0602
     back_alivee = datetime.now()
     afk_end = back_alivee.replace(microsecond=0)
     afk_since = "**𝙏𝙚𝙧𝙖𝙠𝙝𝙞𝙧 𝙊𝙣𝙡𝙞𝙣𝙚**"
@@ -154,8 +154,8 @@ async def mention_afk(mention):
                 afk_since = f"`{int(seconds)}s`"
             if mention.sender_id not in USERS:
                 if AFKREASON:
-                    await mention.reply(f"**! 𝗔𝗙𝗞   ** {DEFAULTUSER} **Sibuk **\nLama 𝗔𝗙𝗞 : {afk_since}.\
-                        \n𝘼𝙡𝙖𝙨𝙖𝙣: `{AFKREASON}`")
+                    await mention.reply(f"**! Mohon Maaf [{DEFAULTUSER}](tg://user?id={user.id}) Sedang AFK Sejak** `{afk_since}` **Yang Lalu.**\
+                            \n**Karena :** `{AFKREASON}`")
                 else:
                     await mention.reply(str(choice(AFKSTR)))
                 USERS.update({mention.sender_id: 1})
@@ -163,7 +163,7 @@ async def mention_afk(mention):
             elif mention.sender_id in USERS:
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await mention.reply(f"**! Mohon Maaf {DEFAULTUSER} Sedang AFK Sejak** `{afk_since}` **Yang Lalu.**\
+                        await mention.reply(f"**! Mohon Maaf [{DEFAULTUSER}](tg://user?id={user.id}) Sedang AFK Sejak** `{afk_since}` **Yang Lalu.**\
                             \n**Karena :** `{AFKREASON}`")
                     else:
                         await mention.reply(str(choice(AFKSTR)))
@@ -187,7 +187,7 @@ async def afk_on_pm(sender):
     global afk_time  # pylint:disable=E0602
     global afk_start
     global afk_end
-    user = await bot.get_me()  # pylint:disable=E0602
+    user = await sender.client.get_me()  # pylint:disable=E0602
     back_alivee = datetime.now()
     afk_end = back_alivee.replace(microsecond=0)
     afk_since = "**a while ago**"
@@ -231,7 +231,7 @@ async def afk_on_pm(sender):
                 afk_since = f"`{int(seconds)}s`"
             if sender.sender_id not in USERS:
                 if AFKREASON:
-                    await sender.reply(f"**! Mohon Maaf {DEFAULTUSER} Sedang AFK Sejak** `{afk_since}` **Yang Lalu.**\
+                    await sender.reply(f"**! Mohon Maaf [{DEFAULTUSER}](tg://user?id={user.id}) Sedang AFK Sejak** `{afk_since}` **Yang Lalu.**\
                             \n**Karena :** `{AFKREASON}`")
                 else:
                     await sender.reply(str(choice(AFKSTR)))
@@ -240,7 +240,7 @@ async def afk_on_pm(sender):
             elif apprv and sender.sender_id in USERS:
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await sender.reply(f"**! Mohon Maaf {DEFAULTUSER} Sedang AFK Sejak** `{afk_since}` **Yang Lalu.**\
+                        await sender.reply(f"**! Mohon Maaf [{DEFAULTUSER}](tg://user?id={user.id}) Sedang AFK Sejak** `{afk_since}` **Yang Lalu.**\
                             \n**Karena :** `{AFKREASON}`")
                     else:
                         await sender.reply(str(choice(AFKSTR)))
