@@ -51,6 +51,7 @@ async def _(event):
         await event.edit("**Tidak bisa menemukan vn desah.**")
         sleep(2)
 
+
 @register(outgoing=True, pattern=r"^\.ayang$")
 async def _(event):
     try:
