@@ -232,7 +232,7 @@ async def amireallyalive(alive):
     await alive.edit("__Sabar Goblok..__")
     await alive.edit("__Sabar Goblok...__")
     await alive.edit("🍾")
-    await asyncio.sleep(2)
+    await asyncio.sleep(4)
     output = (
         f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Telah Aktif.** \n\n"
         f"**{alive_text}**\n\n"
@@ -276,7 +276,7 @@ async def redis(alive):
     await alive.edit("__Sabar Goblok..__")
     await alive.edit("__Sabar Goblok...__")
     await alive.edit("🍾")
-    await asyncio.sleep(2)
+    await asyncio.sleep(4)
     output = (
         f"**[Indomie Userbot](https://github.com/indomiegorengsatu/IndomieUserbot) Telah aktif.**\n\n"
         f"┌  **Nᴀᴍᴇ     :** [{user.first_name}](tg://user?id={user.id}) \n"
