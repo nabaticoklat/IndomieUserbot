@@ -47,7 +47,7 @@ async def update_requirements():
         return repr(e)
 
 
-async def indomie(event, repo, ups_rem, ac_br, txt):
+async def deploy(event, repo, ups_rem, ac_br, txt):
     if HEROKU_API_KEY is not None:
         import heroku3
 
@@ -126,7 +126,7 @@ async def update(event, repo, ups_rem, ac_br):
     await asyncio.sleep(1)
     await event.edit("**ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ** `Di Restart....`")
     await asyncio.sleep(1)
-    await event.edit("`Orang Sabar Disayang Tuhan, Klo G Sbrn G punya Tuhan.`")
+    await event.edit("`Orang Sabar Disayang Tuhan, Klo Ga Sbrn Ga punya Tuhan.`")
     await asyncio.sleep(10)
     await event.delete()
 
@@ -143,7 +143,7 @@ async def update(event, repo, ups_rem, ac_br):
     return
 
 
-@register(outgoing=True, pattern=r"^.update(?: |$)(indomie)?")
+@register(outgoing=True, pattern=r"^.update(?: |$)(now|indomie)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     await event.edit("**Mengecek Apdet, Tunggu Bentar Cuy....**")
@@ -220,7 +220,7 @@ async def upstream(event):
         else:
             await event.edit(changelog_str)
         return await event.respond(
-            "**Perintah Untuk Update, Sebagai Berikut.**\n🔰 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update indomie`\n\n__Untuk Meng Update Fitur Terbaru Dari ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ.__"
+            "**Perintah Untuk Update, Sebagai Berikut.**\n🔰 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update deploy`\n\n__Untuk Meng Update Fitur Terbaru Dari ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ.__"
         )
 
     if force_update:
@@ -237,7 +237,11 @@ async def upstream(event):
             "` Proses Update ♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ, Mohon Tunggu Sebentar....100%`"
         )
 
-    if conf == "indomie":
+    if conf == "now":
+        await update(event, repo, ups_rem, ac_br)
+        await asyncio.sleep(10)
+        await event.delete()
+    elif conf == "deploy":
         await deploy(event, repo, ups_rem, ac_br, txt)
         await asyncio.sleep(10)
         await event.delete()
@@ -248,7 +252,7 @@ CMD_HELP.update(
     {
         "update": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update`"
         "\n• : Untuk Melihat Pembaruan Terbaru IndomieUserbot."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update indomie`"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update deploy`"
         "\n• : Memperbarui IndomieUserbot."
     }
 )
