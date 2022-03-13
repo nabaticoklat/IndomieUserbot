@@ -49,7 +49,7 @@ DEF_UNAPPROVED_MSG = (
     f"• **Jangan Spam Chat atau kamu akan otomatis diblokir.**\n"
     "╔═════════════════════╗\n"
     "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
-    "┣[• 𝐁𝐘 [IndomieUserbot](https://github.com/IndomieGorengSatu/IndomieUserbot)\n"
+    f"┣[• 𝐁𝐘 [IndomieUserbot](https://github.com/IndomieGorengSatu/IndomieUserbot)\n"
     "╚═════════════════════╝")
 # =================================================================
 
