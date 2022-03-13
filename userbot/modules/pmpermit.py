@@ -415,7 +415,8 @@ async def permitpm(event):
     if event.is_private:
         if not pm_permit_sql.is_approved(chats.id):
             pm_permit_sql.approve(
-                chats.id, f"[{aku.first_name}](tg://user?id={aku.id}) `Telah Mengirimi Anda Pesan 😯`")
+                chats.id,
+                f"[{aku.first_name}](tg://user?id={aku.id}) `Telah Mengirimi Anda Pesan 😯`")
             await borg.send_message(
                 chats, f"**Menerima Pesan!, Pengguna Terdeteksi Adalah {DEFAULTUSER}**"
             )
