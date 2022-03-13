@@ -145,7 +145,7 @@ async def gben(userbot):
     except BaseException:
         pass
     return await dark.edit(
-        f"\\**#GBanned_User**//"
+        f"\\**#GBanned_User**// \n"
         f"**Pengguna :** [{user.first_name}](tg://user?id={user.id}) \n"
         f"**User ID :** `{user.id}`\n"
         f"**Action :** `Global Banned By {me.first_name}` \n"
@@ -219,7 +219,7 @@ async def gunben(userbot):
     except BaseException:
         pass
     return await dark.edit(
-        f"\\**#UnGbanned_User**//"
+        f"\\**#UnGbanned_User**// \n"
         f"**Pengguna :** [{user.first_name}](tg://user?id={user.id}) \n"
         f"**User ID :** `{user.id}`\n"
         f"**Action :** `UnGbanned By {me.first_name}` \n"
