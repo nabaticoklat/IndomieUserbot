@@ -24,7 +24,11 @@ from userbot.modules.admin import get_user_from_event
 
 
 @register(outgoing=True, pattern="^.id(?: |$)(.*)")
-async def useridgetter(target):
+async def _(target):
+    if event.fwd_from:
+        return
+    if event.reply_to_msg_id:
+        await event.get_input_chat()
     message = await target.get_reply_message()
     if message:
         if not message.forward:
