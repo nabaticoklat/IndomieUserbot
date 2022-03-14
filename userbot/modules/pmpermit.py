@@ -39,17 +39,17 @@ LASTMSG = {}
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 CUSTOM_TEXT = str(
-    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat IndomieUserbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
+    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat IndomieUserbot. `{DEFAULTUSER}` di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”\n"
     "╚═════════════════════╝\n"
-    f"• `{DEFAULTUSER}` **belum menyetujui kamu untuk PM.**\n"
-    f"• **Tunggu sampai** `{DEFAULTUSER}` **menyetujui PM kamu.**\n"
+    f"• [`{DEFAULTUSER}`] **belum menyetujui kamu untuk PM.**\n"
+    f"• **Tunggu sampai** [`{DEFAULTUSER}`] **menyetujui PM kamu.**\n"
     f"• **Jangan Spam Chat atau kamu akan otomatis diblokir.**\n"
     "╔═════════════════════╗\n"
-    f"• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
-    f"• 𝐁𝐘 [IndomieUserbot](https://github.com/IndomieGorengSatu/IndomieUserbot)\n"
+    "• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
+    "• 𝐁𝐘 **IndomieUserbot**\n"
     "╚═════════════════════╝")
 # =================================================================
 
@@ -301,12 +301,12 @@ async def blockpm(block):
         name0 = str(replied_user.first_name)
         aku = await block.client.get_me()
         await block.client(BlockRequest(aname))
-        await block.edit(f"**Bacot bet lo jamet, gua block aja deh**\n`Block by :` [{aku.first_name}](tg://user?id={aku.id})")
+        await block.edit(f"**Bacot bet lo jamet, gua block aja deh**\n**Block by :** [{aku.first_name}](tg://user?id={aku.id})")
         uid = replied_user.id
     else:
         await block.client(BlockRequest(block.chat_id))
         aname = await block.client.get_entity(block.chat_id)
-        await block.edit(f"**Bacot bet lo jamet, gua block aja deh**\n`Block by :` [{aku.first_name}](tg://user?id={aku.id})")
+        await block.edit(f"**Bacot bet lo jamet, gua block aja deh**\n**Block by :** [{aku.first_name}](tg://user?id={aku.id})")
         name0 = str(aname.first_name)
         uid = block.chat_id
 
@@ -331,9 +331,9 @@ async def unblockpm(unblock):
         reply = await unblock.get_reply_message()
         replied_user = await unblock.client.get_entity(reply.from_id)
         name0 = str(replied_user.first_name)
-        aku = await block.client.get_me()
+        aku = await unblock.client.get_me()
         await unblock.client(UnblockRequest(replied_user.id))
-        await unblock.edit(f"**Udah Di Unblock Jangan caper lagi ya ngentot!**\n`Unblock by :` [{aku.first_name}](tg://user?id={aku.id})")
+        await unblock.edit(f"**Udah Di Unblock Jangan caper lagi ya ngentot!**\n**Unblock by :** [{aku.first_name}](tg://user?id={aku.id})")
 
     if BOTLOG:
         await unblock.client.send_message(
