@@ -257,8 +257,8 @@ async def approvepm(apprvpm):
     if BOTLOG:
         await apprvpm.client.send_message(
             BOTLOG_CHATID,
-            "\\**#DITERIMA**//\n" 
-            + "User: " 
+            "\\**#DITERIMA**//\n"
+            + "User: "
             + f"[{name0}](tg://user?id={uid})"
         )
 
@@ -321,8 +321,8 @@ async def blockpm(block):
     if BOTLOG:
         await block.client.send_message(
             BOTLOG_CHATID,
-            "\\**#BLOCK//**\n" 
-            + "Pengguna: " 
+            "\\**#BLOCK//**\n"
+            + "Pengguna: "
             + f"[{name0}](tg://user?id={uid})",
         )
 
@@ -340,8 +340,8 @@ async def unblockpm(unblock):
     if BOTLOG:
         await unblock.client.send_message(
             BOTLOG_CHATID,
-            "\\**#UNBLOCK//**\n" 
-            + "Pengguna: " 
+            "\\**#UNBLOCK//**\n"
+            + "Pengguna: "
             + f"[{name0}](tg://user?id={replied_user.id})",
         )
 
