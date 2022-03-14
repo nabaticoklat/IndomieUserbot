@@ -48,8 +48,8 @@ DEF_UNAPPROVED_MSG = (
     f"• **Tunggu sampai** [`{DEFAULTUSER}`] **menyetujui PM kamu.**\n"
     f"• **Jangan Spam Chat atau kamu akan otomatis diblokir.**\n"
     "╔═════════════════════╗\n"
-    "• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
-    "• 𝐁𝐘 **IndomieUserbot**\n"
+    "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
+    "┣[• 𝐁𝐘 **IndomieUserbot**\n"
     "╚═════════════════════╝")
 # =================================================================
 
