@@ -106,7 +106,7 @@ async def permitpm(event):
             else:
                 COUNT_PM[event.chat_id] = COUNT_PM[event.chat_id] + 1
 
-            if COUNT_PM[event.chat_id] > 5:
+            if COUNT_PM[event.chat_id] > 6:
                 await event.respond(
                     "`Bacot bat Jamet tolol, Gua blok ajalah`\n"
                     f"`Tunggu` [{self_user.first_name}](tg://user?id={self_user.id}) `Bales ya njing`"
@@ -257,7 +257,7 @@ async def approvepm(apprvpm):
     if BOTLOG:
         await apprvpm.client.send_message(
             BOTLOG_CHATID,
-            "#DITERIMA\n" + "User: " + f"[{name0}](tg://user?id={uid})"
+            "\\#DITERIMA//\n" + "User: " + f"[{name0}](tg://user?id={uid})"
         )
 
 
@@ -320,7 +320,7 @@ async def blockpm(block):
     if BOTLOG:
         await block.client.send_message(
             BOTLOG_CHATID,
-            "#BLOKIR\n" + "Pengguna : " + f"[{name0}](tg://user?id={uid})",
+            "\\**#BLOCK**//\n" + "Pengguna : " + f"[{name0}](tg://user?id={uid})",
         )
 
 
@@ -338,7 +338,7 @@ async def unblockpm(unblock):
     if BOTLOG:
         await unblock.client.send_message(
             BOTLOG_CHATID,
-            f"[{name0}](tg://user?id={replied_user.id})" " Tidak Lagi Diblokir.",
+            "\\**#UNBLOCK**//\n" + "Pengguna : " + f"[{name0}](tg://user?id={replied_user.id})",
         )
 
 
