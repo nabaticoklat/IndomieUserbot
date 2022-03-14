@@ -39,7 +39,7 @@ LASTMSG = {}
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 CUSTOM_TEXT = str(
-    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat **IɴᴅᴏᴍɪᴇUꜱᴇʀʙᴏᴛ** [`{DEFAULTUSER}`] di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
+    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat **IɴᴅᴏᴍɪᴇUꜱᴇʀʙᴏᴛ** {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”\n"
@@ -49,7 +49,7 @@ DEF_UNAPPROVED_MSG = (
     "• Jangan Spam Chat atau kamu akan otomatis diblokir.\n"
     "╔═════════════════════╗\n"
     "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
-    "┣[• 𝐁𝐘 **IɴᴅᴏᴍɪᴇUꜱᴇʀʙᴏᴛ**\n"
+    "┣[• 𝐁𝐘 IɴᴅᴏᴍɪᴇUꜱᴇʀʙᴏᴛ\n"
     "╚═════════════════════╝")
 # =================================================================
 
