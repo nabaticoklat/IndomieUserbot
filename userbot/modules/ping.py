@@ -84,19 +84,17 @@ async def indomie(pong):
     await pong.edit("__Sabar goblok.__")
     await pong.edit("__Sabar goblok..__")
     await pong.edit("__Sabar goblok...__")
-    await pong.edit("__Sabar goblok....__")
-    await pong.edit("⚡")
     await asyncio.sleep(2)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await pong.client.get_me()
     await pong.edit(
-        f"**♨ ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ**\n\n"
+        f"**╼══❃ ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ ❃══╾ **\n\n"
         f"** ▹  Pɪɴɢᴇʀ  : ** "
         f"`%sms` \n"
-        f"** ▹  Uᴘᴛɪᴍᴇ  :** "
+        f"** ▹  Uᴘᴛɪᴍᴇ  : ** "
         f"`{uptime}` \n"
-        f"** ▹  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id})" % (duration)
+        f"** ▹  Oᴡɴᴇʀ   : ** [{user.first_name}](tg://user?id={user.id})" % (duration)
     )
 
 
