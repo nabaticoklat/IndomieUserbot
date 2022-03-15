@@ -84,7 +84,6 @@ async def indomie(pong):
     await pong.edit("__Sabar goblok.__")
     await pong.edit("__Sabar goblok..__")
     await pong.edit("__Sabar goblok...__")
-    await asyncio.sleep(2)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await pong.client.get_me()
