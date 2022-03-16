@@ -9,13 +9,14 @@ from userbot import BOTLOG, BOTLOG_CHATID
 from userbot import AFKREASON, CMD_HELP, COUNT_MSG, ISAFK  # noqa pylint: disable=unused-import isort:skip
 from userbot import PM_AUTO_BAN
 from userbot.events import register
+from userbot import user
 
 # ========================= CONSTANTS ============================
 AFKSTR = [
-    f"**! 𝗔𝗙𝗞 \n Sedang Sibuk, Tunggu {owner} Online Kembali**",
-    f"**! 𝗔𝗙𝗞 \n Mohon Maaf {owner} Sedang Sibuk\n Sedang Menjalankan Perintah Tuhan!!**",
-    f"**! 𝗔𝗙𝗞 \n {owner} Sedang Melakukan Perintah Tuhan\n Tunggu {owner} Online Kembali !!!!!**",
-    f"**! 𝗔𝗙𝗞 \n Maaf {owner} Sedang Sibuk!!**",
+    f"**! 𝗔𝗙𝗞 \n Sedang Sibuk, Tunggu {user} Online Kembali**",
+    f"**! 𝗔𝗙𝗞 \n Mohon Maaf {user} Sedang Sibuk\n Sedang Menjalankan Perintah Tuhan!!**",
+    f"**! 𝗔𝗙𝗞 \n {user} Sedang Melakukan Perintah Tuhan\n Tunggu {user} Online Kembali !!!!!**",
+    f"**! 𝗔𝗙𝗞 \n Maaf {user} Sedang Sibuk!!**",
 ]
 
 
