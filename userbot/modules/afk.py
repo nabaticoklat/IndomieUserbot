@@ -9,7 +9,6 @@ from userbot import BOTLOG, BOTLOG_CHATID
 from userbot import AFKREASON, CMD_HELP, COUNT_MSG, ISAFK  # noqa pylint: disable=unused-import isort:skip
 from userbot import PM_AUTO_BAN
 from userbot.events import register
-from userbot.__init__ import owner
 
 # ========================= CONSTANTS ============================
 AFKSTR = [
