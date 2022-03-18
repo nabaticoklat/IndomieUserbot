@@ -34,7 +34,7 @@ def user_list(l, n):
         yield l[i: i + n]
 
 
-@skyzu_cmd(pattern="startvc$")
+@indomie_cmd(pattern="startvc$")
 async def start_voice(c):
     aku = await bot.get_me()
     chat = await c.get_chat()
