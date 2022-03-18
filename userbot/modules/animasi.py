@@ -1,9 +1,10 @@
 from time import sleep
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import indomie_cmd
 
 
-@register(outgoing=True, pattern='^.sadboy(?: |$)(.*)')
+@indomie_cmd(pattern='sadboy(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
@@ -16,7 +17,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern='^.hujan(?: |$)(.*)')
+@register(pattern='hujan(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`H`")
@@ -77,7 +78,7 @@ async def typewriter(typew):
 # Create by myself @IndomieGenetik
 
 
-@register(outgoing=True, pattern='^.engas(?: |$)(.*)')
+@indomie_cmd(pattern='engas(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("Udah nggak kuat nahan")
@@ -97,10 +98,10 @@ async def typewriter(typew):
     await typew.edit("Tapi pake pengaman")
 
 
-# Create by myself @localheart
+# Create by myself @IndomieGenetik
 
 
-@register(outgoing=True, pattern='^.ehm(?: |$)(.*)')
+@register(pattern='ehm(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("Eh..")
@@ -112,7 +113,7 @@ async def typewriter(typew):
     await typew.edit("Gamau nyoba?")
 
 
-@register(outgoing=True, pattern='^.vc(?: |$)(.*)')
+@indomie_cmd(pattern='vc(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("Kaa 🥺")
@@ -129,14 +130,14 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "animasi":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sadboy`\
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sadboy`\
     \n↳ : Biasalah sadboy hikss\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.hujan`\
+    f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}hujan`\
     \n↳ : Coba aja hehehe.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.engas`\
+    f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}engas`\
     \n↳ : sange brutal.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `ehm`\
-    \n↳ : cobain sendiri.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `vc`\
+    f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ehm`\
+    f\n↳ : cobain sendiri.\
+    f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vc`\
     n↳: sagapung."
 })
