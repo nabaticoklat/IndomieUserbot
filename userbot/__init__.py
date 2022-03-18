@@ -488,7 +488,7 @@ def paginate_help(page_number, loaded_modules, prefix):
     helpable_modules = sorted(helpable_modules)
     modules = [
         custom.Button.inline(
-            "{} {} {}".format(f"{EMOJI_HELP}", x, f"{EMOJI_HELP}"),
+            "{} {} {}".format(f"✦", x, f"✦"),
             data="ub_modul_{}".format(x),
         )
         for x in helpable_modules
