@@ -141,7 +141,7 @@ CMD_HELP.update({
     "animasi7":
     f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gabut` ; `{cmd}orgil`\
     \nUsage: ntahlah gabut doang.\
-    f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙:`{cmd}ass`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙:`{cmd}ass`\
     \nUsage: Salam dulu biar sopan."
 })
 
@@ -149,6 +149,6 @@ CMD_HELP.update({
     "animasi8":
     f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cinta`\
     \nUsage: mengirim cintamu ke seseorang.\
-    f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sange` :\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sange` :\
     \nUsage: cobalah sndiri ngentot."
 })
