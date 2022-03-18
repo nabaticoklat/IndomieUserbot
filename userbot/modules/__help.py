@@ -1,11 +1,11 @@
 from userbot import BOT_USERNAME, CMD_HELP, bot, user
-from userbot.utils import edit_delete, edit_or_reply, skyzu_cmd
+from userbot.utils import edit_delete, edit_or_reply, indomie_cmd
 
 DEFAULTUSER = user.first_name
 CUSTOM_HELP_EMOJI = "✨"
 
 
-@skyzu_cmd(pattern="help ?(.*)")
+@indomie_cmd(pattern="help ?(.*)")
 async def cmd_list(event):
     args = event.pattern_match.group(1).lower()
     if args:
