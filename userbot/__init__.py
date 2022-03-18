@@ -59,7 +59,8 @@ logging.basicConfig(
 logging.getLogger("asyncio").setLevel(logging.ERROR)
 logging.getLogger("pytgcalls").setLevel(logging.ERROR)
 logging.getLogger("telethon.network.mtprotosender").setLevel(logging.ERROR)
-logging.getLogger("telethon.network.connection.connection").setLevel(logging.ERROR)
+logging.getLogger(
+    "telethon.network.connection.connection").setLevel(logging.ERROR)
 LOGS = getLogger(__name__)
 
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -71,8 +72,8 @@ if CONSOLE_LOGGER_VERBOSE:
     )
 else:
     basicConfig(
-        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=INFO
-    )
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        level=INFO)
 LOGS = getLogger(__name__)
 
 if version_info[0] < 3 or version_info[1] < 8:
@@ -108,7 +109,10 @@ while 0 < 6:
 
 del _DEVS
 
-SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "1447438514").split()}
+SUDO_USERS = {
+    int(x) for x in os.environ.get(
+        "SUDO_USERS",
+        "1447438514").split()}
 BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
 
 # Telegram App KEY and HASH
@@ -277,13 +281,11 @@ INLINE_PIC = os.environ.get(
     "INLINE_PIC") or "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png"
 
 # Picture For VCPLUGIN
-PLAY_PIC = (
-    os.environ.get("PLAY_PIC") or "https://telegra.ph/file/6213d2673486beca02967.png"
-)
+PLAY_PIC = (os.environ.get("PLAY_PIC")
+            or "https://telegra.ph/file/6213d2673486beca02967.png")
 
-QUEUE_PIC = (
-    os.environ.get("QUEUE_PIC") or "https://telegra.ph/file/d6f92c979ad96b2031cba.png"
-)
+QUEUE_PIC = (os.environ.get("QUEUE_PIC")
+             or "https://telegra.ph/file/d6f92c979ad96b2031cba.png")
 
 
 # Default emoji help
@@ -450,7 +452,9 @@ try:
     chat_id, msg_id = gvarstatus("restartstatus").split("\n")
     with bot:
         try:
-            bot.loop.run_until_complete(update_restart_msg(int(chat_id), int(msg_id)))
+            bot.loop.run_until_complete(
+                update_restart_msg(
+                    int(chat_id), int(msg_id)))
         except BaseException:
             pass
     delgvar("restartstatus")
@@ -497,7 +501,7 @@ def paginate_help(page_number, loaded_modules, prefix):
     modulo_page = page_number % max_num_pages
     if len(pairs) > number_of_rows:
         pairs = pairs[
-            modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
+            modulo_page * number_of_rows: number_of_rows * (modulo_page + 1)
         ] + [
             (
                 custom.Button.inline(
@@ -543,7 +547,8 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 current_page_number = int(looters)
-                buttons = paginate_help(current_page_number, dugmeler, "helpme")
+                buttons = paginate_help(
+                    current_page_number, dugmeler, "helpme")
                 text = f"**• IndomieUserbot ɪɴʟɪɴᴇ ᴍᴇɴᴜ •**\n\n✦ **Oᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✦ **Mᴏᴅᴜʟᴇꜱ** `{len(dugmeler)}`"
                 await event.edit(
                     text,
@@ -555,7 +560,8 @@ with bot:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @tgbot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
+        @tgbot.on(events.NewMessage(incoming=True,
+                  func=lambda e: e.is_private))
         async def bot_pms(event):
             chat = await event.get_chat()
             if check_is_black_list(chat.id):
@@ -611,8 +617,12 @@ with bot:
                         return await event.reply(f"**ERROR:** `{e}`")
                     try:
                         add_user_to_db(
-                            reply_to, user_name, user_id, reply_msg, event.id, msg.id
-                        )
+                            reply_to,
+                            user_name,
+                            user_id,
+                            reply_msg,
+                            event.id,
+                            msg.id)
                     except Exception as e:
                         LOGS.error(str(e))
                         if BOTLOG:
@@ -626,7 +636,8 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@IndomieUserbot"):
+            if event.query.user_id == uid and query.startswith(
+                    "@IndomieUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=indomielogo,
@@ -639,15 +650,23 @@ with bot:
                     title="Repository",
                     description="Repository Indomie Userbot",
                     url="https://t.me/IndomieProject",
-                    thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
+                    thumb=InputWebDocument(
+                        INLINE_PIC,
+                        0,
+                        "image/jpeg",
+                        []),
                     text="**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ **Oᴡɴᴇʀ Rᴇᴘᴏ :** [Indomie](https://t.me/IndomieGenetik)\n✦ **Cʜᴀɴɴᴇʟ :** @IndomieProject\n✦ Sᴛᴏʀᴇ\n✦ **Rᴇᴘᴏsɪᴛᴏʀʏ :** [IndomieUserbot](https://github.com/IndomieGorengSatu/IndomieUserbot)\n━━━━━━━━━━━━━━━━━━━",
                     buttons=[
                         [
-                            custom.Button.url("• Cʜᴀɴɴᴇʟ •", "https://t.me/IndomieProject"),
-                            custom.Button.url("• Sᴛᴏʀᴇ •", "https://t.me/IndomieStore"),
                             custom.Button.url(
-                                "• Rᴇᴘᴏ •", "https://github.com/IndomieGorengSatu/IndomieUserbot"
-                            ),
+                                "• Cʜᴀɴɴᴇʟ •",
+                                "https://t.me/IndomieProject"),
+                            custom.Button.url(
+                                "• Sᴛᴏʀᴇ •",
+                                "https://t.me/IndomieStore"),
+                            custom.Button.url(
+                                "• Rᴇᴘᴏ •",
+                                "https://github.com/IndomieGorengSatu/IndomieUserbot"),
                         ],
                     ],
                     link_preview=False,
@@ -665,9 +684,9 @@ with bot:
                         to_check -= 1
                     if n_escapes % 2 == 0:
                         buttons.append(
-                            (match.group(2), match.group(3), bool(match.group(4)))
-                        )
-                        note_data += markdown_note[prev : match.start(1)]
+                            (match.group(2), match.group(3), bool(
+                                match.group(4))))
+                        note_data += markdown_note[prev: match.start(1)]
                         prev = match.end(1)
                     elif n_escapes % 2 == 1:
                         note_data += markdown_note[prev:to_check]
@@ -689,15 +708,23 @@ with bot:
                     title="☯ IndomieUserbot ☯",
                     description="Indomie Userbot | Telethon",
                     url="https://t.me/IndomieProject",
-                    thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
+                    thumb=InputWebDocument(
+                        INLINE_PIC,
+                        0,
+                        "image/jpeg",
+                        []),
                     text=f"**IndomieUserbot**\n━━━━━━━━━━━━━━━━━━━\n✦ **Oᴡɴᴇʀ:** [{user.first_name}](tg://user?id={user.id})\n✦ **Assɪsᴛᴀɴᴛ:** {tgbotusername}\n━━━━━━━━━━━━━━━━━━━\n**Uᴘᴅᴀᴛᴇs:** @IndomieProject\n━━━━━━━━━━━━━━━━━━━",
                     buttons=[
                         [
-                            custom.Button.url("• Cʜᴀɴɴᴇʟ •", "https://t.me/IndomieProject"),
-                            custom.Button.url("• Sᴛᴏʀᴇ •", "https://t.me/IndomieStore"),
                             custom.Button.url(
-                                "• Rᴇᴘᴏ •", "https://github.com/IndomieGorengSatu/IndomieUserbot"
-                            ),
+                                "• Cʜᴀɴɴᴇʟ •",
+                                "https://t.me/IndomieProject"),
+                            custom.Button.url(
+                                "• Sᴛᴏʀᴇ •",
+                                "https://t.me/IndomieStore"),
+                            custom.Button.url(
+                                "• Rᴇᴘᴏ •",
+                                "https://github.com/IndomieGorengSatu/IndomieUserbot"),
                         ],
                     ],
                     link_preview=False,
@@ -713,8 +740,10 @@ with bot:
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                current_page_number = int(event.data_match.group(1).decode("UTF-8"))
-                buttons = paginate_help(current_page_number + 1, dugmeler, "helpme")
+                current_page_number = int(
+                    event.data_match.group(1).decode("UTF-8"))
+                buttons = paginate_help(
+                    current_page_number + 1, dugmeler, "helpme")
                 await event.edit(buttons=buttons)
             else:
                 reply_pop_up_alert = (
@@ -725,7 +754,8 @@ with bot:
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in DEVS and SUDO_USERS:
-                openlagi = custom.Button.inline("• Re-Open Menu •", data="reopen")
+                openlagi = custom.Button.inline(
+                    "• Re-Open Menu •", data="reopen")
                 await event.edit(
                     "⚜️ **ʜᴇʟᴘ ᴍᴏᴅᴇ ʙᴜᴛᴛᴏɴ ᴅɪᴛᴜᴛᴜᴘ!** ⚜️", buttons=openlagi
                 )
@@ -740,8 +770,10 @@ with bot:
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                current_page_number = int(event.data_match.group(1).decode("UTF-8"))
-                buttons = paginate_help(current_page_number - 1, dugmeler, "helpme")
+                current_page_number = int(
+                    event.data_match.group(1).decode("UTF-8"))
+                buttons = paginate_help(
+                    current_page_number - 1, dugmeler, "helpme")
                 await event.edit(buttons=buttons)
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
@@ -764,9 +796,8 @@ with bot:
                         + " "
                     )
                 else:
-                    help_string = (
-                        str(CMD_HELP[modul_name]).replace("`", "").replace("**", "")
-                    )
+                    help_string = (str(CMD_HELP[modul_name]).replace(
+                        "`", "").replace("**", ""))
 
                 reply_pop_up_alert = (
                     help_string
@@ -783,8 +814,7 @@ with bot:
         LOGS.info(
             "Help Mode Inline Bot Mu Tidak aktif. Tidak di aktifkan juga tidak apa-apa. "
             "Untuk Mengaktifkannya Buat bot di @BotFather Lalu Tambahkan var BOT_TOKEN dan BOT_USERNAME. "
-            "Pergi Ke @BotFather lalu settings bot » Pilih mode inline » Turn On. "
-        )
+            "Pergi Ke @BotFather lalu settings bot » Pilih mode inline » Turn On. ")
     try:
         bot.loop.run_until_complete(check_botlog_chatid())
     except BaseException as e:
