@@ -17,7 +17,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(pattern='hujan(?: |$)(.*)')
+@indomie_cmd(pattern='hujan(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`H`")
@@ -101,7 +101,7 @@ async def typewriter(typew):
 # Create by myself @IndomieGenetik
 
 
-@register(pattern='ehm(?: |$)(.*)')
+@indomie_cmd(pattern='ehm(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("Eh..")
