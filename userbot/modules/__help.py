@@ -14,10 +14,11 @@ async def cmd_list(event):
                 event,
                 f"**✘ Commands available in {args} ✘** \n\n"
                 + str(CMD_HELP[args])
-                + "\n\n**☞ @IndomieProject**",
+                + "\n\n**☞ @IndomieProject**"
+                + "\n\n**☞ @IndomieStore**",
             )
         else:
-            await edit_delete(event, f"**Module** `{args}` **Tidak tersedia!**")
+            await edit_delete(event, f"**Module** `{args}` **Tidak tersedia, NGETIK YANG BENER NGENTOT!**")
     else:
         try:
             results = await bot.inline_query(  # pylint:disable=E0602
