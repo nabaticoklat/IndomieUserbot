@@ -1,7 +1,6 @@
 from time import sleep
 
 from userbot import CMD_HELP
-from userbot import CMD_HANDLER
 from userbot.utils import indomie_cmd
 
 
@@ -138,7 +137,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "animasi7": 
+    "animasi7":
     f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gabut` ; `{cmd}orgil`\
     \nUsage: ntahlah gabut doang.\
     f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙:`{cmd}ass`\
@@ -146,7 +145,7 @@ CMD_HELP.update({
 })
 
 CMD_HELP.update({
-    "animasi8": 
+    "animasi8":
     f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cinta`\
     \nUsage: mengirim cintamu ke seseorang.\
     f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sange` :\
