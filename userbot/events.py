@@ -27,6 +27,8 @@ def register(**args):
     trigger_on_fwd = args.get('trigger_on_fwd', False)
     disable_errors = args.get('disable_errors', False)
     insecure = args.get('insecure', False)
+    args.get("sudo", False)
+    args.get("own", False)
 
     if pattern is not None and not pattern.startswith('(?i)'):
         args['pattern'] = '(?i)' + pattern
