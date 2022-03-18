@@ -5,7 +5,7 @@ from userbot.utils import indomie_cmd
 
 
 
-@register(pattern="lhelp$")
+@indomie_cmd(pattern="lhelp$")
 async def usit(e):
     aku = await e.client.get_me()
     await e.edit(
