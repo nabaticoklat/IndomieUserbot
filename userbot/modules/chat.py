@@ -133,7 +133,7 @@ async def kikme(leave):
     await leave.client.kick_participant(leave.chat_id, "me")
 
 
-@register(pattern=r"^\.absenall$", own=True)
+@register(outgoing=True, pattern=r"^\.absenall$", own=True)
 async def _(event):
     await event.reply(choice(absen))
 
