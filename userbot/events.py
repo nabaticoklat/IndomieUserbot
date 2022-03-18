@@ -30,30 +30,39 @@ def register(**args):
     args.get("sudo", False)
     args.get("own", False)
 
-    if pattern is not None and not pattern.startswith('(?i)'):
-        args['pattern'] = '(?i)' + pattern
+    if pattern is not None and not pattern.startswith("(?i)"):
+        args["pattern"] = "(?i)" + pattern
 
     if "disable_edited" in args:
-        del args['disable_edited']
+        del args["disable_edited"]
+
+    if "sudo" in args:
+        del args["sudo"]
+        args["incoming"] = True
+        args["from_users"] = DEVS
 
     if "ignore_unsafe" in args:
-        del args['ignore_unsafe']
+        del args["ignore_unsafe"]
 
     if "groups_only" in args:
-        del args['groups_only']
+        del args["groups_only"]
 
     if "disable_errors" in args:
-        del args['disable_errors']
+        del args["disable_errors"]
 
     if "trigger_on_fwd" in args:
-        del args['trigger_on_fwd']
+        del args["trigger_on_fwd"]
+
+    if "own" in args:
+        del args["own"]
+        args["incoming"] = True
+        args["from_users"] = DEFAULT
 
     if "insecure" in args:
-        del args['insecure']
+        del args["insecure"]
 
-    if pattern:
-        if not ignore_unsafe:
-            args['pattern'] = pattern.replace('^.', unsafe_pattern, 1)
+    if pattern and not ignore_unsafe:
+        args["pattern"] = pattern.replace("^.", unsafe_pattern, 1)
 
     def decorator(func):
         async def wrapper(check):
@@ -98,7 +107,7 @@ def register(**args):
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
-                    text = "**IndomieUserbot ERROR**\n"
+                    text = "**✘ IndomieUserbot ERROR REPORT ✘**\n"
                     link = "Silahkan chat: @IndomieGenetik"
                     text += "Untuk melaporkan kesalahan"
                     text += f"teruskan pesan ini {link}.\n"
