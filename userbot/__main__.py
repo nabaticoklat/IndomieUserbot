@@ -15,6 +15,7 @@ from userbot import (
     BOTLOG_CHATID,
     ALIVE_LOGO,
     LOGS,
+    mieblacklist,
     bot,
     call_py,
 )
@@ -23,6 +24,21 @@ from userbot.utils import autobot
 from userbot.utils.tools import bacot_kontol
 
 try:
+    bot.start()
+    call_py.start()
+    user = bot.get_me()
+    kyyblacklist = requests.get(
+        "https://raw.githubusercontent.com/IndomieGorengSatu/Mie/master/mieblacklist.json"
+    ).json()
+    if user.id in kyyblacklist:
+        LOGS.warning(
+            "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTNYA GUA MATIIN NAJIS BANGET DIPAKE ORANG KEK LU.\nCredits: @IndomieGenetik"
+        )
+        sys.exit(1)
+except Exception as e:
+    LOGS.info(str(e), exc_info=True)
+    sys.exit(1)
+
     for module_name in ALL_MODULES:
         imported_module = import_module("userbot.modules." + module_name)
     bot.start()
