@@ -4,7 +4,6 @@
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot import DEFAULTUSER
 from userbot.events import register
 import random
 from telethon.tl.types import InputMessagesFilterVideo
