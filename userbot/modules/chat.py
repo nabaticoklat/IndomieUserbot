@@ -4,56 +4,82 @@
 # you may not use this file except in compliance with the License.
 """ Userbot module containing userid, chatid and log commands"""
 
-from asyncio import sleep
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot, ALIVE_NAME
+import asyncio
+import csv
+import random
 from datetime import datetime
-from telethon import functions
-from emoji import emojize
 from math import sqrt
-from telethon.tl.functions.channels import GetFullChannelRequest, GetParticipantsRequest
-from telethon.tl.functions.messages import GetFullChatRequest, GetHistoryRequest
-from telethon.tl.types import MessageActionChannelMigrateFrom, ChannelParticipantsAdmins
+from random import choice
+
+from emoji import emojize
+from telethon import functions
 from telethon.errors import (
     ChannelInvalidError,
     ChannelPrivateError,
-    ChannelPublicGroupNaError)
+    ChannelPublicGroupNaError,
+)
+from telethon.errors.rpcerrorlist import (
+    UserAlreadyParticipantError,
+    UserNotMutualContactError,
+    UserPrivacyRestrictedError,
+)
+from telethon.tl.functions.channels import (
+    GetFullChannelRequest,
+    GetParticipantsRequest,
+    InviteToChannelRequest,
+)
+from telethon.tl.functions.messages import GetFullChatRequest, GetHistoryRequest
+from telethon.tl.types import (
+    ChannelParticipantAdmin,
+    ChannelParticipantsAdmins,
+    ChannelParticipantsBots,
+    InputPeerUser,
+    MessageActionChannelMigrateFrom,
+)
 from telethon.utils import get_input_location
-from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantsBots
+
+from userbot import BLACKLIST_CHAT
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP
 from userbot.events import register
-from userbot.modules.admin import get_user_from_event
+from userbot.modules.ping import absen
+from userbot.utils import edit_delete, edit_or_reply, get_user_from_event, indomie_cmd
 
 
-@register(outgoing=True, pattern="^.id(?: |$)(.*)")
-async def _(event):
-    if event.fwd_from:
-        return
-    if event.reply_to_msg_id:
-        await event.get_input_chat()
-        r_msg = await event.get_reply_message()
-        if r_msg.media:
-            bot_api_file_id = pack_bot_file_id(r_msg.media)
-            await event.edit("ID Grup: `{}`\nID Dari Pengguna : `{}`\nID Bot File API: `{}`".format(str(event.chat_id), str(r_msg.from_id), bot_api_file_id))
+@indomie_cmd(pattern="userid$")
+async def useridgetter(target):
+    message = await target.get_reply_message()
+    if message:
+        if not message.forward:
+            user_id = message.sender.id
+            if message.sender.username:
+                name = "@" + message.sender.username
+            else:
+                name = "**" + message.sender.first_name + "**"
         else:
-            await event.edit("ID Grup: `{}`\nID Dari Pengguna : `{}`".format(str(event.chat_id), str(r_msg.from_id)))
-    else:
-        await event.edit("ID Grup: `{}`".format(str(event.chat_id)))
+            user_id = message.forward.sender.id
+            if message.forward.sender.username:
+                name = "@" + message.forward.sender.username
+            else:
+                name = "*" + message.forward.sender.first_name + "*"
+        await edit_or_reply(target, f"**Username:** {name} \n**User ID:** `{user_id}`")
 
 
-@register(outgoing=True, pattern="^.link(?: |$)(.*)")
+@indomie_cmd(pattern="link(?: |$)(.*)")
 async def permalink(mention):
-    """ For .link command, generates a link to the user's PM with a custom text. """
     user, custom = await get_user_from_event(mention)
     if not user:
         return
     if custom:
-        await mention.edit(f"[{custom}](tg://user?id={user.id})")
+        await edit_or_reply(mention, f"[{custom}](tg://user?id={user.id})")
     else:
-        tag = user.first_name.replace("\u2060",
-                                      "") if user.first_name else user.username
-        await mention.edit(f"[{tag}](tg://user?id={user.id})")
+        tag = (
+            user.first_name.replace("\u2060", "") if user.first_name else user.username
+        )
+        await edit_or_reply(mention, f"[{tag}](tg://user?id={user.id})")
 
 
-@register(outgoing=True, pattern="^.getbot(?: |$)(.*)")
+@indomie_cmd(pattern="bots(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -66,136 +92,63 @@ async def _(event):
     else:
         mentions = "Bot Dalam {} Group: \n".format(input_str)
         try:
-            chat = await bot.get_entity(input_str)
+            chat = await event.client.get_entity(input_str)
         except Exception as e:
-            await event.edit(str(e))
+            await edit_or_reply(event, str(e))
             return None
     try:
-        async for x in bot.iter_participants(chat, filter=ChannelParticipantsBots):
+        async for x in event.client.iter_participants(
+            chat, filter=ChannelParticipantsBots
+        ):
             if isinstance(x.participant, ChannelParticipantAdmin):
-                mentions += "\n ⚜️ [{}](tg://user?id={}) `{}`".format(
-                    x.first_name, x.id, x.id)
+                mentions += "\n 👑 [{}](tg://user?id={}) `{}`".format(
+                    x.first_name, x.id, x.id
+                )
             else:
-                mentions += "\n [{}](tg://user?id={}) `{}`".format(
-                    x.first_name, x.id, x.id)
+                mentions += "\n ⚜️ [{}](tg://user?id={}) `{}`".format(
+                    x.first_name, x.id, x.id
+                )
     except Exception as e:
         mentions += " " + str(e) + "\n"
-    await event.edit(mentions)
+    await edit_or_reply(event, mentions)
 
 
-@register(outgoing=True, pattern=r"^.logit(?: |$)([\s\S]*)")
-async def log(log_text):
-    """ For .log command, forwards a message or the command argument to the bot logs group """
-    if BOTLOG:
-        if log_text.reply_to_msg_id:
-            reply_msg = await log_text.get_reply_message()
-            await reply_msg.forward_to(BOTLOG_CHATID)
-        elif log_text.pattern_match.group(1):
-            user = f"#LOG\n ID Obrolan: {log_text.chat_id}\n\n"
-            textx = user + log_text.pattern_match.group(1)
-            await bot.send_message(BOTLOG_CHATID, textx)
-        else:
-            await log_text.edit("`Apa Yang Harus Saya Log?`")
-            return
-        await log_text.edit("`Logged Berhasil!`")
-    else:
-        await log_text.edit("`Fitur Ini Mengharuskan Loging Diaktifkan!`")
-    await sleep(2)
-    await log_text.delete()
-
-
-@register(outgoing=True, pattern="^.kickme$")
+@indomie_cmd(pattern="kickme$")
 async def kickme(leave):
-    """ Basically it's .kickme command """
-    await leave.edit(f"**{ALIVE_NAME} Telah Meninggalkan Group,Bye Para Anak Title Tolol!!**")
-    await leave.client.kick_participant(leave.chat_id, 'me')
+    if leave.chat_id in BLACKLIST_CHAT:
+        return await edit_or_reply(
+            leave, "**Perintah ini Dilarang digunakan di Group ini**"
+        )
+    user = await leave.client.get_me()
+    await edit_or_reply(leave, f"`{user.first_name} has left this group, bye!!`")
+    await leave.client.kick_participant(leave.chat_id, "me")
 
 
-@register(outgoing=True, pattern="^.unmutechat$")
-async def unmute_chat(unm_e):
-    """ For .unmutechat command, unmute a muted chat. """
-    try:
-        from userbot.modules.sql_helper.keep_read_sql import unkread
-    except AttributeError:
-        await unm_e.edit('`Running on Non-SQL Mode!`')
-        return
-    unkread(str(unm_e.chat_id))
-    await unm_e.edit("```Berhasil Dibuka, Obrolan Tidak Lagi Dibisukan```")
-    await sleep(2)
-    await unm_e.delete()
+@indomie_cmd(pattern="kikme$")
+async def kikme(leave):
+    if leave.chat_id in BLACKLIST_CHAT:
+        return await edit_or_reply(
+            leave, "**Perintah ini Dilarang digunakan di Group ini**"
+        )
+    await edit_or_reply(leave, "**GC NYA JELEK GOBLOK KELUAR DULU AH CROTT** 🥴")
+    await leave.client.kick_participant(leave.chat_id, "me")
 
 
-@register(outgoing=True, pattern="^.mutechat$")
-async def mute_chat(mute_e):
-    """ For .mutechat command, mute any chat. """
-    try:
-        from userbot.modules.sql_helper.keep_read_sql import kread
-    except AttributeError:
-        await mute_e.edit("`Running on Non-SQL mode!`")
-        return
-    await mute_e.edit(str(mute_e.chat_id))
-    kread(str(mute_e.chat_id))
-    await mute_e.edit("`Ssshssh Anda Telah Membisukan Obrolan !`")
-    await sleep(2)
-    await mute_e.delete()
-    if BOTLOG:
-        await mute_e.client.send_message(
-            BOTLOG_CHATID,
-            str(mute_e.chat_id) + " Telah Dibisukan.")
+@register(pattern=r"^\.absenall$", own=True)
+async def _(event):
+    await event.reply(choice(absen))
 
 
-@register(incoming=True, disable_errors=True)
-async def keep_read(message):
-    """ The mute logic. """
-    try:
-        from userbot.modules.sql_helper.keep_read_sql import is_kread
-    except AttributeError:
-        return
-    kread = is_kread()
-    if kread:
-        for i in kread:
-            if i.groupid == str(message.chat_id):
-                await message.client.send_read_acknowledge(message.chat_id)
-
-
-# Regex-Ninja module by @Kandnub
-regexNinja = False
-
-
-@register(outgoing=True, pattern="^s/")
-async def sedNinja(event):
-    """Untuk Modul Regex-Ninja, Perintah Hapus Otomatis Yang Dimulai Dengans/"""
-    if regexNinja:
-        await sleep(.5)
-        await event.delete()
-
-
-@register(outgoing=True, pattern="^.regexninja (on|off)$")
-async def sedNinjaToggle(event):
-    """ Aktifkan Atau Nonaktifkan Modul Regex Ninja. """
-    global regexNinja
-    if event.pattern_match.group(1) == "on":
-        regexNinja = True
-        await event.edit("`Berhasil Mengaktifkan Mode Regex Ninja.`")
-        await sleep(1)
-        await event.delete()
-    elif event.pattern_match.group(1) == "off":
-        regexNinja = False
-        await event.edit("`Berhasil Menonaktifkan Mode Regex Ninja.`")
-        await sleep(1)
-        await event.delete()
-
-
-@register(pattern=".chatinfo(?: |$)(.*)", outgoing=True)
+@indomie_cmd(pattern="chatinfo(?: |$)(.*)")
 async def info(event):
-    await event.edit("`Menganalisis Obrolan Ini...`")
+    xx = await edit_or_reply(event, "`Menganalisis Obrolan Ini...`")
     chat = await get_chatinfo(event)
     caption = await fetch_info(chat, event)
     try:
-        await event.edit(caption, parse_mode="html")
+        await xx.edit(caption, parse_mode="html")
     except Exception as e:
         print("Exception:", e)
-        await event.edit("`Terjadi Kesalah Yang Tidak Terduga.`")
+        await xx.edit("**Terjadi Kesalah Yang Tidak Terduga.**")
     return
 
 
@@ -220,104 +173,157 @@ async def get_chatinfo(event):
         try:
             chat_info = await event.client(GetFullChannelRequest(chat))
         except ChannelInvalidError:
-            await event.edit("`Group/Channel Tidak Valid`")
+            await edit_or_reply(event, "`Invalid channel/group`")
             return None
         except ChannelPrivateError:
-            await event.edit("`Ini Adalah Group/Channel Privasi Atau Mungkin Anda Telah Terbanned Dari Sana`")
+            await edit_or_reply(
+                event, "`This is a private channel/group or I am banned from there`"
+            )
             return None
         except ChannelPublicGroupNaError:
-            await event.edit("`Channel Atau Supergroup Tidak Ditemukan`")
+            await edit_or_reply(event, "`Channel or supergroup doesn't exist`")
             return None
-        except (TypeError, ValueError) as err:
-            await event.edit(str(err))
+        except (TypeError, ValueError):
+            await edit_or_reply(event, "`Invalid channel/group`")
             return None
     return chat_info
 
 
 async def fetch_info(chat, event):
-    # chat.chats is a list so we use get_entity() to avoid IndexError
     chat_obj_info = await event.client.get_entity(chat.full_chat.id)
-    broadcast = chat_obj_info.broadcast if hasattr(
-        chat_obj_info, "broadcast") else False
+    broadcast = (
+        chat_obj_info.broadcast if hasattr(chat_obj_info, "broadcast") else False
+    )
     chat_type = "Channel" if broadcast else "Group"
     chat_title = chat_obj_info.title
     warn_emoji = emojize(":warning:")
     try:
-        msg_info = await event.client(GetHistoryRequest(peer=chat_obj_info.id, offset_id=0, offset_date=datetime(2010, 1, 1),
-                                                        add_offset=-1, limit=1, max_id=0, min_id=0, hash=0))
+        msg_info = await event.client(
+            GetHistoryRequest(
+                peer=chat_obj_info.id,
+                offset_id=0,
+                offset_date=datetime(2010, 1, 1),
+                add_offset=-1,
+                limit=1,
+                max_id=0,
+                min_id=0,
+                hash=0,
+            )
+        )
     except Exception as e:
         msg_info = None
         print("Exception:", e)
-    # No chance for IndexError as it checks for msg_info.messages first
-    first_msg_valid = True if msg_info and msg_info.messages and msg_info.messages[
-        0].id == 1 else False
-    # Same for msg_info.users
-    creator_valid = True if first_msg_valid and msg_info.users else False
+    first_msg_valid = bool(
+        msg_info and msg_info.messages and msg_info.messages[0].id == 1
+    )
+    creator_valid = bool(first_msg_valid and msg_info.users)
     creator_id = msg_info.users[0].id if creator_valid else None
-    creator_firstname = msg_info.users[0].first_name if creator_valid and msg_info.users[
-        0].first_name is not None else "Akun Terhapus"
-    creator_username = msg_info.users[0].username if creator_valid and msg_info.users[0].username is not None else None
+    creator_firstname = (
+        msg_info.users[0].first_name
+        if creator_valid and msg_info.users[0].first_name is not None
+        else "Akun Terhapus"
+    )
+    creator_username = (
+        msg_info.users[0].username
+        if creator_valid and msg_info.users[0].username is not None
+        else None
+    )
     created = msg_info.messages[0].date if first_msg_valid else None
-    former_title = msg_info.messages[0].action.title if first_msg_valid and isinstance(
-        msg_info.messages[0].action,
-        MessageActionChannelMigrateFrom) and msg_info.messages[0].action.title != chat_title else None
+    former_title = (
+        msg_info.messages[0].action.title
+        if first_msg_valid
+        and isinstance(msg_info.messages[0].action, MessageActionChannelMigrateFrom)
+        and msg_info.messages[0].action.title != chat_title
+        else None
+    )
     try:
         dc_id, location = get_input_location(chat.full_chat.chat_photo)
     except Exception as e:
         dc_id = "Unknown"
         str(e)
 
-    # this is some spaghetti I need to change
     description = chat.full_chat.about
-    members = chat.full_chat.participants_count if hasattr(
-        chat.full_chat, "participants_count") else chat_obj_info.participants_count
-    admins = chat.full_chat.admins_count if hasattr(
-        chat.full_chat, "admins_count") else None
-    banned_users = chat.full_chat.kicked_count if hasattr(
-        chat.full_chat, "kicked_count") else None
-    restrcited_users = chat.full_chat.banned_count if hasattr(
-        chat.full_chat, "banned_count") else None
-    members_online = chat.full_chat.online_count if hasattr(
-        chat.full_chat, "online_count") else 0
-    group_stickers = chat.full_chat.stickerset.title if hasattr(
-        chat.full_chat, "stickerset") and chat.full_chat.stickerset else None
+    members = (
+        chat.full_chat.participants_count
+        if hasattr(chat.full_chat, "participants_count")
+        else chat_obj_info.participants_count
+    )
+    admins = (
+        chat.full_chat.admins_count if hasattr(chat.full_chat, "admins_count") else None
+    )
+    banned_users = (
+        chat.full_chat.kicked_count if hasattr(chat.full_chat, "kicked_count") else None
+    )
+    restrcited_users = (
+        chat.full_chat.banned_count if hasattr(chat.full_chat, "banned_count") else None
+    )
+    members_online = (
+        chat.full_chat.online_count if hasattr(chat.full_chat, "online_count") else 0
+    )
+    group_stickers = (
+        chat.full_chat.stickerset.title
+        if hasattr(chat.full_chat, "stickerset") and chat.full_chat.stickerset
+        else None
+    )
     messages_viewable = msg_info.count if msg_info else None
-    messages_sent = chat.full_chat.read_inbox_max_id if hasattr(
-        chat.full_chat, "read_inbox_max_id") else None
-    messages_sent_alt = chat.full_chat.read_outbox_max_id if hasattr(
-        chat.full_chat, "read_outbox_max_id") else None
+    messages_sent = (
+        chat.full_chat.read_inbox_max_id
+        if hasattr(chat.full_chat, "read_inbox_max_id")
+        else None
+    )
+    messages_sent_alt = (
+        chat.full_chat.read_outbox_max_id
+        if hasattr(chat.full_chat, "read_outbox_max_id")
+        else None
+    )
     exp_count = chat.full_chat.pts if hasattr(chat.full_chat, "pts") else None
-    username = chat_obj_info.username if hasattr(
-        chat_obj_info, "username") else None
+    username = chat_obj_info.username if hasattr(chat_obj_info, "username") else None
     bots_list = chat.full_chat.bot_info  # this is a list
     bots = 0
-    supergroup = "<b>Yes</b>" if hasattr(chat_obj_info,
-                                         "megagroup") and chat_obj_info.megagroup else "Tidak"
-    slowmode = "<b>Yes</b>" if hasattr(
-        chat_obj_info,
-        "slowmode_enabled") and chat_obj_info.slowmode_enabled else "Tidak"
-    slowmode_time = chat.full_chat.slowmode_seconds if hasattr(
-        chat_obj_info, "slowmode_enabled") and chat_obj_info.slowmode_enabled else None
-    restricted = "<b>Yes</b>" if hasattr(chat_obj_info,
-                                         "restricted") and chat_obj_info.restricted else "Tidak"
-    verified = "<b>Yes</b>" if hasattr(chat_obj_info,
-                                       "verified") and chat_obj_info.verified else "Tidak"
+    supergroup = (
+        "<b>Yes</b>"
+        if hasattr(chat_obj_info, "megagroup") and chat_obj_info.megagroup
+        else "Tidak"
+    )
+    slowmode = (
+        "<b>Yes</b>"
+        if hasattr(chat_obj_info, "slowmode_enabled") and chat_obj_info.slowmode_enabled
+        else "Tidak"
+    )
+    slowmode_time = (
+        chat.full_chat.slowmode_seconds
+        if hasattr(chat_obj_info, "slowmode_enabled") and chat_obj_info.slowmode_enabled
+        else None
+    )
+    restricted = (
+        "<b>Yes</b>"
+        if hasattr(chat_obj_info, "restricted") and chat_obj_info.restricted
+        else "Tidak"
+    )
+    verified = (
+        "<b>Yes</b>"
+        if hasattr(chat_obj_info, "verified") and chat_obj_info.verified
+        else "Tidak"
+    )
     username = "@{}".format(username) if username else None
-    creator_username = "@{}".format(
-        creator_username) if creator_username else None
-    # end of spaghetti block
+    creator_username = "@{}".format(creator_username) if creator_username else None
 
     if admins is None:
-        # use this alternative way if chat.full_chat.admins_count is None,
-        # works even without being an admin
         try:
-            participants_admins = await event.client(GetParticipantsRequest(channel=chat.full_chat.id, filter=ChannelParticipantsAdmins(),
-                                                                            offset=0, limit=0, hash=0))
+            participants_admins = await event.client(
+                GetParticipantsRequest(
+                    channel=chat.full_chat.id,
+                    filter=ChannelParticipantsAdmins(),
+                    offset=0,
+                    limit=0,
+                    hash=0,
+                )
+            )
             admins = participants_admins.count if participants_admins else None
         except Exception as e:
             print("Exception:", e)
     if bots_list:
-        for bot in bots_list:
+        for _ in bots_list:
             bots += 1
 
     caption = "<b>INFORMASI OBROLAN:</b>\n"
@@ -334,7 +340,9 @@ async def fetch_info(chat, event):
     if creator_username is not None:
         caption += f"Pembuat: {creator_username}\n"
     elif creator_valid:
-        caption += f"Pembuat: <a href=\"tg://user?id={creator_id}\">{creator_firstname}</a>\n"
+        caption += (
+            f'Pembuat: <a href="tg://user?id={creator_id}">{creator_firstname}</a>\n'
+        )
     if created is not None:
         caption += f"Informasi Pembuatan: <code>{created.date().strftime('%b %d, %Y')} - {created.time()}</code>\n"
     else:
@@ -362,17 +370,17 @@ async def fetch_info(chat, event):
     if banned_users is not None:
         caption += f"Banned Pengguna: <code>{banned_users}</code>\n"
     if group_stickers is not None:
-        caption += f"{chat_type} Sticker: <a href=\"t.me/addstickers/{chat.full_chat.stickerset.short_name}\">{group_stickers}</a>\n"
+        caption += f'{chat_type} Sticker: <a href="t.me/addstickers/{chat.full_chat.stickerset.short_name}">{group_stickers}</a>\n'
     caption += "\n"
     if not broadcast:
         caption += f"Mode Slow: {slowmode}"
-        if hasattr(
-                chat_obj_info,
-                "slowmode_enabled") and chat_obj_info.slowmode_enabled:
+        if (
+            hasattr(chat_obj_info, "slowmode_enabled")
+            and chat_obj_info.slowmode_enabled
+        ):
             caption += f", <code>{slowmode_time}s</code>\n\n"
         else:
             caption += "\n\n"
-    if not broadcast:
         caption += f"Supergrup: {supergroup}\n\n"
     if hasattr(chat_obj_info, "Terbatas"):
         caption += f"Terbatas: {restricted}\n"
@@ -391,59 +399,167 @@ async def fetch_info(chat, event):
     return caption
 
 
-@register(outgoing=True, pattern="^.invite(?: |$)(.*)")
+@indomie_cmd(pattern="invite(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
     to_add_users = event.pattern_match.group(1)
     if event.is_private:
-        await event.edit("`.invite` Pengguna Ke Obrolan, Tidak Ke Pesan Pribadi")
+        await edit_or_reply(
+            event, "`.invite` pengguna ke grup chat, bukan ke Pesan Pribadi"
+        )
     else:
         if not event.is_channel and event.is_group:
             # https://lonamiwebs.github.io/Telethon/methods/messages/add_chat_user.html
-            for user_id in to_add_users.split(" "):
+            for user_id in to_add_users.split():
                 try:
-                    await event.client(functions.messages.AddChatUserRequest(
-                        chat_id=event.chat_id,
-                        user_id=user_id,
-                        fwd_limit=1000000
-                    ))
+                    if user_id.isdigit():
+                        user_id = int(user_id)
+                    await event.client(
+                        functions.messages.AddChatUserRequest(
+                            chat_id=event.chat_id, user_id=user_id, fwd_limit=1000000
+                        )
+                    )
                 except Exception as e:
-                    await event.reply(str(e))
-            await event.edit("`Berhasil Menambahkan Pengguna Ke Obrolan`")
+                    return await edit_or_reply(event, str(e))
         else:
             # https://lonamiwebs.github.io/Telethon/methods/channels/invite_to_channel.html
-            for user_id in to_add_users.split(" "):
+            for user_id in to_add_users.split():
                 try:
-                    await event.client(functions.channels.InviteToChannelRequest(
-                        channel=event.chat_id,
-                        users=[user_id]
-                    ))
+                    if user_id.isdigit():
+                        user_id = int(user_id)
+                    await event.client(
+                        functions.channels.InviteToChannelRequest(
+                            channel=event.chat_id, users=[user_id]
+                        )
+                    )
                 except Exception as e:
-                    await event.reply(str(e))
-            await event.edit("`Berhasil Menambahkan Pengguna Ke Obrolan`")
+                    return await edit_or_reply(event, str(e))
 
-CMD_HELP.update({
-    "chat":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.getid`\
-\n↳ : Dapatkan ID dari media Telegram mana pun, atau pengguna mana pun\
-\n\n: `.getbot`\
-\n↳ : Dapatkan Bot dalam obrolan apa pun.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.logit`\
-\n↳ : Meneruskan pesan yang telah Anda balas di grup log bot Anda.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.exit`\
-\n↳ : Keluar dari grup.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.unmutechat`\
-\n↳ : Membuka obrolan yang dibisukan.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.mutechat`\
-\n↳ : Memungkinkan Anda membisukan obrolan apa pun.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.link` <username/userid>: <opsional teks> (atau) balas pesan seseorang dengan .link <teks opsional>\
-\n↳ : Buat tautan permanen ke profil pengguna dengan teks ubahsuaian opsional.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.regexninja` enable/disabled\
-\n↳ : Mengaktifkan/menonaktifkan modul ninja regex secara global.\
-\nModul Regex Ninja membantu menghapus pesan pemicu bot regex.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.chatinfo [opsional: <reply/tag/chat id/invite link>]`\
-\n↳ : Mendapatkan info obrolan. Beberapa info mungkin dibatasi karena izin yang hilang..\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.invite` \
-\n↳ : Menambahkan pengguna ke obrolan, bukan ke pesan pribadi. "
-})
+        await edit_delete(event, "`Invited Successfully`")
+
+
+# Scraper & Add Member Telegram
+# Coded By Abdul <https://github.com/DoellBarr>
+
+
+@indomie_cmd(pattern="getmember$")
+async def scrapmem(event):
+    chat = event.chat_id
+    xx = await edit_or_reply(event, "`Processing...`")
+    members = await event.client.get_participants(chat, aggressive=True)
+
+    with open("members.csv", "w", encoding="UTF-8") as f:
+        writer = csv.writer(f, delimiter=",", lineterminator="\n")
+        writer.writerow(["user_id", "hash"])
+        for member in members:
+            writer.writerow([member.id, member.access_hash])
+    await xx.edit("**Berhasil Mengumpulkan Member**")
+
+
+@indomie_cmd(pattern="addmember$")
+async def admem(event):
+    xx = await edit_or_reply(event, "**Proses Menambahkan** `0` **Member**")
+    chat = await event.get_chat()
+    users = []
+    with open("members.csv", encoding="UTF-8") as f:
+        rows = csv.reader(f, delimiter=",", lineterminator="\n")
+        next(rows, None)
+        for row in rows:
+            user = {"id": int(row[0]), "hash": int(row[1])}
+            users.append(user)
+    n = 0
+    for user in users:
+        n += 1
+        if n % 50 == 0:
+            await xx.edit(
+                f"**Sudah Mencapai 50 anggota, Tunggu Selama** `{900/60}` **menit**"
+            )
+            await asyncio.sleep(900)
+        try:
+            userin = InputPeerUser(user["id"], user["hash"])
+            await event.client(InviteToChannelRequest(chat, [userin]))
+            await asyncio.sleep(random.randrange(5, 7))
+            await xx.edit(f"**Proses Menambahkan** `{n}` **Member**")
+        except TypeError:
+            n -= 1
+            continue
+        except UserAlreadyParticipantError:
+            n -= 1
+            continue
+        except UserPrivacyRestrictedError:
+            n -= 1
+            continue
+        except UserNotMutualContactError:
+            n -= 1
+            continue
+
+
+CMD_HELP.update(
+    {
+        "chat": f"**Plugin : **`chat`\
+        \n\n  •  **Syntax :** `{cmd}userid`\
+        \n  •  **Function : **untuk Mengambil ID obrolan saat ini\
+        \n\n  •  **Syntax :** `{cmd}getbot`\
+        \n  •  **Function : **Dapatkan List Bot dalam grup caht.\
+        \n\n  •  **Syntax :** `{cmd}mutechat`\
+        \n  •  **Function : **membisukan Grup chat (membutuhkan hak admin).\
+        \n\n  •  **Syntax :** `{cmd}unmutechat`\
+        \n  •  **Function : **Membuka Grup chat yang dibisukan (membutuhkan hak admin).\
+        \n\n  •  **Syntax :** `{cmd}getbot`\
+        \n  •  **Function : **Dapatkan List Bot dalam grup caht.\
+        \n\n  •  **Syntax :** `{cmd}chatinfo [opsional: <reply/tag/chat id/invite link>]`\
+        \n  •  **Function : **Mendapatkan info obrolan. Beberapa info mungkin dibatasi karena izin yang hilang.\
+    "
+    }
+)
+
+
+CMD_HELP.update(
+    {
+        "invite": f"**Plugin : **`invite`\
+        \n\n  •  **Syntax :** `{cmd}invite` <username/user id>\
+        \n  •  **Function : **Untuk Menambahkan/invite pengguna ke group chat.\
+    "
+    }
+)
+
+
+CMD_HELP.update(
+    {
+        "kickme": f"**Plugin : **`kickme`\
+        \n\n  •  **Syntax :** `{cmd}kickme`\
+        \n  •  **Function : **Keluar grup dengan menampilkan pesan Master has left this group, bye!!\
+        \n\n  •  **Syntax :** `{cmd}leave`\
+        \n  •  **Function : **Keluar grup dengan menampilkan pesan Master Telah Meninggalkan Grup, bye !!\
+        \n\n  •  **Syntax :** `{cmd}kikme`\
+        \n  •  **Function : **Keluar grup dengan menampilkan pesan GC NYA JELEK GOBLOK KELUAR DULU AH CROTT 🥴\
+    "
+    }
+)
+
+
+CMD_HELP.update(
+    {
+        "link": f"**Plugin : **`link`\
+        \n\n  •  **Syntax :** `{cmd}link` <username/userid> <opsional teks> (atau) Reply pesan .link <teks opsional>\
+        \n  •  **Function : **Membuat link permanen ke profil pengguna dengan teks ubahsuaian opsional.\
+        \n  •  **Contoh : **{cmd}link @indomiegenetik Ganteng\
+    "
+    }
+)
+
+
+CMD_HELP.update(
+    {
+        "scraper": f"**Plugin : **`scraper`\
+        \n\n  •  **Syntax :** `{cmd}getmember`\
+        \n  •  **Function : **Untuk Mengumpulkan Anggota dari group chat.\
+        \n\n  •  **Syntax :** `{cmd}addmember`\
+        \n  •  **Function : **Untuk Menambahkan Anggota ke group chat.\
+        \n\n**Cara Menggunakannya:** \
+        \n1. Anda harus melakukan `{cmd}getmember` terlebih dahulu di Grup Chat Orang lain.\
+        \n2. Buka Grup Anda dan ketik `{cmd}addmember` untuk menambahkan mereka ke grup Anda.\
+    "
+    }
+)
