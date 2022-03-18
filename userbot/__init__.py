@@ -110,6 +110,21 @@ while 0 < 6:
 
 del _DEVS
 
+# Blacklist User for use IndomieUserbot
+while 0 < 6:
+    _BLACKLIST = get(
+        "https://raw.githubusercontent.com/IndomieGorengSatu/Mie/master/mieblacklist.json"
+    )
+    if _BLACKLIST.status_code != 200:
+        if 0 != 5:
+            continue
+        mieblacklist = []
+        break
+    mieblacklist = _BLACKLIST.json()
+    break
+
+del _BLACKLIST
+
 SUDO_USERS = {
     int(x) for x in os.environ.get(
         "SUDO_USERS",
