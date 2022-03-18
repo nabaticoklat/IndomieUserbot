@@ -15,6 +15,7 @@ from userbot import (
     BOTLOG_CHATID,
     ALIVE_LOGO,
     LOGS,
+    mieblacklist,
     bot,
     call_py,
 )
@@ -26,10 +27,10 @@ try:
     bot.start()
     call_py.start()
     user = bot.get_me()
-    kyyblacklist = requests.get(
+    mieblacklist = requests.get(
         "https://raw.githubusercontent.com/IndomieGorengSatu/Mie/master/mieblacklist.json"
     ).json()
-    if user.id in kyyblacklist:
+    if user.id in mieblacklist:
         LOGS.warning(
             "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTNYA GUA MATIIN NAJIS BANGET DIPAKE ORANG KEK LU.\nCredits: @IndomieGenetik"
         )
