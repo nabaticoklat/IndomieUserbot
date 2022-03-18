@@ -1,15 +1,17 @@
-# Thanks Full To Team Ultroid
-# Fiks By Kyy @IDnyaKosong
+# Thanks TeamUltroid
+# Ported By @IndomieGenetik
 
-
+from telethon.tl import types
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
+from telethon.utils import get_display_name
 
+from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot.utils import indomie_cmd
 
 NO_ADMIN = "`Maaf Kamu Bukan Admin 👮`"
 
@@ -21,25 +23,26 @@ def vcmention(user):
     return f"[{full_name}](tg://user?id={user.id})"
 
 
-async def get_call(event):
-    event = await event.client(getchat(event.chat_id))
-    event = await event.client(getvc(event.full_chat.call, limit=1))
-    return event.call
+async def get_call(mie):
+    mie = await mie.client(getchat(mie.chat_id))
+    await mie.client(getvc(mie.full_chat.call, limit=1))
+    return hehe.call
 
 
 def user_list(l, n):
     for i in range(0, len(l), n):
-        yield l[i: i + n]
+        yield l[i : i + n]
 
 
-@register(outgoing=True, pattern=r"^\.startvc$")
+@skyzu_cmd(pattern="startvc$")
 async def start_voice(c):
+    aku = await bot.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        await c.edit(f"**Maaf {ALIVE_NAME} Bukan Admin 👮**")
+        await c.edit(f"**Maaf [{aku.first_name}](tg://user?id={aku.id}) Bukan Admin 👮**")
         return
     try:
         await c.client(startvc(c.chat_id))
@@ -48,14 +51,15 @@ async def start_voice(c):
         await c.edit(f"**ERROR:** `{ex}`")
 
 
-@register(outgoing=True, pattern=r"^\.stopvc$")
+@indomie_cmd(pattern="stopvc$")
 async def stop_voice(c):
+    aku = await bot.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        await c.edit(f"**Maaf {ALIVE_NAME} Bukan Admin 👮**")
+        await c.edit(f"**Maaf [{aku.first_name}](tg://user?id={aku.id}) Bukan Admin 👮**")
         return
     try:
         await c.client(stopvc(await get_call(c)))
@@ -64,31 +68,31 @@ async def stop_voice(c):
         await c.edit(f"**ERROR:** `{ex}`")
 
 
-@register(outgoing=True, pattern=r"^\.vcinvite", groups_only=True)
-async def _(indomie):
-    await indomie.edit("`Sedang Menginvite Member...`")
+@indomie_cmd(pattern="vcinvite")
+async def _(mie):
+    await mie.edit("`Sedang Menginvite Member...`")
     users = []
     z = 0
-    async for x in indomie.client.iter_participants(indomie.chat_id):
+    async for x in sky.client.iter_participants(mie.chat_id):
         if not x.bot:
             users.append(x.id)
     hmm = list(user_list(users, 6))
     for p in hmm:
         try:
-            await indomie.client(invitetovc(call=await get_call(indomie), users=p))
+            await sky.client(invitetovc(call=await get_call(mie), users=p))
             z += 6
         except BaseException:
             pass
-    await indomie.edit(f"`Menginvite {z} Member`")
+    await sky.edit(f"`Menginvite {z} Member`")
 
 
 CMD_HELP.update(
     {
-        "vcg": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.startvc`\
+        "vcg": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}startvc`\
          \n↳ : Memulai Obrolan Suara dalam Group.\
-         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stopvc`\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}stopvc`\
          \n↳ : `Menghentikan Obrolan Suara Pada Group.`\
-         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.vcinvite`\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vcinvite`\
          \n↳ : Invite semua member yang berada di group."
     }
 )
