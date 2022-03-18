@@ -11,14 +11,12 @@ from userbot import PM_AUTO_BAN
 from userbot.utils import indomie_cmd
 from userbot.events import register
 
-OWNER = user.first_name
-
 # ========================= CONSTANTS ============================
 AFKSTR = [
-    f"**! 𝗔𝗙𝗞 \n Sedang Sibuk, Mohon Tunggu {OWNER} Online Kembali**",
-    f"**! 𝗔𝗙𝗞 \n Mohon Maaf, {OWNER} Sedang Sibuk\n Sedang Menjalankan Perintah Tuhan!!**",
-    f"**! 𝗔𝗙𝗞 \n {OWNER} Sedang Melakukan Perintah Tuhan\n Tunggu Saya Online Kembali !!!!!**",
-    f"**! 𝗔𝗙𝗞 \n Maaf {OWNER} Sedang Sibuk!!**",
+    f"**! 𝗔𝗙𝗞 \n Sedang Sibuk, Mohon Tunggu {ALIVE_NAME} Online Kembali**",
+    f"**! 𝗔𝗙𝗞 \n Mohon Maaf, {ALIVE_NAME} Sedang Sibuk\n Sedang Menjalankan Perintah Tuhan!!**",
+    f"**! 𝗔𝗙𝗞 \n {ALIVE_NAME} Sedang Melakukan Perintah Tuhan\n Tunggu Saya Online Kembali !!!!!**",
+    f"**! 𝗔𝗙𝗞 \n Maaf {ALIVE_NAME} Sedang Sibuk!!**",
 ]
 
 
