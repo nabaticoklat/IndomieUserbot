@@ -1,4 +1,4 @@
-FROM indomiegorengsatu/indomieuserbot:buster
+FROM vckyouuu/geezproject:buster
 #━━━━━ Userbot Telegram ━━━━━
 #━━━━━ By IndomieUserbot ━━━━━
 
