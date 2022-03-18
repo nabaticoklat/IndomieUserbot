@@ -3,12 +3,12 @@ import json
 import requests
 
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot.utils import indomie_cmd
 
 PLACE = ""
 
 
-@register(pattern=r"^\.adzan(?: |$)(.*)")
+@indomie_cmd(pattern="adzan(?: |$)(.*)")
 async def get_adzan(adzan):
     if not adzan.pattern_match.group(1):
         LOCATION = PLACE
