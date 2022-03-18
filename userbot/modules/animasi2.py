@@ -1,7 +1,7 @@
 from time import sleep
 from userbot import CMD_HELP, bot
 from userbot import CMD_HANDLER as cmd
-from userbot.events import indomie_cmd
+from userbot.utils import indomie_cmd
 from telethon import events
 import asyncio
 
