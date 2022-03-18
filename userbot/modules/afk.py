@@ -8,6 +8,7 @@ from telethon.tl.functions.account import UpdateProfileRequest
 from userbot import BOTLOG, BOTLOG_CHATID
 from userbot import AFKREASON, CMD_HELP, COUNT_MSG, ISAFK, DEFAULTUSER  # noqa pylint: disable=unused-import isort:skip
 from userbot import PM_AUTO_BAN
+from userbot.utils import indomie_cmd
 from userbot.events import register
 
 # ========================= CONSTANTS ============================
@@ -30,7 +31,7 @@ afk_start = {}
 # =================================================================
 
 
-@register(outgoing=True, pattern="^.afk(?: |$)(.*)", disable_errors=True)
+@indomie_cmd(pattern="afk(?: |$)(.*)")
 async def set_afk(afk_e):
     """ For .afk command, allows you to inform people that you are afk when they message you """
     message = afk_e.text  # pylint:disable=E0602
@@ -93,16 +94,26 @@ async def type_afk_is_not_true(notafk):
         if BOTLOG:
             await notafk.client.send_message(
                 BOTLOG_CHATID,
-                "You've recieved " + str(COUNT_MSG) + " messages from " +
-                str(len(USERS)) + " chats while you were away",
+                "kamu mendapatkan " 
+                + str(COUNT_MSG)
+                + " Pesan Dari "
+                + str(len(USERS))
+                + " Obrolan Saat Anda AFK",
             )
             for i in USERS:
                 name = await notafk.client.get_entity(i)
                 name0 = str(name.first_name)
                 await notafk.client.send_message(
                     BOTLOG_CHATID,
-                    "[" + name0 + "](tg://user?id=" + str(i) + ")" +
-                    " sent you " + "`" + str(USERS[i]) + " messages`",
+                    "["
+                    + name0
+                    + "](tg://user?id="
+                    + str(i)
+                    + ")"
+                    + " Mengirim Mu "
+                    + "`"
+                    + str(USERS[i])
+                    + " Pesan`",
                 )
         COUNT_MSG = 0
         USERS = {}
