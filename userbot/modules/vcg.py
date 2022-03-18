@@ -36,7 +36,7 @@ def user_list(l, n):
 
 @indomie_cmd(pattern="startvc$")
 async def start_voice(c):
-    aku = await bot.get_me()
+    aku = await c.client.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
@@ -53,7 +53,7 @@ async def start_voice(c):
 
 @indomie_cmd(pattern="stopvc$")
 async def stop_voice(c):
-    aku = await bot.get_me()
+    aku = await c.client.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
