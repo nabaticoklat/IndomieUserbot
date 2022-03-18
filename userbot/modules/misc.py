@@ -146,7 +146,7 @@ async def deploy_userbot(deploy):
     )
 
 
-@register(outgoing=True, pattern="^.raw$")
+@indomie_cmd(pattern="raw$")
 async def raw(event):
     the_real_message = None
     reply_to_id = None
@@ -170,7 +170,7 @@ async def raw(event):
             caption="`Here's the decoded message data !!`")
 
 
-@register(outgoing=True, pattern=r"^.reverse(?: |$)(\d*)")
+@indomie_cmd(pattern=r"reverse(?: |$)(\d*)")
 async def okgoogle(img):
     """ For .reverse command, Google search images and stickers. """
     if os.path.isfile("okgoogle.png"):
