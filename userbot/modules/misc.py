@@ -7,7 +7,7 @@ import os
 import io
 import sys
 from userbot import ALIVE_NAME, BOTLOG, BOTLOG_CHATID, CMD_HELP, UPSTREAM_REPO_URL, bot
-from userbot.events import register
+from userbot.utils import indomie_cmd
 from userbot.utils import time_formatter
 import urllib
 import requests
@@ -17,7 +17,6 @@ from PIL import Image
 
 
 # ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 REPOLINK = str(
     UPSTREAM_REPO_URL) if UPSTREAM_REPO_URL else "https://github.com/indomiegorengsatu/IndomieUserbot"
 # ============================================
@@ -27,7 +26,7 @@ useragent = 'Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) 
 opener.addheaders = [('User-agent', useragent)]
 
 
-@register(outgoing=True, pattern="^.random")
+@indomie_cmd(pattern="random")
 async def randomise(items):
     """ For .random command, get a random item from the list of items. """
     itemo = (items.text[8:]).split()
@@ -41,7 +40,7 @@ async def randomise(items):
                      itemo[index] + "`")
 
 
-@register(outgoing=True, pattern="^.sleep ([0-9]+)$")
+@indomie_cmd(pattern="sleep ([0-9]+)$")
 async def sleepybot(time):
     """ For .sleep command, let the userbot snooze for a few second. """
     counter = int(time.pattern_match.group(1))
@@ -56,7 +55,7 @@ async def sleepybot(time):
     await time.edit("`OK, I'm awake now.`")
 
 
-@register(outgoing=True, pattern="^.shutdown$")
+@indomie_cmd(pattern="shutdown$")
 async def killdabot(event):
     """ For .shutdown command, shut the bot down."""
     await event.edit("`Menonaktifkan IndomieUserbot....`")
@@ -68,7 +67,7 @@ async def killdabot(event):
     await bot.disconnect()
 
 
-@register(outgoing=True, pattern="^.restart$")
+@indomie_cmd(pattern="restart$")
 async def killdabot(event):
     await event.edit("`Restarting IndomieUserbot...`")
     await asyncio.sleep(10)
@@ -81,7 +80,7 @@ async def killdabot(event):
     execle(sys.executable, *args, environ)
 
 
-@register(outgoing=True, pattern="^.repo$")
+@indomie_cmd(pattern="repo$")
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
@@ -95,7 +94,7 @@ async def repo_is_here(wannasee):
     )
 
 
-@register(outgoing=True, pattern="^.readme$")
+@indomie_cmd(pattern="readme$")
 async def reedme(e):
     await e.edit(
         "Here's Something for You to Read :\n"
@@ -104,7 +103,7 @@ async def reedme(e):
         "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
 
 
-@register(outgoing=True, pattern="^.repeat (.*)")
+@indomie_cmd(pattern="repeat (.*)")
 async def repeat(rep):
     cnt, txt = rep.pattern_match.group(1).split(' ', 1)
     replyCount = int(cnt)
@@ -118,7 +117,7 @@ async def repeat(rep):
     await rep.edit(replyText)
 
 
-@register(outgoing=True, pattern="^.owner$")
+@indomie_cmd(pattern="owner$")
 async def owner_information(owner):
     await owner.edit(
         "**Semua sosmed pemilik repo ini**\n"
@@ -131,11 +130,19 @@ async def owner_information(owner):
     )
 
 
-@register(outgoing=True, pattern=r"^\.string$")
+@indomie_cmd(pattern=r"string$")
 async def string(wannasee):
     await wannasee.edit(
         f"✦ **GET STRING SESSION VIA REPLIT :** [KLIK DISINI](https://replit.com/@IndomieGenetik/Telegram-String?lite=1&outputonly=1)\n"
         f"✦ **GET STRING SESSION VIA BOT      :** [KLIK DISINI](https://t.me/IndomieStringBot)\n"
+    )
+
+
+@indomie_cmd(pattern="deploy$")
+async def deploy_userbot(deploy):
+    await deploy.edit(
+        f"✦ **DEPLOY VIA WEB :** [KLIK DISINI](https://dashboard.heroku.com/new?template=https://github.com/indomiegorengsatu/IndomieUserbot)\n"
+        f"✦ **DEPLOY VIA BOT :** [KLIK DISINI](https://telegram.dog/XTZ_HerokuBot?start=JiRsb25nIDIwMDkw)\n"
     )
 
 
