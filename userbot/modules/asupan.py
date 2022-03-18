@@ -25,7 +25,7 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(asupannya),
-            caption=f"**Asupan by [{DEFAULTUSER}](tg://user?id={aku.id})**")
+            caption=f"**Asupan by** [{aku.first_name}](tg://user?id={aku.id})")
 
         await event.delete()
     except Exception:
@@ -45,11 +45,11 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(desahannya),
-            caption=f"**Desahan by [{DEFAULTUSER}](tg://user?id={aku.id})**")
+            caption=f"**Desahan by** [{aku.first_name}](tg://user?id={aku.id})")
 
         await event.delete()
     except Exception:
-        await event.edit("**Tidak bisa menemukan vn desah.**")
+        await event.edit("**Tidak dapat menemukan vn desah.**")
 
 
 @register(outgoing=True, pattern=r"^\.ayang$")
@@ -65,7 +65,7 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(ayangnya),
-            caption=f"**Ayang by [{DEFAULTUSER}](tg://user?id={aku.id})**")
+            caption=f"**Ayang by** [{aku.first_name}](tg://user?id={aku.id})")
 
         await event.delete()
     except Exception:
