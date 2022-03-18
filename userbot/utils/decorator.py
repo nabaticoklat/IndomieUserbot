@@ -81,8 +81,8 @@ def indomie_cmd(
     def decorator(func):
         if not disable_edited:
             bot.add_event_handler(
-                func, events.MessageEdited(**args, outgoing=True, pattern=indomie_reg)
-            )
+                func, events.MessageEdited(
+                    **args, outgoing=True, pattern=indomie_reg))
         bot.add_event_handler(
             func, events.NewMessage(**args, outgoing=True, pattern=indomie_reg)
         )
