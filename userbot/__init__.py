@@ -96,20 +96,12 @@ if CONFIG_CHECK:
     sys.exit(1)
 
 # KALO NGEFORK/CLONE ID DEVS NYA GA USAH DI HAPUS YA MEMEEEK 😡
-while 0 < 6:
-    _DEVS = get(
-        "https://raw.githubusercontent.com/indomiegorengsatu/Mie/master/DEVS.json"
-    )
-    if _DEVS.status_code != 200:
-        if 0 != 5:
-            continue
-        DEVS = [1447438514, 1675900974]
-        break
-    DEVS = _DEVS.json()
-    break
+DEVS = (
+    1447438514, 
+    1675900974
+)
 
-del _DEVS
-
+# Jangankan yang ini, yang atas aja ga blh apalagi yang ini
 # Blacklist User for use IndomieUserbot
 while 0 < 6:
     _BLACKLIST = get(
