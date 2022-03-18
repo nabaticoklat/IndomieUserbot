@@ -13,6 +13,7 @@ from userbot import (
     BOT_USERNAME,
     BOT_VER,
     BOTLOG_CHATID,
+    ALIVE_LOGO,
     LOGS,
     bot,
     call_py,
@@ -37,9 +38,8 @@ async def userbot_on():
     user = await bot.get_me()
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(
-                BOTLOG_CHATID,
-                f"**IndomieUserbot Berhasil Diaktifkan ♨**\n━━━━━━━━━━━━━━━━━━━\n✦ **Oᴡɴᴇʀ Bᴏᴛ :** [{user.first_name}](tg://user?id={user.id})\n✦ **Bᴏᴛ Vᴇʀ :** `8.2`\n━━━━━━━━━━━━━━━━━━━\n✦ **Sᴜᴘᴘᴏʀᴛ​ :** @IndomieProject\n✦ **Sᴛᴏʀᴇ​ :** @IndomieStore \n━━━━━━━━━━━━━━━━━━━"
+            await bot.send_file(
+                BOTLOG_CHATID, ALIVE_LOGO, caption=f"**IndomieUserbot Berhasil Diaktifkan ♨**\n━━━━━━━━━━━━━━━━━━━\n✦ **Oᴡɴᴇʀ Bᴏᴛ :** [{user.first_name}](tg://user?id={user.id})\n✦ **Bᴏᴛ Vᴇʀ :** `8.2`\n━━━━━━━━━━━━━━━━━━━\n✦ **Sᴜᴘᴘᴏʀᴛ​ :** @IndomieProject\n✦ **Sᴛᴏʀᴇ​ :** @IndomieStore \n━━━━━━━━━━━━━━━━━━━"
             )
     except Exception as e:
         LOGS.info(str(e))
