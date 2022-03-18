@@ -86,5 +86,21 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
 
 
+</details>
+
+<details>
+<summary><b> SPECIAL CREDITS </b></summary>
+<br>
+
+🏆 **BIG SHOUTOUT FOR MY SUHU**
+*   [Abdul](https://github.com/DoellBarr)
+
+
+</details>
+
+<details>
+<summary><b> License </b></summary>
+<br>
+
 ## License
 Licensed under [Raphielscape Public License](https://github.com/IndomieGorengSatu/IndomieUserbot/blob/IndomieUserbot/LICENSE) - Version 3, 29 June 2007
