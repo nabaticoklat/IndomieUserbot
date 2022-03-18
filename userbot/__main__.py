@@ -9,13 +9,11 @@ import sys
 from importlib import import_module
 
 from userbot import (
-    ALIVE_NAME,
     BOT_TOKEN,
     BOT_USERNAME,
     BOT_VER,
     BOTLOG_CHATID,
     LOGS,
-    UPSTREAM_REPO_BRANCH,
     bot,
     call_py,
 )
