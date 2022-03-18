@@ -2,13 +2,14 @@
 # ⚠️ Do not remove credits
 
 
-from time import sleep
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot import DEFAULTUSER
 from userbot.events import register
 import random
-from telethon.tl.types import InputMessagesFilterVideo, InputMessagesFilterVoice, InputMessagesFilterPhotos
+from telethon.tl.types import InputMessagesFilterVideo 
+from telethon.tl.types import InputMessagesFilterVoice
+from telethon.tl.types import InputMessagesFilterPhotos
 
 
 @register(outgoing=True, pattern=r"^\.asupan$")
@@ -26,10 +27,9 @@ async def _(event):
             file=random.choice(asupannya),
             caption=f"**Asupan by [{DEFAULTUSER}](tg://user?id={aku.id})**")
 
-        await event.edit()
+        await event.delete()
     except Exception:
         await event.edit("**Tidak bisa menemukan video asupan.**")
-        sleep(2)
 
 
 @register(outgoing=True, pattern=r"^\.desah$")
@@ -47,10 +47,9 @@ async def _(event):
             file=random.choice(desahannya),
             caption=f"**Desahan by [{DEFAULTUSER}](tg://user?id={aku.id})**")
 
-        await event.edit()
+        await event.delete()
     except Exception:
         await event.edit("**Tidak bisa menemukan vn desah.**")
-        sleep(2)
 
 
 @register(outgoing=True, pattern=r"^\.ayang$")
@@ -68,10 +67,9 @@ async def _(event):
             file=random.choice(ayangnya),
             caption=f"**Ayang by [{DEFAULTUSER}](tg://user?id={aku.id})**")
 
-        await event.edit()
+        await event.delete()
     except Exception:
         await event.edit("**GA ADA YANG MAU SAMA LO, MAKANYA GANTENK.**")
-        sleep(2)
 
 
 CMD_HELP.update(
