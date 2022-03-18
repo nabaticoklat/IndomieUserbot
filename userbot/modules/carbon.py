@@ -164,7 +164,7 @@ all_col = [
 
 @indomie_cmd(pattern="(rc|c)arbon")
 async def crbn(event):
-    aku = await bot.get_me()
+    aku = await event.client.get_me()
     event.sender
     xxxx = await edit_or_reply(event, "`Processing...`")
     te = event.text
@@ -195,7 +195,7 @@ async def crbn(event):
 
 @indomie_cmd(pattern="ccarbon ?(.*)")
 async def crbn(event):
-    aku = await bot.get_me()
+    aku = await event.client.get_me()
     event.sender
     match = event.pattern_match.group(1).strip()
     if not match:
