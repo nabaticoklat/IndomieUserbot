@@ -46,7 +46,7 @@ from userbot.modules.ping import absen
 from userbot.utils import edit_delete, edit_or_reply, get_user_from_event, indomie_cmd
 
 
-@indomie_cmd(pattern="userid$")
+@indomie_cmd(pattern="id$")
 async def useridgetter(target):
     message = await target.get_reply_message()
     if message:
