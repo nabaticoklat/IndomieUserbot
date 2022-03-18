@@ -530,8 +530,7 @@ async def rm_deletedacc(show):
         if del_u > 0:
             del_status = (
                 f"`Menemukan` **{del_u}** `Akun Hantu/Terhapus/Zombie Dalam Grup Ini,"
-                "\nBersihkan Itu Menggunakan Perintah .zombies clean`"
-            )
+                "\nBersihkan Itu Menggunakan Perintah .zombies clean`")
         return await show.edit(del_status)
 
     # Here laying the sanity check
@@ -754,7 +753,9 @@ async def get_user_from_event(event):
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
 
-            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
+            if isinstance(
+                    probable_user_mention_entity,
+                    MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
                 user_obj = await event.client.get_entity(user_id)
                 return user_obj
@@ -844,7 +845,9 @@ async def get_userdel_from_event(event):
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
 
-            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
+            if isinstance(
+                    probable_user_mention_entity,
+                    MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
                 user_obj = await event.client.get_entity(user_id)
                 return user_obj
@@ -938,6 +941,4 @@ CMD_HELP.update(
         f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}users` Atau >`{cmd}users` <nama member>"
         "\n↳ : Mendapatkan daftar pengguna daam grup."
         f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}setgpic` <balas ke gambar>"
-        "\n↳ : Mengganti foto profil grup."
-    }
-)
+        "\n↳ : Mengganti foto profil grup."})
