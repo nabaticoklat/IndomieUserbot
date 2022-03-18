@@ -5,6 +5,7 @@ from telethon.tl import types
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
+from telethon.tl.functions.phone import EditGroupCallTitleRequest as settitle
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 from telethon.utils import get_display_name
@@ -42,7 +43,7 @@ async def start_voice(c):
     creator = chat.creator
 
     if not admin and not creator:
-        await c.edit(f"**Maaf [{aku.first_name}](tg://user?id={aku.id}) Bukan Admin 👮**")
+        await c.edit(f"**Maaf [{aku.first_name}] Bukan Admin 👮**")
         return
     try:
         await c.client(startvc(c.chat_id))
@@ -59,7 +60,7 @@ async def stop_voice(c):
     creator = chat.creator
 
     if not admin and not creator:
-        await c.edit(f"**Maaf [{aku.first_name}](tg://user?id={aku.id}) Bukan Admin 👮**")
+        await c.edit(f"**Maaf [{aku.first_name}] Bukan Admin 👮**")
         return
     try:
         await c.client(stopvc(await get_call(c)))
@@ -86,13 +87,36 @@ async def _(mie):
     await sky.edit(f"`Menginvite {z} Member`")
 
 
+@indomie_cmd(pattern="vctitle(?: |$)(.*)")
+async def change_title(e):
+    title = e.pattern_match.group(1)
+    aku = await e.client.get_me()
+    chat = await e.get_chat()
+    admin = chat.admin_rights
+    creator = chat.creator
+
+    if not title:
+        return await edit_delete(e, "**Silahkan Masukan Title Obrolan Suara Grup**")
+
+    if not admin and not creator:
+        await edit_delete(e, f"**Maaf {aku.first_name} Bukan Admin 👮**")
+        return
+    try:
+        await e.client(settitle(call=await get_call(e), title=title.strip()))
+        await edit_or_reply(e, f"**Berhasil Mengubah Judul VCG Menjadi** `{title}`")
+    except Exception as ex:
+        await edit_delete(e, f"**ERROR:** `{ex}`")
+
+
 CMD_HELP.update(
     {
         "vcg": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}startvc`\
-         \n↳ : Memulai Obrolan Suara dalam Group.\
+         \n↳ : `Memulai Obrolan Suara dalam Group.`\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}stopvc`\
          \n↳ : `Menghentikan Obrolan Suara Pada Group.`\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vcinvite`\
-         \n↳ : Invite semua member yang berada di group."
+         \n↳ : `Invite semua member yang berada di group.`\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vcinvite` <title vcg>\
+         \n↳ : `Mengubah title/judul voice chat group.`"
     }
 )
