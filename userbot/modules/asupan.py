@@ -4,14 +4,14 @@
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot.utils import indomie_cmd
 import random
 from telethon.tl.types import InputMessagesFilterVideo
 from telethon.tl.types import InputMessagesFilterVoice
 from telethon.tl.types import InputMessagesFilterPhotos
 
 
-@register(outgoing=True, pattern=r"^\.asupan$")
+@indomie_cmd(pattern="asupan$")
 async def _(event):
     try:
         asupannya = [
@@ -28,10 +28,10 @@ async def _(event):
 
         await event.delete()
     except Exception:
-        await event.edit("**Tidak bisa menemukan video asupan.**")
+        await event.edit("**Tidak dapat menemukan video asupan.**")
 
 
-@register(outgoing=True, pattern=r"^\.desah$")
+@indomie_cmd(pattern="desah$")
 async def _(event):
     try:
         desahannya = [
@@ -51,7 +51,7 @@ async def _(event):
         await event.edit("**Tidak dapat menemukan vn desah.**")
 
 
-@register(outgoing=True, pattern=r"^\.ayang$")
+@indomie_cmd(pattern="ayang$")
 async def _(event):
     try:
         ayangnya = [
