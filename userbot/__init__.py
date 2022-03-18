@@ -143,6 +143,7 @@ PM_LIMIT = int(os.environ.get("PM_LIMIT", 6))
 
 # Custom Handler command
 CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
+SUDO_HANDLER = os.environ.get("SUDO_HANDLER") or "$"
 
 # Send .chatid in any group with all your administration bots (added)
 G_BAN_LOGGER_GROUP = os.environ.get("G_BAN_LOGGER_GROUP", "")
