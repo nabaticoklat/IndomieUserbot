@@ -1,6 +1,6 @@
 # We're using Ubuntu 20.10
 # Thanks to geez-Userbot
-FROM vckyouuu/geezproject:buster
+FROM indomiegorengsatu/indomieuserbot:buster
 
 
 RUN git clone -b IndomieUserbot https://github.com/IndomieGorengSatu/IndomieUserbot /root/userbot
