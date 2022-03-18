@@ -17,7 +17,7 @@ async def _(event):
         asupannya = [
             asupan
             async for asupan in event.client.iter_messages(
-                "@tedeasupancache", filter=InputMessagesFilterVideo
+                "@IndomieGantengV3", filter=InputMessagesFilterVideo
             )
         ]
         aku = await event.client.get_me()
@@ -57,7 +57,7 @@ async def _(event):
         ayangnya = [
             ayang
             async for ayang in event.client.iter_messages(
-                "@CeweLogoPack", filter=InputMessagesFilterPhotos
+                "@IndomieGantengV2", filter=InputMessagesFilterPhotos
             )
         ]
         aku = await event.client.get_me()
