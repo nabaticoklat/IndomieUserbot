@@ -19,7 +19,7 @@ from userbot import (
 )
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
-from userbot.utils.tools import ya_kali_ngga
+from userbot.utils.tools import bacot_kontol
 
 try:
     for module_name in ALL_MODULES:
@@ -50,7 +50,7 @@ async def userbot_on():
 
 
 bot.loop.run_until_complete(userbot_on())
-bot.loop.run_until_complete(ya_kali_ngga())
+bot.loop.run_until_complete(bacot_kontol())
 if not BOT_TOKEN:
     LOGS.info(
         "Vars BOT_TOKEN ga di isi, otw bikin bot di @Botfather ngeeengg..."
