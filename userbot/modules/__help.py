@@ -12,10 +12,10 @@ async def cmd_list(event):
         if args in CMD_HELP:
             await edit_or_reply(
                 event,
-                f"**✘ Commands available in {args} ✘** \n\n"
+                f"**✘ Commands available in `{args}` ✘** \n\n"
                 + str(CMD_HELP[args])
-                + "\n\n**☞ @IndomieProject**"
-                + "\n\n**☞ @IndomieStore**",
+                + "\n\n**Support : @IndomieProject**"
+                + "\n**Store : @IndomieStore**",
             )
         else:
             await edit_delete(event, f"**Module** `{args}` **Tidak tersedia, NGETIK YANG BENER NGENTOT!**")
