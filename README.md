@@ -59,7 +59,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 </details>
 
 <details>
-<summary><b> ᴘᴇɴᴛɪɴɢ!!!! </b></summary>
+<summary><b> Pᴇɴᴛɪɴɢ!!!! </b></summary>
 <br>
 
 # BACA INI KONTOL🔥
@@ -76,13 +76,14 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <br>
 
 ## © Credits
+### JANGAN DI HAPUS CREDIT NYA YA KONTOL
 
 🏆 **THANKS TO**
 *   [Indomie](https://github.com/IndomieGorengSatu)    :  IndomieUserbot
 *   [Kyy](https://github.com/muhammadrizky16) :  Kyy - Userbot
-*   [Sendi](https://github.com/SendiAp)       :  Rose-Userbot
-*   [Pocong](https://github.com/poocong)      :  Pocong Userbot
-*   [Risman](https://github.com/mrismanaziz)  :  Man-Userbot  
+*   [Skyzu](https://github.com/Skyzu)       :  Skyzu - Userbot
+*   [Pocong](https://github.com/poocong)      :  Pocong - Userbot
+*   [Risman](https://github.com/mrismanaziz)  :  Man - Userbot  
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
 
 
