@@ -26,26 +26,15 @@ from userbot.utils import autobot
 from userbot.utils.tools import bacot_kontol
 
 try:
+    for module_name in ALL_MODULES:
+        imported_module = import_module("userbot.modules." + module_name)
     bot.start()
     call_py.start()
     user = bot.get_me()
-    mieblacklist = requests.get(
-        "https://raw.githubusercontent.com/IndomieGorengSatu/Mie/master/mieblacklist.json"
-    ).json()
-    if user.id in mieblacklist:
-        LOGS.warning(
-            "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTNYA GUA MATIIN NAJIS BANGET DIPAKE ORANG KEK LU.\nCredits: @IndomieGenetik"
-        )
-        sys.exit(1)
-except Exception as e:
+    LOGS.info(f"♨IndomieUserbot♨ ⚙️ V{BOT_VER} [ TELAH DIAKTIFKAN! ]")
+except BaseException as e:
     LOGS.info(str(e), exc_info=True)
     sys.exit(1)
-
-    for module_name in ALL_MODULES:
-        imported_module = import_module("userbot.modules." + module_name)
-
-    LOGS.info(f"♨IndomieUserbot♨ ⚙️ V{BOT_VER} [ TELAH DIAKTIFKAN! ]")
-
 
 async def userbot_on():
     user = await bot.get_me()
