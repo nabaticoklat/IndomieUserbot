@@ -30,11 +30,6 @@ from telethon import Button, events, functions, types
 from telethon.tl.types import InputWebDocument
 from telethon.utils import get_display_name
 
-from .userbot import storage
-
-
-def STORAGE(n):
-    return Storage(Path("data") / n)
 
 
 redis_db = None
@@ -102,13 +97,22 @@ if CONFIG_CHECK:
     sys.exit(1)
 
 # KALO NGEFORK/CLONE ID DEVS NYA GA USAH DI HAPUS YA MEMEEEK 😡
-DEVS = (
-    1447438514,
-    1675900974
-)
+while 0 < 6:
+    _DEVS = get(
+        "https://raw.githubusercontent.com/IndomieGorengSatu/Mie/master/DEVS.json"
+    )
+    if _DEVS.status_code != 200:
+        if 0 != 5:
+            continue
+        DEVS = [1447438514, 1675900974]
+        break
+    DEVS = _DEVS.json()
+    break
 
-# Jangankan yang ini, yang atas aja ga blh apalagi yang ini
-# Blacklist User for use IndomieUserbot
+del _DEVS
+
+# Jangankan yang ini, yang atas aja ga blh apalagi yang ini kontol
+# Blacklist User for IndomieUserbot
 while 0 < 6:
     _BLACKLIST = get(
         "https://raw.githubusercontent.com/IndomieGorengSatu/Mie/master/mieblacklist.json"
