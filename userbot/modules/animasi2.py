@@ -394,7 +394,7 @@ async def _(event):
 
 
 CMD_HELP.update({
-    "animasi4":
+    "animasi2":
     f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gabut` atau `{cmd}dino`\
     \n↳ : Dikala gabut, yaaa pake aja xixixi.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cinta`\
