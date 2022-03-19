@@ -138,7 +138,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "animasi7":
+    "animasi3":
     f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gabut` ; `{cmd}orgil`\
     \nUsage: ntahlah gabut doang.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙:`{cmd}ass`\
@@ -146,7 +146,7 @@ CMD_HELP.update({
 })
 
 CMD_HELP.update({
-    "animasi8":
+    "animasi4":
     f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cinta`\
     \nUsage: mengirim cintamu ke seseorang.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sange` :\
