@@ -23,12 +23,12 @@
       "required": true
     },
     "ALIVE_LOGO": {
-      "description": "Gambar dalam module .alive",
+      "description": "Foto dalam module .alive",
       "value": "https://telegra.ph/file/3aeb0f9581ffb876e8bc5.png",
       "required": false
     },
      "STRING_SESSION": {
-      "description": "Dapatkan String Session di repl.it caranya ada di repo, jika tidak tau reponya tanya ke bapakmu coba",
+      "description": "Dapatkan String Session di repl.it / menggunakan bot @IndomieStringBot di telegram, jika masih tidak paham gimana cara ngambil nya, mending gausa bikin bot anjing. pake jasa gua aja wkwk",
       "required": true
     },
     "HEROKU_APP_NAME": {
@@ -49,8 +49,8 @@
       "required": true
     },
     "PM_AUTO_BAN": {
-      "description": "Bot yang menjaga PC/Room chat kamu, ubah True untuk mengaktifkannya.",
-      "value": "False",
+      "description": "Bot yang menjaga PC/Room chat kamu, ubah True untuk mengaktifkannya dan False untuk mematikannya.",
+      "value": "True",
       "required": true
     },
     "LOGSPAMMER": {
