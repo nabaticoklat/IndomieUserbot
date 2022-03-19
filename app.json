@@ -40,16 +40,6 @@
       "value": "Check Di Heroku Dashboard Mu",
       "required": true
     },
-    "TZ_NUMBER": {
-      "description": "Change this value in case your country has multiple Time Zones.",
-      "value": "1",
-      "required": false
-    },
-    "BOTLOG": {
-      "description": "Ini adalah notif BOT, Kalo Mau Off in BOTLOG Ganti False",
-      "value": "True",
-      "required": true
-    },
     "BOTLOG_CHATID": {
       "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
       "required": true
@@ -57,16 +47,6 @@
     "G_BAN_LOGGER_GROUP": {
       "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
       "required": true
-    },
-    "HEROKU_MEMEZ": {
-      "description": "This should be True if the userbot is running on a Heroku Dyno.",
-      "value": "True",
-      "required": true
-    },
-    "DEFAULT_BIO": {
-      "description": "Default Bio Mu.",
-      "value": "pornhub.com",
-      "required": false
     },
     "PM_AUTO_BAN": {
       "description": "Bot yang menjaga PC/Room chat kamu, ubah True untuk mengaktifkannya.",
@@ -85,27 +65,6 @@
     "S_PACK_NAME": {
       "description": "Nama Sticker Pack lo",
       "required": false
-    },
-    "CLEAN_WELCOME": {
-      "description": "When a new person joins, the old welcome message is deleted.",
-      "value": "True"
-    },
-    "TMP_DOWNLOAD_DIRECTORY": {
-      "description": "Download location for many modules (GDrive, .download etc..)",
-      "value": "./downloads/"
-    },
-    "WEATHER_DEFCITY": {
-      "description": "Set the default city for the userbot's weather module.",
-      "value": "Jakarta",
-      "required": false
-    },
-    "BOT_TOKEN": {
-      "description": "Isi bot tokennya tolol. dapetin tokennya di @BotFather",
-      "required": true
-    },
-    "BOT_USERNAME": {
-      "description": "Username Bot lo Di @BotFather, Tanpa @",
-      "required": true
     }
   },
   "addons": [
@@ -131,5 +90,11 @@
     "url": "https://github.com/amivin/aria2-heroku"
   }, {
     "url": "https://github.com/stevo550/buildpack-slug-cleaner"
-  }]
+  }],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
 }
