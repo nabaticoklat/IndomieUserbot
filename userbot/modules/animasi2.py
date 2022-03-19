@@ -397,8 +397,8 @@ CMD_HELP.update({
     "animasi4":
     f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gabut` atau `{cmd}dino`\
     \n↳ : Dikala gabut, yaaa pake aja xixixi.\
-    f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cinta`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cinta`\
     \n↳ : Mengirim cinta tai anjiing ke seseorang.\
-    f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
     \n↳ : Berubah menjadi kadal."
 })
