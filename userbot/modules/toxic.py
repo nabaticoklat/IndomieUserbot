@@ -3,7 +3,6 @@ from userbot import CMD_HANDLER as cmd
 from userbot.utils import indomie_cmd
 
 
-
 @indomie_cmd(pattern='d(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
