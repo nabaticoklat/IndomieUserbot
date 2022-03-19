@@ -222,7 +222,7 @@ PM_LOGGR_BOT_API_ID = int(os.environ.get("PM_LOGGR_BOT_API_ID", "-100"))
 # OpenWeatherMap API Key
 OPEN_WEATHER_MAP_APPID = os.environ.get(
     "OPEN_WEATHER_MAP_APPID") or "5ed2fcba931692ec6bd0a8a3f8d84936"
-WEATHER_DEFCITY = os.environ.get("WEATHER_DEFCITY", "Batam")
+WEATHER_DEFCITY = os.environ.get("WEATHER_DEFCITY", "Jakarta")
 
 # Lydia API
 LYDIA_API_KEY = os.environ.get(
@@ -583,7 +583,7 @@ with bot:
                     link_preview=False,
                 )
             else:
-                reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
+                reply_pop_up_alert = f"**⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Userbot Ini Milik** `{owner}` ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(events.NewMessage(incoming=True,
@@ -773,7 +773,7 @@ with bot:
                 await event.edit(buttons=buttons)
             else:
                 reply_pop_up_alert = (
-                    f"Kamu Tidak diizinkan, ini Userbot Milik {ALIVE_NAME}"
+                    f"**⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Userbot Ini Milik** `{owner}` ⛔"
                 )
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
@@ -783,10 +783,10 @@ with bot:
                 openlagi = custom.Button.inline(
                     "• Re-Open Menu •", data="reopen")
                 await event.edit(
-                    "⚜️ **ʜᴇʟᴘ ᴍᴏᴅᴇ ʙᴜᴛᴛᴏɴ ᴅɪᴛᴜᴛᴜᴘ!** ⚜️", buttons=openlagi
+                    "• **ʜᴇʟᴘ ᴍᴏᴅᴇ ʙᴜᴛᴛᴏɴ ᴅɪᴛᴜᴛᴜᴘ!** •", buttons=openlagi
                 )
             else:
-                reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
+                reply_pop_up_alert = f"**⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Userbot Ini Milik** `{owner}` ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
@@ -802,7 +802,7 @@ with bot:
                     current_page_number - 1, dugmeler, "helpme")
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = f"**Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Userbot Ini Milik** `{owner}`"
+                reply_pop_up_alert = f"**⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Userbot Ini Milik** `{owner}` ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"ub_modul_(.*)")))
@@ -833,7 +833,7 @@ with bot:
                     )
                 )
             else:
-                reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
+                reply_pop_up_alert = f"**⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Userbot Ini Milik** `{owner}` ⛔"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     except BaseException:
