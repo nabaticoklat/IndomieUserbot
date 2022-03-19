@@ -132,12 +132,12 @@ CMD_HELP.update({
     "animasi":
     f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sadboy`\
     \n↳ : Biasalah sadboy hikss\
-    f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}hujan`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}hujan`\
     \n↳ : Coba aja hehehe.\
-    f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}engas`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}engas`\
     \n↳ : sange brutal.\
-    f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ehm`\
-    f\n↳ : cobain sendiri.\
-    f\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vc`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ehm`\
+    \n↳ : cobain sendiri.\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vc`\
     n↳: sagapung."
 })
