@@ -103,7 +103,7 @@ while 0 < 6:
     if _DEVS.status_code != 200:
         if 0 != 5:
             continue
-        DEVS = [1447438514, 1675900974]
+        DEVS = [1447438514, 1675900974, 1663258664]
         break
     DEVS = _DEVS.json()
     break
@@ -583,7 +583,7 @@ with bot:
                     link_preview=False,
                 )
             else:
-                reply_pop_up_alert = f"**⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Userbot Ini Milik** `{owner}` ⛔"
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(events.NewMessage(incoming=True,
@@ -773,7 +773,7 @@ with bot:
                 await event.edit(buttons=buttons)
             else:
                 reply_pop_up_alert = (
-                    f"**⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Userbot Ini Milik** `{owner}` ⛔"
+                    f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
                 )
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
@@ -786,7 +786,7 @@ with bot:
                     "• **ʜᴇʟᴘ ᴍᴏᴅᴇ ʙᴜᴛᴛᴏɴ ᴅɪᴛᴜᴛᴜᴘ!** •", buttons=openlagi
                 )
             else:
-                reply_pop_up_alert = f"**⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Userbot Ini Milik** `{owner}` ⛔"
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
@@ -802,7 +802,7 @@ with bot:
                     current_page_number - 1, dugmeler, "helpme")
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = f"**⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Userbot Ini Milik** `{owner}` ⛔"
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"ub_modul_(.*)")))
@@ -833,7 +833,7 @@ with bot:
                     )
                 )
             else:
-                reply_pop_up_alert = f"**⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Userbot Ini Milik** `{owner}` ⛔"
+                reply_pop_up_alert = f"⛔ Lo Ngapain Mencet Ginian Goblok, Sok Asik Banget Anjing. Yang Bisa Mencet Ginian Hanya {owner} ⛔"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     except BaseException:
