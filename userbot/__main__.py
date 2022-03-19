@@ -17,7 +17,6 @@ from userbot import (
     BOTLOG_CHATID,
     ALIVE_LOGO,
     LOGS,
-    mieblacklist,
     bot,
     call_py,
 )
