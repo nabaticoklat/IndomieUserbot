@@ -242,7 +242,7 @@ async def amireallyalive(alive):
         f"├  **Bᴏᴛ Vᴇʀ    :** `{BOT_VER}` \n"
         f"├  **Modules    :** `{len(modules)}` \n"
         f"└  **Uᴘᴛɪᴍᴇ     :** `{uptime}` \n"
-        f"   **[𝐒𝐭𝐨𝐫𝐞]**(https://t.me/IndomieStore) | **[𝐂𝐡𝐚𝐧𝐧𝐞𝐥]**(https://t.me/IndomieProject) | **[𝗢𝘄𝗻𝗲𝗿]**(https://t.me/IndomieGenetik) | **[𝐆𝐢𝐭𝐡𝐮𝐛]**(https://github.com/indomiegorengsatu)")
+        f"   **[𝐒𝐭𝐨𝐫𝐞]**(https://t.me/IndomieStore) | **[𝐂𝐡𝐚𝐧𝐧𝐞𝐥]**(https://t.me/IndomieProject) | **[𝗢𝘄𝗻𝗲𝗿]**(https://t.me/IndomieGenetik)")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -320,6 +320,8 @@ CMD_HELP.update({
 CMD_HELP.update({
     "alive":
     "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.alive` or `.on`"
+    "\n↳ : To see whether your bot is working or not."
+    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.realive`"
     "\n↳ : To see whether your bot is working or not."
 })
 CMD_HELP.update(
