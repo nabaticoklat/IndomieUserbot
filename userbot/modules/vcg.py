@@ -116,7 +116,7 @@ CMD_HELP.update(
          \n↳ : `Menghentikan Obrolan Suara Pada Group.`\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vcinvite`\
          \n↳ : `Invite semua member yang berada di group.`\
-         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vcinvite` <title vcg>\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vctitle` <title vcg>\
          \n↳ : `Mengubah title/judul voice chat group.`"
     }
 )
