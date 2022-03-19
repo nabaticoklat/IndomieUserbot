@@ -41,7 +41,7 @@ except Exception as e:
 
     for module_name in ALL_MODULES:
         imported_module = import_module("userbot.modules." + module_name)
-    
+
     LOGS.info(f"♨IndomieUserbot♨ ⚙️ V{BOT_VER} [ TELAH DIAKTIFKAN! ]")
 
 
