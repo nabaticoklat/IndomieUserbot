@@ -8,7 +8,6 @@
 import sys
 from importlib import import_module
 
-import requests
 
 from userbot import (
     BOT_TOKEN,
@@ -34,6 +33,7 @@ try:
 except BaseException as e:
     LOGS.info(str(e), exc_info=True)
     sys.exit(1)
+
 
 async def userbot_on():
     user = await bot.get_me()
