@@ -41,9 +41,9 @@ async def autobot():
     who = await bot.get_me()
     name = who.first_name + " Assistant Bot"
     if who.username:
-        username = who.username + "_ubot"
+        username = who.username + "_userbot"
     else:
-        username = "skyzu" + (str(who.id))[5:] + "ubot"
+        username = "indomie" + (str(who.id))[5:] + "userbot"
     bf = "@BotFather"
     await bot(UnblockRequest(bf))
     await bot.send_message(bf, "/cancel")
@@ -76,7 +76,7 @@ async def autobot():
     await bot.send_read_acknowledge("botfather")
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
-        username = "skyzu" + (str(who.id))[6:] + str(ran) + "ubot"
+        username = "indomie" + (str(who.id))[6:] + str(ran) + "userbot"
         await bot.send_message(bf, username)
         await asyncio.sleep(1)
         nowdone = (await bot.get_messages(bf, limit=1))[0].text
