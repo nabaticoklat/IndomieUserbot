@@ -96,7 +96,7 @@ async def variable(var):
             return True
 
 
-@indomie_cmd(pattern="set var (\w *) ([\s\S]*)')
+@indomie_cmd(pattern="set var (\w *) ([\s\S]*)")
 async def set_var(var):
     await var.edit("`Sedang Menyetel Config Vars ヅ`")
     variable = var.pattern_match.group(1)
