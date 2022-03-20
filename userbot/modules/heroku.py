@@ -16,9 +16,10 @@ from userbot import (
     BOTLOG,
     BOTLOG_CHATID,
     CMD_HELP,
-    ALIVE_NAME)
-from userbot.events import register
+    bot)
+from userbot.utils import edit_or_reply, man_cmd
 
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 heroku_api = "https://api.heroku.com"
 if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
     Heroku = heroku3.from_key(HEROKU_API_KEY)
@@ -33,8 +34,7 @@ else:
 """
 
 
-@register(outgoing=True,
-          pattern=r"^.(get|del) var(?: |$)(\w*)")
+@indomie_cmd(pattern="(get|del) var(?: |$)(\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
@@ -96,7 +96,7 @@ async def variable(var):
             return True
 
 
-@register(outgoing=True, pattern=r'^.set var (\w*) ([\s\S]*)')
+@indomie_cmd(pattern="set var (\w*) ([\s\S]*)')
 async def set_var(var):
     await var.edit("`Sedang Menyetel Config Vars ヅ`")
     variable = var.pattern_match.group(1)
@@ -125,11 +125,12 @@ async def set_var(var):
 """
 
 
-@register(outgoing=True, pattern=r"^.usage(?: |$)")
+@indomie_cmd(pattern="usage(?: |$)")
 async def dyno_usage(dyno):
     """
         Get your account Dyno Usage
     """
+    aku = await bot.get_me()
     await dyno.edit("`Processing...`")
     await asyncio.sleep(2)
     useragent = (
@@ -183,29 +184,27 @@ async def dyno_usage(dyno):
 
             await dyno.edit(
                 "♨️ **ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ :**\n"
-                "▧═══════════════════▧\n"
-                f"➠ **Penggunaan Kealayan** `{ALIVE_NAME}` :\n"
+                "\n╔════════════════════╗\n"
+                f"✦ **Penggunaan Kealayan** [{user.first_name}](tg://user?id={user.id}) :\n"
                 f"  • [`{AppHours}`] **hour(s)**, [`{AppMinutes}`] **minute(s)** \n"
                 f"**|**  [`{AppPercentage}`**%**] \n"
-                "▧═══════════════════▧\n"
-                "▁▂▃▄▅▆▇██▇▆▅▄▃▂▁\n"
-                "▧═══════════════════▧\n"
-                f"➠ **Sisa Alay Bulan Ini :**\n"
+                "\n▧ ═══════════════════ ▧\n"
+                f"✦ **Sisa Alay Bulan Ini :**\n"
                 f"  • [`{hours}`] **hour(s)**, [`{minutes}`] **minute(s)** \n"
                 f"**|**  [`{percentage}`**%**] \n"
-                "▧═══════════════════▧\n"
-                f"➠ **Sisa Hidupmu** `{day}` **Day(s) Left**\n"
-                f"🥷 ʙᴏᴛ ᴏꜰ : **{ALIVE_NAME}** \n"
+                "\n╚════════════════════╝\n"
+                f"✦ **Sisa Hidupmu** `{day}` **Day(s) Left**\n"
+                f"🥷 Oᴡɴᴇʀ Bᴏᴛ : **[{user.first_name}](tg://user?id={user.id})** \n"
             )
             await asyncio.sleep(20)
             await event.delete()
             return True
 
 
-@register(outgoing=True, pattern=r"^.usange(?: |$)")
+@indomie_cmd(pattern="usange(?: |$)")
 async def fake_dyno(event):
-    await dyno.edit(event, "`Processing...`")
-    await dyno.edit(
+    xx = await edit_or_reply(event, "`Processing...`")
+    await xx.edit(
         "✥ **Informasi Dyno Heroku :**"
         "\n╔════════════════════╗\n"
         f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
@@ -218,8 +217,7 @@ async def fake_dyno(event):
         "\n╚════════════════════╝\n"
     )
 
-
-@register(outgoing=True, pattern=r"^\.logs")
+@indomie_cmd(pattern="logs")
 async def _(dyno):
     try:
         Heroku = heroku3.from_key(HEROKU_API_KEY)
