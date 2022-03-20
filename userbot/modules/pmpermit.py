@@ -23,6 +23,8 @@ from userbot import (
     PMPERMIT_TEXT,
     PMPERMIT_PIC,
     ALIVE_LOGO,
+    bot,
+    user,
     owner,
 )
 
@@ -45,8 +47,8 @@ DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”\n"
     "╚═════════════════════╝\n"
-    f"• [{owner}] belum menyetujui anda untuk PM.\n"
-    f"• Tunggu sampai [{owner}] menyetujui PM anda.\n"
+    f"• [{owner}(tg://user?id={user.id})] belum menyetujui anda untuk PM.\n"
+    f"• Tunggu sampai [{owner}(tg://user?id={user.id})] menyetujui PM anda.\n"
     "• Jangan Spam Chat atau kamu akan otomatis diblokir.\n"
     "╔═════════════════════╗\n"
     "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
