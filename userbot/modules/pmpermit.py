@@ -23,7 +23,6 @@ from userbot import (
     PMPERMIT_TEXT,
     PMPERMIT_PIC,
     ALIVE_LOGO,
-    user,
     owner,
 )
 
@@ -38,16 +37,14 @@ LASTMSG = {}
 
 
 # ========================= CONSTANTS ============================
-
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 CUSTOM_TEXT = str(
-    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat **IɴᴅᴏᴍɪᴇUꜱᴇʀʙᴏᴛ** {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
+    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat **IɴᴅᴏᴍɪᴇUꜱᴇʀʙᴏᴛ** {owner} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”\n"
     "╚═════════════════════╝\n"
-    f"• [{owner}(tg://user?id={user.id})] belum menyetujui anda untuk PM.\n"
-    f"• Tunggu sampai [{owner}(tg://user?id={user.id})] menyetujui PM anda.\n"
+    f"• [`{owner}`] belum menyetujui anda untuk PM.\n"
+    f"• Tunggu sampai [`{owner}`] menyetujui PM anda.\n"
     "• Jangan Spam Chat atau kamu akan otomatis diblokir.\n"
     "╔═════════════════════╗\n"
     "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
@@ -111,7 +108,7 @@ async def permitpm(event):
             if COUNT_PM[event.chat_id] > 6:
                 await event.respond(
                     "`Bacot bat Jamet tolol, Gua blok ajalah`\n"
-                    f"`Tunggu `{DEFAULTUSER}` Bales ya`"
+                    f"`Tunggu `{owner}` Bales ya`"
                 )
 
                 try:
@@ -419,7 +416,7 @@ async def permitpm(event):
     if event.is_private:
         if not pm_permit_sql.is_approved(chats.id):
             pm_permit_sql.approve(
-                chats.id, f"`{ALIVE_NAME} Telah Mengirimi Anda Pesan 😯`")
+                chats.id, f"`{DEFAULTUSER} Telah Mengirimi Anda Pesan 😯`")
             await borg.send_message(
                 chats, f"**Menerima Pesan!, Pengguna Terdeteksi Adalah {DEFAULTUSER}**"
             )
