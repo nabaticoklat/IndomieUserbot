@@ -48,13 +48,16 @@
       "description": "Bikin Grup Publik Lalu Invite Bot @MissRose_Bot Ke Grup Lo, Trus Ketik /id. Ntr bakal muncul ID seperti ini Contoh : -1001681347xxx",
       "required": true
     },
+    "BOT_TOKEN": {
+      "description": "Bikin bot tokennya dulu tolol, bikinnya tu di @botfather trus salin tokennya kesini",
+      "required": false
+    },
+    "BOT_USERNAME": {
+      "description": "id username bot mu blok, pake @",
+      "required": false
+    },
     "PM_AUTO_BAN": {
       "description": "Bot yang menjaga PC/Room chat kamu, ubah True untuk mengaktifkannya dan False untuk mematikannya.",
-      "value": "True",
-      "required": true
-    },
-    "LOGSPAMMER": {
-      "description": "Set this to True in case you want the error logs to be stored in the userbot log group, instead of spitting out the file in the current chat, requires a valid BOTLOG_CHATID to be set.",
       "value": "True",
       "required": true
     },
