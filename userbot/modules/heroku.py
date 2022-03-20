@@ -34,7 +34,7 @@ else:
 """
 
 
-@indomie_cmd(pattern="(get|del) var(?: |$)(\w*)")
+@indomie_cmd(pattern="(get|del) var(?: |$)(\\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
@@ -96,7 +96,7 @@ async def variable(var):
             return True
 
 
-@indomie_cmd(pattern="set var (\w*) ([\s\S]*)')
+@indomie_cmd(pattern="set var (\w *) ([\s\S]*)')
 async def set_var(var):
     await var.edit("`Sedang Menyetel Config Vars ヅ`")
     variable = var.pattern_match.group(1)
@@ -216,6 +216,7 @@ async def fake_dyno(event):
         f"**|**  [`100`**%**]"
         "\n╚════════════════════╝\n"
     )
+
 
 @indomie_cmd(pattern="logs")
 async def _(dyno):
