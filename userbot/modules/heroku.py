@@ -133,8 +133,7 @@ async def dyno_usage(dyno):
     await dyno.edit("Sabar goblok.")
     await dyno.edit("Sabar goblok..")
     await dyno.edit("Sabar goblok...")
-    await dyno.edit("Sabar goblok....")
-    await asyncio.sleep(2)
+    await asyncio.sleep(1)
     useragent = (
         'Mozilla/5.0 (Linux; Android 10; SM-G975F) '
         'AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -187,15 +186,15 @@ async def dyno_usage(dyno):
             await dyno.edit(
                 "♨️ **ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ :**\n"
                 "\n╔════════════════════╗\n"
-                f"✦ **Penggunaan Kealayan** [{aku.first_name}](tg://user?id={aku.id}) :\n"
-                f"  • (`{AppHours}`) **hour(s)**, (`{AppMinutes}`) **minute(s)** \n"
-                f"**|**  (`{AppPercentage}`**%**) \n"
+                f"✦ **Penggunaan Kealayan** :\n"
+                f"  • `{AppHours}` **hour(s)**, `{AppMinutes}` **minute(s)** "
+                f"**|**  (`{AppPercentage}`**%**) "
                 "\n▧ ═══════════════════ ▧\n"
                 f"✦ **Sisa Alay Bulan Ini :**\n"
-                f"  • (`{hours}`) **hour(s)**, (`{minutes}`) **minute(s)** \n"
-                f"**|**  (`{percentage}`**%**) \n"
+                f"  • `{hours}` **hour(s)**, `{minutes}` **minute(s)** " 
+                f"**|**  (`{percentage}`**%**) "
                 "\n╚════════════════════╝\n"
-                f"✦ **Sisa Hidupmu** (`{day}`) **Day(s) Left**\n"
+                f"✦ **Sisa Hidupmu** (`{day}`) **Hari Lagi**\n"
                 f"🥷 Oᴡɴᴇʀ Bᴏᴛ : **[{aku.first_name}](tg://user?id={aku.id})** \n"
             )
             await asyncio.sleep(20)
