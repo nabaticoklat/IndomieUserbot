@@ -6,17 +6,17 @@ from random import choice, randint
 from telethon.events import StopPropagation
 from telethon.tl.functions.account import UpdateProfileRequest
 from userbot import BOTLOG, BOTLOG_CHATID
-from userbot import AFKREASON, CMD_HELP, COUNT_MSG, ISAFK, ALIVE_NAME  # noqa pylint: disable=unused-import isort:skip
-from userbot import PM_AUTO_BAN
+from userbot import AFKREASON, CMD_HELP, COUNT_MSG, ISAFK  # noqa pylint: disable=unused-import isort:skip
+from userbot import PM_AUTO_BAN, owner
 from userbot.utils import indomie_cmd
 from userbot.events import register
 
 # ========================= CONSTANTS ============================
 AFKSTR = [
-    f"**! 𝗔𝗙𝗞 \n Sedang Sibuk, Mohon Tunggu {ALIVE_NAME} Online Kembali**",
-    f"**! 𝗔𝗙𝗞 \n Mohon Maaf, {ALIVE_NAME} Sedang Sibuk\n Sedang Menjalankan Perintah Tuhan!!**",
-    f"**! 𝗔𝗙𝗞 \n {ALIVE_NAME} Sedang Melakukan Perintah Tuhan\n Tunggu Saya Online Kembali !!!!!**",
-    f"**! 𝗔𝗙𝗞 \n Maaf {ALIVE_NAME} Sedang Sibuk!!**",
+    f"**! 𝗔𝗙𝗞 \n Sedang Sibuk, Mohon Tunggu {owner} Online Kembali**",
+    f"**! 𝗔𝗙𝗞 \n Mohon Maaf, {owner} Sedang Sibuk\n Sedang Menjalankan Perintah Tuhan!!**",
+    f"**! 𝗔𝗙𝗞 \n {owner} Sedang Melakukan Perintah Tuhan\n Tunggu Saya Online Kembali !!!!!**",
+    f"**! 𝗔𝗙𝗞 \n Maaf {owner} Sedang Sibuk!!**",
 ]
 
 
