@@ -129,8 +129,11 @@ async def dyno_usage(dyno):
     """
         Get your account Dyno Usage
     """
-    await bot.get_me()
-    await dyno.edit("`Processing...`")
+    aku = await bot.get_me()
+    await dyno.edit("Sabar goblok.")
+    await dyno.edit("Sabar goblok..")
+    await dyno.edit("Sabar goblok...")
+    await dyno.edit("Sabar goblok....")
     await asyncio.sleep(2)
     useragent = (
         'Mozilla/5.0 (Linux; Android 10; SM-G975F) '
@@ -184,7 +187,7 @@ async def dyno_usage(dyno):
             await dyno.edit(
                 "♨️ **ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ :**\n"
                 "\n╔════════════════════╗\n"
-                f"✦ **Penggunaan Kealayan** [{user.first_name}](tg://user?id={user.id}) :\n"
+                f"✦ **Penggunaan Kealayan** [{aku.first_name}](tg://user?id={aku.id}) :\n"
                 f"  • [`{AppHours}`] **hour(s)**, [`{AppMinutes}`] **minute(s)** \n"
                 f"**|**  [`{AppPercentage}`**%**] \n"
                 "\n▧ ═══════════════════ ▧\n"
@@ -193,7 +196,7 @@ async def dyno_usage(dyno):
                 f"**|**  [`{percentage}`**%**] \n"
                 "\n╚════════════════════╝\n"
                 f"✦ **Sisa Hidupmu** `{day}` **Day(s) Left**\n"
-                f"🥷 Oᴡɴᴇʀ Bᴏᴛ : **[{user.first_name}](tg://user?id={user.id})** \n"
+                f"🥷 Oᴡɴᴇʀ Bᴏᴛ : **[{aku.first_name}](tg://user?id={aku.id})** \n"
             )
             await asyncio.sleep(20)
             await event.delete()
