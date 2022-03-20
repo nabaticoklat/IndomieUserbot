@@ -17,7 +17,7 @@ from userbot import (
     BOTLOG_CHATID,
     CMD_HELP,
     bot)
-from userbot.utils import edit_or_reply, man_cmd
+from userbot.utils import edit_or_reply
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 heroku_api = "https://api.heroku.com"
@@ -96,7 +96,7 @@ async def variable(var):
             return True
 
 
-@indomie_cmd(pattern="set var (\w *) ([\s\S]*)")
+@indomie_cmd(pattern="set var (\\w *) ([\\s\\S]*)")
 async def set_var(var):
     await var.edit("`Sedang Menyetel Config Vars ヅ`")
     variable = var.pattern_match.group(1)
@@ -130,7 +130,7 @@ async def dyno_usage(dyno):
     """
         Get your account Dyno Usage
     """
-    aku = await bot.get_me()
+    await bot.get_me()
     await dyno.edit("`Processing...`")
     await asyncio.sleep(2)
     useragent = (
