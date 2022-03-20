@@ -23,7 +23,6 @@ from userbot import (
     PMPERMIT_TEXT,
     PMPERMIT_PIC,
     ALIVE_LOGO,
-    bot,
     user,
     owner,
 )
