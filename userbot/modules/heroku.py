@@ -17,7 +17,7 @@ from userbot import (
     BOTLOG_CHATID,
     CMD_HELP,
     bot)
-from userbot.utils import edit_or_reply
+from userbot.utils import edit_or_reply, indomie_cmd
 
 heroku_api = "https://api.heroku.com"
 if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
