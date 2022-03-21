@@ -11,6 +11,7 @@ from telethon.tl import functions, types
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
+from userbot.events import indomie_cmd
 from userbot.utils import bash
 
 USER_AFK = {}
