@@ -49,11 +49,11 @@
       "required": true
     },
     "BOT_TOKEN": {
-      "description": "Bikin bot tokennya dulu tolol, bikinnya tu di @botfather trus salin tokennya kesini",
+      "description": "Bikin bot tokennya dulu tolol, bikinnya tu di @botfather trus salin tokennya kesini.",
       "required": false
     },
     "BOT_USERNAME": {
-      "description": "id username bot mu blok, Gapake @",
+      "description": "id username bot mu blok.",
       "required": false
     },
     "PM_AUTO_BAN": {
