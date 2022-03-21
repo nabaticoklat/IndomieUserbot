@@ -80,9 +80,9 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 🏆 **THANKS TO**
 *   [Indomie](https://github.com/IndomieGorengSatu)    :  IndomieUserbot
-*   [Kyy](https://github.com/muhammadrizky16) :  Kyy - Userbot
-*   [Skyzu](https://github.com/Skyzu)       :  Skyzu - Userbot
-*   [Pocong](https://github.com/poocong)      :  Pocong - Userbot
+*   [Kyy](https://github.com/muhammadrizky16) :  Kyy - Userbot (Template repo)
+*   [Skyzu](https://github.com/Skyzu)       :  Skyzu - Userbot (Inline menu)
+*   [Pocong](https://github.com/poocong)      :  Pocong - Userbot (fix repo)
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
 
 
