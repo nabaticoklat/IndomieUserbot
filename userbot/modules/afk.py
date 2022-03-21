@@ -11,8 +11,7 @@ from telethon.tl import functions, types
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.utils import indomie_cmd
-from userbot.utils import bash
+from userbot.utils import bash, indomie_cmd
 
 USER_AFK = {}
 afk_time = None
