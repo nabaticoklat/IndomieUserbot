@@ -83,7 +83,6 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 *   [Kyy](https://github.com/muhammadrizky16) :  Kyy - Userbot
 *   [Skyzu](https://github.com/Skyzu)       :  Skyzu - Userbot
 *   [Pocong](https://github.com/poocong)      :  Pocong - Userbot
-*   [Risman](https://github.com/mrismanaziz)  :  Man - Userbot  
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
 
 
@@ -95,6 +94,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 🏆 **BIG SHOUTOUT FOR MY SUHU**
 *   [Abdul](https://github.com/DoellBarr)
+*   [Risman](https://github.com/mrismanaziz)  :  Man - Userbot
 
 
 </details>
