@@ -18,8 +18,8 @@ import userbot.modules.sql_helper.gban_sql as gban_sql
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, DEVS
-from userbot.events import register
 from userbot.utils import edit_or_reply
+from userbot.events import register 
 from userbot.modules.ping import absen
 
 from .admin import BANNED_RIGHTS, UNBAN_RIGHTS
@@ -58,16 +58,14 @@ async def ownpurgeme(delme):
     message = delme.text
     count = int(message[9:])
     i = 1
-
     async for message in delme.client.iter_messages(delme.chat_id, from_user="me"):
         if i > count + 1:
             break
         i += 1
         await message.delete()
-
     smsg = await delme.client.send_message(
         delme.chat_id,
-        "**Berhasil Menghapus Pesan,** " + str(count) + " **Pesan Telah Dihapus**",
+        "**Berhasil Menghapus** " + str(count) + " **Pesan Telah Dihapus**",
     )
     await sleep(2)
     i = 1
@@ -143,7 +141,7 @@ async def owngban(event):
         await gbun.edit("**Ngapain NgeGban diri sendiri Goblok**")
         return
     if user.id in DEVS:
-        await gbun.edit("**Gagal GBAN karena dia adalah Pembuat saya 🤪**")
+        await gbun.edit("**Lu Mau Ngapain Anjg NgeGban Tuhan Gua? Goblok Mana Bisa Lah Anjg!!!**")
         return
     if gban_sql.is_gbanned(user.id):
         await gbun.edit(
