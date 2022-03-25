@@ -13,6 +13,7 @@ from telethon.utils import get_display_name
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.utils import indomie_cmd
+from userbot.events import register
 
 NO_ADMIN = "`Maaf Kamu Bukan Admin 👮`"
 
@@ -52,7 +53,7 @@ async def start_voice(c):
         await c.edit(f"**ERROR:** `{ex}`")
 
 
-@indomie_cmd(pattern="stopvc$")
+@register(outgoing=True, pattern=r"^\.stopvc$")
 async def stop_voice(c):
     aku = await c.client.get_me()
     chat = await c.get_chat()
