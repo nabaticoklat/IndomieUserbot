@@ -54,7 +54,7 @@ bot.loop.run_until_complete(userbot_on())
 bot.loop.run_until_complete(bacot_kontol())
 if not BOT_TOKEN:
     LOGS.info(
-        "Vars BOT_TOKEN ga di isi, otw bikin bot di @Botfather ngeeengg..."
+        "Vars BOT_TOKEN kaga di isi, otw bikin bot di @Botfather ngeeengg..."
     )
     bot.loop.run_until_complete(autobot())
 if len(sys.argv) not in (1, 3, 4):
