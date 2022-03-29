@@ -16,6 +16,8 @@ GCAST_BLACKLIST = [
     -1001473548283,  # SharingUserbot
     -1001604893399,  # ah ah ah
     -1001650281175,  # @IndomieGenetik
+    -1001692751821,  # ramsupport
+    -1001459812644,  # Geezsupport
 ]
 
 
