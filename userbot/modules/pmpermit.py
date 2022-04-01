@@ -182,7 +182,7 @@ async def auto_accept(event):
                 if is_approved(event.chat_id) and BOTLOG:
                     await event.client.send_message(
                         BOTLOG_CHATID,
-                        "\\**#AUTO-APPROVED//**\n"
+                        "\\**#AUTO-APPROVED**//\n"
                         + "Pengguna: "
                         + f"[{chat.first_name}](tg://user?id={chat.id})",
                     )
@@ -255,9 +255,7 @@ async def approvepm(apprvpm):
     if BOTLOG:
         await apprvpm.client.send_message(
             BOTLOG_CHATID,
-            "\\**#DITERIMA**//\n"
-            + "User: "
-            + f"[{name0}](tg://user?id={uid})"
+            "\\**#DITERIMA**//\n" + "Pengguna: " + f"[{name0}](tg://user?id={uid})"
         )
 
 
@@ -286,8 +284,7 @@ async def disapprovepm(disapprvpm):
     if BOTLOG:
         await disapprvpm.client.send_message(
             BOTLOG_CHATID,
-            f"[{name0}](tg://user?id={disapprvpm.chat_id})"
-            " `Berhasil Ditolak` !",
+            "\\**#DITOLAK**//\n" + "Pengguna: " + f"[{name0}](tg://user?id={disapprvpm.chat_id})"
         )
 
 
@@ -300,12 +297,12 @@ async def blockpm(block):
         aname = replied_user.id
         name0 = str(replied_user.first_name)
         await block.client(BlockRequest(aname))
-        await block.edit(f"`Anda Telah Diblokir Oleh {DEFAULTUSER}`")
+        await block.edit(f"Anda Telah Diblokir Oleh `{owner}`")
         uid = replied_user.id
     else:
         await block.client(BlockRequest(block.chat_id))
         aname = await block.client.get_entity(block.chat_id)
-        await block.edit(f"`Anda Telah Diblokir Oleh {DEFAULTUSER}`")
+        await block.edit(f"Anda Telah Diblokir Oleh `{owner}`")
         name0 = str(aname.first_name)
         uid = block.chat_id
 
@@ -319,9 +316,7 @@ async def blockpm(block):
     if BOTLOG:
         await block.client.send_message(
             BOTLOG_CHATID,
-            "\\**#BLOCK//**\n"
-            + "Pengguna: "
-            + f"[{name0}](tg://user?id={uid})",
+            "\\**#BLOKIR**//\n" + "Pengguna: " + f"[{name0}](tg://user?id={uid})",
         )
 
 
@@ -338,9 +333,7 @@ async def unblockpm(unblock):
     if BOTLOG:
         await unblock.client.send_message(
             BOTLOG_CHATID,
-            "\\**#UNBLOCK//**\n"
-            + "Pengguna: "
-            + f"[{name0}](tg://user?id={replied_user.id})",
+            "\\**#UNBLOCK**//\n" + "Pengguna: " + f"[{name0}](tg://user?id={replied_user.id})",
         )
 
 
@@ -399,7 +392,7 @@ async def add_pmsg(cust_msg):
             )
         else:
             await cust_msg.edit(
-                "*Lo Belum Nyetel Pesan PM*\n"
+                "**Lo Belum Nyetel Pesan PM**\n"
                 f"Masih Menggunakan Pesan PM Default: \n\n`{DEF_UNAPPROVED_MSG}`"
             )
 
