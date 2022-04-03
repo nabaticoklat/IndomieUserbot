@@ -13,7 +13,7 @@ import redis
 
 from datetime import datetime
 from speedtest import Speedtest
-from userbot import CMD_HELP, StartTime, ALIVE_NAME
+from userbot import CMD_HELP, StartTime, owner
 from userbot.events import register
 from userbot.utils import edit_or_reply, humanbytes, indomie_cmd
 
@@ -138,7 +138,7 @@ async def redis(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
-        f"**`{ALIVE_NAME}`**\n"
+        f"**`{owner}`**\n"
         f"✧ **-ꜱɪɢɴᴀʟ- :** "
         f"`%sms` \n"
         f"✧ **-ᴜᴘᴛɪᴍᴇ- :** "
