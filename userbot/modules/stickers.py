@@ -3,23 +3,16 @@
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 #
-# Recode by @mrismanaziz
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
 
-import asyncio
 import io
+import os
 import math
+import asyncio
 import random
 import urllib.request
 from os import remove
 
-import requests
-from bs4 import BeautifulSoup as bs
 from PIL import Image
-from telethon import events
-from telethon.errors import PackShortNameOccupiedError
-from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl import functions, types
 from telethon.tl.functions.contacts import UnblockRequest
 from telethon.tl.functions.messages import GetStickerSetRequest
@@ -30,16 +23,17 @@ from telethon.tl.types import (
     MessageMediaPhoto,
     MessageMediaUnsupported,
 )
-from telethon.utils import get_input_document
-
-from userbot import BOT_USERNAME
-from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP
-from userbot import S_PACK_NAME as custompack
-from userbot import tgbot
-from userbot.modules.sql_helper.globals import addgvar, gvarstatus
-from userbot.utils import edit_delete, edit_or_reply, indomie_cmd
-from userbot.utils.misc import animator
+from telethon.errors import PackShortNameOccupiedError
+from telethon.errors.rpcerrorlist import YouBlockedUserError
+from telethon import events
+from userbot import (
+    S_PACK_NAME as custompack,
+    CMD_HELP,
+    CMD_HANDLER as cmd,
+    bot,
+)
+from userbot.utils.tools import animator, create_quotly
+from userbot.utils import indomie_cmd, edit_delete, edit_or_reply
 
 KANGING_STR = [
     "Wao.,STICKER PELER KU COLONG..",
@@ -55,9 +49,90 @@ KANGING_STR = [
     "BERUSAHA MENCURY TIKEL INI! HAHAHA",
     "GUA NYOLONG TIKEL LU YA NGENTOTTTT!",
 ]
+def verify_cond(geezarray, text):
+    return any(i in text for i in geezarray)
+
+async def delpack(xx, conv, cmd, args, packname):
+    try:
+        await conv.send_message(cmd)
+    except YouBlockedUserError:
+        await xx.edit("You have blocked the @stickers bot. unblock it and try.")
+        return None, None
+    await conv.send_message("/delpack")
+    await conv.get_response()
+    await args.client.send_read_acknowledge(conv.chat_id)
+    await conv.send_message(packname)
+    await conv.get_response()
+    await args.client.send_read_acknowledge(conv.chat_id)
+    await conv.send_message("Yes, I am totally sure.")
+    await conv.get_response()
+    await args.client.send_read_acknowledge(conv.chat_id)
+
+async def newpacksticker(
+    xx,
+    conv,
+    cmd,
+    args,
+    pack,
+    packnick,
+    is_video,
+    emoji,
+    packname,
+    is_anim,
+    stfile,
+    otherpack=False,
+    pkang=False,
+):
+    try:
+        await conv.send_message(cmd)
+    except YouBlockedUserError:
+        await xx.edit("You have blocked the @stickers bot. unblock it and try.")
+        if not pkang:
+            return None, None, None
+        return None, None
+    await conv.get_response()
+    await args.client.send_read_acknowledge(conv.chat_id)
+    await conv.send_message(packnick)
+    await conv.get_response()
+    await args.client.send_read_acknowledge(conv.chat_id)
+    if is_video:
+        await conv.send_file("animate.webm")
+    elif is_anim:
+        await conv.send_file("AnimatedSticker.tgs")
+        os.remove("AnimatedSticker.tgs")
+    else:
+        stfile.seek(0)
+        await conv.send_file(stfile, force_document=True)
+    rsp = await conv.get_response()
+    if not verify_cond(custompack, rsp.text):
+        await xx.edit(
+            f"Failed to add sticker, use @Stickers bot to add the sticker manually.\n**error :**{rsp}"
+        )
+        if not pkang:
+            return None, None, None
+        return None, None
+    await conv.send_message(emoji)
+    await args.client.send_read_acknowledge(conv.chat_id)
+    await conv.get_response()
+    await conv.send_message("/publish")
+    if is_anim:
+        await conv.get_response()
+        await conv.send_message(f"<{packnick}>")
+    await conv.get_response()
+    await args.client.send_read_acknowledge(conv.chat_id)
+    await conv.send_message("/skip")
+    await args.client.send_read_acknowledge(conv.chat_id)
+    await conv.get_response()
+    await conv.send_message(packname)
+    await args.client.send_read_acknowledge(conv.chat_id)
+    await conv.get_response()
+    await args.client.send_read_acknowledge(conv.chat_id)
+    if not pkang:
+        return otherpack, packname, emoji
+    return pack, packname
 
 
-@indomie_cmd(pattern="(?:tikel|kang)\\s?(.)?")
+@indomie_cmd(pattern=r"(?:tikel|kang|colong)\s?(.)?")
 async def kang(args):
     user = await args.client.get_me()
     if not user.username:
@@ -71,7 +146,7 @@ async def kang(args):
 
     if not message:
         return await edit_delete(
-            args, "**Silahkan Reply Ke Pesan Media Untuk Mencuri Sticker itu!**"
+            args, "**Silahkan Reply Ke Pesan Media Untuk Mencuri Sticker!**"
         )
 
     if isinstance(message.media, MessageMediaPhoto):
@@ -80,8 +155,11 @@ async def kang(args):
         photo = await args.client.download_media(message.photo, photo)
     elif isinstance(message.media, MessageMediaUnsupported):
         await edit_delete(
-            args, "**File Tidak Didukung AJG!**"
+            args, "**File Tidak Didukung, Silahkan Reply ke Media Foto/GIF !**"
         )
+    elif message.message:
+        xx = await edit_or_reply(args, f"`{random.choice(KANGING_STR)}`")
+        photo = await create_quotly(message)
     elif message.file and "image" in message.file.mime_type.split("/"):
         xx = await edit_or_reply(args, f"`{random.choice(KANGING_STR)}`")
         photo = io.BytesIO()
@@ -117,7 +195,7 @@ async def kang(args):
         photo = 1
     else:
         return await edit_delete(
-            args, "**File Tidak Didukung AJG!**"
+            args, "**File Tidak Didukung, Silahkan Reply ke Media Foto/GIF !**"
         )
     if photo:
         splat = args.text.split()
@@ -183,7 +261,8 @@ async def kang(args):
                         packnick = f"{custompack}"
                     else:
                         f_name = (
-                            f"@{user.username}" if user.username else user.first_name)
+                            f"@{user.username}" if user.username else user.first_name
+                        )
                         packname = f"Sticker_u{user.id}_Ke{pack}"
                         packnick = f"Sticker Pack {f_name}"
                     await xx.edit(
@@ -244,7 +323,7 @@ async def kang(args):
                 rsp = await conv.get_response()
                 if "Sorry, the file type is invalid." in rsp.text:
                     return await xx.edit(
-                        "**Mohon Maaf, Saya Gagal Menambahkan Sticker, Gunakan @Stickers Bot Untuk Menambahkan Sticker.**"
+                        "**Gagal Menambahkan Sticker, Gunakan @Stickers Bot Untuk Menambahkan Sticker Anda.**"
                     )
                 await conv.send_message(emoji)
                 await args.client.send_read_acknowledge(conv.chat_id)
@@ -277,7 +356,7 @@ async def kang(args):
                 rsp = await conv.get_response()
                 if "Sorry, the file type is invalid." in rsp.text:
                     return await xx.edit(
-                        "**Mohon Maaf, Saya Gagal Menambahkan Sticker, Gunakan @Stickers Bot Untuk Menambahkan Sticker.**"
+                        "**Gagal Menambahkan Sticker, Gunakan @Stickers Bot Untuk Menambahkan Sticker.**"
                     )
                 await conv.send_message(emoji)
                 await args.client.send_read_acknowledge(conv.chat_id)
@@ -298,7 +377,7 @@ async def kang(args):
 
         await xx.edit(
             "**SUKSES MENJADI PENCURI HAMDAL**"
-            f"\n  👻  **>>> [Tekan Disini](t.me/addstickers/{packname}) <<<**   👻   \n**BANGGA JADI MALING**",
+            f"\n  👻  **>>> [Tekan Disini](t.me/addstickers/{packname}) <<<**   👻   \n**MAMA MU PASTI BANGGA KAMU JADI MALING**",
             parse_mode="md",
         )
 
@@ -325,125 +404,6 @@ async def resize_photo(photo):
         image.thumbnail(maxsize)
 
     return image
-
-
-@indomie_cmd(pattern="pkang(?:\\s|$)([\\s\\S]*)")
-async def _(event):
-    xnxx = await edit_or_reply(event, f"`{random.choice(KANGING_STR)}`")
-    reply = await event.get_reply_message()
-    query = event.text[7:]
-    bot_ = BOT_USERNAME
-    bot_un = bot_.replace("@", "")
-    user = await event.client.get_me()
-    OWNER_ID = user.id
-    un = f"@{user.username}" if user.username else user.first_name
-    un_ = user.username or OWNER_ID
-    if not reply:
-        return await edit_delete(
-            xnxx, "**Mohon Balas sticker untuk mencuri semua Sticker Pack.**"
-        )
-    pname = f"{un} Sticker Pack" if query == "" else query
-    if reply.media and reply.media.document.mime_type == "image/webp":
-        tikel_id = reply.media.document.attributes[1].stickerset.id
-        tikel_hash = reply.media.document.attributes[1].stickerset.access_hash
-        got_stcr = await event.client(
-            functions.messages.GetStickerSetRequest(
-                stickerset=types.InputStickerSetID(id=tikel_id, access_hash=tikel_hash),
-                hash=0,
-            )
-        )
-        stcrs = []
-        for sti in got_stcr.documents:
-            inp = get_input_document(sti)
-            stcrs.append(
-                types.InputStickerSetItem(
-                    document=inp,
-                    emoji=(sti.attributes[1]).alt,
-                )
-            )
-        try:
-            gvarstatus("PKANG")
-        except BaseException:
-            addgvar("PKANG", "0")
-        x = gvarstatus("PKANG")
-        try:
-            pack = int(x) + 1
-        except BaseException:
-            pack = 1
-        await xnxx.edit(f"`{random.choice(KANGING_STR)}`")
-        try:
-            create_st = await tgbot(
-                functions.stickers.CreateStickerSetRequest(
-                    user_id=OWNER_ID,
-                    title=pname,
-                    short_name=f"man_{un_}_V{pack}_by_{bot_un}",
-                    stickers=stcrs,
-                )
-            )
-            addgvar("PKANG", str(pack))
-        except PackShortNameOccupiedError:
-            await asyncio.sleep(1)
-            await xnxx.edit("`Sedang membuat pack baru...`")
-            pack += 1
-            create_st = await tgbot(
-                functions.stickers.CreateStickerSetRequest(
-                    user_id=OWNER_ID,
-                    title=pname,
-                    short_name=f"man_{un_}_V{pack}_by_{bot_un}",
-                    stickers=stcrs,
-                )
-            )
-            addgvar("PKANG", str(pack))
-        await xnxx.edit(
-            f"**SUKSES MENJADI PENCURI HAMDAL** [Klik Disini](t.me/addstickers/{create_st.set.short_name}) **BANGGA JADI MALING**"
-        )
-    else:
-        await xnxx.edit("**Berkas Tidak Didukung. Harap Balas ke stiker saja.**")
-
-
-@indomie_cmd(pattern="stickerinfo$")
-async def get_pack_info(event):
-    if not event.is_reply:
-        return await edit_delete(event, "**Mohon Balas Ke Sticker**")
-
-    rep_msg = await event.get_reply_message()
-    if not rep_msg.document:
-        return await edit_delete(
-            event, "**Balas ke sticker untuk melihat detail pack**"
-        )
-
-    try:
-        stickerset_attr = rep_msg.document.attributes[1]
-        xx = await edit_or_reply(event, "`Processing...`")
-    except BaseException:
-        return await edit_delete(xx, "**Bedain mana yang sticker dan mana yang bukan tolol.**")
-
-    if not isinstance(stickerset_attr, DocumentAttributeSticker):
-        return await edit_delete(xx, "**Bedain mana yang sticker dan mana yang bukan tolol.**")
-
-    get_stickerset = await event.client(
-        GetStickerSetRequest(
-            InputStickerSetID(
-                id=stickerset_attr.stickerset.id,
-                access_hash=stickerset_attr.stickerset.access_hash,
-            ),
-            hash=0,
-        )
-    )
-    pack_emojis = []
-    for document_sticker in get_stickerset.packs:
-        if document_sticker.emoticon not in pack_emojis:
-            pack_emojis.append(document_sticker.emoticon)
-
-    OUTPUT = (
-        f"➠ **Nama Sticker:** [{get_stickerset.set.title}](http://t.me/addstickers/{get_stickerset.set.short_name})\n"
-        f"➠ **Official:** `{get_stickerset.set.official}`\n"
-        f"➠ **Arsip:** `{get_stickerset.set.archived}`\n"
-        f"➠ **Sticker Dalam Pack:** `{len(get_stickerset.packs)}`\n"
-        f"➠ **Emoji Dalam Pack:** {' '.join(pack_emojis)}")
-
-    await xx.edit(OUTPUT)
-
 
 @indomie_cmd(pattern="delsticker ?(.*)")
 async def _(event):
@@ -491,99 +451,68 @@ async def _(event):
             await xx.edit("**Berhasil Menghapus Stiker.**")
 
 
-@indomie_cmd(pattern="editsticker ?(.*)")
-async def _(event):
-    if event.fwd_from:
-        return
-    if not event.reply_to_msg_id:
-        await edit_delete(event, "**Mohon Reply ke Sticker dan Berikan emoji.**")
-        return
-    reply_message = await event.get_reply_message()
-    emot = event.pattern_match.group(1)
-    if reply_message.sender.bot:
-        await edit_delete(event, "**Mohon Reply ke Sticker.**")
-        return
-    xx = await edit_or_reply(event, "`Processing...`")
-    if emot == "":
-        await xx.edit("**Silahkan Kirimkan Emot Baru.**")
+@indomie_cmd(pattern="csticker ?(.*)")
+async def pussy(args):
+    "To kang a sticker." 
+    message = await args.get_reply_message()
+    user = await args.client.get_me()
+    userid = user.id
+    if message and message.media:
+        if message.file and "video/mp4" in message.file.mime_type:
+            xx = await edit_or_reply(args, "__⌛ Downloading..__")
+            sticker = await animator(message, args, xx)
+            await edit_or_reply(xx, f"`{random.choice(KANGING_STR)}`")
+        else:
+            await edit_delete(args, "`Reply to video/gif...!`")
+            return
     else:
-        chat = "@Stickers"
-        async with event.client.conversation(chat) as conv:
-            try:
-                response = conv.wait_event(
-                    events.NewMessage(incoming=True, from_users=429000)
-                )
-                await conv.send_message("/editsticker")
-                await conv.get_response()
-                await asyncio.sleep(2)
-                await event.client.forward_messages(chat, reply_message)
-                await conv.get_response()
-                await asyncio.sleep(2)
-                await conv.send_message(f"{emot}")
-                response = await response
-            except YouBlockedUserError:
-                await event.client(UnblockRequest(chat))
-                await conv.send_message("/editsticker")
-                await conv.get_response()
-                await asyncio.sleep(2)
-                await event.client.forward_messages(chat, reply_message)
-                await conv.get_response()
-                await asyncio.sleep(2)
-                await conv.send_message(f"{emot}")
-                response = await response
-            if response.text.startswith("Invalid pack selected."):
-                await xx.edit("**Maaf Paket yang dipilih tidak valid.**")
-            elif response.text.startswith(
-                "Please send us an emoji that best describes your sticker."
-            ):
-                await xx.edit(
-                    "**Silahkan Kirimkan emoji yang paling menggambarkan stiker Anda.**"
-                )
-            else:
-                await xx.edit(
-                    f"**Berhasil Mengedit Emoji Stiker**\n**Emoji Baru:** {emot}"
-                )
-
-
-@indomie_cmd(pattern="getsticker$")
-async def sticker_to_png(sticker):
-    if not sticker.is_reply:
-        await edit_delete(sticker, "**Harap balas ke stiker**")
-        return False
-    img = await sticker.get_reply_message()
-    if not img.document:
-        await edit_delete(sticker, "**Maaf , Ini Bukan Sticker**")
-        return False
-    xx = await edit_or_reply(sticker, "`Berhasil Mengambil Sticker!`")
-    image = io.BytesIO()
-    await sticker.client.download_media(img, image)
-    image.name = "sticker.png"
-    image.seek(0)
-    await sticker.client.send_file(
-        sticker.chat_id, image, reply_to=img.id, force_document=True
+        await edit_delete(args, "`I can't convert that...`")
+        return
+    cmd = "/newvideo"
+    packname = f"tonic_{userid}_temp_pack"
+    response = urllib.request.urlopen(
+        urllib.request.Request(f"http://t.me/addstickers/{packname}")
     )
+    htmlstr = response.read().decode("utf8").split("\n")
+    if (
+        "  A <strong>Telegram</strong> user has created the <strong>Sticker&nbsp;Set</strong>."
+        not in htmlstr
+    ):
+        async with args.client.conversation("@Stickers") as xconv:
+            await delpack(
+                xx,
+                xconv,
+                cmd,
+                args,
+                packname,
+            )
+    await xx.edit("`Hold on, making sticker...`")
+    async with args.client.conversation("@Stickers") as conv:
+        otherpack, packname, emoji = await newpacksticker(
+            xx,
+            conv,
+            "/newvideo",
+            args,
+            1,
+            "IndomieUserbot",
+            True,
+            "💦",
+            packname,
+            False,
+            io.BytesIO(),
+        )
+    if otherpack is None:
+        return
     await xx.delete()
-
-
-@indomie_cmd(pattern="stickers ?([\\s\\S]*)")
-async def cb_sticker(event):
-    query = event.pattern_match.group(1)
-    if not query:
-        return await edit_delete(event, "**Masukan Nama Sticker Pack!**")
-    xx = await edit_or_reply(event, "`Searching sticker packs...`")
-    text = requests.get(f"https://combot.org/telegram/stickers?q={query}").text
-    soup = bs(text, "lxml")
-    results = soup.find_all("div", {"class": "sticker-pack__header"})
-    if not results:
-        return await edit_delete(xx, "**Tidak Dapat Menemukan Sticker Pack 🥺**")
-    reply = f"**Keyword Sticker Pack:**\n {query}\n\n**Hasil:**\n"
-    for pack in results:
-        if pack.button:
-            packtitle = (pack.find("div", "sticker-pack__title")).get_text()
-            packlink = (pack.a).get("href")
-            reply += f" •  [{packtitle}]({packlink})\n"
-    await xx.edit(reply)
-
+    await args.client.send_file(
+        args.chat_id,
+        sticker,
+        force_document=True,
+        caption=f"**[Sticker Preview](t.me/addstickers/{packname})**\n*__It will remove automatically on your next convert.__",
+        reply_to=message,
+    )
+    if os.path.exists(sticker):
+        os.remove(sticker)
 
 @indomie_cmd(pattern="itos$")
 async def _(event):
@@ -639,25 +568,142 @@ async def _(event):
     )
     await xx.delete()
     remove("sticker.png")
+    
+@indomie_cmd(pattern="editsticker ?(.*)")
+async def _(event):
+    if event.fwd_from:
+        return
+    if not event.reply_to_msg_id:
+        await edit_delete(event, "**Mohon Reply ke Sticker dan Berikan emoji.**")
+        return
+    reply_message = await event.get_reply_message()
+    emot = event.pattern_match.group(1)
+    if reply_message.sender.bot:
+        await edit_delete(event, "**Mohon Reply ke Sticker.**")
+        return
+    xx = await edit_or_reply(event, "`Processing...`")
+    if emot == "":
+        await xx.edit("**Silahkan Kirimkan Emot Baru.**")
+    else:
+        chat = "@Stickers"
+        async with event.client.conversation(chat) as conv:
+            try:
+                response = conv.wait_event(
+                    events.NewMessage(incoming=True, from_users=429000)
+                )
+                await conv.send_message("/editsticker")
+                await conv.get_response()
+                await asyncio.sleep(2)
+                await event.client.forward_messages(chat, reply_message)
+                await conv.get_response()
+                await asyncio.sleep(2)
+                await conv.send_message(f"{emot}")
+                response = await response
+            except YouBlockedUserError:
+                await event.client(UnblockRequest(chat))
+                await conv.send_message("/editsticker")
+                await conv.get_response()
+                await asyncio.sleep(2)
+                await event.client.forward_messages(chat, reply_message)
+                await conv.get_response()
+                await asyncio.sleep(2)
+                await conv.send_message(f"{emot}")
+                response = await response
+            if response.text.startswith("Invalid pack selected."):
+                await xx.edit("**Maaf Paket yang dipilih tidak valid.**")
+            elif response.text.startswith(
+                "Please send us an emoji that best describes your sticker."
+            ):
+                await xx.edit(
+                    "**Silahkan Kirimkan emoji yang paling menggambarkan stiker Anda.**"
+                )
+            else:
+                await xx.edit(
+                    f"**Berhasil Mengedit Emoji Stiker**\n**Emoji Baru:** {emot}"
+                )
+
+
+@indomie_cmd(pattern=r"stkrinfo$")
+async def get_pack_info(event):
+    if not event.is_reply:
+        return await edit_delete(event, "**Mohon Balas Ke Sticker**")
+
+    rep_msg = await event.get_reply_message()
+    if not rep_msg.document:
+        return await edit_delete(
+            event, "**Balas ke sticker untuk melihat detail pack**"
+        )
+
+    try:
+        stickerset_attr = rep_msg.document.attributes[1]
+        xx = await edit_or_reply(event, "`Processing...`")
+    except BaseException:
+        return await edit_delete(xx, "**Ini bukan sticker, Mohon balas ke sticker.**")
+
+    if not isinstance(stickerset_attr, DocumentAttributeSticker):
+        return await edit_delete(xx, "**Ini bukan sticker, Mohon balas ke sticker.**")
+
+    get_stickerset = await event.client(
+        GetStickerSetRequest(
+            InputStickerSetID(
+                id=stickerset_attr.stickerset.id,
+                access_hash=stickerset_attr.stickerset.access_hash,
+            ),
+        )
+    )
+    pack_emojis = []
+    for document_sticker in get_stickerset.packs:
+        if document_sticker.emoticon not in pack_emojis:
+            pack_emojis.append(document_sticker.emoticon)
+
+    OUTPUT = (
+        f"❍▸ **Nama Sticker:** [{get_stickerset.set.title}](http://t.me/addstickers/{get_stickerset.set.short_name})\n"
+        f"❍▸ **Official:** `{get_stickerset.set.official}`\n"
+        f"❍▸ **Arsip:** `{get_stickerset.set.archived}`\n"
+        f"❍▸ **Sticker Dalam Pack:** `{len(get_stickerset.packs)}`\n"
+        f"❍▸ **Emoji Dalam Pack:** {' '.join(pack_emojis)}"
+    )
+
+    await xx.edit(OUTPUT)
+
+
+@indomie_cmd(pattern=r"getsticker$")
+async def sticker_to_png(sticker):
+    if not sticker.is_reply:
+        await edit_delete(sticker, "**Harap balas ke stiker**")
+        return False
+    img = await sticker.get_reply_message()
+    if not img.document:
+        await edit_delete(sticker, "**Maaf , Ini Bukan Sticker**")
+        return False
+    xx = await edit_or_reply(sticker, "`Berhasil Mengambil Sticker!`")
+    image = io.BytesIO()
+    await sticker.client.download_media(img, image)
+    image.name = "sticker.png"
+    image.seek(0)
+    await sticker.client.send_file(
+        sticker.chat_id, image, reply_to=img.id, force_document=True
+    )
+    await xx.delete()
 
 
 CMD_HELP.update(
     {
         "stickers": f"**Plugin : **`stickers`\
-        \n\n  •  **Syntax :** `{cmd}kang` atau `{cmd}tikel` [emoji]\
-        \n  •  **Function : **Balas .kang Ke Sticker Atau Gambar Untuk Menambahkan Ke Sticker Pack Mu\
-        \n\n  •  **Syntax :** `{cmd}kang` [emoji] atau `{cmd}tikel` [emoji]\
-        \n  •  **Function : **Balas {cmd}kang emoji Ke Sticker Atau Gambar Untuk Menambahkan dan costum emoji sticker Ke Pack Mu\
-        \n\n  •  **Syntax :** `{cmd}pkang` <nama sticker pack>\
-        \n  •  **Function : **Balas {cmd}pkang Ke Sticker Untuk Mencuri semua sticker pack tersebut\
-        \n\n  •  **Syntax :** `{cmd}delsticker` <reply sticker>\
-        \n  •  **Function : **Untuk Menghapus sticker dari Sticker Pack.\
-        \n\n  •  **Syntax :** `{cmd}editsticker` <reply sticker> <emoji>\
-        \n  •  **Function : **Untuk Mengedit emoji stiker dengan emoji yang baru.\
-        \n\n  •  **Syntax :** `{cmd}stickerinfo`\
-        \n  •  **Function : **Untuk Mendapatkan Informasi Sticker Pack.\
-        \n\n  •  **Syntax :** `{cmd}stickers` <nama sticker pack >\
-        \n  •  **Function : **Untuk Mencari Sticker Pack.\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}kang` atau `{cmd}tikel` [emoji]\
+        \n  ↳ : **Balas .kang Ke Sticker Atau Gambar Untuk Menambahkan Ke Sticker Pack Mu\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}kang` [emoji] atau `{cmd}tikel` [emoji]\
+        \n  ↳ : **Balas {cmd}kang emoji Ke Sticker Atau Gambar Untuk Menambahkan dan costum emoji sticker Ke Pack Mu\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}delsticker` <reply sticker>\
+        \n  ↳ : **Untuk Menghapus sticker dari Sticker Pack.\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}editsticker` <reply sticker> <emoji>\
+        \n  ↳ : **Untuk Mengedit emoji stiker dengan emoji yang baru.\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}stkrinfo`\
+        \n  ↳ : **Untuk Mendapatkan Informasi Sticker Pack.\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}stickers` <nama sticker pack >\
+        \n  ↳ : **Untuk Mencari Sticker Pack.\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}csticker`\
+        \n  ↳ : **Balas Gif/Video Untuk menjadikan Sticker\
         \n\n  •  **NOTE:** Untuk Membuat Sticker Pack baru Gunakan angka dibelakang `{cmd}kang`\
         \n  •  **CONTOH:** `{cmd}kang 2` untuk membuat dan menyimpan ke sticker pack ke 2\
     "
@@ -668,12 +714,12 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "sticker_v2": f"**Plugin : **`stickers`\
-        \n\n  •  **Syntax :** `{cmd}getsticker`\
-        \n  •  **Function : **Balas Ke Stcker Untuk Mendapatkan File 'PNG' Sticker.\
-        \n\n  •  **Syntax :** `{cmd}get`\
-        \n  •  **Function : **Balas ke sticker untuk mendapatkan foto sticker\
-        \n\n  •  **Syntax :** `{cmd}itos`\
-        \n  •  **Function : **Balas ke foto untuk membuat foto menjadi sticker\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣?? :** `{cmd}getsticker`\
+        \n  ↳ : **Balas Ke Stcker Untuk Mendapatkan File 'PNG' Sticker.\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}get`\
+        \n  ↳ : **Balas ke sticker untuk mendapatkan foto sticker\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}itos`\
+        \n  ↳ : **Balas ke foto untuk membuat foto menjadi sticker\
     "
     }
 )
