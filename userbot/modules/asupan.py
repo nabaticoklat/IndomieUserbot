@@ -71,15 +71,59 @@ async def _(event):
         await event.edit("**GA ADA YANG MAU SAMA LO, MAKANYA GANTENK.**")
 
 
+@indomie_cmd(pattern="makan$")
+async def _(event):
+    try:
+        asupannya = [
+            asupan
+            async for asupan in event.client.iter_messages(
+                "@IndomieGantengV4", filter=InputMessagesFilterVideo
+            )
+        ]
+        aku = await event.client.get_me()
+        await event.client.send_file(
+            event.chat_id,
+            file=random.choice(asupannya),
+            caption=f"**Laper kan lo,** [{aku.first_name}](tg://user?id={aku.id}) **Makan ampe abis ye anjing**")
+
+        await event.delete()
+    except Exception:
+        await event.edit("**Tidak dapat menemukan video makanan.**")
+
+
+@indomie_cmd(pattern="makanan$")
+async def _(event):
+    try:
+        asupannya = [
+            asupan
+            async for asupan in event.client.iter_messages(
+                "@IndomieGantengV4", filter=InputMessagesFilterPhotos
+            )
+        ]
+        aku = await event.client.get_me()
+        await event.client.send_file(
+            event.chat_id,
+            file=random.choice(asupannya),
+            caption=f"**Laper kan lo,** [{aku.first_name}](tg://user?id={aku.id}) **Makan ampe abis ye anjing**")
+
+        await event.delete()
+    except Exception:
+        await event.edit("**Tidak dapat menemukan pap makanan.**")
+
+
 CMD_HELP.update(
     {
         "asupan": f"**Plugin : **`asupan`\
         \n\n  •  **Syntax :** `{cmd}asupan`\
-        \n  •  **Function : **Untuk Mengirim video asupan secara random.\
+        \n  •  **Function : **Mengirim video asupan secara random.\
         \n\n  •  **Syntax :** `{cmd}desah`\
-        \n  •  **Function : **Untuk Mengirim voice desah secara random.\
+        \n  •  **Function : **Mengirim voice desah secara random.\
         \n\n  •  **Syntax :** `{cmd}ayang`\
-        \n  •  **Function : **Untuk Mencari ayang buat cowok yang jomblo.\
+        \n  •  **Function : **Mencari ayang buat cowok yang jomblo.\
+        \n\n  •  **Syntax :** `{cmd}makan`\
+        \n  •  **Function : **Mencari video asmr makan.\
+        \n\n  •  **Syntax :** `{cmd}makanan`\
+        \n  •  **Function : **Mencari pap takjil.\
     "
     }
 )
