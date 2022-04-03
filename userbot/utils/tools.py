@@ -358,6 +358,7 @@ def download_lagu(url: str) -> str:
     ydl.download([url])
     return os.path.join("downloads", f"{info['id']}.{info['ext']}")
 
+
 async def animator(media, mainevent, textevent):
     # //Hope u dunt kang :/ @Jisan7509
     h = media.file.height
@@ -373,6 +374,7 @@ async def animator(media, mainevent, textevent):
     os.remove(memek)
     sticker = "animate.webm"
     return sticker
+
 
 async def async_searcher(
     url: str,
@@ -416,6 +418,7 @@ _entities = {
     types.MessageEntityCode: "code",
     types.MessageEntityPre: "pre",
 }
+
 
 async def _format_quote(event, reply=None, sender=None, type_="private"):
     async def telegraph(file_):
@@ -499,6 +502,7 @@ async def _format_quote(event, reply=None, sender=None, type_="private"):
 
 O_API = "https://bot.lyo.su/quote/generate"
 
+
 async def create_quotly(
     event,
     url="https://qoute-api-akashpattnaik.koyeb.app/generate",
@@ -532,7 +536,8 @@ async def create_quotly(
         raise er
     if request.get("ok"):
         with open(file_name, "wb") as file:
-            image = base64.decodebytes(request["result"]["image"].encode("utf-8"))
+            image = base64.decodebytes(
+                request["result"]["image"].encode("utf-8"))
             file.write(image)
         return file_name
     raise Exception(str(request))
