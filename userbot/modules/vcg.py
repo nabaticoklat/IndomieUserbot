@@ -37,6 +37,7 @@ def user_list(l, n):
 
 
 @indomie_cmd(pattern="startvc$")
+@register(pattern=r"^\.startvcs$", sudo=True)
 async def start_voice(c):
     me = await c.client.get_me()
     chat = await c.get_chat()
@@ -54,6 +55,7 @@ async def start_voice(c):
 
 
 @indomie_cmd(pattern="stopvc$")
+@register(pattern=r"^\.stopvcs$", sudo=True)
 async def stop_voice(c):
     me = await c.client.get_me()
     chat = await c.get_chat()
@@ -89,6 +91,7 @@ async def _(c):
 
 
 @indomie_cmd(pattern="vctitle(?: |$)(.*)")
+@register(pattern=r"^\.cvctitle$", sudo=True)
 async def change_title(e):
     title = e.pattern_match.group(1)
     me = await e.client.get_me()
@@ -110,6 +113,7 @@ async def change_title(e):
 
 
 @indomie_cmd(pattern="joinvc(?: |$)(.*)")
+@register(pattern=r"^\.joinvcs(?: |$)(.*)", sudo=True)
 async def _(event):
     Man = await edit_or_reply(event, "`Processing...`")
     if len(event.text.split()) > 1:
@@ -147,6 +151,7 @@ async def _(event):
 
 
 @indomie_cmd(pattern="leavevc(?: |$)(.*)")
+@register(pattern=r"^\.leavevcs(?: |$)(.*)", sudo=True)
 async def vc_end(event):
     Mie = await edit_or_reply(event, "`Processing...`")
     if len(event.text.split()) > 1:
