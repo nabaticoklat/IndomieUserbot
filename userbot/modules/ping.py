@@ -14,7 +14,9 @@ import redis
 from datetime import datetime
 from speedtest import Speedtest
 from userbot import CMD_HELP, StartTime, ALIVE_NAME
-from userbot.utils import indomie_cmd
+from userbot.events import register
+from userbot.utils import edit_or_reply, humanbytes, indomie_cmd
+
 
 absen = [
     "**Eh ada Owner keren**",
@@ -195,32 +197,34 @@ async def redis(pong):
     )
 
 
-@indomie_cmd(pattern="kecepatan$")
-async def speedtst(spd):
-    """For .speed command, use SpeedTest to check server speeds."""
-    await spd.edit("**Sedang Menjalankan Tes Kecepatan Jaringan,Mohon Tunggu...**")
+@indomie_cmd(pattern="speedtest$")
+async def _(speed):
+    xxnx = await edit_or_reply(speed, "`Running speed test...`")
     test = Speedtest()
-
     test.get_best_server()
     test.download()
     test.upload()
     test.results.share()
     result = test.results.dict()
-
-    await spd.edit(
-        "**Kecepatan Jaringan:\n**"
-        " ━━━━━━━━━━━━━━━━━ \n"
-        f"✧ **Dimulai Pada :**  \n"
-        f"`{result['timestamp']}` \n"
-        "✧ **Dᴏᴡɴʟᴏᴀᴅ:** "
-        f"`{speed_convert(result['download'])}` \n"
-        "✧ **Uᴘʟᴏᴀᴅ:** "
-        f"`{speed_convert(result['upload'])}` \n"
-        "✧ **Sɪɢɴᴀʟ:** "
-        f"`{result['ping']}` \n"
-        "✧ **Iꜱᴘ:** "
-        f"`{result['client']['isp']}` \n"
-        "✧ **Bᴏᴛ:** [♨ɪɴᴅᴏᴍɪᴇᴜꜱᴇʀʙᴏᴛ](https://github.com/IndomieGorengSatu/IndomieUserbot)"
+    msg = (
+        f"**Started at {result['timestamp']}**\n\n"
+        "**Client**\n"
+        f"**ISP :** `{result['client']['isp']}`\n"
+        f"**Country :** `{result['client']['country']}`\n\n"
+        "**Server**\n"
+        f"**Name :** `{result['server']['name']}`\n"
+        f"**Country :** `{result['server']['country']}`\n"
+        f"**Sponsor :** `{result['server']['sponsor']}`\n\n"
+        f"**Ping :** `{result['ping']}`\n"
+        f"**Upload :** `{humanbytes(result['upload'])}/s`\n"
+        f"**Download :** `{humanbytes(result['download'])}/s`"
+    )
+    await xxnx.delete()
+    await speed.client.send_file(
+        speed.chat_id,
+        result["share"],
+        caption=msg,
+        force_document=False,
     )
 
 
@@ -280,6 +284,17 @@ async def redis(pong):
     await pong.edit(
         f"**BABI!! **\n**NGENTOT** : %sms\n**Bot Uptime** : {uptime}🕛" % (duration)
     )
+
+
+# KALO NGEFORK absen ini GA USAH DI HAPUS YA GOBLOK 😡
+@register(pattern=r"^\.absen$", sudo=True)
+async def memek(jembut):
+    await jembut.reply(choice(absen))
+
+
+# JANGAN DI HAPUS GOBLOK 😡 LU COPY AJA TINGGAL TAMBAHIN
+# DI HAPUS GUA GBAN YA 🥴 GUA TANDAIN LU AKUN TELENYA 😡
+
 
 
 CMD_HELP.update(
