@@ -296,7 +296,6 @@ async def memek(jembut):
 # DI HAPUS GUA GBAN YA 🥴 GUA TANDAIN LU AKUN TELENYA 😡
 
 
-
 CMD_HELP.update(
     {
         "ping": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ping` | `.pings` | `.lping` | `.xping` | `.sinyal` | `.sping` | `.pink`\
